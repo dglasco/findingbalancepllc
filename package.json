@@ -1,13 +1,17 @@
 {
   "name": "findingbalancepllc",
   "private": true,
-  "description": "findingbalances.com — static site for Finding Balance Counseling",
+  "type": "module",
+  "description": "findingbalances.com — Eleventy site for Finding Balance Counseling",
   "scripts": {
-    "build": "python3 build.py",
-    "dev": "python3 build.py && npx wrangler pages dev dist",
-    "deploy": "python3 build.py && npx wrangler deploy"
+    "clean": "node -e \"fs.rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && eleventy",
+    "dev": "npm run clean && eleventy --serve",
+    "preview": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
     "wrangler": "^4"
   }
 }

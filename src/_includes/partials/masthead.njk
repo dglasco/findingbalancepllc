@@ -1,0 +1,13 @@
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/">{{ site.name }}<span>{{ site.clinician }}</span></a>
+    <button class="nav__toggle" type="button" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary" data-open="true">
+      <ul>
+      {%- for item in collections.pages | navItems %}
+        <li><a href="{{ item.url }}"{% if page.url == item.url or (item.url != '/' and page.url.startsWith(item.url)) %} aria-current="page"{% endif %}>{{ item.data.nav }}</a></li>
+      {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

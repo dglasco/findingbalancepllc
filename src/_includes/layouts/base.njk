@@ -1,0 +1,47 @@
+{%- set pages = collections.pages -%}
+{%- set crumbs = pages | breadcrumb(page.url) -%}
+{%- set kids = pages | childrenOf(page.url) -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="geo.region" content="US-TX">
+<meta name="geo.placename" content="{{ site.city }}, Texas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Karla:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{{ { site: site, url: page.url, title: title, description: description, crumbs: crumbs, kids: kids, extra: schema } | jsonld | safe }}</script>
+<!--FAQ_SCHEMA-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{% include "partials/masthead.njk" %}
+{%- if crumbs.length %}
+<nav class="shell crumbs" aria-label="Breadcrumb"><a href="/">Home</a>
+  {%- for crumb in crumbs -%}
+    {%- if loop.last %} / {{ crumb.nav }}{% else %} / <a href="{{ crumb.url }}">{{ crumb.nav }}</a>{% endif -%}
+  {%- endfor -%}
+</nav>
+{%- endif %}
+<main id="main">
+{{ content | safe }}
+</main>
+{% include "partials/footer.njk" %}
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

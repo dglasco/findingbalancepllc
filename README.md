@@ -10,31 +10,72 @@ in Texas competes for "IFS-informed EMDR supervisor", while hundreds compete for
 therapist Austin". Clients are still served, on one therapy page that routes most of them to
 the practice's associates, who then become a referral network rather than a competing message.
 
-Eleven pages plus a 404. No CMS, no build dependencies, no tracking scripts, no cookies.
+Twelve pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
 
-`preview.html` in `dist/` is a single self-contained file holding every page, for review on a
-phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
+`dist/preview.html` is a single self-contained file holding every page, for review on a phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
 href as leaving the page. Do not deploy it as the site; deploy the individual pages.
 
 ## Build and preview
 
+Eleventy 3 with npm, no Python.
+
 ```
-python3 build.py            # writes ./dist
-python3 -m http.server -d dist 8000
+npm install
+npm run build     # writes ./dist
+npm run dev       # eleventy --serve with live reload
+npm run deploy    # build, then wrangler deploy
 ```
 
-`dist/` is the whole deployable site. You can also just open `dist/index.html` in a browser.
+`npm run build` cleans `dist/` first, via node's `fs.rmSync`, so a renamed or deleted page
+cannot leave a stale file behind to be deployed.
 
-Edit content in `src/pages/*.html`. Each file is a body fragment with a JSON meta header.
-Everything repeated across pages (head tags, nav, footer, structured data, sitemap, robots,
-llms.txt) is generated in `build.py`, so titles, descriptions, breadcrumbs and FAQ schema
-cannot drift from the visible page. Practice-wide details (emails, licence number, city) are
-constants at the top of `build.py`.
+### How it is put together
 
-FAQ schema is derived from the `<details>` blocks on each page, so adding a question to a page
-adds it to that page's `FAQPage` markup automatically. Never put a Q&A in the schema that a
-human cannot see on the page; Google treats that as a violation and it will get the rich
-result dropped.
+| Path | What it holds |
+| --- | --- |
+| `src/*.njk`, `src/for-therapists/*.njk` | One file per page. YAML front matter plus the page body. |
+| `src/_data/site.js` | Contact details, licence number, the facts quoted in `llms.txt`, and the redirect map. Global data, available as `site` in every template. |
+| `src/_includes/layouts/base.njk` | Head tags, canonical, Open Graph, JSON-LD, masthead, breadcrumbs, footer. |
+| `src/_includes/partials/*.njk` | Blocks that repeat across pages: the CTA band, the why-Reem band, the CTA trio, the crisis note. |
+| `eleventy.config.js` | Nav, breadcrumb and children filters, the JSON-LD builder, and the FAQ schema transform. |
+| `src/sitemap.njk`, `src/robots.njk`, `src/llms.njk`, `src/_redirects.njk` | Generated text files, driven by the page collection and `site.js`. |
+| `src/_headers` | Copied through as-is. |
+| `src/preview.njk` | Every page in one self-contained file for phone review. `noindex`, and not for deployment. |
+
+### Adding a page
+
+Drop a `.njk` file in `src/`, or in `src/for-therapists/` to make it a child of that hub. The
+file path is the URL: `src/for-therapists/lpc-supervision.njk` becomes
+`/for-therapists/lpc-supervision/`. Front matter carries the rest:
+
+```yaml
+---
+layout: layouts/base.njk
+tags: pages
+title: Page title, under 60 characters
+description: Meta description, under 165 characters
+nav: Short nav label
+order: 7
+priority: "0.8"      # optional, sitemap priority
+inNav: false         # optional, keep it out of the primary nav
+schema: [{ "@type": "Service", ... }]   # optional, extra JSON-LD graph entries
+---
+```
+
+Nav, breadcrumbs, the sitemap, `llms.txt`, the footer index and the hub's `ItemList` schema all
+pick it up from there. Nothing else needs editing.
+
+### Two things worth knowing
+
+**FAQ schema is derived, not declared.** A transform in `eleventy.config.js` reads the
+`<details>` accordions out of the rendered HTML and writes the `FAQPage` block into the head,
+replacing a `<!--FAQ_SCHEMA-->` placeholder. Add a question to a page and the structured data
+follows. This means the markup can never claim a question the reader cannot see, which is
+exactly the thing Google penalises.
+
+**URLs carry a trailing slash.** Eleventy's default permalinks produce `/about/`, which is what
+Cloudflare's `auto-trailing-slash` handling serves for folder index files. Canonicals, the
+sitemap and the redirect targets all use that form, so there is no redirect hop.
 
 ## Deploy to Cloudflare
 
@@ -65,27 +106,28 @@ one page is written to the root rather than into a folder like every other page.
 
 | Field | Value |
 | --- | --- |
-| Build command | `python3 build.py` |
+| Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
 | Root directory | repo root |
 
-The `dist/` folder is committed, so if the build image does not have Python 3 available, leave
-the build command empty and the deploy still works. Rebuild and commit `dist/` before pushing
-in that case, or the deploy ships the previous build.
+Cloudflare's build image runs Node, so `npm install` and `npm run build` work without any extra
+configuration. `dist/` is also committed as a fallback, which means a deploy still succeeds if
+you ever clear the build command, but the committed copy then has to be rebuilt before pushing
+or you ship the previous build.
 
 ### From the command line
 
 ```
-npm install -D wrangler
-python3 build.py
-npx wrangler pages dev dist    # local preview with clean URLs
-npx wrangler deploy
+npm install
+npm run build
+npx wrangler pages dev dist    # local preview with clean URLs and _redirects applied
+npm run deploy
 ```
 
 ### Domain and DNS
 
 Add `findingbalances.com` and `www.findingbalances.com` as custom domains on the Worker, then
-pick one canonical host and 301 the other to it. `SITE` at the top of `build.py` must match the
+pick one canonical host and 301 the other to it. `url` in `src/_data/site.js` must match the
 canonical host exactly, because every canonical tag, sitemap entry and JSON-LD `@id` is built
 from it.
 
@@ -99,8 +141,8 @@ curl -sI https://findingbalancecounselingpllc.com/supervision/     # expect 301
 curl -s https://findingbalances.com/robots.txt | tail -1
 ```
 
-Keep the old domain resolving until the redirects are confirmed working. The redirect map is in
-`REDIRECTS` in `build.py` and is written to `dist/_redirects` on every build.
+Keep the old domain resolving until the redirects are confirmed working. The redirect map is
+`redirects` in `src/_data/site.js` and is written to `dist/_redirects` on every build.
 
 ## Information architecture
 
@@ -196,13 +238,14 @@ reaches 7.88:1, and never as body text on the light ground.
 
 Tokens are named `--dusk`, `--dusk-2`, `--indigo`, `--ink`, `--ink-soft`, `--lamp`, `--link` and
 `--juniper`, all at the top of `site.css`. A complete palette change is those eight values plus
-the hero window gradient in `src/pages/index.html`.
+the hero window gradient in `src/index.njk`.
 
 One interactive element: a breathing timer on the home page, four in, two hold, six out. It is
 user-triggered, keyboard reachable, and respects `prefers-reduced-motion`.
 
 If Reem would rather not send visitors' IPs to Google, download the two font families into
-`static/assets/fonts/` and swap the `<link>` in `build.py` for `@font-face` rules. Everything
+`src/assets/fonts/` and swap the `<link>` in `src/_includes/layouts/base.njk` for `@font-face`
+rules. Everything
 else already works offline.
 
 ## Before launch
@@ -215,12 +258,12 @@ else already works offline.
    page.
 2. Contact email. The site currently shows `info@findingbalancecounselingpllc.com` because
    that mailbox is known to work. Once `info@findingbalances.com` exists, change `EMAIL` in
-   `build.py`.
+   `src/_data/site.js`.
 3. There is no phone number anywhere on the old site, only an empty `tel:` link. Add one to
-   `build.py` and the contact page, or decide deliberately to stay email-only.
+   `src/_data/site.js` and the contact page, or decide deliberately to stay email-only.
 4. The associate roster on the old site lists eleven associates, two of them as "coming soon".
    That roster is not reproduced here. Confirm who is current, then add an associates section
-   to `therapy.html` with a short bio, fee and contact route for each. This matters more under
+   to `src/therapy.njk` with a short bio, fee and contact route for each. This matters more under
    the new positioning: the associates are the destination for most client enquiries, so vague
    placeholders cost real referrals.
 5. Session length for trail walk therapy. The old site says "1.15-2 hours", which this build
@@ -229,7 +272,7 @@ else already works offline.
 **Content to supply for the new pages**
 
 - Retreat dates, format and fee; the equine training format and fee; the next ethics CEU
-  offering and its §681.140(f) provider status. Until these exist, `retreats-training.html`
+  offering and its §681.140(f) provider status. Until these exist, `src/for-therapists/retreats-training.njk`
   routes people to the contact form, which is honest but converts worse than a date.
 
 **Documents to move over**
