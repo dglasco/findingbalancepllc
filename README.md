@@ -7,10 +7,11 @@ findingbalancecounselingpllc.com.
 audience is therapists, because that is where the rare credential and the recurring revenue
 are: LPC supervision, EMDRIA-approved EMDR consultation, retreats and training. Almost nobody
 in Texas competes for "IFS-informed EMDR supervisor", while hundreds compete for "trauma
-therapist Austin". Clients are still served, on one therapy page that routes most of them to
-the practice's associates, who then become a referral network rather than a competing message.
+therapist Austin". Clients are still served, through a `/therapy` hub and four condition pages
+that route most of them to the practice's associates, who then become a referral network rather
+than a competing message.
 
-Twelve pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
+Sixteen pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
 
 `dist/preview.html` is a single self-contained file holding every page, for review on a phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
 href as leaving the page. Do not deploy it as the site; deploy the individual pages.
@@ -33,7 +34,7 @@ cannot leave a stale file behind to be deployed.
 
 | Path | What it holds |
 | --- | --- |
-| `src/*.njk`, `src/for-therapists/*.njk` | One file per page. YAML front matter plus the page body. |
+| `src/*.njk`, `src/for-therapists/*.njk`, `src/therapy/*.njk` | One file per page. YAML front matter plus the page body. |
 | `src/_data/site.js` | Contact details, licence number, the facts quoted in `llms.txt`, and the redirect map. Global data, available as `site` in every template. |
 | `src/_includes/layouts/base.njk` | Head tags, canonical, Open Graph, JSON-LD, masthead, breadcrumbs, footer. |
 | `src/_includes/partials/*.njk` | Blocks that repeat across pages: the CTA band, the why-Reem band, the CTA trio, the crisis note. |
@@ -44,8 +45,8 @@ cannot leave a stale file behind to be deployed.
 
 ### Adding a page
 
-Drop a `.njk` file in `src/`, or in `src/for-therapists/` to make it a child of that hub. The
-file path is the URL: `src/for-therapists/lpc-supervision.njk` becomes
+Drop a `.njk` file in `src/`, or in `src/for-therapists/` or `src/therapy/` to make it a child
+of that hub. The file path is the URL: `src/for-therapists/lpc-supervision.njk` becomes
 `/for-therapists/lpc-supervision/`. Front matter carries the rest:
 
 ```yaml
@@ -55,7 +56,8 @@ tags: pages
 title: Page title, under 60 characters
 description: Meta description, under 165 characters
 nav: Short nav label
-order: 7
+order: 7             # sorts nav, footer, sitemap and llms.txt; decimals are fine,
+                     # so a hub's children sit between it and the next top-level page
 priority: "0.8"      # optional, sitemap priority
 inNav: false         # optional, keep it out of the primary nav
 schema: [{ "@type": "Service", ... }]   # optional, extra JSON-LD graph entries
@@ -146,11 +148,22 @@ Keep the old domain resolving until the redirects are confirmed working. The red
 
 ## Information architecture
 
-Primary nav, therapist-first: LPC Supervision, EMDR Consultation, Retreats & Training,
-Licensure Guide, About, Fees, FAQ, Contact. Home is reached through the wordmark. Approach and
-Therapy are deliberately kept out of the primary nav (`"in_nav": false` in their meta headers)
-and reached from in-page links and the footer, which keeps the nav to eight items and the
-message on the therapist path. Both remain in the sitemap and rank on their own terms.
+Primary nav, therapist-first: For Therapists, Licensure Guide, Therapy, About, Fees, FAQ,
+Contact. Home is reached through the wordmark. Only top-level pages appear in the nav
+(`navItems` filters on depth), so the two hubs carry their own children rather than the nav
+growing. Approach is deliberately kept out (`inNav: false`) and reached from in-page links and
+the footer; it remains in the sitemap and ranks on its own terms.
+
+Two hubs, each with children:
+
+- `/for-therapists` : `/lpc-supervision`, `/emdr-consultation`, `/retreats-training`
+- `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`
+
+The therapy children are the four old WordPress condition pages rebuilt rather than redirected
+into the hub, because they ranked on their own. Each carries the same direct-answer block, fact
+list and FAQ pattern as a supervision page, links back to `/therapy` and `/approach`, and takes
+the 301 from its old URL. The hub is now a router: a direct-answer block, four pathway cards,
+the Reem-or-associate split, and the fee questions that are not condition specific.
 
 ## The licensure guide
 
@@ -170,6 +183,17 @@ line and tells readers to verify against BHEC.
 than no regulatory content. One known ambiguity is already flagged on the page: BHEC's
 application guidance says the supervision course does not expire, while the rule text has
 referenced recency windows.
+
+The renewal section is deliberately incomplete. It states the continuing education
+requirements, the jurisprudence exam and the supervisor CE rule, all of which come from the
+rule text, and it explicitly refuses to publish renewal fees or late-renewal windows because
+BHEC sets those and changes them more often than the rules. Do not let anyone "helpfully" fill
+those in from a third-party site.
+
+One inconsistency to settle: that section uses American spelling (`license`, `counselors`)
+because it is the regulated term and the search term, while the rest of the site uses British
+spelling (`licence`, `counselling`). The audience is entirely Texan. Switching the whole site
+to American spelling is the obvious call, but it touches every page, so it has not been done.
 
 That page also settles the supervision-structure question from the old site. Texas requires a
 minimum of four supervision hours a month with no more than half in a group, so three
@@ -199,8 +223,9 @@ Answer engines quote pages that state facts plainly and attributably.
 - Every page opens with a direct-answer block: two to four sentences that name the entity, the
   service, the price and the location, so a model can lift a complete answer from the top of
   the page.
-- 32 question-and-answer pairs across the supervision, EMDR, therapy and FAQ pages, each
-  phrased the way someone would actually ask, each mirrored in `FAQPage` markup.
+- 81 question-and-answer pairs across the supervision, EMDR, therapy, condition and FAQ pages,
+  each phrased the way someone would actually ask, each mirrored in `FAQPage` markup. Questions
+  are kept distinct per page, so no two pages claim the same `Question` node.
 - Fact tables (`dl.facts`) instead of prose for anything numeric: fees, hours included,
   openings, formats.
 - `llms.txt` at the site root with the practice summary and the numbers in one place.
@@ -297,15 +322,25 @@ supervision page starts from zero:
 | `/group-therapy/` | `/lpc-supervision` |
 | `/emdr-cit-consultation/` | `/emdr-consultation` |
 | `/my-approach-to-therapy/`, `/narm-neuroaffective-relational-model/`, `/emdr/`, `/somatic-experiencing-se/` | `/approach` |
-| `/services/`, `/counseling-for-trauma/`, `/therapy-for-depression/`, `/anxiety-therapist-austin-tx/`, `/social-anxiety-disorder-counseling/` | `/therapy` |
-| `/walk-therapy/` | `/retreats-training` |
+| `/services/` | `/therapy` |
+| `/counseling-for-trauma/` | `/therapy/trauma` |
+| `/therapy-for-depression/` | `/therapy/depression` |
+| `/anxiety-therapist-austin-tx/`, `/social-anxiety-disorder-counseling/` | `/therapy/anxiety` |
+| `/walk-therapy/` | `/therapy/walk-and-talk` |
 | `/rates-insurance/` | `/fees` |
 | `/contact/`, `/appointment-request/`, `/client-forms/` | `/contact` |
+| `/exploring-the-science-behind-somatic-experiencing/` | `/approach` |
+| `/understanding-the-basics-of-somatic-experiencing-therapy/` | `/approach` |
+| `/mental-health-links/` | `/faq` |
+| `/telehealth/` | `/therapy` |
 
-The four old condition pages (trauma, depression, anxiety, social anxiety) currently rank on
-their own. They fold into `/therapy` here. If they were bringing traffic, rebuild them as
-separate pages rather than redirecting: one page per condition, same direct-answer and FAQ
-pattern, each linking to `/therapy` and `/approach`.
+`/walk-therapy/` used to land on `/retreats-training`, which is the therapist-facing page.
+It now lands on `/therapy/walk-and-talk`, which is what that old page was actually about.
+
+Content on the four condition pages that still needs Reem's confirmation: the outdoor privacy
+and weather arrangements described on `/therapy/walk-and-talk`, which are written as things the
+consult settles rather than as fixed policy, and whether "adults only" for walk sessions means
+18+ or is set case by case.
 
 **After launch**
 

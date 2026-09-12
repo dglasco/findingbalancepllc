@@ -94,6 +94,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .band--night .facts div { border-color: rgba(226, 236, 242, 0.22); }
 .band--night .facts dt { color: rgba(226, 236, 242, 0.65); }
 .band--night .plain li::before { background: var(--lamp); }
+.band--night .note { color: rgba(226, 236, 242, 0.72); border-color: rgba(226, 236, 242, 0.35); }
 
 .split { display: grid; gap: clamp(2rem, 5vw, 4.5rem); grid-template-columns: 1fr; }
 @media (min-width: 56rem) {

@@ -12,5 +12,5 @@ Key facts, current as of {{ site.built }}:
 {% endfor %}
 ## Pages
 
-{% for item in collections.pages %}{% if not item.data.hidden %}{% if (item.url | depth) > 1 %}  {% endif %}- [{{ item.data.nav }}]({{ site.url }}{{ item.url }}): {{ item.data.description }}
+{% for item in collections.pages %}{% if not item.data.hidden %}{% if (item.url | depth) > 1 %}  {% endif %}- [{{ item.data.nav | safe }}]({{ site.url }}{{ item.url }}): {{ item.data.description | safe }}
 {% endif %}{% endfor %}
