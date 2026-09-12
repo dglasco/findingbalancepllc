@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Balance Counseling | site preview</title>
+<meta name="description" content="Single-file preview of the whole site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Karla:wght@400;700&display=swap">
+<style>
+/* Finding Balance Counseling
+   Hearth, not horizon. Dusk-blue ground, deep indigo enclosures, brass lamplight.
+   The blue carries the calm; the warm accent keeps it from reading clinical.
+   Body text is set in a serif because the site should read like a book in a
+   chair, not a brochure. Sections are deliberately far apart: one idea per
+   screenful. */
+
+:root {
+  --dusk: #dce3e7;
+  --dusk-2: #cbd6dc;
+  --indigo: #1f2d38;
+  --ink: #1b2832;
+  --ink-soft: #3f5866;
+  --lamp: #b08a3c;
+  --link: #245c79;
+  --juniper: #3f6580;
+  --hair: rgba(27, 40, 50, 0.18);
+
+  --measure: 33rem;                    /* ~62 characters of serif */
+  --gutter: clamp(1.35rem, 5vw, 3.5rem);
+  --band: clamp(5rem, 12vw, 9.5rem);   /* the air between ideas */
+  --radius: 14px;
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Karla", "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--dusk);
+  /* Paper grain, then a warm pool of light at the top of the page. */
+  background-image:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.4'/%3E%3C/svg%3E"),
+    radial-gradient(120% 60% at 50% -10%, rgba(176, 138, 60, 0.16), rgba(176, 138, 60, 0) 70%);
+  background-repeat: repeat, no-repeat;
+  background-size: 180px 180px, 100% 45rem;
+  color: var(--ink);
+  font: 400 1.125rem/1.8 var(--serif);
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.014em;
+  margin: 0 0 0.7em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.15rem, 5.4vw, 3.45rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.35rem); margin-top: 0; }
+h3 { font-size: 1.35rem; }
+h4 {
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 0.5em;
+}
+
+p, li { max-width: var(--measure); }
+p { margin: 0 0 1.15em; }
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--ink); }
+
+:focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; border-radius: 3px; }
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+/* ---------- layout ---------- */
+
+.shell { width: min(70rem, 100%); margin: 0 auto; padding-inline: var(--gutter); }
+
+.band { padding-block: var(--band); }
+
+.band--sand { background: var(--dusk-2); }
+
+/* An enclosure. Used two or three times a site, never more. */
+.band--night {
+  background: var(--indigo);
+  color: rgba(226, 236, 242, 0.9);
+}
+.band--night h1, .band--night h2, .band--night h3, .band--night h4 { color: #eef4f9; }
+.band--night a { color: #e0bd7e; }
+.band--night a:hover { color: #fff; }
+.band--night .answer {
+  background: rgba(226, 236, 242, 0.08);
+  border-left-color: var(--lamp);
+}
+.band--night .facts div { border-color: rgba(226, 236, 242, 0.22); }
+.band--night .facts dt { color: rgba(226, 236, 242, 0.65); }
+.band--night .plain li::before { background: var(--lamp); }
+
+.split { display: grid; gap: clamp(2rem, 5vw, 4.5rem); grid-template-columns: 1fr; }
+@media (min-width: 56rem) {
+  .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; }
+  .split--aside { grid-template-columns: minmax(0, 1fr) minmax(0, 16rem); }
+}
+
+.skip { position: absolute; left: -9999px; background: var(--indigo); color: var(--dusk); padding: 0.75rem 1rem; }
+.skip:focus { left: 1rem; top: 1rem; z-index: 20; }
+
+/* ---------- header ---------- */
+
+.masthead { border-bottom: 1px solid var(--hair); }
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 2rem;
+  padding-block: 1.25rem;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.1;
+}
+.wordmark span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+.nav { margin-left: auto; }
+.nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; margin: 0; padding: 0; }
+.nav li { max-width: none; }
+.nav a { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
+.nav a:hover { color: var(--ink); text-decoration: underline; }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--lamp); }
+
+.nav__toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  color: var(--ink);
+  font: 400 0.92rem var(--sans);
+  padding: 0.4rem 1rem;
+}
+@media (max-width: 55.99rem) {
+  .nav__toggle { display: block; }
+  .nav { flex-basis: 100%; margin-left: 0; }
+  .nav[data-open="false"] { display: none; }
+  .nav ul { flex-direction: column; gap: 0; padding-bottom: 0.5rem; }
+  .nav a { display: block; padding: 0.55rem 0; }
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding-block: clamp(3rem, 8vw, 6rem) calc(var(--band) * 0.8); }
+.hero__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 54rem) {
+  .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }
+}
+.hero p.lede { font-size: 1.22rem; color: var(--ink-soft); max-width: 31rem; }
+.hero__art { justify-self: center; width: 100%; max-width: 19rem; }
+
+/* Eyebrow: the small orienting line above a heading, as on tomsscuba.com.
+   Sentence case, not tracked-out caps. */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+  max-width: none;
+}
+.band--night .eyebrow { color: rgba(226, 236, 242, 0.7); }
+
+/* Cards that are not links: personas, inclusions, pathway steps. */
+.cards { display: grid; gap: 1.25rem; margin: 2rem 0; }
+@media (min-width: 44rem) { .cards { grid-template-columns: 1fr 1fr; } }
+.cards > div {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+}
+.cards h3 { margin-bottom: 0.4rem; }
+.cards p { margin: 0; color: var(--ink-soft); }
+.band--night .cards > div {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+}
+.band--night .cards p { color: rgba(226, 236, 242, 0.75); }
+
+/* "You are here" marker in the pathway block. */
+.cards > div[data-here="true"] { border-color: var(--lamp); border-width: 2px; }
+.cards > div[data-here="true"] h3::after {
+  content: " — you are here";
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--lamp);
+}
+
+/* ---------- direct-answer block ---------- */
+
+.answer {
+  border-left: 3px solid var(--lamp);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.4rem 1.6rem;
+  margin: 0 0 2.25rem;
+  max-width: 39rem;
+}
+.answer p { margin: 0; max-width: none; }
+.answer p + p { margin-top: 0.75em; }
+.band--sand .answer { background: rgba(255, 255, 255, 0.42); }
+
+/* ---------- facts ---------- */
+
+.facts { margin: 0 0 2rem; max-width: 39rem; container-type: inline-size; }
+.facts div { display: grid; grid-template-columns: 1fr; gap: 0.1rem 1.5rem; padding: 0.75rem 0; border-top: 1px solid var(--hair); }
+.facts div:last-child { border-bottom: 1px solid var(--hair); }
+@container (min-width: 30rem) { .facts div { grid-template-columns: 11rem 1fr; } }
+@supports not (container-type: inline-size) {
+  @media (min-width: 56rem) { .facts div { grid-template-columns: 11rem 1fr; } }
+}
+.facts dt { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); padding-top: 0.25rem; }
+.facts dd { margin: 0; max-width: none; }
+
+/* ---------- lists ---------- */
+
+.plain { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.plain li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; }
+.plain li::before {
+  content: "";
+  position: absolute; left: 0; top: 1.05em;
+  width: 0.65rem; height: 2px;
+  background: var(--juniper);
+  border-radius: 2px;
+}
+
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.steps > li { counter-increment: step; position: relative; padding-left: 2.8rem; margin-bottom: 1.4rem; }
+.steps > li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--lamp);
+  width: 1.9rem; height: 1.9rem;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.band--night .steps > li::before { border-color: rgba(226, 236, 242, 0.3); }
+
+/* ---------- buttons ---------- */
+
+.cta {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 1rem;
+  background: var(--indigo);
+  color: #eaf2f7;
+  text-decoration: none;
+  padding: 0.85rem 1.7rem;
+  border-radius: 2rem;
+}
+.cta:hover { background: var(--ink); color: #fff; }
+.cta--quiet { background: none; color: var(--ink); border: 1px solid var(--hair); }
+.cta--quiet:hover { background: rgba(27, 40, 50, 0.06); color: var(--ink); }
+.band--night .cta { background: var(--lamp); color: #1b2832; }
+.band--night .cta:hover { background: #cfa055; color: #1b2832; }
+.band--night .cta--quiet { background: none; color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
+.band--night .cta--quiet:hover { background: rgba(226, 236, 242, 0.1); color: #fff; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+
+/* ---------- doors: the few places the site forks ---------- */
+
+.pathways { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+@media (min-width: 44rem) { .pathways { grid-template-columns: 1fr 1fr; } }
+.pathways a {
+  display: block;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.75rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.pathways a:hover { background: rgba(255, 255, 255, 0.85); }
+.pathways h3 { margin-bottom: 0.4rem; }
+.pathways p { color: var(--ink-soft); margin: 0; font-size: 1rem; }
+.band--night .pathways a {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+  color: #eef4f9;
+}
+.band--night .pathways a:hover { background: rgba(226, 236, 242, 0.14); }
+.band--night .pathways p { color: rgba(226, 236, 242, 0.75); }
+
+/* ---------- FAQ ---------- */
+
+.faq { max-width: 44rem; }
+.faq details { border-top: 1px solid var(--hair); }
+.faq details:last-of-type { border-bottom: 1px solid var(--hair); }
+.faq summary {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.95rem 2.2rem 0.95rem 0;
+  position: relative;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute; right: 0.2rem; top: 0.85rem;
+  font-size: 1.35rem;
+  color: var(--lamp);
+}
+.faq details[open] summary::after { content: "\2013"; }
+.faq .answer-body { padding: 0 0 1.2rem; }
+.faq .answer-body p:last-child { margin-bottom: 0; }
+
+/* ---------- breathing widget ---------- */
+
+.settle {
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2.25rem 1.75rem;
+  max-width: 22rem;
+  text-align: center;
+}
+.settle__ring {
+  width: 8.5rem; height: 8.5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--lamp);
+  background: radial-gradient(circle, rgba(176, 138, 60, 0.22), rgba(176, 138, 60, 0.06));
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  transform: scale(0.72);
+}
+.settle[data-running="true"] .settle__ring { animation: breathe 12s ease-in-out infinite; }
+@keyframes breathe {
+  0% { transform: scale(0.72); }
+  33% { transform: scale(1); }
+  50% { transform: scale(1); }
+  100% { transform: scale(0.72); }
+}
+.settle p { max-width: none; font-size: 1rem; color: var(--ink-soft); }
+.settle button {
+  font: 400 0.98rem var(--sans);
+  background: none;
+  border: 1px solid var(--hair);
+  border-radius: 2rem;
+  padding: 0.55rem 1.4rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+.band--night .settle {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+}
+.band--night .settle p { color: rgba(226, 236, 242, 0.75); }
+.band--night .settle button { color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
+
+/* ---------- tables (licensure guide) ---------- */
+
+.table-wrap { overflow-x: auto; margin: 0 0 2rem; }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+caption { text-align: left; font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); padding-bottom: 0.6rem; }
+th, td { text-align: left; padding: 0.7rem 1rem 0.7rem 0; border-top: 1px solid var(--hair); vertical-align: top; }
+th { font-family: var(--sans); font-size: 0.88rem; font-weight: 700; }
+tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
+
+/* ---------- footer ---------- */
+
+.footer {
+  background: var(--indigo);
+  color: rgba(226, 236, 242, 0.8);
+  padding-block: clamp(3rem, 7vw, 5rem);
+  font-size: 1rem;
+}
+.footer a { color: #e0bd7e; }
+.footer a:hover { color: #fff; }
+.footer h4 { color: #eef4f9; }
+.footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 44rem) { .footer__grid { grid-template-columns: repeat(3, 1fr); } }
+.footer ul { list-style: none; margin: 0; padding: 0; }
+.footer li { margin-bottom: 0.35rem; }
+.footer__legal {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(226, 236, 242, 0.18);
+  font-size: 0.9rem;
+  color: rgba(226, 236, 242, 0.6);
+}
+.footer__legal p { max-width: 46rem; }
+
+.crumbs { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); padding-top: 1.5rem; }
+.crumbs a { color: var(--ink-soft); }
+
+.note {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  border: 1px dashed rgba(36, 92, 121, 0.45);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  max-width: 39rem;
+}
+
+.source { font-size: 0.95rem; color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+.page[hidden] { display: none; }
+a[data-page] { cursor: pointer; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" data-page="home" role="link" tabindex="0">Finding Balance Counseling<span>Reem Glasco, LPC-S</span></a>
+    <button class="nav__toggle" type="button" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary" data-open="true">
+      <ul>
+        <li><a data-page="for-therapists" role="link" tabindex="0">For Therapists</a></li>
+        <li><a data-page="texas-lpc-licensure" role="link" tabindex="0">Licensure Guide</a></li>
+        <li><a data-page="about" role="link" tabindex="0">About</a></li>
+        <li><a data-page="fees" role="link" tabindex="0">Fees</a></li>
+        <li><a data-page="faq" role="link" tabindex="0">FAQ</a></li>
+        <li><a data-page="contact" role="link" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="page" id="home" hidden>
+
+<section class="shell hero">
+  <div class="hero__grid">
+    <div>
+      <h1>LPC supervision and EMDR consultation for Texas therapists</h1>
+      <p class="lede">Reem Glasco, LPC-S, has supervised associates since 2009. Online across
+      Texas, trauma-informed, with IFS-informed EMDR at the centre of it, and horses and trails
+      when the work asks for more than a screen.</p>
+      <div class="cta-row">
+        <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See supervision openings</a>
+        <a class="cta cta--quiet" data-page="texas-lpc-licensure" role="link" tabindex="0">Read the Texas licensure guide</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <svg viewBox="0 0 300 380" role="presentation" focusable="false">
+        <defs>
+          <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2f4f6b"/>
+            <stop offset="55%" stop-color="#7d9ab2"/>
+            <stop offset="100%" stop-color="#dcc79b"/>
+          </linearGradient>
+        </defs>
+        <path d="M18 330 L18 150 A132 132 0 0 1 282 150 L282 330 Z" fill="url(#light)"/>
+        <path d="M18 262 C 70 236, 118 254, 168 238 C 220 222, 258 246, 282 236 L282 330 L18 330 Z" fill="#1f2d38" opacity="0.34"/>
+        <path d="M18 292 C 80 274, 130 288, 190 274 C 238 263, 262 278, 282 272 L282 330 L18 330 Z" fill="#1f2d38" opacity="0.52"/>
+        <g fill="none" stroke="#1f2d38" stroke-width="6">
+          <path d="M18 330 L18 150 A132 132 0 0 1 282 150 L282 330"/>
+          <path d="M150 42 L150 330"/>
+          <path d="M18 240 L282 240"/>
+        </g>
+        <rect x="4" y="330" width="292" height="14" rx="4" fill="#1f2d38"/>
+        <g transform="translate(196 292)">
+          <path d="M18 38 L38 38 L34 62 L22 62 Z" fill="#1f2d38" opacity="0.9"/>
+          <path d="M28 38 C 28 20, 14 14, 8 4 C 22 6, 30 18, 28 38 Z" fill="#46705a"/>
+          <path d="M28 38 C 30 22, 44 18, 52 10 C 44 26, 38 32, 28 38 Z" fill="#46705a" opacity="0.82"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="answer">
+    <p>Finding Balance Counseling is the practice of Reem Glasco, LPC-S, in Cedar Park, Texas.
+    Reem has held Texas LPC supervisor status since 2009 and is an EMDRIA Approved Consultant,
+    a NARM therapist and a Somatic Experiencing Practitioner. She supervises LPC Associates
+    online statewide at $425 a month, consults on EMDR at $185 an hour, and runs mindful trail
+    and equine retreats for therapists. Clients seeking therapy are seen by Reem or by the
+    practice's associates.</p>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>Three ways therapists work with Reem</h2>
+    <div class="pathways">
+      <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">
+        <h3>LPC supervision</h3>
+        <p>Your 3,000 hours, supervised online anywhere in Texas. $425 a month, four hours,
+        trauma-informed. One opening in fall 2026, one in spring 2027.</p>
+      </a>
+      <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
+        <h3>EMDR consultation</h3>
+        <p>Hours toward certification with an EMDRIA Approved Consultant. $185, online, focused
+        on IFS-informed EMDR for phases one and two.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>Retreats and training</h3>
+        <p>Mindful trail retreats, equine-assisted training, and ethics CEUs for Texas LPCs.
+        For when the growth edge is yours rather than a client's.</p>
+      </a>
+      <a data-page="texas-lpc-licensure" role="link" tabindex="0">
+        <h3>The licensure guide</h3>
+        <p>Every number on the Texas LPC path, the supervision rules most associates get wrong,
+        and what to ask a supervisor before you sign. Free, no email required.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell split">
+    <div>
+      <h2>Hi, I am Reem</h2>
+      <p>I have been supervising since 2009, and the associates I work best with want more than
+      signed hours. They want to understand what is happening in the room, including what is
+      happening in their own nervous system while a client is falling apart in front of them.</p>
+      <p>My clinical centre is IFS-informed EMDR: processing that consults the protective parts
+      of a person instead of overriding them. Somatic Experiencing sets the pace, NARM tracks
+      the patterns underneath. That is what I teach, and it is what I practise.</p>
+      <p>I expect you to show up prepared, be honest, and tell me when something goes wrong. In
+      return you get help building a practice, not just a log.</p>
+      <p><a data-page="about" role="link" tabindex="0">My full background and credentials</a></p>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt>Licence</dt><dd>Texas LPC-S, licence 66562</dd></div>
+        <div><dt>Supervisor since</dt><dd>2009</dd></div>
+        <div><dt>Certifications</dt><dd>EMDRIA Approved Consultant, EMDR certified, SEP, NARM therapist</dd></div>
+        <div><dt>Also trained in</dt><dd>IFS-informed EMDR, Brainspotting, BASE-P</dd></div>
+        <div><dt>Previously</dt><dd>Clinical Partner, Capital Area Counseling, 2021 to 2025</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>New to the associate path?</h2>
+  <p>The Texas requirements are specific, and the part that trips people up is not the total
+  hours. It is the floor on months, the split between direct and indirect, and the group
+  supervision cap.</p>
+  <dl class="facts">
+    <div><dt>3,000 hours</dt><dd>Supervised experience required for full LPC licensure</dd></div>
+    <div><dt>1,500 of them</dt><dd>Must be direct client counselling contact</dd></div>
+    <div><dt>18 months</dt><dd>The minimum, no matter how fast you accrue hours</dd></div>
+    <div><dt>4 hours a month</dt><dd>Minimum supervision, with no more than half in a group</dd></div>
+    <div><dt>60 months</dt><dd>When your LPC Associate licence expires, without renewal</dd></div>
+  </dl>
+  <div class="cta-row">
+    <a class="cta" data-page="texas-lpc-licensure" role="link" tabindex="0">Read the full guide</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell split">
+    <div>
+      <h2>How I work, clinically</h2>
+      <p>Three approaches, interlocking rather than alternating. It is the same lens whether you
+      are my client or my supervisee.</p>
+      <p><a data-page="approach" role="link" tabindex="0">The methods explained in plain language</a></p>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt>IFS-informed EMDR</dt><dd>Getting internal agreement from protective parts, then processing</dd></div>
+        <div><dt>Somatic Experiencing</dt><dd>The pace your nervous system can actually hold</dd></div>
+        <div><dt>NARM</dt><dd>The pattern underneath, and where it was learned</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Looking for a therapist rather than a supervisor?</h2>
+  <p>Reem sees a small number of adults and young adults for developmental trauma, C-PTSD,
+  anxiety, panic and depression. When her schedule is full, the practice's LPC Associates have
+  openings, including at sliding-scale fees.</p>
+  <div class="cta-row">
+    <a class="cta cta--quiet" data-page="therapy" role="link" tabindex="0">Therapy at Finding Balance</a>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell split">
+    <div>
+      <h2>Something to try before we ever meet</h2>
+      <p>Longer out-breaths than in-breaths tell a nervous system it is allowed to stand down.
+      One minute is enough to feel the difference, which is also the argument for teaching it to
+      clients before you teach them anything else.</p>
+      <p>If the circle distracts you, ignore it and count: in for four, hold for two, out for
+      six.</p>
+    </div>
+    <div class="settle" data-running="false">
+      <div class="settle__ring"><span>one minute</span></div>
+      <button type="button">Start</button>
+      <p>In for four, hold for two, out for six.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Start with a conversation</h2>
+  <p>Supervision and consultation both begin with a free thirty-minute consult. Therapy begins
+  with fifteen minutes. No obligation either way.</p>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Get in touch</a>
+    <a class="cta cta--quiet" data-page="faq" role="link" tabindex="0">Read the common questions</a>
+  </div>
+</section>
+</div>
+<div class="page" id="for-therapists" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / For Therapists</nav>
+<section class="shell band">
+  <p class="eyebrow">For LPC Associates and licensed therapists, online across Texas</p>
+  <h1>Supervision, consultation and training</h1>
+  <div class="answer">
+    <p>Reem Glasco, LPC-S, has been a Texas LPC supervisor since 2009. There are three ways to
+    work with her professionally: <strong>LPC supervision</strong> at $425 a month for three
+    individual hours and one group hour, <strong>EMDR consultation</strong> at $185 an hour with
+    an EMDRIA Approved Consultant, and <strong>retreats and equine training</strong> for
+    clinicians who want to develop their own presence. All of it runs online except the retreats
+    and the horses.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Book a free consult</a>
+    <a class="cta cta--quiet" href="mailto:info@findingbalancecounselingpllc.com">Email the practice</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <p class="eyebrow">Start here</p>
+    <h2>Which one do you need?</h2>
+    <div class="pathways">
+      <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">
+        <h3>LPC supervision</h3>
+        <p>Your 3,000 hours, supervised online anywhere in Texas. $425 a month. One opening in
+        fall 2026, one in spring 2027.</p>
+      </a>
+      <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
+        <h3>EMDR consultation</h3>
+        <p>Hours toward EMDR certification with an EMDRIA Approved Consultant. $185 an hour,
+        online. Free while you are supervised here.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>Retreats and training</h3>
+        <p>Mindful trail retreats, equine-assisted training and ethics CEUs for Texas LPCs.
+        Fees per offering.</p>
+      </a>
+      <a data-page="texas-lpc-licensure" role="link" tabindex="0">
+        <h3>The licensure guide</h3>
+        <p>Every number on the Texas LPC path, the supervision rules associates get wrong, and
+        what to ask a supervisor before you sign. Free.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <p class="eyebrow">Side by side</p>
+  <h2>At a glance</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>All three run online. Equine sessions and retreats are the in-person exceptions.</caption>
+      <thead>
+        <tr><th>Service</th><th>Who it is for</th><th>Fee</th><th>Format</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">LPC supervision</a></td>
+          <td>LPC Associates licensed in Texas</td>
+          <td>$425 a month, or $500 on a three-month agency contract</td>
+          <td>Three individual hours and one group hour each month, online</td>
+        </tr>
+        <tr>
+          <td><a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">EMDR consultation</a></td>
+          <td>Therapists trained in EMDR, working toward certification</td>
+          <td>$185 an hour, free for Reem's own associates</td>
+          <td>Individual, online, scheduled as needed</td>
+        </tr>
+        <tr>
+          <td><a data-page="for-therapists--retreats-training" role="link" tabindex="0">Retreats and training</a></td>
+          <td>Interns, associates and licensed therapists</td>
+          <td>Per offering; equine supervision sessions $60 each</td>
+          <td>In person in central Texas, annual retreat plus scheduled sessions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Is this you?</p>
+    <h2>Who tends to work well here</h2>
+    <div class="cards">
+      <div>
+        <h3>The associate who wants more than hours</h3>
+        <p>You could get cheaper supervision. What you want is someone who will tell you what
+        actually happened in that session, and help you build something after licensure.</p>
+      </div>
+      <div>
+        <h3>The therapist whose EMDR keeps stalling</h3>
+        <p>Preparation looks fine, then processing floods or flatlines. Usually that is a part
+        of the client objecting, and it is workable once you can see it.</p>
+      </div>
+      <div>
+        <h3>The clinician running on empty</h3>
+        <p>Competent, respected, quietly depleted. You teach regulation skills you no longer
+        practise. That is what the retreats are for.</p>
+      </div>
+      <div>
+        <h3>The one drawn to body-based work</h3>
+        <p>You have read about somatic approaches and want to practise inside one. NARM,
+        Somatic Experiencing and IFS-informed EMDR are the working lens here, not electives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <p class="eyebrow">Why Reem</p>
+    <h2>Supervision and therapy from someone who is still doing the work.</h2>
+    <p>Licensed in Texas since before most of her supervisees started graduate school, and
+    still in the room every week. What follows is why people choose this practice over a
+    cheaper hour or a closer office.</p>
+    <div class="split">
+      <div>
+        <h3>Sixteen years as a Texas supervisor</h3>
+        <p>LPC-S since 2009, licence 66562, with over fifteen years of clinical practice
+        behind it. Long enough to have seen most of what walks in, and to know the difference
+        between a hard case and a stuck therapist.</p>
+        <h3>A body-based lens, not a borrowed one</h3>
+        <p>NARM therapist, Somatic Experiencing Practitioner, EMDR certified and an EMDRIA
+        Approved Consultant. These are trainings completed, not modalities mentioned.</p>
+      </div>
+      <div>
+        <h3>Small by design</h3>
+        <p>Two supervision openings a year and a limited therapy caseload. Nobody here is
+        one of thirty. That is the trade: less availability, more attention.</p>
+        <h3>Honest feedback, offered kindly</h3>
+        <p>If nothing you bring is ever questioned, you are paying for a signature. Expect
+        to be asked what you were doing and why, and expect to be told when something in the
+        work is yours rather than the client's.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions therapists ask first</h2>
+
+  <details>
+    <summary>Are you accepting new LPC Associates?</summary>
+    <div class="answer-body">
+      <p>One supervision spot opens in fall 2026 and one in spring 2027. Supervision is capped
+      deliberately, so it is worth booking a consult before a spot opens rather than after.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I do EMDR consultation without being supervised by you?</summary>
+    <div class="answer-body">
+      <p>Yes. Consultation is separate from supervision and open to any licensed therapist
+      trained in EMDR, at $185 an hour online. LPC Associates under Reem's supervision get
+      individual EMDR consults at no additional cost.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I have to be in Texas?</summary>
+    <div class="answer-body">
+      <p>For LPC supervision, yes: the supervised experience requirement is set by the Texas
+      Behavioral Health Executive Council and applies to Texas LPC Associates. EMDR consultation
+      is a peer professional relationship rather than clinical care, so it is not limited to
+      Texas, though you should check what your own board expects.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is the first step?</summary>
+    <div class="answer-body">
+      <p>A free thirty-minute consult by Zoom or phone. For supervision, applications then need
+      a CV, three professional references, and answers to the seven questions listed on the
+      supervision page.</p>
+    </div>
+  </details>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Start with a conversation</h2>
+    <p>Therapy consults are fifteen minutes. Supervision and EMDR consultation consults are
+    thirty. Both are free and commit you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+      <a class="cta cta--quiet" href="mailto:reemglasco@gmail.com">Email Reem</a>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page" id="for-therapists--lpc-supervision" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / LPC Supervision</nav>
+<section class="shell band">
+  <h1>LPC supervision in Texas</h1>
+  <div class="answer">
+    <p>Reem Glasco has been a Texas Licensed Professional Counselor Supervisor since 2009.
+    Supervision is online and available anywhere in Texas. It costs <strong>$425 a month</strong>
+    and includes three individual hours and one group hour. One spot opens in <strong>fall
+    2026</strong> and one in <strong>spring 2027</strong>. Equine-assisted sessions near
+    Dripping Springs are optional at $60 each, and EMDR consultation is free while you are an
+    associate here.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Book a free 30-minute consult</a>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>The arrangement, in numbers</h2>
+    <dl class="facts">
+      <div><dt>Monthly fee</dt><dd>$425</dd></div>
+      <div><dt>What that includes</dt><dd>Three individual supervision hours and one group hour each month</dd></div>
+      <div><dt>Caseload assumption</dt><dd>Ten or more clients a week</dd></div>
+      <div><dt>Format</dt><dd>Online only, statewide in Texas</dd></div>
+      <div><dt>Openings</dt><dd>One in fall 2026, one in spring 2027</dd></div>
+      <div><dt>Agency contracts</dt><dd>Three-month contracts for associates inside an agency or group practice, $500 a month</dd></div>
+      <div><dt>Placement site</dt><dd>Online only</dd></div>
+      <div><dt>Equine sessions</dt><dd>Optional, $60 each, Dripping Springs, Texas</dd></div>
+      <div><dt>EMDR consultation</dt><dd>Free individual consults while you are supervised here</dd></div>
+      <div><dt>Retreats</dt><dd>Annual mindful trail retreat for associates and therapists</dd></div>
+      <div><dt>Consult</dt><dd>Free, thirty minutes, Zoom or phone</dd></div>
+    </dl>
+    <p>Why three individual plus one group: Texas requires at least four hours of supervision a
+    month and caps group supervision at half your total hours. Three and one keeps group at a
+    quarter, which leaves margin if a month goes sideways.
+    <a data-page="texas-lpc-licensure" role="link" tabindex="0">The rules are laid out in full in the licensure
+    guide</a>.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>What supervision here is like</h2>
+      <p>Supervision is not a compliance meeting. It is the place you bring the session that
+      went sideways, the client you think about on the drive home, and the parts of the work
+      that are touching something of your own.</p>
+      <p>I work collaboratively, which means I expect you to show up prepared, be honest, and
+      tell me when something goes wrong. In return you get someone who will help you build a
+      practice, not just log hours: fee setting, caseload shape, online presence, referral
+      relationships, and the ethics of all of it.</p>
+      <p>The clinical lens is trauma-informed and body-oriented. We will talk about the
+      nervous system in the room, yours as much as the client's, and about transference and
+      countertransference as information rather than error.</p>
+      <h3>You will probably fit well here if</h3>
+      <ul class="plain">
+        <li>You want developmental trauma and C-PTSD work to be a real part of your training.</li>
+        <li>You are drawn to NARM, Somatic Experiencing, EMDR, IFS-informed work or Brainspotting.</li>
+        <li>You intend to build a private practice, now or eventually.</li>
+        <li>You can tolerate direct feedback and want it.</li>
+        <li>You are curious about experiential and body-based supervision, including work with
+        horses.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Reem's supervision credentials</h3>
+      <ul class="plain">
+        <li>Licensed Professional Counselor Supervisor in Texas since 2009, licence 66562</li>
+        <li>Over fifteen years working with young adults, individuals and associates</li>
+        <li>Clinical Partner at Capital Area Counseling, 2021 to 2025</li>
+        <li>NARM therapist, Somatic Experiencing Practitioner, EMDR certified</li>
+        <li>EMDRIA Approved Consultant, trained in ASSYST, PRECI and IGTP-OTS protocols</li>
+        <li>IFS-informed EMDR, steps one through three completed in 2025</li>
+        <li>Brainspotting and BASE-P trained, NVC informed</li>
+        <li>Coherence therapy training in 2026</li>
+      </ul>
+      <p><a data-page="about" role="link" tabindex="0">Reem's full background</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>Beyond the required hours</h2>
+    <div class="pathways">
+      <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
+        <h3>EMDR consultation</h3>
+        <p>Free individual EMDR consults while you are an associate here, and paid consultation
+        toward certification once you are licensed.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>Equine-assisted supervision</h3>
+        <p>Optional in-person sessions with horses in Dripping Springs, for presence,
+        self-connection and countertransference you can feel rather than theorise.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>Mindful trail retreats</h3>
+        <p>An annual retreat for interns, associates and licensed therapists. We walk, and we
+        look at what gets in the way of being present.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>Ethics CEUs and retreats</h3>
+        <p>Periodic ethics continuing education for Texas counsellors, and the annual mindful
+        trail retreat.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>How to apply</h2>
+  <ol class="steps">
+    <li><strong>Schedule the free thirty-minute consult</strong> by Zoom or phone. Email
+    <a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a>.</li>
+    <li><strong>Send your CV or resume and three professional references</strong>, along with
+    your answers to the questions below.</li>
+    <li><strong>Verification, then signing.</strong> References and site verification are
+    required before a supervision agreement is signed.</li>
+  </ol>
+
+  <h3>Include your answers to these in your email</h3>
+  <ol>
+    <li>What inspired you to become a therapist?</li>
+    <li>What do you hope to gain from supervision at this stage?</li>
+    <li>Which approaches or populations are you most drawn to?</li>
+    <li>How do you care for yourself as a helping professional?</li>
+    <li>What kind of feedback helps you grow best?</li>
+    <li>Are you interested in equine-assisted or mindfulness-based supervision?</li>
+    <li>Are you interested in building your own private practice?</li>
+  </ol>
+  <div class="cta-row">
+    <a class="cta" href="mailto:reemglasco@gmail.com">Email your application</a>
+    <a class="cta cta--quiet" data-page="contact" role="link" tabindex="0">Ask a question first</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell faq">
+    <h2>LPC supervision questions</h2>
+
+    <details>
+      <summary>How much does LPC supervision cost in Texas with Reem Glasco?</summary>
+      <div class="answer-body">
+        <p>Supervision is $425 a month, which covers three individual supervision hours and one
+        group hour. Associates working inside an agency or group practice can arrange a
+        three-month contract at $500 a month. Optional equine-assisted sessions are $60 each.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How many supervision hours do I get each month?</summary>
+      <div class="answer-body">
+        <p>Four: three individual hours and one group hour, based on a caseload of ten or more
+        clients a week. If your caseload or board requirements differ, raise it in the consult
+        and we will plan the cadence together.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Is supervision online or in person?</summary>
+      <div class="answer-body">
+        <p>Supervision is online only, which means any LPC Associate licensed in Texas can work
+        with Reem regardless of where in the state they live. The optional equine sessions and
+        the annual retreat are the in-person exceptions.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Are there supervision openings right now?</summary>
+      <div class="answer-body">
+        <p>One spot opens in fall 2026 and one in spring 2027. Because supervision is capped
+        deliberately, it is worth booking a consult before a spot opens rather than after.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Do you provide a placement site for supervisees?</summary>
+      <div class="answer-body">
+        <p>Yes, online only. Site verification is part of the application process, so the
+        placement details are confirmed before any agreement is signed.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does supervision include EMDR consultation?</summary>
+      <div class="answer-body">
+        <p>Yes. Reem is an EMDRIA Approved Consultant and offers free individual EMDR consults
+        to her own associates. Paid consultation toward EMDR certification is available
+        separately to therapists who are not supervisees.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What does Reem expect from a supervisee?</summary>
+      <div class="answer-body">
+        <p>Show up prepared, be honest, and communicate when something goes wrong. Supervision
+        works when the hard material arrives in the room rather than getting managed outside
+        it.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What is equine-assisted supervision?</summary>
+      <div class="answer-body">
+        <p>Optional in-person sessions with horses near Dripping Springs, Texas, at $60 each.
+        Horses respond to what your nervous system is doing rather than what you intend, which
+        makes them an unusually direct teacher of presence and of your own countertransference.
+        Training for therapists working with horses is also available for an additional fee.</p>
+      </div>
+    </details>
+  </div>
+</section>
+</div>
+<div class="page" id="for-therapists--emdr-consultation" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / EMDR Consultation</nav>
+<section class="shell band">
+  <h1>EMDR consultation</h1>
+  <div class="answer">
+    <p>Reem Glasco is an EMDRIA Approved Consultant, certified in EMDR and trained in the
+    ASSYST-I, PRECI and IGTP-OTS protocols. Individual consultation is <strong>$185</strong> an
+    hour, online, and starts with a free consult to check fit. The emphasis is IFS-informed
+    EMDR for phases one and two, with Somatic Experiencing, Brainspotting and NARM interweaves
+    where they help.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Schedule a free consult</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell split">
+    <div>
+      <h2>What we work on</h2>
+      <ul class="plain">
+        <li>Preparation and stabilisation that actually holds, so phase four does not collapse
+        back into overwhelm.</li>
+        <li>IFS-informed EMDR for phases one and two, particularly with clients who have parts
+        that object to the work.</li>
+        <li>Titration and pacing for clients with developmental trauma, where standard protocol
+        timing is too fast.</li>
+        <li>Interweaves drawn from Somatic Experiencing, NARM and Brainspotting, and knowing
+        when not to reach for one.</li>
+        <li>Acute and ongoing stress protocols, including ASSYST and group protocols.</li>
+        <li>Transference and countertransference as clinical information, with your own nervous
+        system treated as part of the data.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Details</h3>
+      <dl class="facts">
+        <div><dt>Fee</dt><dd>$185 per individual hour</dd></div>
+        <div><dt>Format</dt><dd>Online</dd></div>
+        <div><dt>First step</dt><dd>Free consult, booked by email</dd></div>
+        <div><dt>Credential</dt><dd>EMDRIA Approved Consultant</dd></div>
+        <div><dt>Protocols</dt><dd>Standard EMDR, ASSYST-I, PRECI, IGTP-OTS</dd></div>
+        <div><dt>For LPC associates</dt><dd>Free while supervised by Reem</dd></div>
+      </dl>
+      <p><a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See LPC supervision</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Consultation questions</h2>
+
+  <details>
+    <summary>Do these hours count toward EMDR certification?</summary>
+    <div class="answer-body">
+      <p>Reem is an EMDRIA Approved Consultant, which is the credential EMDRIA requires for
+      consultation hours toward certification. Confirm your own current requirements with
+      EMDRIA, since their criteria are set by them and can change.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How much does EMDR consultation cost?</summary>
+    <div class="answer-body">
+      <p>$185 for an individual online hour. LPC Associates under Reem's supervision receive
+      individual EMDR consults at no additional cost.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>I am not in Texas. Can we still work together?</summary>
+    <div class="answer-body">
+      <p>Consultation is a peer professional relationship rather than clinical care, so it is
+      not limited to Texas in the way therapy and LPC supervision are. Check what your own
+      licensing board expects of your consultation arrangements.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What if my EMDR training was years ago?</summary>
+    <div class="answer-body">
+      <p>That is common and it is a fine place to start. Bring a case you feel stuck on and we
+      will rebuild confidence from the preparation phases forward rather than starting from the
+      manual.</p>
+    </div>
+  </details>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>Also worth knowing</h2>
+    <p>If you are an LPC Associate rather than a licensed therapist, EMDR consultation comes
+    free with supervision here. And if you are still working out the Texas requirements,
+    the licensure guide has the numbers.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">LPC supervision</a>
+      <a class="cta cta--quiet" data-page="texas-lpc-licensure" role="link" tabindex="0">Licensure guide</a>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page" id="for-therapists--retreats-training" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Retreats & Training</nav>
+<section class="shell band">
+  <h1>Retreats and training for therapists</h1>
+  <div class="answer">
+    <p>Reem Glasco, LPC-S, runs mindful trail walk retreats for interns, LPC Associates and
+    licensed therapists, equine-assisted sessions and training near Dripping Springs, Texas,
+    and periodic ethics continuing education for Texas LPCs. Equine-assisted supervision
+    sessions are $60 each for her own associates. Retreats and training carry their own fees,
+    set per offering.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Ask about the next one</a>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>Why any of this, when you already have supervision</h2>
+    <p>Because the thing that limits most clinicians is not knowledge. It is how much they can
+    stay present for before something in them takes over: the urge to fix, to reassure, to
+    change the subject, to work harder than the client.</p>
+    <p>That capacity does not grow much by talking about it. It grows by being in a situation
+    where your own state is the material, and then noticing what you do. Walking does some of
+    that. Horses do a lot of it.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Mindful trail retreats</h2>
+  <div class="split">
+    <div>
+      <p>An annual retreat for interns, associates and licensed therapists. We walk, and the
+      subject is presence: what it feels like when you have it, what takes it away, and what
+      you do instead when you have lost it.</p>
+      <p>It is not a conference and there is no curriculum to get through. Expect quiet,
+      movement, small-group work, and more silence than most professional events are
+      comfortable with.</p>
+      <p>Associates in supervision with Reem are included in the annual retreat. Others are
+      welcome as space allows.</p>
+    </div>
+    <div>
+      <h3>Good fit if</h3>
+      <ul class="plain">
+        <li>You give your clients regulation skills you do not practise yourself.</li>
+        <li>You are competent and quietly exhausted.</li>
+        <li>You want professional development that is not another slide deck.</li>
+        <li>You are curious about somatic work but have only read about it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>Working with horses</h2>
+    <div class="split">
+      <div>
+        <p>Horses respond to what your nervous system is doing, not to what you intend or say.
+        A therapist who is subtly braced gets a different horse than one who is settled, and the
+        feedback arrives in seconds rather than in a supervision session three weeks later.</p>
+        <p>Two ways in. Associates in supervision can add equine-assisted sessions at $60 each
+        as part of their supervision. Licensed therapists who want to bring horses into their
+        own practice can train with Reem, for a separate fee.</p>
+        <p>Location is Dripping Springs, Texas. Sessions are scheduled individually, and a
+        conversation comes first either way.</p>
+      </div>
+      <div>
+        <dl class="facts">
+          <div><dt>Where</dt><dd>Dripping Springs, Texas</dd></div>
+          <div><dt>For associates</dt><dd>$60 per session, optional, alongside supervision</dd></div>
+          <div><dt>For therapists</dt><dd>Training in working with horses, fees per offering</dd></div>
+          <div><dt>For clients</dt><dd>Available after a consult and one to three online sessions, adults only</dd></div>
+          <div><dt>First step</dt><dd>A conversation</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Ethics CEUs for Texas LPCs</h2>
+  <p>Texas LPCs need 24 continuing education hours in each two-year renewal period, including at
+  least 6 hours in ethics, and since January 2024 at least half of the total must come from a
+  provider listed in §681.140(f). Reem offers ethics continuing education periodically.</p>
+  <p><a data-page="texas-lpc-licensure" role="link" tabindex="0">The full renewal requirements are in the licensure
+  guide</a>, including what LPC-S status adds.</p>
+  <p class="note">Note for the site build: list the next retreat date, the equine training
+  format and fee, and the next ethics CEU offering with its provider approval, then link a
+  registration route. Until those are set, this page sends people to the contact form.</p>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions</h2>
+
+  <details>
+    <summary>Do I have to be Reem's supervisee to attend a retreat?</summary>
+    <div class="answer-body">
+      <p>No. Associates in supervision with Reem are included, and other interns, associates and
+      licensed therapists are welcome as space allows.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How much do the equine sessions cost?</summary>
+    <div class="answer-body">
+      <p>$60 per session for LPC Associates in supervision with Reem, added on to the $425
+      monthly supervision fee. Training for therapists who want to work with horses in their own
+      practice is priced separately per offering.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do the ethics CEUs count toward Texas LPC renewal?</summary>
+    <div class="answer-body">
+      <p>Ethics hours count toward the 6-hour ethics requirement inside your 24 hours per
+      renewal period. Because at least half your total hours must come from a provider listed in
+      22 TAC §681.140(f), always confirm the provider status of any offering, including this one,
+      before you rely on it.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is any of this therapy?</summary>
+    <div class="answer-body">
+      <p>No. Retreats and training are professional development, and supervision is supervision.
+      If what you need is your own therapy, that is a good thing to want, and Reem can point you
+      to a referral rather than mixing the roles.</p>
+    </div>
+  </details>
+</section>
+</div>
+<div class="page" id="texas-lpc-licensure" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Licensure Guide</nav>
+<section class="shell band">
+  <h1>Getting licensed as an LPC in Texas</h1>
+  <div class="answer">
+    <p>Full LPC licensure in Texas requires a qualifying graduate degree, two exams, an LPC
+    Associate licence, and then <strong>3,000 clock-hours</strong> of supervised experience
+    under a Council-approved supervisor. At least <strong>1,500</strong> of those hours must be
+    direct client counselling contact, and the 3,000 cannot be completed in fewer than
+    <strong>18 months</strong>. While you are accruing them you must receive at least
+    <strong>four hours of supervision a month</strong>, with no more than half of your total
+    supervision hours in a group. Your LPC Associate licence expires 60 months from issuance
+    and cannot be renewed.</p>
+  </div>
+  <p class="source">Rules cited below are from 22 Texas Administrative Code, Chapter 681,
+  administered by the <a href="https://bhec.texas.gov">Texas Behavioral Health Executive
+  Council</a>. Current as of September 2026. Rules change, so verify anything you are about to
+  rely on against BHEC directly.</p>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>The path, in four stages</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Each stage has to be complete before the next one counts.</caption>
+        <thead>
+          <tr><th>Stage</th><th>What it takes</th><th>Rule</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Graduate degree</td>
+            <td>60 semester hours for programs begun on or after 1 August 2017, 48 before that,
+            including a supervised practicum of at least 300 clock-hours with at least 100
+            hours of direct client counselling, carrying academic credit</td>
+            <td>§681.82, §681.83</td>
+          </tr>
+          <tr>
+            <td>Exams</td>
+            <td>The NCE or the NCMHCE, plus the Texas Jurisprudence Exam. Your jurisprudence
+            certificate must be dated no more than six months before your application is
+            received</td>
+            <td>§681.72</td>
+          </tr>
+          <tr>
+            <td>LPC Associate licence</td>
+            <td>Apply and be licensed before you begin. Hours worked while unlicensed do not
+            count, in any setting. The licence expires 60 months from issuance and cannot be
+            renewed</td>
+            <td>§681.72, §681.140</td>
+          </tr>
+          <tr>
+            <td>Supervised experience</td>
+            <td>3,000 clock-hours, at least 1,500 of them direct client counselling contact,
+            over no fewer than 18 months, under a Council-approved supervisor</td>
+            <td>§681.92</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>The hours, and how long they actually take</h2>
+  <p>The 3,000 is rarely the binding constraint. The 1,500 direct hours are, because direct
+  hours accrue only while you are in session with a client. Everything else, notes, admin,
+  training, staffing, counts toward the other 1,500.</p>
+  <div class="table-wrap">
+    <table>
+      <caption>Time to reach 1,500 direct hours, before holidays, no-shows and ramp-up.</caption>
+      <thead>
+        <tr><th>Direct client hours a week</th><th>Weeks to 1,500</th><th>Roughly</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>25</td><td>60</td><td>18 months, held to the floor</td></tr>
+        <tr><td>20</td><td>75</td><td>18 months, held to the floor</td></tr>
+        <tr><td>15</td><td>100</td><td>2 years</td></tr>
+        <tr><td>12</td><td>125</td><td>2 years 5 months</td></tr>
+        <tr><td>8</td><td>188</td><td>3 years 7 months</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Two things fall out of that table. Above roughly twenty direct hours a week, the 18-month
+  floor decides your timeline, not your caseload, so pushing harder buys you nothing. Below
+  about twelve, the 60-month expiry on your Associate licence starts to become the real
+  deadline, and cancellations and slow referral months eat the margin faster than most
+  associates expect.</p>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>The supervision rules associates get wrong</h2>
+    <ul class="plain">
+      <li><strong>Four hours a month is a minimum, not a target.</strong> You must receive at
+      least four hours of supervision in every month you are counselling, unless your
+      supervisor approves an extended leave of a month or more in writing.</li>
+      <li><strong>Individual means up to two associates.</strong> BHEC defines individual
+      supervision as a supervisor with one or two associates. Three or more is group.</li>
+      <li><strong>No more than half your total hours can be group.</strong> Over the whole
+      period, group supervision cannot exceed 50% of your supervision hours. This is why a
+      structure of three individual hours plus one group hour a month works cleanly: group is a
+      quarter of the total.</li>
+      <li><strong>Two supervisors, maximum.</strong> You may have up to two LPC supervisors on
+      file at a time, splitting hours by mutual agreement.</li>
+      <li><strong>Paperwork has deadlines.</strong> The Supervisory Agreement Form goes in
+      before supervision starts. The Supervised Experience Documentation Form is due within 30
+      days after supervision ends.</li>
+      <li><strong>Miss the 60 months and you start over.</strong> If the required hours are not
+      complete when your Associate licence expires, you reapply and meet whatever requirements
+      are in effect at that time.</li>
+    </ul>
+    <p><a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">How supervision with Reem is structured</a></p>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Choosing a supervisor</h2>
+  <p>You will spend eighteen months to three years with this person, during the period that
+  shapes how you practise for the rest of your career. Interview them.</p>
+  <h3>Worth asking</h3>
+  <ul class="plain">
+    <li>How many associates are you supervising right now, and what is your cap?</li>
+    <li>What is the fee, what does it include, and does it change if my caseload changes?</li>
+    <li>Is the fee monthly or hourly, and what happens in a month when I only need two hours?</li>
+    <li>How is group supervision structured, and how many people are in it?</li>
+    <li>Are you reachable between sessions when something urgent comes up?</li>
+    <li>What are your clinical models, and are you willing to supervise work outside them?</li>
+    <li>Will you help me build a practice, or only sign hours?</li>
+    <li>How do you give corrective feedback, and can you give me an example?</li>
+    <li>Who employs me, and does that create a conflict with who supervises me?</li>
+  </ul>
+  <h3>Reasons to walk away</h3>
+  <ul class="plain">
+    <li>No written supervision agreement.</li>
+    <li>The Supervisory Agreement Form is not filed before you start seeing clients.</li>
+    <li>Hours are not documented contemporaneously, or records are treated as the supervisor's
+    property.</li>
+    <li>Sessions get cancelled and not rescheduled, leaving you short for the month.</li>
+    <li>You cannot get a straight answer about fees.</li>
+    <li>Feedback is only reassurance. If nothing you do is ever questioned, you are paying for
+    a signature.</li>
+  </ul>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>What supervision costs</h2>
+    <p>Fee structures vary more than the headline number suggests. Some supervisors charge per
+    hour, some charge a flat monthly rate covering the full four hours, and some charge less per
+    hour but exclude group. Agencies sometimes cover supervision entirely, sometimes in exchange
+    for a lower fee split, which is a real cost even when it is not an invoice.</p>
+    <p>Compare on the monthly total for four compliant hours, not on the hourly rate. Then ask
+    what else is included: EMDR or modality consultation, practice-building help, a placement
+    site, retreats, access between sessions.</p>
+    <p>For reference, supervision with Reem is $425 a month covering three individual hours and
+    one group hour, or $500 a month on a three-month contract for associates inside an agency.
+    EMDR consultation is included at no cost while you are her associate.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See what is included</a>
+      <a class="cta cta--quiet" data-page="fees" role="link" tabindex="0">All fees</a>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Staying licensed, and becoming a supervisor</h2>
+  <div class="split">
+    <div>
+      <h3>Continuing education</h3>
+      <p>Full LPCs complete 24 hours of continuing education in each two-year renewal period,
+      including at least 6 hours in ethics and 3 hours in cultural diversity and competency,
+      plus an HHSC-approved human trafficking prevention course. Since 1 January 2024 at least
+      half of the 24 hours must come from a provider listed in §681.140(f). You also pass the
+      jurisprudence exam each renewal period, which counts as one hour of ethics credit.</p>
+      <p><a data-page="for-therapists--retreats-training" role="link" tabindex="0">Ethics CEUs and training with Reem</a></p>
+    </div>
+    <div>
+      <h3>Becoming an LPC-S</h3>
+      <p>Supervisor status requires an unrestricted LPC licence in good standing for at least
+      five years, plus either a 40-clock-hour supervision course meeting §681.147 or a
+      for-credit doctoral-level course in supervision. Once approved, holding it requires 6
+      hours of supervision-specific continuing education per renewal period, which count inside
+      the 24.</p>
+      <p>BHEC's current guidance says the supervision course does not expire once completed,
+      while the rule text has historically referenced recency windows. If your certificate is
+      old, confirm with BHEC before you apply.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Texas LPC licensure questions</h2>
+
+  <details>
+    <summary>How many supervised hours do you need for an LPC in Texas?</summary>
+    <div class="answer-body">
+      <p>3,000 clock-hours of supervised experience under a Council-approved supervisor, of
+      which at least 1,500 must be direct client counselling contact. Only actual time spent
+      counselling counts as direct. The 3,000 cannot be completed in fewer than 18 months, per
+      22 TAC §681.92.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How many hours of supervision does an LPC Associate need each month?</summary>
+    <div class="answer-body">
+      <p>A minimum of four hours a month while you are counselling. Individual supervision means
+      a supervisor with one or two associates; group means three or more. No more than 50% of
+      your total supervision hours may be group. You can have up to two LPC supervisors on file
+      at once.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How long does it take to become an LPC in Texas?</summary>
+    <div class="answer-body">
+      <p>Eighteen months at the absolute fastest after you are licensed as an Associate,
+      because that floor applies regardless of how quickly you accrue hours. At fifteen direct
+      client hours a week it takes about two years; at eight a week, closer to three and a half.
+      Add the two to three years of graduate study before that.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Does my LPC Associate licence expire?</summary>
+    <div class="answer-body">
+      <p>Yes. It expires 60 months from the date of issuance and cannot be renewed. If you have
+      not completed the required supervised experience in that window, you must reapply for
+      licensure and meet the requirements in effect at the time of reapplication.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do hours count if I worked before getting my Associate licence?</summary>
+    <div class="answer-body">
+      <p>No. Hours obtained by an unlicensed person do not count toward the supervised
+      experience requirement, in any setting. Get licensed first.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I do supervision online in Texas?</summary>
+    <div class="answer-body">
+      <p>Yes. Texas rules set the amount and structure of supervision rather than requiring it
+      to be in person, and online supervision is common across the state. Reem Glasco, LPC-S,
+      supervises online only, which means associates anywhere in Texas can work with her.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What qualifies someone to supervise LPC Associates in Texas?</summary>
+    <div class="answer-body">
+      <p>An unrestricted Texas LPC licence in good standing for at least five years, plus a
+      40-clock-hour supervision course meeting 22 TAC §681.147 or a for-credit doctoral-level
+      course in supervision, and approval by BHEC as an LPC-S. Verify any supervisor's status on
+      the BHEC licence lookup before signing an agreement.</p>
+    </div>
+  </details>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>Supervision with Reem</h2>
+    <p>Licensed as a Texas supervisor since 2009, over fifteen years of clinical experience,
+    online statewide. One opening in fall 2026 and one in spring 2027.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See the details</a>
+      <a class="cta cta--quiet" data-page="contact" role="link" tabindex="0">Book a free consult</a>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page" id="approach" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Approach</nav>
+<section class="shell band">
+  <h1>How the methods work, in plain language</h1>
+  <div class="answer">
+    <p>Reem's focus is <strong>IFS-informed EMDR</strong>: EMDR run with parts awareness, so
+    the protective parts of you get consulted rather than overridden. It sits alongside two
+    other approaches. <strong>Somatic Experiencing</strong> works with the nervous system
+    directly, in small doses, to widen what you can tolerate. <strong>NARM</strong> works with
+    the patterns that formed in childhood and how they still shape your present. Brainspotting
+    comes in where it helps.</p>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>NARM, the NeuroAffective Relational Model</h2>
+    <div class="split">
+      <div>
+        <p>NARM starts from curiosity rather than diagnosis. Where did I learn this pattern?
+        How was it serving me? Is it still?</p>
+        <p>The invitation is to notice how a pattern keeps you from being present in your own
+        life, and to discover through felt sense which path leads toward thriving. It is less
+        about excavating the past than about meeting what the past installed, now, with
+        attention.</p>
+        <p>Reem is a NARM therapist and NARM is the spine of most of her work with
+        developmental trauma.</p>
+      </div>
+      <div>
+        <h3>Best when</h3>
+        <ul class="plain">
+          <li>The trouble is a lifelong pattern, not a single event.</li>
+          <li>You understand your history intellectually and nothing has changed.</li>
+          <li>Self-criticism is doing most of the talking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Somatic Experiencing</h2>
+  <div class="split">
+    <div>
+      <p>Somatic Experiencing, developed by Dr Peter Levine, treats trauma as something the
+      body is still holding rather than a story the mind needs to retell. Sessions track
+      physical sensation and the small movements a threat response never got to finish.</p>
+      <p>The work is titrated, meaning slow and in doses, because a nervous system that gets
+      flooded learns that attention to the body is dangerous. Done at the right pace, it widens
+      your window of tolerance and your resilience.</p>
+      <p>Reem is a Somatic Experiencing Practitioner (SEP).</p>
+    </div>
+    <div>
+      <h3>Best when</h3>
+      <ul class="plain">
+        <li>Shock trauma is in the picture: an accident, an assault, a medical event.</li>
+        <li>You go numb, or flood, when you talk about hard things.</li>
+        <li>Anxiety lives in your chest and stomach more than your thoughts.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>EMDR</h2>
+    <div class="split">
+      <div>
+        <p>EMDR helps the brain finish processing experiences it stored in raw form. Reem is
+        EMDR certified and an EMDRIA Approved Consultant, trained in ASSYST, PRECI and
+        IGTP-OTS protocols and in IFS-informed EMDR.</p>
+        <p>Her emphasis is stabilisation first: acute stress, ongoing stress, feeling
+        overwhelmed, loss. Only with that footing does the processing work become useful rather
+        than destabilising.</p>
+        <p>Therapists seeking consultation on their own EMDR practice can
+        <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">work with Reem as a consultant</a>.</p>
+      </div>
+      <div>
+        <h3>Best when</h3>
+        <ul class="plain">
+          <li>Specific memories intrude, or certain triggers reliably hijack you.</li>
+          <li>You are in an ongoing stressful situation and need footing before insight.</li>
+          <li>Talking about it has stopped helping.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>IFS-informed EMDR, where most of the work happens</h2>
+  <div class="split">
+    <div>
+      <p>Standard EMDR asks you to hold a memory and let the processing run. For people with
+      developmental trauma that instruction often meets an internal objection: a part of you
+      that has spent years keeping this material at a distance and has good reasons.</p>
+      <p>Internal Family Systems gives us language for that. Rather than pushing past the
+      protector, we get to know it. What is it afraid will happen if you go near this? What
+      does it need in place first? Processing starts when the protective parts agree to it, not
+      when the protocol says it is time.</p>
+      <p>Reem's emphasis is phases one and two, the history-taking and preparation phases,
+      because that is where most stalled EMDR actually stalls. Build enough stability and
+      enough internal agreement there, and the later phases stop being a fight.</p>
+      <p>She completed steps one through three of IFS-informed EMDR training in 2025, is EMDR
+      certified and an EMDRIA Approved Consultant, and
+      <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">consults with other therapists</a> on exactly this.</p>
+    </div>
+    <div>
+      <h3>What this looks like in session</h3>
+      <ul class="plain">
+        <li>Naming the parts in the room: the one that wants to heal, the one that wants to
+        leave, the one that thinks this is self-indulgent.</li>
+        <li>Unblending, so you can look at a part rather than speak as it.</li>
+        <li>Asking permission from protectors before any target gets processed.</li>
+        <li>Resourcing and stabilisation that a protective part actually trusts.</li>
+        <li>Slowing or pausing processing when a part objects, and treating that objection as
+        information rather than resistance.</li>
+      </ul>
+      <h3>Best when</h3>
+      <ul class="plain">
+        <li>EMDR has been tried before and went nowhere, or went badly.</li>
+        <li>You flood, dissociate or go blank when you approach the material.</li>
+        <li>Part of you wants this and part of you really does not.</li>
+        <li>The trauma is developmental and layered rather than a single event.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>How the three fit together</h2>
+    <div class="split">
+      <div>
+        <p>They are not three separate treatments you pick between. In practice they interlock:
+        NARM asks what pattern is running and where it was learned, Somatic Experiencing sets
+        the pace your nervous system can hold, and IFS-informed EMDR does the processing once
+        the first two have made room for it.</p>
+        <p>Which one leads on a given day depends on what you arrive with. A week of acute
+        stress calls for stabilisation. A recurring relational pattern calls for curiosity. A
+        memory that keeps intruding calls for processing, once the parts holding it are on
+        board.</p>
+      </div>
+      <div>
+        <dl class="facts">
+          <div><dt>NARM</dt><dd>Why the pattern exists and what it costs you now</dd></div>
+          <div><dt>Somatic Experiencing</dt><dd>How fast we can go without flooding you</dd></div>
+          <div><dt>IFS-informed EMDR</dt><dd>Getting internal agreement, then processing</dd></div>
+          <div><dt>Brainspotting</dt><dd>An alternate route when EMDR targeting will not settle</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Walking, and horses</h2>
+  <p>Some of this work happens outside. Mindful trail walk therapy puts movement and nature
+  underneath the conversation, which changes what becomes sayable. Equine sessions near
+  Dripping Springs add an animal that responds to your actual state rather than your presented
+  one.</p>
+  <p>Reem also runs mindful trail retreats for interns, associates and licensed therapists,
+  where the subject is presence and what gets in its way.</p>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Ask which approach fits</a>
+    <a class="cta cta--quiet" data-page="therapy" role="link" tabindex="0">See therapy options</a>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about the methods</h2>
+
+  <details>
+    <summary>What is IFS-informed EMDR?</summary>
+    <div class="answer-body">
+      <p>EMDR practised with Internal Family Systems awareness. Before any memory is processed,
+      the protective parts of you that object to the work are identified and consulted, and
+      resourcing is built that those parts trust. It makes EMDR usable for people with
+      developmental trauma, where standard protocol timing often destabilises rather than
+      resolves. Reem Glasco focuses on phases one and two, the preparation phases.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Why not just do standard EMDR?</summary>
+    <div class="answer-body">
+      <p>For a single discrete trauma with a stable nervous system, standard protocol often
+      works well. When trauma is developmental and layered, parts of you have organised around
+      keeping it away, and processing that skips those parts tends to flood, stall or stop
+      working. Consulting them first is slower at the start and faster overall.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do NARM, Somatic Experiencing and EMDR get used in the same session?</summary>
+    <div class="answer-body">
+      <p>Often, yes. Reem is a NARM therapist, a Somatic Experiencing Practitioner and EMDR
+      certified, so the approaches move with what you bring. NARM tracks the pattern, Somatic
+      Experiencing sets the pacing, IFS-informed EMDR handles processing when there is room for
+      it.</p>
+    </div>
+  </details>
+</section>
+</div>
+<div class="page" id="about" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / About</nav>
+<section class="shell band">
+  <h1>Reem Glasco, LPC-S</h1>
+  <div class="answer">
+    <p>Reem Glasco is a Licensed Professional Counselor Supervisor in Texas, licence 66562, and
+    has held supervisor status since 2009 with over fifteen years of clinical experience. She
+    is a NARM therapist, a Somatic Experiencing Practitioner (SEP), EMDR certified and an
+    EMDRIA Approved Consultant. She was a Clinical Partner at Capital Area Counseling from 2021
+    to 2025 and practises from Cedar Park, Texas, working online statewide.</p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h2>How I work</h2>
+      <p>My NARM approach is an invitation to be curious about your patterns, and about how
+      they keep you from being present in your own life. Where did I learn this? How was it
+      serving me? How does being present give me a choice about which path leads to thriving?</p>
+      <p>My EMDR work is IFS-informed, which means the protective parts of you get consulted
+      before anything gets processed, and my emphasis is on phases one and two where that
+      agreement is built. It is weighted toward stabilisation: acute stress, ongoing stress,
+      overwhelm, loss. My Somatic Experiencing approach meets shock trauma in a titrated way,
+      slow and gentle, building your window of tolerance rather than testing it.</p>
+      <p>I teach effortless self care through walk and mindful therapy, and I run mindful trail
+      retreats for interns, associates and therapists, where we explore being present and what
+      gets in the way of it.</p>
+      <p>I am also an LPC supervisor. Supervision is online, and I offer mindful retreats for
+      associate therapists to expand their personal and professional awareness in the field.</p>
+      <p>You can also find me on
+      <a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today</a>.</p>
+    </div>
+    <div>
+      <h3>Credentials</h3>
+      <dl class="facts">
+        <div><dt>Licence</dt><dd>Texas LPC-S, licence 66562</dd></div>
+        <div><dt>Supervisor since</dt><dd>2009</dd></div>
+        <div><dt>Experience</dt><dd>Over fifteen years</dd></div>
+        <div><dt>Specialisation</dt><dd>Young adults, college age, individuals</dd></div>
+        <div><dt>Clinical focus</dt><dd>Developmental trauma, C-PTSD, anxiety, panic attacks, depression, procrastination, mindful somatic awareness</dd></div>
+        <div><dt>Certified in</dt><dd>NARM, Somatic Experiencing (SEP), EMDR</dd></div>
+        <div><dt>Also trained in</dt><dd>IFS-informed EMDR, Brainspotting, BASE-P, ASSYST, PRECI, IGTP-OTS, NVC informed</dd></div>
+        <div><dt>Consultant status</dt><dd>EMDRIA Approved Consultant</dd></div>
+        <div><dt>Previously</dt><dd>Clinical Partner, Capital Area Counseling, 2021 to 2025</dd></div>
+        <div><dt>Coming in 2026</dt><dd>Coherence therapy training</dd></div>
+      </dl>
+    </div>
+  </div>
+  <p class="note">Note for the site build: add Reem's portrait here and in the home page
+  introduction, and link the published journal or book once its page is ready.</p>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Book a consult</a>
+    <a class="cta cta--quiet" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">Supervision with Reem</a>
+    <a class="cta cta--quiet" data-page="texas-lpc-licensure" role="link" tabindex="0">Texas licensure guide</a>
+  </div>
+</section>
+</div>
+<div class="page" id="fees" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Fees</nav>
+<section class="shell band">
+  <h1>Fees and policies</h1>
+  <div class="answer">
+    <p>Individual therapy is <strong>$240</strong> for a 50-minute online session, private pay.
+    Trail walk and movement therapy is <strong>$240 to $370</strong> depending on session
+    length. LPC supervision is <strong>$425 a month</strong>. EMDR consultation is
+    <strong>$185</strong> an hour. The practice is not accepting new Blue Cross Blue Shield
+    clients, and major credit cards are the accepted form of payment.</p>
+  </div>
+
+  <h2>Everything in one place</h2>
+  <dl class="facts">
+    <div><dt>Individual therapy</dt><dd>$240 per 50-minute session, online, private pay</dd></div>
+    <div><dt>Trail walk and movement therapy</dt><dd>$240 to $370 for a session of roughly 75 minutes to two hours, in person in Texas, adults only</dd></div>
+    <div><dt>Equine sessions</dt><dd>Additional fees apply; location Dripping Springs, Texas</dd></div>
+    <div><dt>LPC supervision</dt><dd>$425 a month, including three individual hours and one group hour</dd></div>
+    <div><dt>Agency supervision contract</dt><dd>$500 a month on a three-month contract</dd></div>
+    <div><dt>Equine-assisted supervision</dt><dd>$60 per session, optional</dd></div>
+    <div><dt>EMDR consultation</dt><dd>$185 per individual hour; free for Reem's own LPC associates</dd></div>
+    <div><dt>Equine training for therapists</dt><dd>Fees set per offering; see retreats and training</dd></div>
+    <div><dt>Retreats and ethics CEUs</dt><dd>Fees set per offering; included in supervision where noted</dd></div>
+    <div><dt>Consults</dt><dd>Free: fifteen minutes for therapy, thirty minutes for supervision</dd></div>
+    <div><dt>Sliding scale</dt><dd>Available through the practice's LPC Associates</dd></div>
+    <div><dt>Payment</dt><dd>Major credit cards only</dd></div>
+  </dl>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>Insurance</h2>
+    <p>Sessions with Reem are private pay. The practice is not accepting new Blue Cross Blue
+    Shield clients. If you plan to seek out-of-network reimbursement, raise it during the
+    consult so you know what documentation to expect.</p>
+
+    <h2>Cancellation</h2>
+    <p>For telehealth appointments, cancel at least 24 hours ahead or you may be charged an $85
+    fee for the session.</p>
+    <p>In-person walk therapy must be paid in advance to hold the spot, and there are no refunds
+    for cancellations inside 48 hours.</p>
+
+    <h2>Waitlist and new clients</h2>
+    <p>Clients who want to be added to the waitlist schedule a consult first. The practice's
+    associates are accepting new clients, including at sliding-scale fees.</p>
+    <p>Trail walk and equine work requires a consult plus one to three online sessions
+    beforehand, and is for adults only.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Texas notices</h2>
+  <h3>Licensing and complaints</h3>
+  <p>Reem Glasco holds Texas LPC licence number 66562. To file a complaint about a Texas
+  licensee, contact the Texas Behavioral Health Executive Council at 1-800-821-3205 or
+  <a href="mailto:enforcement@bhec.texas.gov">enforcement@bhec.texas.gov</a> to request the
+  appropriate form. Mailed complaints go to:</p>
+  <p>Texas Behavioral Health Executive Council<br>
+  Attn: Enforcement Division<br>
+  George H. W. Bush State Office Building<br>
+  1801 Congress Ave, Ste 7.300<br>
+  Austin, TX 78701</p>
+  <p>The Executive Council investigates and prosecutes professional misconduct by marriage and
+  family therapists, professional counselors, psychologists, psychological associates, social
+  workers and licensed specialists in school psychology. Not every complaint or dispute
+  involves professional misconduct, and the Council will explain how to file either way.
+  Licence verification is available at <a href="https://bhec.texas.gov">bhec.texas.gov</a>.</p>
+
+  <h3>Access to your records</h3>
+  <p>Under the Texas Medical Records Privacy Act (HB 4224, effective 1 September 2025) you have
+  the right to access your health care records and to file complaints. Submit a written request
+  to <a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a>.
+  Records are provided electronically within 15 business days unless you agree to another
+  format or an exception applies.</p>
+
+  <h3>Complaints about this practice</h3>
+  <p>To raise a concern directly, email
+  <a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a>.
+  To file a consumer complaint with the state, forms and instructions are on the licensing
+  authority's website and, where applicable, the Texas Attorney General's site.</p>
+
+  <p class="note">Note for the site build: link the current privacy policy and Good Faith
+  Estimate documents here once they are moved to the new domain.</p>
+</section>
+</div>
+<div class="page" id="faq" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / FAQ</nav>
+<section class="shell band">
+  <h1>Questions people ask first</h1>
+  <div class="answer">
+    <p>Short version: LPC supervision is $425 a month for three individual hours and one group
+    hour, online statewide. EMDR consultation is $185 an hour with an EMDRIA Approved
+    Consultant. Therapy is $240 for a 50-minute online session with Reem, or less with the
+    practice's associates. Everything starts with a free consult. The practice is in Cedar
+    Park, Texas, with in-person trail and equine options near Austin for adults.</p>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Getting started</h2>
+
+  <details>
+    <summary>How do I become a client?</summary>
+    <div class="answer-body">
+      <p>Email the practice to request a free 15-minute consult. If it is a fit, you receive
+      client forms and we schedule. If it is not, you get a referral rather than a polite
+      brush-off.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Where is Finding Balance Counseling located?</summary>
+    <div class="answer-body">
+      <p>The practice is based in Cedar Park, Texas, and works online with clients anywhere in
+      the state, including Austin. In-person trail walk sessions happen outdoors in central
+      Texas, and equine sessions are near Dripping Springs.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Should I see Reem or one of the associates?</summary>
+    <div class="answer-body">
+      <p>Usually it comes down to availability and fee. Reem keeps a small therapy caseload
+      alongside her supervision and consultation work, at $240 a session. The LPC Associates she
+      supervises have more open calendars and lower fees, including sliding scale, and practise
+      under her supervision.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Who does Reem work with?</summary>
+    <div class="answer-body">
+      <p>Young adults, college-age clients and individual adults, plus LPC Associates and
+      licensed therapists in supervision or consultation. The practice does not work with young
+      children.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What are the office hours?</summary>
+    <div class="answer-body">
+      <p>By appointment. Walk and table therapy sessions are on Fridays.</p>
+    </div>
+  </details>
+
+  <h2>Money</h2>
+
+  <details>
+    <summary>How much is a session?</summary>
+    <div class="answer-body">
+      <p>$240 for a 50-minute online session, private pay. Trail walk and movement sessions run
+      $240 to $370 depending on length. Sliding-scale fees are available through the practice's
+      LPC Associates.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do you accept insurance?</summary>
+    <div class="answer-body">
+      <p>Sessions are private pay and the practice is not accepting new Blue Cross Blue Shield
+      clients. Payment is by major credit card.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is the cancellation policy?</summary>
+    <div class="answer-body">
+      <p>Cancel telehealth appointments at least 24 hours ahead, or an $85 fee may apply.
+      In-person walk therapy is paid in advance and is non-refundable inside 48 hours.</p>
+    </div>
+  </details>
+
+  <h2>The work itself</h2>
+
+  <details>
+    <summary>What kind of therapy does Reem practise?</summary>
+    <div class="answer-body">
+      <p>NARM for the patterns formed early in life, Somatic Experiencing for what the nervous
+      system is still holding, and EMDR for specific traumatic material once there is enough
+      stability. IFS-informed and Brainspotting elements are used where parts of a person
+      disagree about the work.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is walk and talk therapy?</summary>
+    <div class="answer-body">
+      <p>A therapy session held outdoors while walking, with nature and movement underneath the
+      conversation. It runs 75 minutes to two hours, is for adults only, and requires a consult
+      plus one to three online sessions first. Fees are $240 to $370, paid in advance.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do you work with horses?</summary>
+    <div class="answer-body">
+      <p>Yes. Equine-assisted sessions are available near Dripping Springs, Texas, for clients,
+      for LPC associates in supervision at $60 a session, and as optional training for
+      therapists who want to work with horses themselves.</p>
+    </div>
+  </details>
+
+  <h2>For therapists</h2>
+
+  <details>
+    <summary>How many supervised hours do I need for a Texas LPC?</summary>
+    <div class="answer-body">
+      <p>3,000 clock-hours under a Council-approved supervisor, at least 1,500 of them direct
+      client counselling contact, over no fewer than 18 months, with a minimum of four
+      supervision hours a month and no more than half of your total supervision hours in a
+      group. The licensure guide on this site works through all of it, including the 60-month
+      expiry on your Associate licence.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do you run retreats or training for therapists?</summary>
+    <div class="answer-body">
+      <p>Yes. An annual mindful trail retreat for interns, associates and licensed therapists,
+      equine-assisted sessions and training near Dripping Springs, and periodic ethics
+      continuing education for Texas LPCs. Associates in supervision with Reem are included in
+      the annual retreat.</p>
+    </div>
+  </details>
+
+
+  <details>
+    <summary>Are you accepting LPC Associates for supervision?</summary>
+    <div class="answer-body">
+      <p>One supervision spot opens in fall 2026 and one in spring 2027. Supervision is $425 a
+      month for three individual hours and one group hour, online and statewide in Texas.
+      Applications start with a free 30-minute consult.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can my agency contract supervision for a short period?</summary>
+    <div class="answer-body">
+      <p>Yes. Three-month contracts are available for associates working within an agency or
+      group practice at $500 a month.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can you be my EMDR consultant?</summary>
+    <div class="answer-body">
+      <p>Reem is an EMDRIA Approved Consultant. Individual consultation is $185 an hour online,
+      focused on IFS-informed EMDR for phases one and two, and it is free for her own LPC
+      associates.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do you offer ethics CEUs?</summary>
+    <div class="answer-body">
+      <p>Ethics continuing education for Texas LPCs is offered periodically. Email the practice
+      to ask about the next session.</p>
+    </div>
+  </details>
+
+  <h2>Safety</h2>
+
+  <details>
+    <summary>What if I am in crisis right now?</summary>
+    <div class="answer-body">
+      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
+      Crisis Lifeline, or call 911 if you are in immediate danger. Reach out here once you are
+      safe and we can talk about ongoing support.</p>
+    </div>
+  </details>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>Still deciding?</h2>
+    <p>A consult costs nothing and commits you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page" id="contact" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Contact</nav>
+<section class="shell band">
+  <h1>Get in touch</h1>
+  <div class="answer">
+    <p>Email is the fastest route. Therapy consults are fifteen minutes and free; supervision
+    and EMDR consults are thirty minutes and free. Tell me briefly what you are looking for and
+    what your week looks like, and I will send times.</p>
+  </div>
+
+  <div class="split">
+    <div>
+      <h2>Reach the practice</h2>
+      <dl class="facts">
+        <div><dt>Therapy and general</dt><dd><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a></dd></div>
+        <div><dt>Supervision applications</dt><dd><a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></dd></div>
+        <div><dt>Based in</dt><dd>Cedar Park, Texas 78613</dd></div>
+        <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
+        <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
+        <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
+        <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
+      </dl>
+      <p class="note">Note for the site build: add the practice phone number and the client
+      portal or scheduling link here, and connect a HIPAA-appropriate intake form. Plain web
+      forms should not collect clinical detail.</p>
+    </div>
+    <div>
+      <h3>What to include</h3>
+      <ul class="plain">
+        <li>Whether you want therapy, LPC supervision or EMDR consultation.</li>
+        <li>Online or in person, and roughly where in Texas you are.</li>
+        <li>Two or three windows of time that usually work for you.</li>
+        <li>For supervision: your CV or resume, three professional references, and your answers
+        to the <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">application questions</a>.</li>
+      </ul>
+      <h3>If this is urgent</h3>
+      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
+      Crisis Lifeline, or 911 if you are in immediate danger.</p>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page" id="therapy" hidden>
+<nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Therapy</nav>
+<section class="shell band">
+  <h1>Therapy at Finding Balance</h1>
+  <div class="answer">
+    <p>Reem Glasco, LPC-S, sees a small number of adults and young adults for developmental
+    trauma, C-PTSD, anxiety, panic attacks, depression, procrastination and life transitions.
+    Sessions are 50 minutes at <strong>$240</strong>, online anywhere in Texas, private pay.
+    Because her caseload is limited by her supervision and consultation work, most new clients
+    are seen by the practice's <strong>LPC Associates</strong>, who have openings including at
+    sliding-scale fees. Trail walk sessions are available in person in central Texas for adults
+    at $240 to $370.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Request a free 15-minute consult</a>
+    <a class="cta cta--quiet" data-page="fees" role="link" tabindex="0">See fees</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>What people bring here</h2>
+    <div class="split">
+      <div>
+        <ul class="plain">
+          <li>Developmental trauma: patterns that formed early, before you had words or choices.</li>
+          <li>C-PTSD and PTSD, including trauma that is ongoing rather than finished.</li>
+          <li>Anxiety, panic attacks, and a body that stays braced when nothing is happening.</li>
+          <li>Depression, flatness, and a sense that something is off you cannot point at.</li>
+          <li>Procrastination that is not laziness and does not respond to discipline.</li>
+          <li>Life transitions: graduating, leaving, arriving, becoming a parent, losing someone.</li>
+          <li>Self care for mothers, which usually starts with permission.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Who this is for</h3>
+        <p>Adults and young adults, including college-age clients. The practice does not work
+        with young children.</p>
+        <p>Trail walk, movement and equine sessions are for adults only, and need a consult plus
+        one to three online sessions first, so we know each other before we are outside.</p>
+        <p><a data-page="approach" role="link" tabindex="0">How IFS-informed EMDR, Somatic Experiencing and NARM fit
+        together</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Reem, or one of the associates?</h2>
+  <p>Both are options, and the honest answer is usually availability. Reem holds a small
+  caseload alongside supervising associates and consulting on EMDR. The associates she
+  supervises are earlier in their careers, working under her supervision, with lower fees and
+  more open calendars.</p>
+  <div class="pathways">
+    <a data-page="contact" role="link" tabindex="0">
+      <h3>Working with Reem</h3>
+      <p>$240 for 50 minutes, private pay, online across Texas. Limited openings. Best fit for
+      complex developmental trauma and stalled EMDR.</p>
+    </a>
+    <a data-page="contact" role="link" tabindex="0">
+      <h3>Working with an associate</h3>
+      <p>Lower fees, including sliding scale, and sooner availability. Supervised by Reem, so
+      the clinical approach is the same lineage.</p>
+    </a>
+  </div>
+  <p class="note">Note for the site build: confirm the current associate roster, then replace
+  the second card with individual associate profiles showing each one's fee, specialisms and
+  direct contact route.</p>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>Three ways to meet</h2>
+    <div class="pathways">
+      <a data-page="fees" role="link" tabindex="0">
+        <h3>Online, anywhere in Texas</h3>
+        <p>Fifty minutes, $240 with Reem, private pay. The most flexible to schedule and the way
+        most of the work happens.</p>
+      </a>
+      <a data-page="fees" role="link" tabindex="0">
+        <h3>Trail walk and movement therapy</h3>
+        <p>Outside, side by side rather than across a room. $240 to $370 for 75 minutes to two
+        hours. Fridays, adults only, paid in advance.</p>
+      </a>
+      <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+        <h3>With horses, in Dripping Springs</h3>
+        <p>Equine-assisted sessions after a consult and one to three online sessions.
+        Additional fees apply.</p>
+      </a>
+      <a data-page="contact" role="link" tabindex="0">
+        <h3>Not sure which</h3>
+        <p>Say what is going on in a few sentences and we will work out the right starting
+        point, here or elsewhere.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Common questions about therapy here</h2>
+
+  <details>
+    <summary>How much does a therapy session cost?</summary>
+    <div class="answer-body">
+      <p>$240 for a 50-minute online session with Reem, private pay. Trail walk and movement
+      sessions are $240 to $370 depending on length. The practice's LPC Associates see clients
+      at lower fees, including sliding scale.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do you take insurance?</summary>
+    <div class="answer-body">
+      <p>The practice is private pay and is not accepting new Blue Cross Blue Shield clients.
+      Payment is by major credit card. If you plan to seek out-of-network reimbursement, raise
+      it in the consult so you know what documentation to expect.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is therapy in person or online?</summary>
+    <div class="answer-body">
+      <p>Online across Texas is the default. In person means trail walk and movement therapy on
+      Fridays, or equine sessions near Dripping Springs, both for adults, both after a consult
+      and one to three online sessions.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What happens in a first session?</summary>
+    <div class="answer-body">
+      <p>Mostly orientation: what brought you, what you want different, what your nervous system
+      does under stress, and how we will pace the work. Nothing about trauma gets opened faster
+      than you can stay present for.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How long will therapy take?</summary>
+    <div class="answer-body">
+      <p>It depends what we are working with. Stabilisation can be a handful of sessions.
+      Developmental trauma is slower, because we are building capacity rather than processing a
+      single event. We review it together instead of guessing at the start.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What if I need help sooner than you have openings?</summary>
+    <div class="answer-body">
+      <p>Ask about the associates, who generally have availability sooner and lower fees. If
+      neither fits, Reem will refer you out rather than leave you on a waitlist. If you are in
+      crisis, call or text 988.</p>
+    </div>
+  </details>
+</section>
+</div>
+</main>
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <h4>Get in touch</h4>
+        <p><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a><br>
+        Supervision enquiries: <a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></p>
+        <p>Cedar Park, Texas 78613</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul><li><a data-page="home" role="link" tabindex="0">Home</a></li><li><a data-page="for-therapists" role="link" tabindex="0">For Therapists</a></li><li>&nbsp;&nbsp;<a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">LPC Supervision</a></li><li>&nbsp;&nbsp;<a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">EMDR Consultation</a></li><li>&nbsp;&nbsp;<a data-page="for-therapists--retreats-training" role="link" tabindex="0">Retreats & Training</a></li><li><a data-page="texas-lpc-licensure" role="link" tabindex="0">Licensure Guide</a></li><li><a data-page="approach" role="link" tabindex="0">Approach</a></li><li><a data-page="about" role="link" tabindex="0">About</a></li><li><a data-page="fees" role="link" tabindex="0">Fees</a></li><li><a data-page="faq" role="link" tabindex="0">FAQ</a></li><li><a data-page="contact" role="link" tabindex="0">Contact</a></li><li><a data-page="therapy" role="link" tabindex="0">Therapy</a></li></ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>By appointment.<br>Walk and table therapy on Fridays.</p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <p>Preview build. Reem Glasco is a Licensed Professional Counselor Supervisor in Texas,
+      licence 66562. Nothing on this site is therapy or supervision. In crisis, call or
+      text 988.</p>
+    </div>
+  </div>
+</footer>
+<script>
+// No framework here on purpose: two small behaviours, no build step, no tracking.
+(function () {
+  var toggle = document.querySelector('.nav__toggle');
+  var nav = document.getElementById('primary-nav');
+
+  if (toggle && nav) {
+    // The nav is visible by default so it still works with JS disabled.
+    if (window.matchMedia('(max-width: 55.99rem)').matches) {
+      nav.setAttribute('data-open', 'false');
+    }
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.addEventListener('click', function () {
+      var open = nav.getAttribute('data-open') !== 'true';
+      nav.setAttribute('data-open', String(open));
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Close' : 'Menu';
+    });
+  }
+
+  var settle = document.querySelector('.settle');
+  if (settle) {
+    var button = settle.querySelector('button');
+    var label = settle.querySelector('.settle__ring span');
+    var phases = [
+      { text: 'breathe in', ms: 4000 },
+      { text: 'hold', ms: 2000 },
+      { text: 'breathe out', ms: 6000 }
+    ];
+    var timer = null;
+    var step = 0;
+
+    function advance() {
+      label.textContent = phases[step].text;
+      timer = window.setTimeout(function () {
+        step = (step + 1) % phases.length;
+        advance();
+      }, phases[step].ms);
+    }
+
+    function stop() {
+      window.clearTimeout(timer);
+      timer = null;
+      step = 0;
+      settle.setAttribute('data-running', 'false');
+      label.textContent = 'one minute';
+      button.textContent = 'Start';
+    }
+
+    button.addEventListener('click', function () {
+      if (timer) { stop(); return; }
+      settle.setAttribute('data-running', 'true');
+      button.textContent = 'Stop';
+      advance();
+    });
+  }
+})();
+
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+
+  function show(id) {
+    if (!pages.some(function (p) { return p.id === id; })) { id = pages[0].id; }
+    pages.forEach(function (p) { p.hidden = p.id !== id; });
+    document.querySelectorAll('[data-page]').forEach(function (el) {
+      if (el.getAttribute('data-page') === id) { el.setAttribute('aria-current', 'page'); }
+      else { el.removeAttribute('aria-current'); }
+    });
+    window.scrollTo(0, 0);
+    var nav = document.getElementById('primary-nav');
+    var toggle = document.querySelector('.nav__toggle');
+    if (nav && toggle && window.matchMedia('(max-width: 55.99rem)').matches) {
+      nav.setAttribute('data-open', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Menu';
+    }
+  }
+
+  function handle(event) {
+    var el = event.target.closest('[data-page]');
+    if (!el) { return; }
+    event.preventDefault();
+    show(el.getAttribute('data-page'));
+  }
+  document.addEventListener('click', handle);
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') { handle(event); }
+  });
+
+  show('home');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "findingbalancepllc",
+  "private": true,
+  "description": "findingbalances.com — static site for Finding Balance Counseling",
+  "scripts": {
+    "build": "python3 build.py",
+    "dev": "python3 build.py && npx wrangler pages dev dist",
+    "deploy": "python3 build.py && npx wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

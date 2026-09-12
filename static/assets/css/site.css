@@ -1,0 +1,422 @@
+/* Finding Balance Counseling
+   Hearth, not horizon. Dusk-blue ground, deep indigo enclosures, brass lamplight.
+   The blue carries the calm; the warm accent keeps it from reading clinical.
+   Body text is set in a serif because the site should read like a book in a
+   chair, not a brochure. Sections are deliberately far apart: one idea per
+   screenful. */
+
+:root {
+  --dusk: #dce3e7;
+  --dusk-2: #cbd6dc;
+  --indigo: #1f2d38;
+  --ink: #1b2832;
+  --ink-soft: #3f5866;
+  --lamp: #b08a3c;
+  --link: #245c79;
+  --juniper: #3f6580;
+  --hair: rgba(27, 40, 50, 0.18);
+
+  --measure: 33rem;                    /* ~62 characters of serif */
+  --gutter: clamp(1.35rem, 5vw, 3.5rem);
+  --band: clamp(5rem, 12vw, 9.5rem);   /* the air between ideas */
+  --radius: 14px;
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Karla", "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--dusk);
+  /* Paper grain, then a warm pool of light at the top of the page. */
+  background-image:
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.4'/%3E%3C/svg%3E"),
+    radial-gradient(120% 60% at 50% -10%, rgba(176, 138, 60, 0.16), rgba(176, 138, 60, 0) 70%);
+  background-repeat: repeat, no-repeat;
+  background-size: 180px 180px, 100% 45rem;
+  color: var(--ink);
+  font: 400 1.125rem/1.8 var(--serif);
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.014em;
+  margin: 0 0 0.7em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.15rem, 5.4vw, 3.45rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.35rem); margin-top: 0; }
+h3 { font-size: 1.35rem; }
+h4 {
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 0.5em;
+}
+
+p, li { max-width: var(--measure); }
+p { margin: 0 0 1.15em; }
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--ink); }
+
+:focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; border-radius: 3px; }
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+/* ---------- layout ---------- */
+
+.shell { width: min(70rem, 100%); margin: 0 auto; padding-inline: var(--gutter); }
+
+.band { padding-block: var(--band); }
+
+.band--sand { background: var(--dusk-2); }
+
+/* An enclosure. Used two or three times a site, never more. */
+.band--night {
+  background: var(--indigo);
+  color: rgba(226, 236, 242, 0.9);
+}
+.band--night h1, .band--night h2, .band--night h3, .band--night h4 { color: #eef4f9; }
+.band--night a { color: #e0bd7e; }
+.band--night a:hover { color: #fff; }
+.band--night .answer {
+  background: rgba(226, 236, 242, 0.08);
+  border-left-color: var(--lamp);
+}
+.band--night .facts div { border-color: rgba(226, 236, 242, 0.22); }
+.band--night .facts dt { color: rgba(226, 236, 242, 0.65); }
+.band--night .plain li::before { background: var(--lamp); }
+
+.split { display: grid; gap: clamp(2rem, 5vw, 4.5rem); grid-template-columns: 1fr; }
+@media (min-width: 56rem) {
+  .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; }
+  .split--aside { grid-template-columns: minmax(0, 1fr) minmax(0, 16rem); }
+}
+
+.skip { position: absolute; left: -9999px; background: var(--indigo); color: var(--dusk); padding: 0.75rem 1rem; }
+.skip:focus { left: 1rem; top: 1rem; z-index: 20; }
+
+/* ---------- header ---------- */
+
+.masthead { border-bottom: 1px solid var(--hair); }
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 2rem;
+  padding-block: 1.25rem;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.1;
+}
+.wordmark span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+.nav { margin-left: auto; }
+.nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; margin: 0; padding: 0; }
+.nav li { max-width: none; }
+.nav a { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
+.nav a:hover { color: var(--ink); text-decoration: underline; }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--lamp); }
+
+.nav__toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  color: var(--ink);
+  font: 400 0.92rem var(--sans);
+  padding: 0.4rem 1rem;
+}
+@media (max-width: 55.99rem) {
+  .nav__toggle { display: block; }
+  .nav { flex-basis: 100%; margin-left: 0; }
+  .nav[data-open="false"] { display: none; }
+  .nav ul { flex-direction: column; gap: 0; padding-bottom: 0.5rem; }
+  .nav a { display: block; padding: 0.55rem 0; }
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding-block: clamp(3rem, 8vw, 6rem) calc(var(--band) * 0.8); }
+.hero__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 54rem) {
+  .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }
+}
+.hero p.lede { font-size: 1.22rem; color: var(--ink-soft); max-width: 31rem; }
+.hero__art { justify-self: center; width: 100%; max-width: 19rem; }
+
+/* Eyebrow: the small orienting line above a heading, as on tomsscuba.com.
+   Sentence case, not tracked-out caps. */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem;
+  max-width: none;
+}
+.band--night .eyebrow { color: rgba(226, 236, 242, 0.7); }
+
+/* Cards that are not links: personas, inclusions, pathway steps. */
+.cards { display: grid; gap: 1.25rem; margin: 2rem 0; }
+@media (min-width: 44rem) { .cards { grid-template-columns: 1fr 1fr; } }
+.cards > div {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+}
+.cards h3 { margin-bottom: 0.4rem; }
+.cards p { margin: 0; color: var(--ink-soft); }
+.band--night .cards > div {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+}
+.band--night .cards p { color: rgba(226, 236, 242, 0.75); }
+
+/* "You are here" marker in the pathway block. */
+.cards > div[data-here="true"] { border-color: var(--lamp); border-width: 2px; }
+.cards > div[data-here="true"] h3::after {
+  content: " — you are here";
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--lamp);
+}
+
+/* ---------- direct-answer block ---------- */
+
+.answer {
+  border-left: 3px solid var(--lamp);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.4rem 1.6rem;
+  margin: 0 0 2.25rem;
+  max-width: 39rem;
+}
+.answer p { margin: 0; max-width: none; }
+.answer p + p { margin-top: 0.75em; }
+.band--sand .answer { background: rgba(255, 255, 255, 0.42); }
+
+/* ---------- facts ---------- */
+
+.facts { margin: 0 0 2rem; max-width: 39rem; container-type: inline-size; }
+.facts div { display: grid; grid-template-columns: 1fr; gap: 0.1rem 1.5rem; padding: 0.75rem 0; border-top: 1px solid var(--hair); }
+.facts div:last-child { border-bottom: 1px solid var(--hair); }
+@container (min-width: 30rem) { .facts div { grid-template-columns: 11rem 1fr; } }
+@supports not (container-type: inline-size) {
+  @media (min-width: 56rem) { .facts div { grid-template-columns: 11rem 1fr; } }
+}
+.facts dt { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); padding-top: 0.25rem; }
+.facts dd { margin: 0; max-width: none; }
+
+/* ---------- lists ---------- */
+
+.plain { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.plain li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; }
+.plain li::before {
+  content: "";
+  position: absolute; left: 0; top: 1.05em;
+  width: 0.65rem; height: 2px;
+  background: var(--juniper);
+  border-radius: 2px;
+}
+
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.steps > li { counter-increment: step; position: relative; padding-left: 2.8rem; margin-bottom: 1.4rem; }
+.steps > li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--lamp);
+  width: 1.9rem; height: 1.9rem;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.band--night .steps > li::before { border-color: rgba(226, 236, 242, 0.3); }
+
+/* ---------- buttons ---------- */
+
+.cta {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 1rem;
+  background: var(--indigo);
+  color: #eaf2f7;
+  text-decoration: none;
+  padding: 0.85rem 1.7rem;
+  border-radius: 2rem;
+}
+.cta:hover { background: var(--ink); color: #fff; }
+.cta--quiet { background: none; color: var(--ink); border: 1px solid var(--hair); }
+.cta--quiet:hover { background: rgba(27, 40, 50, 0.06); color: var(--ink); }
+.band--night .cta { background: var(--lamp); color: #1b2832; }
+.band--night .cta:hover { background: #cfa055; color: #1b2832; }
+.band--night .cta--quiet { background: none; color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
+.band--night .cta--quiet:hover { background: rgba(226, 236, 242, 0.1); color: #fff; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+
+/* ---------- doors: the few places the site forks ---------- */
+
+.pathways { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+@media (min-width: 44rem) { .pathways { grid-template-columns: 1fr 1fr; } }
+.pathways a {
+  display: block;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.75rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.pathways a:hover { background: rgba(255, 255, 255, 0.85); }
+.pathways h3 { margin-bottom: 0.4rem; }
+.pathways p { color: var(--ink-soft); margin: 0; font-size: 1rem; }
+.band--night .pathways a {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+  color: #eef4f9;
+}
+.band--night .pathways a:hover { background: rgba(226, 236, 242, 0.14); }
+.band--night .pathways p { color: rgba(226, 236, 242, 0.75); }
+
+/* ---------- FAQ ---------- */
+
+.faq { max-width: 44rem; }
+.faq details { border-top: 1px solid var(--hair); }
+.faq details:last-of-type { border-bottom: 1px solid var(--hair); }
+.faq summary {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.95rem 2.2rem 0.95rem 0;
+  position: relative;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  position: absolute; right: 0.2rem; top: 0.85rem;
+  font-size: 1.35rem;
+  color: var(--lamp);
+}
+.faq details[open] summary::after { content: "\2013"; }
+.faq .answer-body { padding: 0 0 1.2rem; }
+.faq .answer-body p:last-child { margin-bottom: 0; }
+
+/* ---------- breathing widget ---------- */
+
+.settle {
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2.25rem 1.75rem;
+  max-width: 22rem;
+  text-align: center;
+}
+.settle__ring {
+  width: 8.5rem; height: 8.5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--lamp);
+  background: radial-gradient(circle, rgba(176, 138, 60, 0.22), rgba(176, 138, 60, 0.06));
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  transform: scale(0.72);
+}
+.settle[data-running="true"] .settle__ring { animation: breathe 12s ease-in-out infinite; }
+@keyframes breathe {
+  0% { transform: scale(0.72); }
+  33% { transform: scale(1); }
+  50% { transform: scale(1); }
+  100% { transform: scale(0.72); }
+}
+.settle p { max-width: none; font-size: 1rem; color: var(--ink-soft); }
+.settle button {
+  font: 400 0.98rem var(--sans);
+  background: none;
+  border: 1px solid var(--hair);
+  border-radius: 2rem;
+  padding: 0.55rem 1.4rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+.band--night .settle {
+  background: rgba(226, 236, 242, 0.07);
+  border-color: rgba(226, 236, 242, 0.22);
+}
+.band--night .settle p { color: rgba(226, 236, 242, 0.75); }
+.band--night .settle button { color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
+
+/* ---------- tables (licensure guide) ---------- */
+
+.table-wrap { overflow-x: auto; margin: 0 0 2rem; }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+caption { text-align: left; font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); padding-bottom: 0.6rem; }
+th, td { text-align: left; padding: 0.7rem 1rem 0.7rem 0; border-top: 1px solid var(--hair); vertical-align: top; }
+th { font-family: var(--sans); font-size: 0.88rem; font-weight: 700; }
+tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
+
+/* ---------- footer ---------- */
+
+.footer {
+  background: var(--indigo);
+  color: rgba(226, 236, 242, 0.8);
+  padding-block: clamp(3rem, 7vw, 5rem);
+  font-size: 1rem;
+}
+.footer a { color: #e0bd7e; }
+.footer a:hover { color: #fff; }
+.footer h4 { color: #eef4f9; }
+.footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 44rem) { .footer__grid { grid-template-columns: repeat(3, 1fr); } }
+.footer ul { list-style: none; margin: 0; padding: 0; }
+.footer li { margin-bottom: 0.35rem; }
+.footer__legal {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(226, 236, 242, 0.18);
+  font-size: 0.9rem;
+  color: rgba(226, 236, 242, 0.6);
+}
+.footer__legal p { max-width: 46rem; }
+
+.crumbs { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); padding-top: 1.5rem; }
+.crumbs a { color: var(--ink-soft); }
+
+.note {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  border: 1px dashed rgba(36, 92, 121, 0.45);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  max-width: 39rem;
+}
+
+.source { font-size: 0.95rem; color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

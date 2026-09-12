@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "findingbalancepllc",
+  // Set to the date you deploy; pins runtime behaviour so future changes cannot
+  // break the site silently.
+  "compatibility_date": "2026-09-12",
+  "workers_dev": true,
+  "preview_urls": true,
+
+  // Static assets only. There is no Worker script: Cloudflare serves dist/
+  // directly, and the _headers and _redirects files inside dist/ are honoured
+  // natively, exactly as they were on Pages.
+  "assets": {
+    "directory": "./dist",
+    // /for-therapists/lpc-supervision serves that folder's index.html
+    "html_handling": "auto-trailing-slash",
+    // unknown paths serve dist/404/index.html with a real 404 status
+    "not_found_handling": "404-page"
+  }
+}
