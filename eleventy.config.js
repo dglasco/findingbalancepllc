@@ -1,6 +1,9 @@
 import fs from "node:fs";
 
-const SITE = "https://reemglascolpc.com";
+// Kept in step with src/_data/site.js. The FAQ transform runs outside template
+// data, so it needs its own copy of the host.
+const CANONICAL = "https://reemglascolpc.com";
+const SITE = (process.env.SITE_URL || CANONICAL).replace(/\/$/, "");
 
 // ---------------------------------------------------------------------------
 // URL helpers. Page URLs are directory-style with a trailing slash, which is
@@ -209,7 +212,13 @@ export default function (eleventyConfig) {
       });
     }
 
-    for (const entry of [].concat(extra || [])) {
+    // Page front matter hardcodes the canonical host in its @id values. Rewrite
+    // them to whatever host this build is for, so a preview deploy does not
+    // claim the real site's entity ids.
+    const extras = JSON.parse(
+      JSON.stringify([].concat(extra || [])).split(CANONICAL).join(site.url)
+    );
+    for (const entry of extras) {
       graph.push({ provider: { "@id": `${site.url}/#practice` }, ...entry });
     }
 

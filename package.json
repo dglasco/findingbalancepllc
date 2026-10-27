@@ -2,16 +2,19 @@
   "name": "findingbalancepllc",
   "private": true,
   "type": "module",
-  "description": "findingbalances.com — Eleventy site for Finding Balance Counseling",
+  "description": "reemglascolpc.com - Eleventy site for Finding Balance Counseling",
   "scripts": {
     "clean": "node -e \"fs.rmSync('dist',{recursive:true,force:true})\"",
-    "build": "npm run clean && eleventy",
+    "build": "node scripts/build.mjs",
+    "build:preview": "node scripts/build.mjs --preview",
     "dev": "npm run clean && eleventy --serve",
-    "preview": "npm run build && wrangler pages dev dist",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "npm run build:preview && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:preview": "npm run build:preview && wrangler deploy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
+    "playwright": "^1.64.1",
     "wrangler": "^4"
   }
 }

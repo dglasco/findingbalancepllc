@@ -1,7 +1,22 @@
 // Everything that repeats across the site lives here. Change a contact detail
 // once and every page, the footer, the JSON-LD and llms.txt follow.
+
+// The live domain. Canonicals, the sitemap, robots.txt and every JSON-LD @id
+// are built from whatever `url` ends up being, so a preview deploy must not
+// claim this one.
+const CANONICAL = "https://reemglascolpc.com";
+
+// SITE_URL overrides it, which is how the workers.dev preview is built. Any
+// host that is not CANONICAL is treated as a preview: those builds go out
+// noindex and with a robots.txt that disallows everything, so the preview can
+// never compete with the real site or get indexed under a throwaway hostname.
+const url = (process.env.SITE_URL || CANONICAL).replace(/\/$/, "");
+const isPreview = url !== CANONICAL;
+
 export default {
-  url: "https://reemglascolpc.com",
+  url,
+  canonicalUrl: CANONICAL,
+  isPreview,
   name: "Finding Balance Counseling",
   legalName: "Finding Balance Counseling PLLC",
   clinician: "Reem Glasco, LPC-S",

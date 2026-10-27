@@ -22,10 +22,34 @@ Eleventy 3 with npm, no Python.
 
 ```
 npm install
-npm run build     # writes ./dist
-npm run dev       # eleventy --serve with live reload
-npm run deploy    # build, then wrangler deploy
+npm run build           # production build, canonical domain, indexable
+npm run build:preview   # workers.dev build, noindex, robots disallows all
+npm run dev             # eleventy --serve with live reload
+npm run deploy          # production build, then wrangler deploy
+npm run deploy:preview  # preview build, then wrangler deploy
 ```
+
+### Preview host versus live domain
+
+The site is served from `findingbalancepllc.daveg-689.workers.dev` until
+`reemglascolpc.com` is pointed at the Worker. A preview host is only safe if it never claims to
+be the real site, so the host is a build-time variable rather than a hand-edited constant.
+
+`SITE_URL` sets it. `src/_data/site.js` falls back to the canonical domain, and treats any other
+host as a preview: those builds go out with `noindex, nofollow` on every page and a `robots.txt`
+that disallows everything, so the preview cannot be indexed or outrank the real site later.
+Canonicals, the sitemap, `robots.txt`, `llms.txt` and every JSON-LD `@id` follow the same value,
+including the `@id` values hardcoded in page front matter, which the `jsonld` filter rewrites to
+whatever host the build is for.
+
+`scripts/build.mjs` exists because `SITE_URL=... eleventy` is POSIX shell syntax and this repo is
+driven from Windows, where npm runs scripts through `cmd.exe`. Node sets the variable itself, so
+one command works on Windows, on macOS and on Cloudflare's Linux build image.
+
+**When the domain goes live:** point `reemglascolpc.com` at the Worker, confirm it resolves, then
+deploy with `npm run deploy` rather than `deploy:preview`. Nothing else changes. Verify with
+`curl -s https://reemglascolpc.com/robots.txt | head -3`, which should say `Allow: /` rather than
+`Disallow: /`.
 
 `npm run build` cleans `dist/` first, via node's `fs.rmSync`, so a renamed or deleted page
 cannot leave a stale file behind to be deployed.
@@ -135,14 +159,19 @@ one page is written to the root rather than into a folder like every other page.
 
 | Field | Value |
 | --- | --- |
-| Build command | `npm run build` |
+| Build command | `npm run build:preview` while on workers.dev, `npm run build` once the domain is live |
 | Deploy command | `npx wrangler deploy` |
 | Root directory | repo root |
 
-Cloudflare's build image runs Node, so `npm install` and `npm run build` work without any extra
+Cloudflare's build image runs Node, so `npm install` and the build scripts work without extra
 configuration. `dist/` is also committed as a fallback, which means a deploy still succeeds if
 you ever clear the build command, but the committed copy then has to be rebuilt before pushing
 or you ship the previous build.
+
+**The committed `dist/` is currently a preview build**, because the site is served from
+workers.dev. It carries `noindex` and a `robots.txt` that disallows everything, which is correct
+for the preview host and wrong for the live domain. Rebuild with `npm run build` before the
+first real deploy, or the live site goes up uncrawlable.
 
 ### From the command line
 

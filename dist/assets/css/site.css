@@ -295,6 +295,17 @@ img, svg { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 18px 44px -24px rgba(31, 45, 56, 0.5);
 }
 .band-art--wide { max-width: 34rem; margin: 0 auto 2.5rem; }
+/* Landscape photographs, which need the full content width rather than the
+   portrait-shaped column the watercolors sit in. */
+.band-art--photo { max-width: 47rem; margin: 2.2rem auto 0; }
+.caption {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0.7rem 0 0;
+}
+.band--night .caption { color: rgba(226, 236, 242, 0.7); }
 
 .portrait, .step-art {
   width: 100%;
