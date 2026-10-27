@@ -1,4 +1,4 @@
-# findingbalances.com
+# reemglascolpc.com
 
 New site for Reem Glasco, LPC-S (Finding Balance Counseling), rebuilt from the content on
 findingbalancecounselingpllc.com.
@@ -11,7 +11,7 @@ therapist Austin". Clients are still served, through a `/therapy` hub and four c
 that route most of them to the practice's associates, who then become a referral network rather
 than a competing message.
 
-Twenty-two pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
+Thirty pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
 
 `dist/preview.html` is a single self-contained file holding every page, for review on a phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
 href as leaving the page. Do not deploy it as the site; deploy the individual pages.
@@ -35,7 +35,7 @@ cannot leave a stale file behind to be deployed.
 | Path | What it holds |
 | --- | --- |
 | `src/*.njk`, `src/for-therapists/*.njk`, `src/therapy/*.njk` | One file per page. YAML front matter plus the page body. |
-| `src/_data/site.js` | Contact details, licence number, the facts quoted in `llms.txt`, and the redirect map. Global data, available as `site` in every template. |
+| `src/_data/site.js` | Contact details, license number, the facts quoted in `llms.txt`, and the redirect map. Global data, available as `site` in every template. |
 | `src/_includes/layouts/base.njk` | Head tags, canonical, Open Graph, JSON-LD, masthead, breadcrumbs, footer. |
 | `src/_includes/partials/*.njk` | Blocks that repeat across pages: the CTA band, the why-Reem band, the CTA trio, the crisis note. |
 | `eleventy.config.js` | Nav, breadcrumb and children filters, the JSON-LD builder, and the FAQ schema transform. |
@@ -87,7 +87,7 @@ production. A check for this is worth running before any deploy.
 
 ### Images
 
-`src/assets/img/` holds the book cover and nine watercolours from Reem's book files. They are
+`src/assets/img/` holds the book cover and nine watercolors from Reem's book files. They are
 resized to 760px, quality 72, progressive, with explicit `width`/`height` and `loading="lazy"`
 on everything below the fold, which is why the site now weighs about 1 MB in total while any
 single page still loads light. `preview.njk` inlines them as data URIs through the
@@ -155,7 +155,7 @@ npm run deploy
 
 ### Domain and DNS
 
-Add `findingbalances.com` and `www.findingbalances.com` as custom domains on the Worker, then
+Add `reemglascolpc.com` and `www.reemglascolpc.com` as custom domains on the Worker, then
 pick one canonical host and 301 the other to it. `url` in `src/_data/site.js` must match the
 canonical host exactly, because every canonical tag, sitemap entry and JSON-LD `@id` is built
 from it.
@@ -165,9 +165,9 @@ from it.
 Verify the deploy actually landed rather than trusting the green checkmark:
 
 ```
-curl -sI https://findingbalances.com/for-therapists/lpc-supervision | head -1
+curl -sI https://reemglascolpc.com/for-therapists/lpc-supervision | head -1
 curl -sI https://findingbalancecounselingpllc.com/supervision/     # expect 301
-curl -s https://findingbalances.com/robots.txt | tail -1
+curl -s https://reemglascolpc.com/robots.txt | tail -1
 ```
 
 Keep the old domain resolving until the redirects are confirmed working. The redirect map is
@@ -199,8 +199,8 @@ article on the old site. The old blog paginates to three pages, so there are pos
 
 ## Information architecture
 
-Primary nav, therapist-first: For Therapists, Licensure Guide, Therapy, About, Fees, FAQ,
-Contact. Home is reached through the wordmark. Only top-level pages appear in the nav
+Primary nav, nine items: For Therapists, Licensure Guide, Therapy, Approach, About, The Book,
+Fees, FAQ, Contact. Home is reached through the wordmark. Only top-level pages appear in the nav
 (`navItems` filters on depth), so the two hubs carry their own children rather than the nav
 growing. Approach is deliberately kept out (`inNav: false`) and reached from in-page links and
 the footer; it remains in the sitemap and ranks on its own terms.
@@ -208,7 +208,24 @@ the footer; it remains in the sitemap and ranks on its own terms.
 Two hubs, each with children:
 
 - `/for-therapists` : `/lpc-supervision`, `/emdr-consultation`, `/retreats-training`
-- `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`, `/associates`
+- `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`, `/equine`, `/associates`
+- `/approach` : `/narm`, `/somatic-experiencing`, `/emdr`, `/ifs-informed-emdr`
+- `/for-therapists` also carries `/ethics-ceus`
+- `/contact` : `/appointment`, `/client-portal`, `/forms`
+- `/blog` : `/healthy-boundaries`
+
+`/approach` is the modality hub and the biggest SEO bet on the site. `narm therapy` is 1,000
+searches a month at KD 15 and the old WordPress NARM page was the only thing on that site that
+ranked, at #16; it had been folded into a single approach page, which is a section competing
+against other people's pages. The four modality pages fix that, and the old `/emdr/`,
+`/somatic-experiencing-se/` and `/narm-.../` URLs now 301 to their exact equivalents rather than
+to a hub.
+
+The appointment form at `/contact/appointment` has no backend, deliberately. The site is static
+and posting a counseling enquiry to a third-party form service is the wrong default, so the form
+composes a `mailto:` in the visitor's own mail client and the visitor decides whether to send
+it. Nothing is transmitted from the page and nothing is stored. Without JavaScript the fields
+still render and a plain mailto link sits beside the submit button.
 
 `/book` is top level and in the nav, which makes the nav eight items. It covers *Effort-less
 Self-Care* and the companion *Reset* journal, and carries the book cover, which is also the
@@ -238,9 +255,9 @@ Neither this container nor the laptop shell can fetch them, because the old doma
 egress allowlist.
 
 `/therapy/associates` is the roster of the six LPC Associates, rebuilt from the old site's
-staff pages. It is the destination the positioning depends on: most client enquiries are meant
+staff pages. It is the destination the positioning depends on: most client inquiries are meant
 to land on an associate, so this page carries each person's fee, sliding-scale floor,
-specialisms and direct contact route rather than a form.
+specialties and direct contact route rather than a form.
 
 The therapy children are the four old WordPress condition pages rebuilt rather than redirected
 into the hub, because they ranked on their own. Each carries the same direct-answer block, fact
@@ -257,7 +274,7 @@ long-tail queries that no service page can reach.
 
 Facts in it were verified against 22 Texas Administrative Code Chapter 681 and BHEC guidance in
 September 2026: §681.92 (3,000 hours, 1,500 direct, 18-month floor, four hours a month, 50%
-group cap), §681.72 (exams, Associate licence, LPC-S eligibility of five years), §681.82 and
+group cap), §681.72 (exams, Associate license, LPC-S eligibility of five years), §681.82 and
 §681.83 (degree and practicum), §681.140 (60-month Associate expiry, 24 CE hours per two-year
 period), §681.147 (the 40-hour supervisor course). The page carries a visible "current as of"
 line and tells readers to verify against BHEC.
@@ -275,7 +292,7 @@ those in from a third-party site.
 
 One inconsistency to settle: that section uses American spelling (`license`, `counselors`)
 because it is the regulated term and the search term, while the rest of the site uses British
-spelling (`licence`, `counselling`). The audience is entirely Texan. Switching the whole site
+spelling (`license`, `counseling`). The audience is entirely Texan. Switching the whole site
 to American spelling is the obvious call, but it touches every page, so it has not been done.
 
 That page also settles the supervision-structure question from the old site. Texas requires a
@@ -290,7 +307,7 @@ hours rather than the four the old page implied.
   therapy Austin".
 - One `h1` per page, headings in a real hierarchy, keyword-bearing but readable.
 - `schema.org` JSON-LD graph on every page: `MedicalBusiness` + `ProfessionalService` for the
-  practice, `Person` for Reem with `hasCredential` entries for the LPC-S licence, EMDRIA
+  practice, `Person` for Reem with `hasCredential` entries for the LPC-S license, EMDRIA
   Approved Consultant, SEP and NARM, `Service` entities with prices for supervision, EMDR
   consultation and therapy, `BreadcrumbList`, `WebPage`, `FAQPage`.
 - `sitemap.xml`, `robots.txt`, canonical URLs, Open Graph and Twitter tags, `geo.region`.
@@ -306,7 +323,7 @@ Answer engines quote pages that state facts plainly and attributably.
 - Every page opens with a direct-answer block: two to four sentences that name the entity, the
   service, the price and the location, so a model can lift a complete answer from the top of
   the page.
-- 122 question-and-answer pairs across the supervision, EMDR, therapy, condition, associate,
+- 166 question-and-answer pairs across the supervision, EMDR, therapy, condition, associate,
   book, portal, forms and FAQ pages,
   each phrased the way someone would actually ask, each mirrored in `FAQPage` markup. Questions
   are kept distinct per page, so no two pages claim the same `Question` node.
@@ -328,7 +345,7 @@ calm but not as cozy; coziness comes from enclosure and warm light, not expanse.
 Dusk blue ground (`#dce3e7`), a deeper blue for alternating bands (`#cbd6dc`), deep indigo
 enclosures (`#1f2d38`), and brass lamplight (`#b08a3c`) held as the one warm accent. Blue alone
 goes clinical, so the brass does the work of keeping it cozy: it appears in the answer-block
-rule, the FAQ markers, the step numbers, the breathing ring, and as the button colour inside the
+rule, the FAQ markers, the step numbers, the breathing ring, and as the button color inside the
 dark bands. Links are deep blue (`#245c79`). A faint SVG paper grain covers everything and a warm
 radial pool of light sits at the top of each page.
 
@@ -359,6 +376,17 @@ else already works offline.
 
 ## Before launch
 
+**Still unanswered, and visible on the pages themselves**
+
+Every outstanding question is rendered as a visible `.note` on the page it belongs to, so none
+can be forgotten in a launch rush. As of 27 October 2026: the five Blue Cross Blue Shield rows
+on `/fees` (in or out of network, which plans, copay, whether associates bill it); the book
+format and page count on `/book`; the supervision structure on
+`/for-therapists/lpc-supervision`; the client equine session fee on `/therapy/equine`; the CEU
+dates, fee and §681.140(f) provider status on `/for-therapists/ethics-ceus`; the six PDFs on
+`/contact/forms`; `portal.url` on `/contact/client-portal`; `phone` on `/contact`; and Reem's
+real portrait on `/about`, which currently shows one of her book watercolors standing in.
+
 **Facts to confirm with Reem**
 
 0. Blue Cross Blue Shield is accepted. The old site said the opposite and that claim has been
@@ -366,12 +394,12 @@ else already works offline.
    of network, which BCBS plans are covered, what a copay looks like, or whether the associates
    bill it too. Those are the four things a prospective client actually asks.
 
-1. The old site says both "4 individual / 1 group per month" (supervision page) and "3
-   individual + 1 group" (2026 supervision page). This build uses three individual plus one
-   group throughout. Confirm which is right, then change it in the one place it appears per
-   page.
+1. Supervision is now four individual hours plus one group hour, five hours a month, per Reem.
+   The old site also said three plus one in one place. The page carries a visible note asking
+   for final confirmation, because the fee framing and the compliance-margin argument both
+   depend on it.
 2. Contact email. The site currently shows `info@findingbalancecounselingpllc.com` because
-   that mailbox is known to work. Once `info@findingbalances.com` exists, change `EMAIL` in
+   that mailbox is known to work. Once `info@reemglascolpc.com` exists, change `EMAIL` in
    `src/_data/site.js`.
 3. There is no phone number anywhere on the old site, only an empty `tel:` link. Add one to
    `src/_data/site.js` and the contact page, or decide deliberately to stay email-only.
@@ -381,8 +409,9 @@ else already works offline.
    on a slug bearing a different person's name, so treat the whole roster as unverified until
    Reem confirms it. Fees and direct contact details were taken from the old pages and each
    associate should approve their own paragraph before launch.
-5. Session length for trail walk therapy. The old site says "1.15-2 hours", which this build
-   reads as 75 minutes to two hours.
+5. Confirmed by Reem: trail walk sessions are 75 minutes to two hours; outdoor confidentiality
+   is maintained as it is indoors; weather means rescheduling rather than pushing through; and
+   in-person sessions are for adults 18 and over.
 
 **Content to supply for the new pages**
 
@@ -440,7 +469,7 @@ consult settles rather than as fixed policy, and whether "adults only" for walk 
 - Claim or update the Google Business Profile for Cedar Park, with the same name, address and
   categories used here.
 - Add the new URL to Psychology Today, the EMDRIA consultant directory and the NARM directory.
-- Post the licensure guide where associates actually are: Texas counselling Facebook groups,
-  university counselling programme listservs, TCA. One useful resource beats ten service posts.
+- Post the licensure guide where associates actually are: Texas counseling Facebook groups,
+  university counseling program listservs, TCA. One useful resource beats ten service posts.
 - Re-check the supervision openings line every term. It is the one sentence on the site with a
   shelf life, and it is quoted in `llms.txt` and the FAQ schema as well as the page.

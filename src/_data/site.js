@@ -1,14 +1,18 @@
 // Everything that repeats across the site lives here. Change a contact detail
 // once and every page, the footer, the JSON-LD and llms.txt follow.
 export default {
-  url: "https://findingbalances.com",
+  url: "https://reemglascolpc.com",
   name: "Finding Balance Counseling",
   legalName: "Finding Balance Counseling PLLC",
   clinician: "Reem Glasco, LPC-S",
 
-  // Swap these two once the findingbalances.com mailboxes are live.
+  // Swap these two once the reemglascolpc.com mailboxes are live.
   email: "info@findingbalancecounselingpllc.com",
   emailSupervision: "reemglasco@gmail.com",
+
+  // Set this and the number appears on the contact page, in the footer and in
+  // the LocalBusiness schema. Empty means the site stays email-only.
+  phone: "",
 
   city: "Cedar Park",
   region: "TX",
@@ -48,7 +52,7 @@ export default {
     { n: 1, key: "space", title: "Find Your Comfortable Space",
       quote: "Comfort is where healing begins.",
       img: "/assets/img/step-1-space.jpg", w: 553, h: 760,
-      alt: "Watercolour of an armchair beside a sunlit window with a small potted plant.",
+      alt: "Watercolor of an armchair beside a sunlit window with a small potted plant.",
       short: "Pause and find a place, indoors or outdoors, that invites calm. Notice how it feels in your body.",
       instruction: "Take a moment to pause and find a place, indoors or outdoors, that inspires a sense of calm and comfort. You may even hold a small piece of nature: a stone, a leaf, a shell. Notice how you feel, but there is no need to change anything.",
       prompts: ["What do I notice about this place?", "How does it feel in my body?", "What made me choose it?"] },
@@ -56,7 +60,7 @@ export default {
     { n: 2, key: "light", title: "Face the Light",
       quote: "Let the sun guide you.",
       img: "/assets/img/step-2-light.jpg", w: 760, h: 760,
-      alt: "Watercolour of a person sitting cross-legged in front of a bright window.",
+      alt: "Watercolor of a person sitting cross-legged in front of a bright window.",
       short: "Face the morning sun, east, a symbol of new beginnings. Picture the light warming your face.",
       instruction: "When sitting, face the morning sun, east. This is not just a direction; it stands for new beginnings. Picture the light warming your face, and feel what arises.",
       prompts: ["What feelings emerge in my body?", "What thoughts or feelings arise?"] },
@@ -64,7 +68,7 @@ export default {
     { n: 3, key: "heart", title: "Return to Your Heart",
       quote: "Come home to your breath.",
       img: "/assets/img/step-3-heart.jpg", w: 506, h: 760,
-      alt: "Watercolour of a person resting one hand on their chest with eyes closed.",
+      alt: "Watercolor of a person resting one hand on their chest with eyes closed.",
       short: "Place your hand on your chest and feel your breath. Do not change it, just notice it.",
       instruction: "Place your hand on your chest and feel your breath. Do not change it, just notice it. Sit like this for about thirty seconds.",
       timer: 30,
@@ -73,7 +77,7 @@ export default {
     { n: 4, key: "breathe", title: "Breathe in Peace, Breathe out Stress",
       quote: "Breathe in fresh air; breathe out stress.",
       img: "/assets/img/step-4-breathe.jpg", w: 506, h: 760,
-      alt: "Watercolour of a person in a blue shirt with a hand on their chest, eyes closed.",
+      alt: "Watercolor of a person in a blue shirt with a hand on their chest, eyes closed.",
       short: "Inhale: I am breathing in fresh air. Exhale: I am breathing out stress. Repeat softly three times.",
       instruction: "With your hand resting on your chest, notice your breath. Say softly on the inhale, \u201cI know I am breathing in fresh air,\u201d and on the exhale, \u201cI know I am breathing out stress.\u201d Repeat three times.",
       breathing: true,
@@ -82,7 +86,7 @@ export default {
     { n: 5, key: "feel", title: "Pause and Feel",
       quote: "Your body speaks. Listen.",
       img: "/assets/img/step-5-feel.jpg", w: 506, h: 760,
-      alt: "Watercolour silhouette of a seated figure against the sea, with points of warm light.",
+      alt: "Watercolor silhouette of a seated figure against the sea, with points of warm light.",
       short: "Scan from head to toe. Observe where you feel tension, pressure or pain, and what your body is telling you.",
       instruction: "Scan your body from head to toe. Observe where you feel tension, pressure or pain. Notice how you feel, but there is no need to change anything.",
       prompts: ["What areas feel tight, heavy, or off?", "What is my body telling me?"] },
@@ -90,16 +94,16 @@ export default {
     { n: 6, key: "name", title: "Gently Name What You Feel",
       quote: "Name it to know it.",
       img: "/assets/img/step-6-name.jpg", w: 760, h: 752,
-      alt: "Watercolour of a person beside four simple faces showing sadness, anger, calm and happiness.",
-      short: "Label the emotion without judgement. Ask what it is trying to tell you, and what sits underneath the story.",
-      instruction: "Identify your feelings, thoughts or sensations. Label the emotion without judgement. Ask: what is this emotion trying to tell me? Without the story, what is underneath?",
+      alt: "Watercolor of a person beside four simple faces showing sadness, anger, calm and happiness.",
+      short: "Label the emotion without judgment. Ask what it is trying to tell you, and what sits underneath the story.",
+      instruction: "Identify your feelings, thoughts or sensations. Label the emotion without judgment. Ask: what is this emotion trying to tell me? Without the story, what is underneath?",
       emotions: true,
       prompts: ["What emotions show up?", "What are they saying?", "Is it guiding me back to breath?"] },
 
     { n: 7, key: "ground", title: "Ground Yourself Through Your Senses",
       quote: "Your senses ground you in the now.",
       img: "/assets/img/step-7-ground.jpg", w: 760, h: 760,
-      alt: "Watercolour of a person sitting outdoors in sunlight among trees.",
+      alt: "Watercolor of a person sitting outdoors in sunlight among trees.",
       short: "Notice what you see, hear, smell, taste and touch. Sit with any positive shift for at least seventeen seconds.",
       instruction: "Remain in your spot, hand on your chest, facing east. Notice: what do you see? Hear? Smell? Taste? Touch? Sit with any positive shifts you feel for at least seventeen seconds.",
       timer: 17,
@@ -114,7 +118,7 @@ export default {
   // pages that state them.
   facts: [
     "LPC Supervisor in Texas since 2009; over 15 years of clinical experience.",
-    "LPC supervision is $425 a month and includes three individual hours and one group hour, online, statewide in Texas.",
+    "LPC supervision is $425 a month and includes four individual hours and one group hour, five hours in total, online, statewide in Texas.",
     "Supervision openings: one in fall 2026 and one in spring 2027. Agency contracts of three months are $500 a month.",
     "EMDRIA Approved Consultant. Individual EMDR consultation is $185, online.",
     "Individual therapy is $240 for a 50-minute online session, self-pay. Blue Cross Blue Shield is accepted; other plans are self-pay.",
@@ -122,7 +126,7 @@ export default {
     "Modalities: IFS-informed EMDR (the clinical focus), Somatic Experiencing (SEP), NARM, EMDR certified with ASSYST, PRECI and IGTP-OTS, Brainspotting, BASE-P.",
     "Optional equine-assisted supervision and mindfulness retreats near Dripping Springs, Texas; equine supervision sessions are $60 each.",
     "Annual mindful trail retreat for interns, associates and licensed therapists, plus periodic ethics CEUs for Texas LPCs.",
-    "The site publishes a free Texas LPC licensure guide: 3,000 supervised hours, 1,500 direct, an 18-month minimum, four supervision hours a month, no more than 50% group, and a 60-month expiry on the LPC Associate licence (22 TAC 681.92).",
+    "The site publishes a free Texas LPC licensure guide: 3,000 supervised hours, 1,500 direct, an 18-month minimum, four supervision hours a month, no more than 50% group, and a 60-month expiry on the LPC Associate license (22 TAC 681.92).",
   ],
 
   // 301s from the WordPress site and from the earlier flat structure. Paths that
@@ -133,9 +137,9 @@ export default {
     ["/group-therapy/", "/for-therapists/lpc-supervision/"],
     ["/emdr-cit-consultation/", "/for-therapists/emdr-consultation/"],
     ["/my-approach-to-therapy/", "/approach/"],
-    ["/narm-neuroaffective-relational-model/", "/approach/"],
-    ["/emdr/", "/approach/"],
-    ["/somatic-experiencing-se/", "/approach/"],
+    ["/narm-neuroaffective-relational-model/", "/approach/narm/"],
+    ["/emdr/", "/approach/emdr/"],
+    ["/somatic-experiencing-se/", "/approach/somatic-experiencing/"],
     ["/services/", "/therapy/"],
     ["/counseling-for-trauma/", "/therapy/trauma/"],
     ["/therapy-for-depression/", "/therapy/depression/"],
@@ -145,12 +149,12 @@ export default {
     ["/rates-insurance/", "/fees/"],
     ["/appointment-request/", "/contact/"],
     ["/client-forms/", "/contact/"],
-    ["/blog/", "/for-therapists/retreats-training/"],
+    ["/how-to-set-healthy-boundaries/", "/blog/healthy-boundaries/"],
     ["/books/", "/book/"],
     // The two blog posts that actually ranked on the old site. Both are about
     // Somatic Experiencing, so they land on the approach page's SE section.
-    ["/exploring-the-science-behind-somatic-experiencing/", "/approach/"],
-    ["/understanding-the-basics-of-somatic-experiencing-therapy/", "/approach/"],
+    ["/exploring-the-science-behind-somatic-experiencing/", "/approach/somatic-experiencing/"],
+    ["/understanding-the-basics-of-somatic-experiencing-therapy/", "/approach/somatic-experiencing/"],
     ["/mental-health-links/", "/faq/"],
     ["/telehealth/", "/therapy/"],
     // Staff pages. Several carry one person's name on another person's slug,
@@ -164,7 +168,7 @@ export default {
     ["/lpc-associate-3/", "/therapy/associates/"],
     ["/dawn-warren/", "/therapy/associates/"],
     ["/coming-soon/", "/therapy/associates/"],
-    // The book and its companion journal.
+    // The book. The old site split it across a books page and two journal posts.
     ["/journal/", "/book/"],
     ["/selfcare-journal/", "/book/"],
     // flat paths from the first build of this site

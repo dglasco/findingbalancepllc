@@ -20,15 +20,20 @@ order: 12
       <dl class="facts">
         <div><dt>Therapy and general</dt><dd><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a></dd></div>
         <div><dt>Supervision applications</dt><dd><a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></dd></div>
+        {%- if site.phone %}
+        <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
+        {%- endif %}
         <div><dt>Based in</dt><dd>Cedar Park, Texas 78613</dd></div>
         <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
         <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
         <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
       </dl>
-      <p class="note">Note for the site build: add the practice phone number here, and set
-      <code>portal.url</code> in <code>src/_data/site.js</code> so the portal buttons go live.
-      Clinical detail should never be collected by a plain web form on this site.</p>
+      <p class="note">Note for the site build: set <code>phone</code> in
+      <code>src/_data/site.js</code> and the number appears here, in the footer and in the
+      business schema; leave it empty and the site stays email-only. Set <code>portal.url</code>
+      the same way to turn on the portal buttons. Clinical detail should never be collected by a
+      plain web form on this site.</p>
     </div>
     <div>
       <h3>What to include</h3>

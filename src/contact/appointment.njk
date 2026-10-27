@@ -1,0 +1,149 @@
+---
+layout: layouts/base.njk
+tags: pages
+title: "Request an Appointment | Finding Balance Counseling"
+description: Request a free consult with Reem Glasco, LPC-S, or one of the practice's LPC Associates. Tell us what you are looking for and when you are free.
+nav: Request an Appointment
+order: 12.3
+priority: 0.8
+script: /assets/js/appointment.js
+---
+<section class="shell band">
+  <h1>Request an appointment</h1>
+  <div class="answer">
+    <p>Fill this in and it opens a prefilled email to the practice, which you send. Nothing is
+    transmitted from this page and nothing is stored on this site. Consults are
+    <strong>free</strong>: fifteen minutes for therapy, thirty for supervision or EMDR
+    consultation. If you would rather just write your own email, the address is
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  </div>
+  <p class="note">Please keep clinical detail out of this form. A few words about what you are
+  looking for is plenty, and the rest belongs in the consult, where it is confidential.</p>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>What you are asking about</h2>
+    <form class="request" data-request novalidate>
+      <p class="prompt">
+        <label for="r-name">Your name</label>
+        <input id="r-name" name="name" type="text" autocomplete="name" required>
+      </p>
+      <p class="prompt">
+        <label for="r-email">Email</label>
+        <input id="r-email" name="email" type="email" autocomplete="email" required>
+      </p>
+      <p class="prompt">
+        <label for="r-phone">Phone, if you would rather be called</label>
+        <input id="r-phone" name="phone" type="tel" autocomplete="tel">
+      </p>
+      <p class="prompt">
+        <label for="r-service">What are you looking for?</label>
+        <select id="r-service" name="service">
+          <option>Therapy with Reem</option>
+          <option>Therapy with an LPC Associate</option>
+          <option>Not sure which, help me work it out</option>
+          <option>Walk and talk or equine therapy</option>
+          <option>LPC supervision</option>
+          <option>EMDR consultation</option>
+          <option>Ethics CEUs, retreats or training</option>
+          <option>Something else</option>
+        </select>
+      </p>
+      <p class="prompt">
+        <label for="r-where">Where in Texas are you?</label>
+        <input id="r-where" name="where" type="text" placeholder="City, or just &ldquo;online is fine&rdquo;">
+      </p>
+      <p class="prompt">
+        <label for="r-when">Two or three times that usually work for you</label>
+        <textarea id="r-when" name="when" rows="2" placeholder="Weekday mornings, or Tuesday and Thursday after 4, or whatever is true"></textarea>
+      </p>
+      <p class="prompt">
+        <label for="r-about">In a sentence or two, what brings you here?</label>
+        <textarea id="r-about" name="about" rows="3" placeholder="A few words is plenty. Save the detail for the consult."></textarea>
+      </p>
+      <p class="saved-hint" data-request-hint aria-live="polite"></p>
+      <div class="cta-row">
+        <button class="cta" type="submit">Open the email, ready to send</button>
+        <a class="cta cta--quiet" href="mailto:{{ site.email }}">Just email instead</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>What happens next</h2>
+      <ol class="steps">
+        <li><strong>Reem reads it and sends times.</strong> Usually within a couple of working
+        days.</li>
+        <li><strong>A free consult.</strong> Fifteen minutes for therapy, thirty for supervision
+        or EMDR consultation, by Zoom or phone.</li>
+        <li><strong>If it is a fit, you get the paperwork.</strong> The
+        <a href="/contact/forms/">five client forms</a> and a first appointment. If it is not a
+        fit, you get a referral rather than a polite brush-off.</li>
+      </ol>
+      <h3>Booking an associate instead</h3>
+      <p>The practice's <a href="/therapy/associates/">LPC Associates</a> each run their own
+      scheduling and billing, and each one has a direct email and phone number on their card.
+      Writing to them directly is faster than going through this form. Fees run $100 to $165 a
+      session with limited sliding-scale places.</p>
+    </div>
+    <div>
+      <h3>Already a client?</h3>
+      <p>Booking, rescheduling and payment all run through the
+      <a href="/contact/client-portal/">client portal</a> rather than this form.</p>
+      <h3>Why this is not a normal web form</h3>
+      <p>Ordinary contact forms post your message to a server somewhere. For a counseling
+      practice that is the wrong default, so this site does not do it: the form builds an email
+      in your own mail app and you decide whether to send it. Nothing reaches a third party, and
+      nothing about you is stored here.</p>
+      <h3>If this is urgent</h3>
+      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
+      Crisis Lifeline, or 911 if you are in immediate danger.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about booking</h2>
+
+  <details>
+    <summary>How long before someone replies?</summary>
+    <div class="answer-body">
+      <p>Usually a couple of working days. Email is the fastest route into the practice, and
+      office hours are by appointment rather than fixed, so a reply may not arrive the same
+      day.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is the consult really free?</summary>
+    <div class="answer-body">
+      <p>Yes, and it commits you to nothing. Fifteen minutes for therapy, thirty for supervision
+      or EMDR consultation. Its purpose is to work out whether this is the right fit, which
+      includes concluding that it is not.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What should I not put in this form?</summary>
+    <div class="answer-body">
+      <p>Clinical detail, diagnoses, and anything you would not want sitting in an ordinary email
+      inbox. A sentence about what you are looking for is all that is needed to get a consult
+      booked.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I request a specific associate?</summary>
+    <div class="answer-body">
+      <p>Yes. Name them in the last box, or write to them directly using the email on their card
+      on the <a href="/therapy/associates/">associates page</a>, which is quicker.</p>
+    </div>
+  </details>
+  {% include "partials/crisis-note.njk" %}
+</section>
+
+{% include "partials/cta-band.njk" %}

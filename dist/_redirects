@@ -3,9 +3,9 @@
 /group-therapy/  /for-therapists/lpc-supervision/  301
 /emdr-cit-consultation/  /for-therapists/emdr-consultation/  301
 /my-approach-to-therapy/  /approach/  301
-/narm-neuroaffective-relational-model/  /approach/  301
-/emdr/  /approach/  301
-/somatic-experiencing-se/  /approach/  301
+/narm-neuroaffective-relational-model/  /approach/narm/  301
+/emdr/  /approach/emdr/  301
+/somatic-experiencing-se/  /approach/somatic-experiencing/  301
 /services/  /therapy/  301
 /counseling-for-trauma/  /therapy/trauma/  301
 /therapy-for-depression/  /therapy/depression/  301
@@ -15,10 +15,10 @@
 /rates-insurance/  /fees/  301
 /appointment-request/  /contact/  301
 /client-forms/  /contact/  301
-/blog/  /for-therapists/retreats-training/  301
+/how-to-set-healthy-boundaries/  /blog/healthy-boundaries/  301
 /books/  /book/  301
-/exploring-the-science-behind-somatic-experiencing/  /approach/  301
-/understanding-the-basics-of-somatic-experiencing-therapy/  /approach/  301
+/exploring-the-science-behind-somatic-experiencing/  /approach/somatic-experiencing/  301
+/understanding-the-basics-of-somatic-experiencing-therapy/  /approach/somatic-experiencing/  301
 /mental-health-links/  /faq/  301
 /telehealth/  /therapy/  301
 /staff-2-2/  /therapy/associates/  301
