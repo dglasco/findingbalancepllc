@@ -16,9 +16,16 @@
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
+{%- if image %}
+<meta property="og:image" content="{{ site.url }}{{ image }}">
+<meta property="og:image:alt" content="{{ title }}">
+{%- endif %}
+<meta name="twitter:card" content="{% if image %}summary_large_image{% else %}summary{% endif %}">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description }}">
+{%- if image %}
+<meta name="twitter:image" content="{{ site.url }}{{ image }}">
+{%- endif %}
 <meta name="geo.region" content="US-TX">
 <meta name="geo.placename" content="{{ site.city }}, Texas">
 <link rel="preconnect" href="https://fonts.googleapis.com">

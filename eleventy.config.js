@@ -216,6 +216,13 @@ export default function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
   });
 
+  // True when the asset exists in src/. The client-forms page uses it so a PDF
+  // that has not been copied over from the old WordPress site yet degrades to a
+  // "request it by email" line rather than shipping a 404.
+  eleventyConfig.addFilter("assetExists", (url) =>
+    fs.existsSync("src" + url)
+  );
+
   // Used by the single-file preview to inline the stylesheet and script.
   eleventyConfig.addFilter("readFile", (path) => fs.readFileSync(path, "utf8"));
 

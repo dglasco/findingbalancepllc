@@ -251,6 +251,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
   border-radius: 2px;
 }
 
+/* Book cover. Sits in the aside column of a .split--aside on the book page. */
+.cover {
+  width: 100%;
+  max-width: 16rem;
+  margin: 0 auto;
+  border-radius: calc(var(--radius) / 1.5);
+  box-shadow: 0 18px 44px -20px rgba(31, 45, 56, 0.55);
+}
+
 .steps { counter-reset: step; list-style: none; padding: 0; margin: 0 0 1.5rem; }
 .steps > li { counter-increment: step; position: relative; padding-left: 2.8rem; margin-bottom: 1.4rem; }
 .steps > li::before {
@@ -448,6 +457,7 @@ a[data-page] { cursor: pointer; }
         <li><a data-page="texas-lpc-licensure" role="link" tabindex="0">Licensure Guide</a></li>
         <li><a data-page="therapy" role="link" tabindex="0">Therapy</a></li>
         <li><a data-page="about" role="link" tabindex="0">About</a></li>
+        <li><a data-page="book" role="link" tabindex="0">The Book</a></li>
         <li><a data-page="fees" role="link" tabindex="0">Fees</a></li>
         <li><a data-page="faq" role="link" tabindex="0">FAQ</a></li>
         <li><a data-page="contact" role="link" tabindex="0">Contact</a></li>
@@ -483,7 +493,7 @@ a[data-page] { cursor: pointer; }
         <path d="M18 292 C 80 274, 130 288, 190 274 C 238 263, 262 278, 282 272 L282 330 L18 330 Z" fill="#1f2d38" opacity="0.52"/>
         <g fill="none" stroke="#1f2d38" stroke-width="6">
           <path d="M18 330 L18 150 A132 132 0 0 1 282 150 L282 330"/>
-          <path d="M150 42 L150 330"/>
+          <path d="M150 18 L150 330"/>
           <path d="M18 240 L282 240"/>
         </g>
         <rect x="4" y="330" width="292" height="14" rx="4" fill="#1f2d38"/>
@@ -1623,7 +1633,8 @@ a[data-page] { cursor: pointer; }
   <div class="answer">
     <p>Reem Glasco, LPC-S, sees a small number of adults and young adults for developmental
     trauma, C-PTSD, anxiety, panic attacks, depression, procrastination and life transitions.
-    Sessions are 50 minutes at <strong>$240</strong>, online anywhere in Texas, private pay.
+    Sessions are 50 minutes at <strong>$240</strong> self-pay, online anywhere in Texas, with
+    Blue Cross Blue Shield accepted.
     Because her caseload is limited by her supervision and consultation work, most new clients
     are seen by the practice's <strong>LPC Associates</strong>, who have openings including at
     sliding-scale fees. Trail walk sessions are available in person in central Texas for adults
@@ -1659,6 +1670,11 @@ a[data-page] { cursor: pointer; }
         <h3>Walk and talk therapy</h3>
         <p>Outside, side by side rather than across a room. Fridays in central Texas, adults
         only, $240 to $370.</p>
+      </a>
+      <a data-page="therapy--associates" role="link" tabindex="0">
+        <h3>Our LPC Associates</h3>
+        <p>Six counsellors supervised by Reem, $100 to $165 a session with sliding-scale places
+        and sooner openings.</p>
       </a>
     </div>
     <p><a data-page="approach" role="link" tabindex="0">How IFS-informed EMDR, Somatic Experiencing and NARM fit
@@ -1700,8 +1716,8 @@ a[data-page] { cursor: pointer; }
         </tr>
         <tr>
           <td>Online, anywhere in Texas</td>
-          <td>An LPC Associate, supervised by Reem</td>
-          <td>Lower, including sliding scale</td>
+          <td><a data-page="therapy--associates" role="link" tabindex="0">An LPC Associate</a>, supervised by Reem</td>
+          <td>$100 to $165, sliding scale from $70</td>
           <td>50 minutes</td>
         </tr>
         <tr>
@@ -1731,13 +1747,13 @@ a[data-page] { cursor: pointer; }
     <div class="pathways">
       <a data-page="contact" role="link" tabindex="0">
         <h3>Working with Reem</h3>
-        <p>$240 for 50 minutes, private pay, online across Texas. Limited openings. Best fit for
+        <p>$240 for 50 minutes self-pay, online across Texas. Limited openings. Best fit for
         complex developmental trauma and stalled EMDR.</p>
       </a>
-      <a data-page="contact" role="link" tabindex="0">
+      <a data-page="therapy--associates" role="link" tabindex="0">
         <h3>Working with an associate</h3>
-        <p>Lower fees, including sliding scale, and sooner availability. Supervised by Reem, so
-        the clinical approach is the same lineage.</p>
+        <p>Six LPC Associates, $100 to $165 a session with sliding-scale places, and sooner
+        availability. Supervised by Reem, so the clinical approach is the same lineage.</p>
       </a>
       <a data-page="contact" role="link" tabindex="0">
         <h3>Not sure which</h3>
@@ -1745,9 +1761,8 @@ a[data-page] { cursor: pointer; }
         point, here or elsewhere.</p>
       </a>
     </div>
-    <p class="note">Note for the site build: confirm the current associate roster, then replace
-    the associate card with individual associate profiles showing each one's fee, specialisms and
-    direct contact route.</p>
+    <p><a data-page="therapy--associates" role="link" tabindex="0">Meet the associates, with fees and direct contact for
+    each</a></p>
   </div>
 </section>
 
@@ -1757,7 +1772,7 @@ a[data-page] { cursor: pointer; }
   <details>
     <summary>How much does a therapy session cost?</summary>
     <div class="answer-body">
-      <p>$240 for a 50-minute online session with Reem, private pay. Trail walk and movement
+      <p>$240 for a 50-minute online session with Reem, self-pay. Trail walk and movement
       sessions are $240 to $370 depending on length. The practice's LPC Associates see clients
       at lower fees, including sliding scale.</p>
     </div>
@@ -1766,9 +1781,9 @@ a[data-page] { cursor: pointer; }
   <details>
     <summary>Do you take insurance?</summary>
     <div class="answer-body">
-      <p>The practice is private pay and is not accepting new Blue Cross Blue Shield clients.
-      Payment is by major credit card. If you plan to seek out-of-network reimbursement, raise
-      it in the consult so you know what documentation to expect.</p>
+      <p>Blue Cross Blue Shield is accepted. Sessions under any other plan are self-pay, by
+      major credit card. If you plan to seek out-of-network reimbursement from another insurer,
+      raise it in the consult so you know what documentation to expect.</p>
     </div>
   </details>
 
@@ -1833,7 +1848,7 @@ a[data-page] { cursor: pointer; }
     patterns that formed early, before you had words or choices, and the ones still forming
     now. The working lens is IFS-informed EMDR, Somatic Experiencing and NARM rather than
     talking about it again. Sessions are 50 minutes at <strong>$240</strong>, online anywhere
-    in Texas, private pay. Because her caseload is small, many new clients start with one of
+    in Texas. Because her caseload is small, many new clients start with one of
     the practice's <strong>LPC Associates</strong>, who have openings and lower fees.</p>
   </div>
   <div class="cta-row">
@@ -1847,7 +1862,7 @@ a[data-page] { cursor: pointer; }
     <h2>The arrangement, in numbers</h2>
     <dl class="facts">
       <div><dt>What this page covers</dt><dd>Developmental trauma, C-PTSD and PTSD, including trauma that is ongoing rather than finished</dd></div>
-      <div><dt>Session</dt><dd>50 minutes, $240 with Reem, private pay</dd></div>
+      <div><dt>Session</dt><dd>50 minutes, $240 with Reem self-pay, Blue Cross Blue Shield accepted</dd></div>
       <div><dt>Format</dt><dd>Online, anywhere in Texas</dd></div>
       <div><dt>Methods</dt><dd>IFS-informed EMDR, Somatic Experiencing, NARM, Brainspotting</dd></div>
       <div><dt>Who it is for</dt><dd>Adults and young adults, including college age. Not young children.</dd></div>
@@ -1926,8 +1941,8 @@ a[data-page] { cursor: pointer; }
       </a>
       <a data-page="fees" role="link" tabindex="0">
         <h3>Fees and payment</h3>
-        <p>$240 for 50 minutes with Reem, private pay, associates lower. What insurance does
-        and does not cover here.</p>
+        <p>$240 for 50 minutes with Reem self-pay, associates lower. What Blue Cross Blue Shield
+        covers, and what it does not.</p>
       </a>
     </div>
   </div>
@@ -2020,7 +2035,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     <p>Reem Glasco, LPC-S, works with <strong>anxiety, panic attacks and social anxiety</strong>
     in adults and young adults across Texas. The approach is body-first: Somatic Experiencing,
     NARM and IFS-informed EMDR, because a braced nervous system rarely argues itself into
-    calm. Sessions are 50 minutes at <strong>$240</strong>, online, private pay. The practice's
+    calm. Sessions are 50 minutes at <strong>$240</strong>, online. The practice's
     <strong>LPC Associates</strong> see clients at lower fees, including sliding scale, and
     usually sooner.</p>
   </div>
@@ -2035,7 +2050,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     <h2>The arrangement, in numbers</h2>
     <dl class="facts">
       <div><dt>What this page covers</dt><dd>Generalised anxiety, panic attacks, social anxiety, and a body that stays braced when nothing is happening</dd></div>
-      <div><dt>Session</dt><dd>50 minutes, $240 with Reem, private pay</dd></div>
+      <div><dt>Session</dt><dd>50 minutes, $240 with Reem self-pay, Blue Cross Blue Shield accepted</dd></div>
       <div><dt>Format</dt><dd>Online, anywhere in Texas</dd></div>
       <div><dt>Methods</dt><dd>Somatic Experiencing, NARM, IFS-informed EMDR, Brainspotting</dd></div>
       <div><dt>Who it is for</dt><dd>Adults and young adults, including college age. Not young children.</dd></div>
@@ -2109,8 +2124,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       </a>
       <a data-page="fees" role="link" tabindex="0">
         <h3>Fees and payment</h3>
-        <p>$240 for 50 minutes with Reem, private pay, associates lower. What insurance does
-        and does not cover here.</p>
+        <p>$240 for 50 minutes with Reem self-pay, associates lower. What Blue Cross Blue Shield
+        covers, and what it does not.</p>
       </a>
     </div>
   </div>
@@ -2204,7 +2219,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     that does not respond to discipline</strong> in adults and young adults across Texas.
     Depression is treated as an adaptation with a history rather than a mood to be argued with,
     using NARM, Somatic Experiencing and IFS-informed EMDR. Sessions are 50 minutes at
-    <strong>$240</strong>, online, private pay. The practice's <strong>LPC Associates</strong>
+    <strong>$240</strong>, online. The practice's <strong>LPC Associates</strong>
     see clients at lower fees, including sliding scale.</p>
   </div>
   <div class="cta-row">
@@ -2218,7 +2233,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     <h2>The arrangement, in numbers</h2>
     <dl class="facts">
       <div><dt>What this page covers</dt><dd>Depression, flatness and numbness, procrastination, and a sense that something is off you cannot point at</dd></div>
-      <div><dt>Session</dt><dd>50 minutes, $240 with Reem, private pay</dd></div>
+      <div><dt>Session</dt><dd>50 minutes, $240 with Reem self-pay, Blue Cross Blue Shield accepted</dd></div>
       <div><dt>Format</dt><dd>Online, anywhere in Texas</dd></div>
       <div><dt>Methods</dt><dd>NARM, Somatic Experiencing, IFS-informed EMDR, Brainspotting</dd></div>
       <div><dt>Who it is for</dt><dd>Adults and young adults, including college age. Not young children.</dd></div>
@@ -2297,8 +2312,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       </a>
       <a data-page="fees" role="link" tabindex="0">
         <h3>Fees and payment</h3>
-        <p>$240 for 50 minutes with Reem, private pay, associates lower. What insurance does
-        and does not cover here.</p>
+        <p>$240 for 50 minutes with Reem self-pay, associates lower. What Blue Cross Blue Shield
+        covers, and what it does not.</p>
       </a>
     </div>
   </div>
@@ -2528,6 +2543,273 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       <p>No. Trail walk, movement and equine sessions are for adults only. The practice sees
       adults and young adults, including college-age clients, and does not work with young
       children.</p>
+    </div>
+  </details>
+  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
+text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Start with a conversation</h2>
+    <p>Therapy consults are fifteen minutes. Supervision and EMDR consultation consults are
+    thirty. Both are free and commit you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+      <a class="cta cta--quiet" href="mailto:reemglasco@gmail.com">Email Reem</a>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div class="page" id="therapy--associates" hidden>
+  <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Associates</nav>
+  <section class="shell band">
+  <h1>Our LPC Associates</h1>
+  <div class="answer">
+    <p>Finding Balance Counseling works as a supervised practice. Alongside Reem Glasco, LPC-S,
+    a group of <strong>LPC Associates</strong> sees clients under her supervision, which means
+    the same clinical lineage at <strong>lower fees and sooner availability</strong>. Sessions
+    run <strong>$100 to $165</strong> for 50 minutes depending on the associate, and most hold
+    a limited number of <strong>sliding-scale places from $70</strong>. Most work online across
+    Texas; one also sees clients in person in Austin. Every associate offers a free consultation
+    first.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Ask which associate fits</a>
+    <a class="cta cta--quiet" data-page="therapy" role="link" tabindex="0">All therapy options</a>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>At a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>All associates are LPC Associates in Texas, supervised by Reem Glasco, LPC-S.</caption>
+        <thead>
+          <tr><th>Associate</th><th>Works with</th><th>Fee, 50 minutes</th><th>Sliding scale</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nica Ayala, M.A.</td>
+            <td>Adults 25 to 55: anxiety, stress, relationships, identity, nature-based work</td>
+            <td>$100</td>
+            <td>Limited places at $70</td>
+          </tr>
+          <tr>
+            <td>Sylvia Earl</td>
+            <td>Grief, emotional dysregulation, symptoms rooted in past experience. English and Spanish.</td>
+            <td>$125</td>
+            <td>Limited places from $75</td>
+          </tr>
+          <tr>
+            <td>Natasha Mahesh</td>
+            <td>Adult children of dysfunctional families, attachment patterns, self-worth, boundaries</td>
+            <td>$130, or $150 couples and family</td>
+            <td>Limited places from $100</td>
+          </tr>
+          <tr>
+            <td>Sheila Singh</td>
+            <td>Identity, belonging and cultural stress, anxiety, grief, trauma. Individuals and couples.</td>
+            <td>$145, or $165 couples</td>
+            <td>Limited places at $75</td>
+          </tr>
+          <tr>
+            <td>Heather Johnston</td>
+            <td>Anxiety, depression, trauma, parenting, career, self-esteem, emotional regulation</td>
+            <td>$150</td>
+            <td>Not published</td>
+          </tr>
+          <tr>
+            <td>Emmy Laursen</td>
+            <td>Mindfulness, parts work, somatic exploration, psychedelic integration</td>
+            <td>Ask in the consult</td>
+            <td>Ask in the consult</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>For comparison, a 50-minute session with <a data-page="therapy" role="link" tabindex="0">Reem</a> is $240, and her
+    caseload is small because of her supervision and consultation work. The associates are not
+    the budget option so much as the available one.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>The associates</h2>
+
+  <div class="cards">
+    <div>
+      <h3>Nica Ayala, M.A., LPC Associate</h3>
+      <p>Works with individual adults roughly 25 to 55 who feel drained or overwhelmed, want
+      change without knowing the shape of it, or hold values that differ from the people around
+      them. Curious and warm, with the client setting the direction. Describes herself as
+      sex-positive, shame-free about addiction, and an LGBTQIA+ ally, and offers nature-based
+      sessions. Pronouns she/her.</p>
+      <p><strong>$100</strong> per 50 minutes, limited sliding-scale places at $70. Free
+      15-minute consultation.<br>
+      <a href="mailto:NicaAyala1986@gmail.com">NicaAyala1986@gmail.com</a> &middot;
+      (737) 242-0882</p>
+    </div>
+
+    <div>
+      <h3>Sylvia Earl, LPC Associate</h3>
+      <p>M.A. in Counseling from St. Edward's University, with an internship completed at Austin
+      State Hospital. Works with grief, emotional dysregulation, and symptoms whose roots sit in
+      earlier experience, drawing on DBT, CBT, narrative work and EMDR principles. Bilingual in
+      English and Spanish.</p>
+      <p><strong>$125</strong> per 50 minutes, limited sliding-scale places from $75. Free
+      15-minute consultation.<br>
+      <a href="mailto:Info@sylviaearlcounseling.com">Info@sylviaearlcounseling.com</a> &middot;
+      (737) 326-1838</p>
+    </div>
+
+    <div>
+      <h3>Natasha Mahesh, LPC Associate</h3>
+      <p>Works with adult children of dysfunctional families, including people who grew up with
+      neglect or abuse, on anxious and avoidant attachment patterns, self-worth and boundaries.
+      Also sees couples and families. Her framing: healing is the end of conflict with
+      yourself.</p>
+      <p><strong>$130</strong> per 50 minutes, <strong>$150</strong> for couples or family,
+      limited sliding-scale places from $100. Free 15-minute consultation.<br>
+      <a href="mailto:natasha.cmhc@gmail.com">natasha.cmhc@gmail.com</a> &middot;
+      (510) 877-0898</p>
+    </div>
+
+    <div>
+      <h3>Sheila Singh, LPC Associate</h3>
+      <p>Works with individuals and couples on identity, belonging and cultural stress, anxiety,
+      grief, exhaustion, family strain, and trauma both complex and single-event. A
+      first-generation Indian American therapist who works with clients balancing family
+      expectations against their own path. Culturally responsive and trauma-informed, combining
+      Somatic Experiencing, parts work and attachment-based approaches, shaped by more than
+      twenty years practising and teaching yoga and meditation. In person in Austin and by
+      telehealth across Texas.</p>
+      <p><strong>$145</strong> per 50 minutes, <strong>$165</strong> for couples, sliding-scale
+      places at $75. Free 15-minute consultation.<br>
+      <a href="mailto:sheila@beaconcounselingatx.com">sheila@beaconcounselingatx.com</a> &middot;
+      (512) 537-3352</p>
+    </div>
+
+    <div>
+      <h3>Heather Johnston, LPC Associate</h3>
+      <p>Works with anxiety, depression, trauma, relationship and family concerns, parenting,
+      career challenges, self-esteem and emotional regulation, with an integrative
+      trauma-informed approach. Experience spans inpatient psychiatric work at Austin State
+      Hospital and outpatient settings, and a prior corporate and law-firm career that informs
+      her work with clients under professional pressure. Sees adults across cultures,
+      ethnicities, religions and backgrounds, and is an LGBTQIA+ ally.</p>
+      <p><strong>$150</strong> per 50 minutes. Free 20-minute consultation.<br>
+      <a href="mailto:info@illumination-psychotherapy.com">info@illumination-psychotherapy.com</a>
+      &middot; (512) 537-0614</p>
+    </div>
+
+    <div>
+      <h3>Emmy Laursen, LPC Associate</h3>
+      <p>M.Ed. in Clinical Mental Health Counseling from Adams State University, with an
+      undergraduate degree in Studio Art from UT Austin and practicum and internship hours
+      through Capital Area Counseling. Combines parts work with mindfulness and somatic
+      exploration, and works with psychedelic integration. Her view is that therapy is less
+      about fixing than about making a safe place to explore what the body already knows, with
+      the client as the guide.</p>
+      <p>Fees by consultation.<br>
+      <a href="https://www.facingeasttherapy.com">facingeasttherapy.com</a></p>
+    </div>
+  </div>
+
+  <p class="note">Note for the site build: confirm this roster with Reem before launch. It was
+  rebuilt from the old site, where several associate pages carry one person's name on another
+  person's URL and three are still placeholders, so fees and contact routes need checking
+  against what each associate currently publishes. Each associate should approve their own
+  paragraph.</p>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>How to choose</h2>
+    <div class="split">
+      <div>
+        <p>Availability and fee decide it more often than specialism does. If you already know
+        what you are bringing, the table above points at one or two people. If you do not, say
+        what is going on in a few sentences through the contact page and you will be pointed at
+        the right fit rather than left to guess.</p>
+        <p>You can also write to an associate directly. Every one of them offers a free
+        consultation first, which exists precisely so that neither of you commits to a poor
+        match.</p>
+      </div>
+      <div>
+        <h3>What supervision means for you</h3>
+        <p>An LPC Associate in Texas is fully qualified and licensed to practise, and is
+        completing the 3,000 supervised hours the state requires before full licensure. Their
+        work is reviewed every month by a Council-approved supervisor, which here means Reem.</p>
+        <p>In practice that means a second experienced clinician is thinking about your case
+        alongside the person in the room. <a data-page="texas-lpc-licensure" role="link" tabindex="0">The licensure guide
+        explains the requirement in full.</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about seeing an associate</h2>
+
+  <details>
+    <summary>What is an LPC Associate?</summary>
+    <div class="answer-body">
+      <p>A counsellor who has finished a master's degree, passed the required exams and holds a
+      Texas LPC Associate licence, and is completing 3,000 supervised hours toward full
+      licensure. It is a licence to practise, not a trainee status, and the work is supervised
+      monthly by a Council-approved supervisor.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How much does it cost to see an associate?</summary>
+    <div class="answer-body">
+      <p>$100 to $150 for a 50-minute individual session depending on the associate, and $150 to
+      $165 for couples or family sessions. Most hold a limited number of sliding-scale places,
+      starting at $70. Sessions with Reem herself are $240.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do the associates have sooner availability than Reem?</summary>
+    <div class="answer-body">
+      <p>Usually yes, and that is the main reason to start here. Reem keeps a small therapy
+      caseload alongside supervising associates and consulting on EMDR, so her openings are
+      limited and often waitlisted.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is therapy with an associate as good?</summary>
+    <div class="answer-body">
+      <p>It is different rather than lesser. An associate is earlier in their career and brings
+      more open attention and a supervisor reviewing the work each month. Reem brings fifteen
+      years and a particular depth in developmental trauma and stalled EMDR. For complex
+      developmental trauma she is the better fit; for most other presentations an associate is a
+      good one.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I see an associate in person?</summary>
+    <div class="answer-body">
+      <p>Sheila Singh sees clients in person in Austin as well as by telehealth. The others work
+      online across Texas. Trail walk and equine sessions are offered by Reem rather than the
+      associates.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do associates offer couples or family therapy?</summary>
+    <div class="answer-body">
+      <p>Yes. Natasha Mahesh sees couples and families at $150 for 50 minutes, and Sheila Singh
+      sees couples at $165. Reem's own caseload is individual therapy.</p>
     </div>
   </details>
   <p class="note">This practice does not provide emergency care. If you are in crisis, call or
@@ -2812,21 +3094,210 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
 </section>
 
 </div>
+<div class="page" id="book" hidden>
+  <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / The Book</nav>
+  <section class="shell band">
+  <p class="eyebrow">A book by Reem Glasco, LPC-S</p>
+  <h1>Effort-less Self-Care</h1>
+  <div class="split split--aside">
+    <div>
+      <div class="answer">
+        <p><strong>Effort-less Self-Care: 7 Easy Steps to Calm and Connection</strong> is a short
+        daily practice, written by Reem Glasco, LPC-S, for anyone who has been told to look after
+        themselves and found the instruction useless. It takes a few minutes. There is nothing to
+        fix, nothing to achieve, and no way to do it wrong: you sit, you notice what your body is
+        doing, and you name what you find. A companion journal, <strong>Reset: 7 Effortless
+        Self-Care Practices to Cultivate Calm and Connection</strong>, carries the same seven
+        practices with space to write.</p>
+      </div>
+      <div class="cta-row">
+        <a class="cta" href="https://www.barnesandnoble.com/w/effortless-self-care-reem-glasco/1149690519">Find it on Barnes &amp; Noble</a>
+        <a class="cta cta--quiet" data-page="therapy" role="link" tabindex="0">Work with Reem</a>
+      </div>
+      <p class="note">Note for the site build: confirm whether the book and the <em>Reset</em>
+      journal are one product or two, and add the price and format once known. The old site's
+      books page gave neither.</p>
+    </div>
+    <div>
+      <img class="cover" src="/assets/img/effortless-self-care-cover.jpg" width="600" height="900"
+       alt="Cover of Effort-less Self-Care by Reem Glasco, LPC-S: a watercolour armchair beside a window and a small potted plant.">
+    </div>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">What it asks of you</p>
+    <h2>Noticing, not fixing</h2>
+    <div class="split">
+      <div>
+        <p>Most self-care advice is a list of things to add to a day that is already full. This
+        is the opposite: a practice built on the assumption that your body has been reporting
+        its state all along and nobody taught you to read it.</p>
+        <p>The seven steps are the clinical work Reem does with clients, reduced to something
+        you can do alone in a chair. They come out of the same lineage as the therapy:
+        <a data-page="approach" role="link" tabindex="0">Somatic Experiencing, NARM and IFS-informed EMDR</a>, which all
+        start from sensation rather than analysis.</p>
+      </div>
+      <div>
+        <p>It is not therapy and does not pretend to be. It is a way to arrive at therapy, or at
+        the rest of your day, with better information about what is actually going on.</p>
+        <p class="quote-band">&ldquo;Be gentle with yourself. Just breathe.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>The seven steps</h2>
+  <ol class="steps">
+    <li><strong>Find your comfortable space.</strong> Indoors or out, somewhere that invites
+    calm. You might hold a stone, a leaf, a shell. Notice how you feel, and change nothing.
+    <em>Comfort is where healing begins.</em></li>
+
+    <li><strong>Face the light.</strong> Sit facing east, toward the morning sun. The direction
+    is doing symbolic work as much as practical: new beginnings. Picture the light on your face.
+    <em>Let the sun guide you.</em></li>
+
+    <li><strong>Return to your heart.</strong> Hand on your chest, feel your breath without
+    altering it, for about thirty seconds. <em>Come home to your breath.</em></li>
+
+    <li><strong>Breathe in peace, breathe out stress.</strong> Hand still resting there, say
+    softly on the inhale, &ldquo;I know I am breathing in fresh air,&rdquo; and on the exhale,
+    &ldquo;I know I am breathing out stress.&rdquo; Three times.
+    <em>Breathe in fresh air; breathe out stress.</em></li>
+
+    <li><strong>Pause and feel.</strong> Scan from head to toe. Find the tension, the pressure,
+    the ache. Note it; do not fix it. <em>Your body speaks. Listen.</em></li>
+
+    <li><strong>Gently name what you feel.</strong> Label the emotion without judgement, then
+    ask what it is trying to tell you, and what is underneath it once the story is set aside.
+    <em>Name it to know it.</em></li>
+
+    <li><strong>Ground yourself through your senses.</strong> Still in your spot, hand on your
+    chest, facing east: what do you see, hear, smell, taste, touch? Sit with any shift you feel
+    for at least seventeen seconds. <em>Your senses ground you in the now.</em></li>
+  </ol>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <p class="eyebrow">Final reflection</p>
+    <h2>Just breathe</h2>
+    <p>You sat back and observed your inner and outer world, not to fix or analyse it, but
+    simply to notice it. Your breath is always with you: your silent guide.</p>
+    <p class="quote-band">&ldquo;You are learning to listen.&rdquo;</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <h2>Who it is for</h2>
+  <div class="pathways">
+    <a data-page="therapy" role="link" tabindex="0">
+      <h3>People in or near therapy</h3>
+      <p>Something to do between sessions that builds the same capacity the work builds, without
+      asking you to process anything alone.</p>
+    </a>
+    <a data-page="for-therapists" role="link" tabindex="0">
+      <h3>Therapists and healers</h3>
+      <p>The <em>Reset</em> journal is written with clinicians in mind: the people who teach
+      regulation all day and practise it least.</p>
+    </a>
+    <a data-page="for-therapists--retreats-training" role="link" tabindex="0">
+      <h3>Retreat and training groups</h3>
+      <p>The seven steps are the backbone of the mindful trail retreat, where they are practised
+      outdoors rather than in a chair.</p>
+    </a>
+    <a data-page="approach" role="link" tabindex="0">
+      <h3>Anyone curious about the method</h3>
+      <p>Where the steps come from: NARM, Somatic Experiencing and IFS-informed EMDR, explained
+      in plain language.</p>
+    </a>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about the book</h2>
+
+  <details>
+    <summary>Where can I buy Effort-less Self-Care?</summary>
+    <div class="answer-body">
+      <p>Through <a href="https://www.barnesandnoble.com/w/effortless-self-care-reem-glasco/1149690519">Barnes
+      &amp; Noble</a>. It is written by Reem Glasco, LPC-S, a Licensed Professional Counselor
+      Supervisor in Texas.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is the difference between the book and the Reset journal?</summary>
+    <div class="answer-body">
+      <p><em>Effort-less Self-Care: 7 Easy Steps to Calm and Connection</em> sets out the
+      practice. <em>Reset: 7 Effortless Self-Care Practices to Cultivate Calm and Connection</em>
+      is the self-paced journal that carries the same seven practices with prompts and space to
+      write, aimed particularly at therapists and healers.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How long does the practice take?</summary>
+    <div class="answer-body">
+      <p>A few minutes. Two of the steps have a built-in pause, thirty seconds with a hand on
+      your chest and seventeen seconds of sensory grounding, and the rest take as long as you
+      want to give them. It is designed to survive a bad morning.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is this a substitute for therapy?</summary>
+    <div class="answer-body">
+      <p>No. It is a daily noticing practice, not treatment, and it is not a crisis resource. If
+      something it surfaces needs more than a journal, that is useful information and a good
+      reason to <a data-page="contact" role="link" tabindex="0">book a consult</a>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I need to have read it to work with Reem?</summary>
+    <div class="answer-body">
+      <p>Not at all. Clients and supervisees come to the practice without ever having seen it.
+      The book exists for the people who want something to do on their own.</p>
+    </div>
+  </details>
+  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
+text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Start with a conversation</h2>
+    <p>Therapy consults are fifteen minutes. Supervision and EMDR consultation consults are
+    thirty. Both are free and commit you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+      <a class="cta cta--quiet" href="mailto:reemglasco@gmail.com">Email Reem</a>
+    </div>
+  </div>
+</section>
+
+
+</div>
 <div class="page" id="fees" hidden>
   <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Fees</nav>
   <section class="shell band">
   <h1>Fees and policies</h1>
   <div class="answer">
-    <p>Individual therapy is <strong>$240</strong> for a 50-minute online session, private pay.
+    <p>Individual therapy is <strong>$240</strong> for a 50-minute online session, self-pay.
     Trail walk and movement therapy is <strong>$240 to $370</strong> depending on session
     length. LPC supervision is <strong>$425 a month</strong>. EMDR consultation is
-    <strong>$185</strong> an hour. The practice is not accepting new Blue Cross Blue Shield
+    <strong>$185</strong> an hour. <strong>Blue Cross Blue Shield is accepted</strong>; other
     clients, and major credit cards are the accepted form of payment.</p>
   </div>
 
   <h2>Everything in one place</h2>
   <dl class="facts">
-    <div><dt>Individual therapy</dt><dd>$240 per 50-minute session, online, private pay</dd></div>
+    <div><dt>Individual therapy</dt><dd>$240 per 50-minute session, online, self-pay; Blue Cross Blue Shield accepted</dd></div>
     <div><dt>Trail walk and movement therapy</dt><dd>$240 to $370 for a session of roughly 75 minutes to two hours, in person in Texas, adults only</dd></div>
     <div><dt>Equine sessions</dt><dd>Additional fees apply; location Dripping Springs, Texas</dd></div>
     <div><dt>LPC supervision</dt><dd>$425 a month, including three individual hours and one group hour</dd></div>
@@ -2844,15 +3315,24 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
 <section class="band band--sand">
   <div class="shell">
     <h2>Insurance</h2>
-    <p>Sessions with Reem are private pay. The practice is not accepting new Blue Cross Blue
-    Shield clients. If you plan to seek out-of-network reimbursement, raise it during the
-    consult so you know what documentation to expect.</p>
+    <p><strong>Blue Cross Blue Shield is accepted.</strong> Sessions under any other plan are
+    self-pay. If you plan to seek out-of-network reimbursement from another insurer, raise it
+    during the consult so you know what documentation to expect.</p>
+    <p class="note">Note for the site build: confirm the Blue Cross Blue Shield detail before
+    launch. This page does not yet say whether the practice is in network or out of network,
+    which BCBS plans are covered, what a copay looks like, or whether the associates bill it
+    too. Those are the four things a prospective client actually asks.</p>
 
     <h2>Cancellation</h2>
     <p>For telehealth appointments, cancel at least 24 hours ahead or you may be charged an $85
     fee for the session.</p>
     <p>In-person walk therapy must be paid in advance to hold the spot, and there are no refunds
     for cancellations inside 48 hours.</p>
+
+    <h2>Where you have to be</h2>
+    <p>A Texas licence covers clients located in Texas, so both you and your therapist must be
+    physically in the state during a telehealth session. Tell your therapist in advance if you
+    will be travelling and the appointment can be moved rather than cancelled.</p>
 
     <h2>Waitlist and new clients</h2>
     <p>Clients who want to be added to the waitlist schedule a consult first. The practice's
@@ -2963,7 +3443,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
   <details>
     <summary>How much is a session?</summary>
     <div class="answer-body">
-      <p>$240 for a 50-minute online session, private pay. Trail walk and movement sessions run
+      <p>$240 for a 50-minute online session, self-pay. Trail walk and movement sessions run
       $240 to $370 depending on length. Sliding-scale fees are available through the practice's
       LPC Associates.</p>
     </div>
@@ -2972,8 +3452,27 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
   <details>
     <summary>Do you accept insurance?</summary>
     <div class="answer-body">
-      <p>Sessions are private pay and the practice is not accepting new Blue Cross Blue Shield
-      clients. Payment is by major credit card.</p>
+      <p>Blue Cross Blue Shield is accepted. Sessions under any other plan are self-pay at $240
+      for 50 minutes, by major credit card.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How much does therapy cost with insurance?</summary>
+    <div class="answer-body">
+      <p>Blue Cross Blue Shield is accepted here, so a BCBS client pays whatever their plan sets
+      as a copay or coinsurance rather than the full session fee. What that comes to depends on
+      your specific plan and deductible, so check your benefits or raise it in the consult.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How much does therapy cost without insurance?</summary>
+    <div class="answer-body">
+      <p>$240 for a 50-minute session with Reem. The practice's LPC Associates range from $100 to
+      $165 depending on the associate, with limited sliding-scale places starting at $70. Anyone
+      paying out of pocket is entitled to a written Good Faith Estimate before treatment
+      begins.</p>
     </div>
   </details>
 
@@ -3013,6 +3512,157 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       <p>Yes. Equine-assisted sessions are available near Dripping Springs, Texas, for clients,
       for LPC associates in supervision at $60 a session, and as optional training for
       therapists who want to work with horses themselves.</p>
+    </div>
+  </details>
+
+  <h2>Understanding the methods</h2>
+
+  <details>
+    <summary>What is somatic therapy?</summary>
+    <div class="answer-body">
+      <p>Somatic therapy is any approach that works with the body's sensations and responses
+      rather than with thoughts alone. The working assumption is that stress and trauma leave
+      the nervous system holding an unfinished response, and that noticing that response
+      directly, in small doses, does what analysing it cannot. In practice a session tracks
+      sensation, breath, posture and the small movements a threat response never completed.
+      Somatic Experiencing, developed by Dr Peter Levine, is the somatic method used here.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is EMDR a somatic therapy?</summary>
+    <div class="answer-body">
+      <p>Partly. EMDR is not usually classed as a somatic therapy, because its core mechanism is
+      memory reprocessing rather than body tracking. But it attends closely to where a memory
+      sits in the body and it pairs naturally with somatic work, which is why both are used in
+      this practice rather than one or the other.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is somatic therapy evidence based?</summary>
+    <div class="answer-body">
+      <p>The evidence base is real but smaller than for CBT or EMDR. Somatic Experiencing has
+      randomised controlled trials supporting it for PTSD symptoms, and a wider body of
+      observational work; it does not yet have the decades of replication that the
+      cognitive-behavioural therapies have. Anyone who tells you it is either proven beyond
+      question or pure invention is overstating their case.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is somatic therapy covered by insurance?</summary>
+    <div class="answer-body">
+      <p>Insurers reimburse psychotherapy sessions by billing code rather than by method, so a
+      somatic session is billed as individual psychotherapy like any other. Blue Cross Blue
+      Shield is accepted here. Under other plans sessions are self-pay at $240 for 50 minutes,
+      and you may be able to claim out-of-network reimbursement.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Why is EMDR so controversial?</summary>
+    <div class="answer-body">
+      <p>The outcomes are not what is disputed. EMDR is recommended for PTSD by the World Health
+      Organization and the American Psychological Association, and trials consistently show it
+      helps. What is disputed is the mechanism: dismantling studies that strip out the eye
+      movements often find similar results, which suggests the bilateral stimulation may matter
+      less than the structured exposure and reprocessing around it. So the honest summary is
+      that it works and the field does not fully agree on why.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is EMDR hypnosis?</summary>
+    <div class="answer-body">
+      <p>No. You stay awake, aware and in control throughout, you can stop at any point, and you
+      remember the session afterwards. Nobody is put into a trance or given suggestions. The eye
+      movements or taps are a dual-attention task, not an induction.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How long does EMDR therapy take?</summary>
+    <div class="answer-body">
+      <p>For a single recent incident, often six to twelve sessions. For developmental trauma
+      laid down over years it is longer, because most of the work is in preparation and
+      stabilisation rather than in processing. Reem's emphasis is deliberately on phases one and
+      two, since that is where stalled EMDR usually stalls.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can EMDR be done virtually?</summary>
+    <div class="answer-body">
+      <p>Yes, and it is the default here. Bilateral stimulation adapts to video using
+      self-administered tapping or on-screen movement, and the preparation and resourcing work
+      is unaffected. Both you and your therapist must be physically located in Texas during the
+      session.</p>
+    </div>
+  </details>
+
+  <h2>Complex PTSD</h2>
+
+  <details>
+    <summary>What are the 17 symptoms of complex PTSD?</summary>
+    <div class="answer-body">
+      <p>There is no official list of 17. That number comes from the DSM-IV criteria for PTSD,
+      which counted 17 symptoms across re-experiencing, avoidance and arousal, and it has been
+      recycled online as though it described complex PTSD. It does not. Complex PTSD is defined
+      in the ICD-11 as the three PTSD clusters plus three further disturbances: difficulty
+      regulating emotion, a persistently negative view of yourself, and difficulty sustaining
+      relationships and feeling close to people. A checklist is not a diagnosis, and a
+      recognisable pattern is worth bringing to an assessment rather than settling in your own
+      head.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is the difference between PTSD and complex PTSD?</summary>
+    <div class="answer-body">
+      <p>PTSD usually follows an identifiable event or a small number of them. Complex PTSD
+      follows prolonged, repeated exposure that was hard or impossible to escape, often early and
+      often relational. The extra ground it covers is how you relate to yourself and to other
+      people, not just how you respond to reminders of what happened.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is complex PTSD in the DSM-5?</summary>
+    <div class="answer-body">
+      <p>No. The DSM-5 recognises PTSD, including a dissociative subtype, but not complex PTSD
+      as a separate diagnosis. The ICD-11, published by the World Health Organization, does.
+      That difference matters mostly for paperwork: in the United States the clinical record and
+      any insurance claim will usually say PTSD.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Does EMDR work for complex PTSD?</summary>
+    <div class="answer-body">
+      <p>It can, with the preparation phases taken seriously. Applied straight to developmental
+      trauma without that groundwork, standard EMDR often floods or flatlines, which is the most
+      common reason people arrive here saying EMDR did not work for them. The IFS-informed
+      version addresses exactly that.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How many EMDR sessions for complex PTSD?</summary>
+    <div class="answer-body">
+      <p>More than the six to twelve typical of single-incident work, and the honest answer is
+      that it depends on how much stabilisation is needed first. Rather than committing to a
+      number at the start, the arc is reviewed together as the work goes.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is complex PTSD a disability?</summary>
+    <div class="answer-body">
+      <p>It can be, depending on how much it limits daily functioning rather than on the label
+      itself. Because complex PTSD is not a separate DSM-5 diagnosis, claims in the United States
+      are generally filed under PTSD. Whether a particular claim succeeds is a question for a
+      treating clinician and someone who handles disability claims, not for a website.</p>
     </div>
   </details>
 
@@ -3119,9 +3769,9 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
         <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
       </dl>
-      <p class="note">Note for the site build: add the practice phone number and the client
-      portal or scheduling link here, and connect a HIPAA-appropriate intake form. Plain web
-      forms should not collect clinical detail.</p>
+      <p class="note">Note for the site build: add the practice phone number here, and set
+      <code>portal.url</code> in <code>src/_data/site.js</code> so the portal buttons go live.
+      Clinical detail should never be collected by a plain web form on this site.</p>
     </div>
     <div>
       <h3>What to include</h3>
@@ -3132,12 +3782,311 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
         <li>For supervision: your CV or resume, three professional references, and your answers
         to the <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">application questions</a>.</li>
       </ul>
+      <h3>Already a client?</h3>
+      <ul class="plain">
+        <li><a data-page="contact--client-portal" role="link" tabindex="0">The client portal</a> for booking, payment and
+        rescheduling.</li>
+        <li><a data-page="contact--forms" role="link" tabindex="0">Client forms</a>, including the Limits of Confidentiality
+        notice and your Good Faith Estimate.</li>
+      </ul>
+
       <h3>If this is urgent</h3>
       <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
       Crisis Lifeline, or 911 if you are in immediate danger.</p>
     </div>
   </div>
 </section>
+
+</div>
+<div class="page" id="contact--forms" hidden>
+  <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Client Forms</nav>
+  <section class="shell band">
+  <h1>Client forms</h1>
+  <div class="answer">
+    <p>New clients complete a short set of forms before the first session, so the hour is spent
+    on you rather than on paperwork. There are <strong>five</strong>: an intake, a client
+    information sheet, the <strong>Limits of Confidentiality</strong> notice, your
+    <strong>Good Faith Estimate</strong>, and a release of information you only need if records
+    are being shared with someone else.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Request the forms</a>
+    <a class="cta cta--quiet" data-page="fees" role="link" tabindex="0">See fees first</a>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>The forms</h2>
+    <dl class="facts">
+      <div>
+        <dt>Client Intake</dt>
+        <dd>History, what brings you, and what you want from the work. Sent to you by email before your first session.</dd>
+      </div>
+      <div>
+        <dt>Client Information</dt>
+        <dd>Contact details, emergency contact, and payment information. Sent to you by email before your first session.</dd>
+      </div>
+      <div>
+        <dt>Limits of Confidentiality</dt>
+        <dd>What stays in the room and the narrow situations where it cannot. Required. Sent to you by email before your first session.</dd>
+      </div>
+      <div>
+        <dt>Good Faith Estimate</dt>
+        <dd>Your written cost estimate under the No Surprises Act. Required for self-pay clients. Sent to you by email before your first session.</dd>
+      </div>
+      <div>
+        <dt>Authorization for Release of Information</dt>
+        <dd>Only if you want records shared with a doctor, school or another clinician. Sent to you by email before your first session.</dd>
+      </div>
+    </dl>
+    <p>Complete them before your first session and the work starts in the first ten minutes
+    rather than the last ten. If anything on them is unclear or uncomfortable to answer in
+    writing, leave it and raise it in the room instead.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>Two of these are not optional</h2>
+      <h3>Limits of Confidentiality</h3>
+      <p>Therapy is confidential, and there are a small number of situations where Texas law
+      requires a counsellor to act anyway: a serious threat to your life or someone else's, and
+      suspected abuse or neglect of a child, an elderly person or a person with a disability.
+      The notice sets out exactly what those are. It is better read before you need it than
+      after.</p>
+
+      <h3>Good Faith Estimate</h3>
+      <p>Under the federal No Surprises Act, anyone not billing through insurance has the right
+      to a written estimate of what their care will cost, given before treatment starts. Yours
+      covers the expected number of sessions and the fee for each. If the final bill ends up
+      $400 or more above the estimate, you can dispute it.</p>
+      <p>Blue Cross Blue Shield clients are billed through insurance rather than self-pay, so
+      the estimate works differently; ask in the consult. <a data-page="fees" role="link" tabindex="0">Fees and insurance
+      in full.</a></p>
+    </div>
+    <div>
+      <h3>Before you fill anything in</h3>
+      <ul class="plain">
+        <li>You do not need the forms to book a consult. The consult is free and commits you to
+        nothing.</li>
+        <li>Seeing <a data-page="therapy--associates" role="link" tabindex="0">one of the associates</a> instead? Each
+        associate runs their own paperwork, so ask them directly.</li>
+        <li>Send completed forms the way you were told to send them. Email is not a secure
+        channel for clinical detail.</li>
+      </ul>
+
+      <h3>Privacy</h3>
+      <p>The practice's privacy policy explains how your information is stored, who can see it
+      and how long it is kept. Ask for a copy at any point.</p>
+      <p>You can ask for your records at any time. <a data-page="fees" role="link" tabindex="0">Records are provided
+      electronically within 15 business days</a> of a written request, under the Texas Medical
+      Records Privacy Act.</p>
+    </div>
+  </div>
+  <p class="note">Note for the site build: the five PDFs and the privacy policy are still on the
+  old WordPress site at <code>/wp-content/uploads/</code>. Download them, drop them into
+  <code>src/assets/forms/</code> under the filenames in <code>site.forms</code>, and each row
+  above turns into a download link on the next build. Until then the page tells people the forms
+  come by email, which is true and not a dead link.</p>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about the paperwork</h2>
+
+  <details>
+    <summary>What forms do I need before my first therapy session?</summary>
+    <div class="answer-body">
+      <p>Five: a client intake, a client information sheet, the Limits of Confidentiality
+      notice, a Good Faith Estimate, and an authorization for release of information if records
+      need to go to another provider. They take about fifteen minutes in total.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is a Good Faith Estimate and do I get one?</summary>
+    <div class="answer-body">
+      <p>It is a written estimate of what your care will cost, which the federal No Surprises
+      Act entitles you to before treatment begins if you are not billing through insurance. It
+      states the expected number of sessions and the fee for each, and if the final bill comes
+      in $400 or more above it you have the right to dispute the charge.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I have to complete the forms before booking a consult?</summary>
+    <div class="answer-body">
+      <p>No. The free consult comes first and needs nothing from you but a few sentences about
+      what is going on. Paperwork only matters once you have decided to start.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I email the completed forms back?</summary>
+    <div class="answer-body">
+      <p>Send them by whatever route you were given when the forms were sent. Ordinary email is
+      not a secure channel for clinical information, which is why intake usually runs through a
+      client portal instead.</p>
+    </div>
+  </details>
+  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
+text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Start with a conversation</h2>
+    <p>Therapy consults are fifteen minutes. Supervision and EMDR consultation consults are
+    thirty. Both are free and commit you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+      <a class="cta cta--quiet" href="mailto:reemglasco@gmail.com">Email Reem</a>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div class="page" id="contact--client-portal" hidden>
+  <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / Client Portal</nav>
+  <section class="shell band">
+  <h1>Client portal</h1>
+  <div class="answer">
+    <p>Scheduling, payment and intake paperwork run through the practice's client portal rather
+    than through this website, because a portal is built to hold clinical information and a
+    public web page is not. Existing clients book and reschedule sessions, pay by card, and
+    complete forms there. Blue Cross Blue Shield is accepted; the self-pay rate is $240 for a
+    50-minute session.</p>
+  </div>
+  <div class="cta-row">
+    <a class="cta" data-page="contact" role="link" tabindex="0">Ask for your portal link</a>
+    <a class="cta cta--quiet" data-page="fees" role="link" tabindex="0">See fees</a>
+  </div>
+  <p class="note">Note for the site build: set <code>portal.url</code> and
+  <code>portal.name</code> in <code>src/_data/site.js</code> and every button on this page, the
+  client forms page and the contact page turns into a direct portal link. The content security
+  policy in <code>src/_headers</code> does not need changing for a plain link; it only needs the
+  portal host added if the portal is ever embedded in a frame on this site.</p>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>What you can do there</h2>
+    <dl class="facts">
+      <div><dt>Book a session</dt><dd>See open times and schedule without emailing back and forth</dd></div>
+      <div><dt>Reschedule or cancel</dt><dd>At least 24 hours ahead for telehealth, or an $85 fee may apply</dd></div>
+      <div><dt>Pay a balance</dt><dd>By major credit card. Card details go to the portal, never to this website.</dd></div>
+      <div><dt>Insurance</dt><dd>Blue Cross Blue Shield accepted; other plans self-pay at $240 per 50 minutes</dd></div>
+      <div><dt>Complete intake forms</dt><dd>The five <a data-page="contact--forms" role="link" tabindex="0">client forms</a>, including the Good Faith Estimate</dd></div>
+      <div><dt>Join a telehealth session</dt><dd>From anywhere in Texas. Both of you have to be physically in Texas during a session.</dd></div>
+      <div><dt>Request records</dt><dd>Provided electronically within 15 business days of a written request</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>If you are new</h2>
+      <p>The portal is for people who have already started. A first contact goes through the
+      <a data-page="contact" role="link" tabindex="0">consult</a> instead: fifteen minutes, free, and the point of it is to
+      work out whether this is the right fit before anyone books anything.</p>
+      <p>After the consult you get a portal invitation, the forms, and a first appointment. That
+      order matters, because the paperwork asks questions that only make sense once you know who
+      you are working with.</p>
+      <h3>Seeing an associate?</h3>
+      <p>Each of the <a data-page="therapy--associates" role="link" tabindex="0">LPC Associates</a> runs their own
+      scheduling, billing and paperwork, so book and pay with them directly using the contact
+      route on their card. Fees range from $100 to $165 a session with limited sliding-scale
+      places.</p>
+    </div>
+    <div>
+      <h3>Supervision and consultation</h3>
+      <p>LPC supervision and EMDR consultation are not booked through the client portal.
+      Supervision starts with an application, and consultation is scheduled directly.</p>
+      <ul class="plain">
+        <li><a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">LPC supervision</a>, $425 a month, by
+        application</li>
+        <li><a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">EMDR consultation</a>, $185 an hour,
+        scheduled as needed</li>
+      </ul>
+      <h3>A note on security</h3>
+      <p>No part of findingbalances.com asks for card numbers, insurance details or anything
+      clinical. If a page claiming to be this practice does, it is not this practice. Payment
+      happens inside the portal, on the portal's own domain.</p>
+    </div>
+  </div>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about booking and payment</h2>
+
+  <details>
+    <summary>How do I book a therapy session?</summary>
+    <div class="answer-body">
+      <p>Existing clients book through the client portal. If you have not started yet, request a
+      free 15-minute consult first; the portal invitation follows once you decide to go ahead.
+      Clients of the practice's associates book directly with their associate.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How do I pay for a session?</summary>
+    <div class="answer-body">
+      <p>By major credit card inside the client portal. Blue Cross Blue Shield is accepted and
+      billed through insurance; sessions under any other plan are self-pay at $240 for 50
+      minutes. In-person walk therapy is paid in advance.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What happens if I cancel?</summary>
+    <div class="answer-body">
+      <p>Telehealth appointments cancelled at least 24 hours ahead cost nothing. Inside 24 hours
+      an $85 fee may apply. Walk therapy is paid in advance and is not refunded for
+      cancellations inside 48 hours.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I have to be in Texas for a telehealth session?</summary>
+    <div class="answer-body">
+      <p>Yes. A Texas licence allows a counsellor to treat clients located in Texas, so both you
+      and your therapist have to be physically in the state at the time of the session. Tell your
+      therapist in advance if you are travelling, so the appointment can be moved rather than
+      cancelled.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I use the portal to reach my therapist between sessions?</summary>
+    <div class="answer-body">
+      <p>For scheduling and admin, yes. It is not a crisis channel and messages are not monitored
+      around the clock. If you are in crisis, call or text 988, or 911 if you are in immediate
+      danger.</p>
+    </div>
+  </details>
+  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
+text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Start with a conversation</h2>
+    <p>Therapy consults are fifteen minutes. Supervision and EMDR consultation consults are
+    thirty. Both are free and commit you to nothing.</p>
+    <div class="cta-row">
+      <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
+      <a class="cta cta--quiet" href="mailto:reemglasco@gmail.com">Email Reem</a>
+    </div>
+  </div>
+</section>
+
 
 </div>
 </main>
@@ -3164,11 +4113,15 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
           <li>&nbsp;&nbsp;<a data-page="therapy--anxiety" role="link" tabindex="0">Anxiety</a></li>
           <li>&nbsp;&nbsp;<a data-page="therapy--depression" role="link" tabindex="0">Depression</a></li>
           <li>&nbsp;&nbsp;<a data-page="therapy--walk-and-talk" role="link" tabindex="0">Walk and Talk</a></li>
+          <li>&nbsp;&nbsp;<a data-page="therapy--associates" role="link" tabindex="0">Associates</a></li>
           <li><a data-page="approach" role="link" tabindex="0">Approach</a></li>
           <li><a data-page="about" role="link" tabindex="0">About</a></li>
+          <li><a data-page="book" role="link" tabindex="0">The Book</a></li>
           <li><a data-page="fees" role="link" tabindex="0">Fees</a></li>
           <li><a data-page="faq" role="link" tabindex="0">FAQ</a></li>
           <li><a data-page="contact" role="link" tabindex="0">Contact</a></li>
+          <li>&nbsp;&nbsp;<a data-page="contact--forms" role="link" tabindex="0">Client Forms</a></li>
+          <li>&nbsp;&nbsp;<a data-page="contact--client-portal" role="link" tabindex="0">Client Portal</a></li>
         </ul>
       </div>
       <div>

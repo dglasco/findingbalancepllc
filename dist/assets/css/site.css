@@ -240,6 +240,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
   border-radius: 2px;
 }
 
+/* Book cover. Sits in the aside column of a .split--aside on the book page. */
+.cover {
+  width: 100%;
+  max-width: 16rem;
+  margin: 0 auto;
+  border-radius: calc(var(--radius) / 1.5);
+  box-shadow: 0 18px 44px -20px rgba(31, 45, 56, 0.55);
+}
+
 .steps { counter-reset: step; list-style: none; padding: 0; margin: 0 0 1.5rem; }
 .steps > li { counter-increment: step; position: relative; padding-left: 2.8rem; margin-bottom: 1.4rem; }
 .steps > li::before {

@@ -1,0 +1,141 @@
+---
+layout: layouts/base.njk
+tags: pages
+title: "Client Forms | Finding Balance Counseling, Texas"
+description: "Intake paperwork for new clients at Finding Balance Counseling: the five forms, including Limits of Confidentiality and your No Surprises Act Good Faith Estimate."
+nav: Client Forms
+order: 12.1
+priority: 0.6
+---
+<section class="shell band">
+  <h1>Client forms</h1>
+  <div class="answer">
+    <p>New clients complete a short set of forms before the first session, so the hour is spent
+    on you rather than on paperwork. There are <strong>five</strong>: an intake, a client
+    information sheet, the <strong>Limits of Confidentiality</strong> notice, your
+    <strong>Good Faith Estimate</strong>, and a release of information you only need if records
+    are being shared with someone else.</p>
+  </div>
+  {%- if site.portal.url %}
+  <div class="cta-row">
+    <a class="cta" href="{{ site.portal.url }}">Complete them in the client portal</a>
+    <a class="cta cta--quiet" href="/contact/">Ask a question first</a>
+  </div>
+  {%- else %}
+  <div class="cta-row">
+    <a class="cta" href="/contact/">Request the forms</a>
+    <a class="cta cta--quiet" href="/fees/">See fees first</a>
+  </div>
+  {%- endif %}
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>The forms</h2>
+    <dl class="facts">
+      {%- for form in site.forms %}
+      <div>
+        <dt>{%- if form.file | assetExists %}<a href="{{ form.file }}">{{ form.name }}</a>{% else %}{{ form.name }}{% endif -%}</dt>
+        <dd>{{ form.note }}{% if not (form.file | assetExists) %} Sent to you by email before your first session.{% endif %}</dd>
+      </div>
+      {%- endfor %}
+    </dl>
+    <p>Complete them before your first session and the work starts in the first ten minutes
+    rather than the last ten. If anything on them is unclear or uncomfortable to answer in
+    writing, leave it and raise it in the room instead.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>Two of these are not optional</h2>
+      <h3>Limits of Confidentiality</h3>
+      <p>Therapy is confidential, and there are a small number of situations where Texas law
+      requires a counsellor to act anyway: a serious threat to your life or someone else's, and
+      suspected abuse or neglect of a child, an elderly person or a person with a disability.
+      The notice sets out exactly what those are. It is better read before you need it than
+      after.</p>
+
+      <h3>Good Faith Estimate</h3>
+      <p>Under the federal No Surprises Act, anyone not billing through insurance has the right
+      to a written estimate of what their care will cost, given before treatment starts. Yours
+      covers the expected number of sessions and the fee for each. If the final bill ends up
+      $400 or more above the estimate, you can dispute it.</p>
+      <p>Blue Cross Blue Shield clients are billed through insurance rather than self-pay, so
+      the estimate works differently; ask in the consult. <a href="/fees/">Fees and insurance
+      in full.</a></p>
+    </div>
+    <div>
+      <h3>Before you fill anything in</h3>
+      <ul class="plain">
+        <li>You do not need the forms to book a consult. The consult is free and commits you to
+        nothing.</li>
+        <li>Seeing <a href="/therapy/associates/">one of the associates</a> instead? Each
+        associate runs their own paperwork, so ask them directly.</li>
+        <li>Send completed forms the way you were told to send them. Email is not a secure
+        channel for clinical detail.</li>
+      </ul>
+
+      <h3>Privacy</h3>
+      {%- if site.privacyPolicy | assetExists %}
+      <p><a href="{{ site.privacyPolicy }}">The practice's privacy policy</a> explains how your
+      information is stored, who can see it, and how long it is kept.</p>
+      {%- else %}
+      <p>The practice's privacy policy explains how your information is stored, who can see it
+      and how long it is kept. Ask for a copy at any point.</p>
+      {%- endif %}
+      <p>You can ask for your records at any time. <a href="/fees/">Records are provided
+      electronically within 15 business days</a> of a written request, under the Texas Medical
+      Records Privacy Act.</p>
+    </div>
+  </div>
+  <p class="note">Note for the site build: the five PDFs and the privacy policy are still on the
+  old WordPress site at <code>/wp-content/uploads/</code>. Download them, drop them into
+  <code>src/assets/forms/</code> under the filenames in <code>site.forms</code>, and each row
+  above turns into a download link on the next build. Until then the page tells people the forms
+  come by email, which is true and not a dead link.</p>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about the paperwork</h2>
+
+  <details>
+    <summary>What forms do I need before my first therapy session?</summary>
+    <div class="answer-body">
+      <p>Five: a client intake, a client information sheet, the Limits of Confidentiality
+      notice, a Good Faith Estimate, and an authorization for release of information if records
+      need to go to another provider. They take about fifteen minutes in total.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What is a Good Faith Estimate and do I get one?</summary>
+    <div class="answer-body">
+      <p>It is a written estimate of what your care will cost, which the federal No Surprises
+      Act entitles you to before treatment begins if you are not billing through insurance. It
+      states the expected number of sessions and the fee for each, and if the final bill comes
+      in $400 or more above it you have the right to dispute the charge.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I have to complete the forms before booking a consult?</summary>
+    <div class="answer-body">
+      <p>No. The free consult comes first and needs nothing from you but a few sentences about
+      what is going on. Paperwork only matters once you have decided to start.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I email the completed forms back?</summary>
+    <div class="answer-body">
+      <p>Send them by whatever route you were given when the forms were sent. Ordinary email is
+      not a secure channel for clinical information, which is why intake usually runs through a
+      client portal instead.</p>
+    </div>
+  </details>
+  {% include "partials/crisis-note.njk" %}
+</section>
+
+{% include "partials/cta-band.njk" %}

@@ -11,7 +11,7 @@ therapist Austin". Clients are still served, through a `/therapy` hub and four c
 that route most of them to the practice's associates, who then become a referral network rather
 than a competing message.
 
-Sixteen pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
+Twenty pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
 
 `dist/preview.html` is a single self-contained file holding every page, for review on a phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
 href as leaving the page. Do not deploy it as the site; deploy the individual pages.
@@ -146,6 +146,30 @@ curl -s https://findingbalances.com/robots.txt | tail -1
 Keep the old domain resolving until the redirects are confirmed working. The redirect map is
 `redirects` in `src/_data/site.js` and is written to `dist/_redirects` on every build.
 
+## What was deliberately not migrated
+
+The old WordPress site has 81 URLs. Twenty-six of them are untouched BrighterVision vendor
+boilerplate: third-person condition explainers at `/autism/`, `/play-therapy/`, `/sex-therapy/`,
+`/emotional-support-animals/`, `/add-adhd-counseling/` and the like, none of which name the
+practice, a city, a fee, an associate, or any modality this practice actually uses. Two of them
+open with an identical sentence. Migrating them would mean publishing duplicate content shared
+with every other BrighterVision therapist site, and advertising services the practice may not
+provide. They are not in the redirect map and should 410 rather than 301.
+
+Eleven more are junk or abandoned: `/sample-page/`, `/fffff/`, `/ggg/`, `/2279-2/`,
+`/about/1483-2/`, `/hello-world/`, four "coming soon" posts from 2022 and 2023 that never
+arrived, and two duplicate twins.
+
+Still to migrate, in rough priority order: the five client-form PDFs at `/client-forms/`, two of
+which (Good Faith Estimate, Limits of Confidentiality) are legally required disclosures; the
+privacy policy PDF; the "physically located in Texas" telehealth rule buried in the dead 2020
+COVID page; the ethics CEU detail at `/ggg/` (one CEU online, two in person on a trail walk,
+topic secondary trauma) which would replace the placeholder text on the retreats page; the
+`/mental-health-links/` resource directory, which needs a link audit first because it predates
+988 and several of its links are dead; and `/how-to-set-healthy-boundaries/`, the only finished
+article on the old site. The old blog paginates to three pages, so there are posts beyond the
+81 URLs that have not been triaged.
+
 ## Information architecture
 
 Primary nav, therapist-first: For Therapists, Licensure Guide, Therapy, About, Fees, FAQ,
@@ -157,7 +181,32 @@ the footer; it remains in the sitemap and ranks on its own terms.
 Two hubs, each with children:
 
 - `/for-therapists` : `/lpc-supervision`, `/emdr-consultation`, `/retreats-training`
-- `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`
+- `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`, `/associates`
+
+`/book` is top level and in the nav, which makes the nav eight items. It covers *Effort-less
+Self-Care* and the companion *Reset* journal, and carries the site's only photograph, the book
+cover, which is also the only `og:image` on the site.
+
+`/contact` has two children: `/contact/client-portal` and `/contact/forms`. Neither is in the
+nav, which stays at eight items; both are reached from the contact page, the fees page and each
+other. The portal page is the answer to "can we take payments and bookings": a static site
+cannot hold card details or a clinical calendar, so both route to the practice's EHR portal.
+Set `portal.url` and `portal.name` in `src/_data/site.js` and every portal button on the site
+goes live at once; leave them empty and those buttons route people to email instead, which is
+what they do today.
+
+The five client forms are listed from `site.forms` and rendered through an `assetExists` filter,
+so a PDF that has not been dropped into `src/assets/forms/` yet renders as "sent to you by email"
+rather than as a dead link. Download the six PDFs from the old WordPress site's
+`/wp-content/uploads/` and save them under the filenames in `site.forms` plus
+`privacy-policy.pdf`; they turn into download links on the next build with no code change.
+Neither this container nor the laptop shell can fetch them, because the old domain is not on the
+egress allowlist.
+
+`/therapy/associates` is the roster of the six LPC Associates, rebuilt from the old site's
+staff pages. It is the destination the positioning depends on: most client enquiries are meant
+to land on an associate, so this page carries each person's fee, sliding-scale floor,
+specialisms and direct contact route rather than a form.
 
 The therapy children are the four old WordPress condition pages rebuilt rather than redirected
 into the hub, because they ranked on their own. Each carries the same direct-answer block, fact
@@ -223,7 +272,8 @@ Answer engines quote pages that state facts plainly and attributably.
 - Every page opens with a direct-answer block: two to four sentences that name the entity, the
   service, the price and the location, so a model can lift a complete answer from the top of
   the page.
-- 81 question-and-answer pairs across the supervision, EMDR, therapy, condition and FAQ pages,
+- 117 question-and-answer pairs across the supervision, EMDR, therapy, condition, associate,
+  book, portal, forms and FAQ pages,
   each phrased the way someone would actually ask, each mirrored in `FAQPage` markup. Questions
   are kept distinct per page, so no two pages claim the same `Question` node.
 - Fact tables (`dl.facts`) instead of prose for anything numeric: fees, hours included,
@@ -277,6 +327,11 @@ else already works offline.
 
 **Facts to confirm with Reem**
 
+0. Blue Cross Blue Shield is accepted. The old site said the opposite and that claim has been
+   removed everywhere, but the page still does not say whether the practice is in network or out
+   of network, which BCBS plans are covered, what a copay looks like, or whether the associates
+   bill it too. Those are the four things a prospective client actually asks.
+
 1. The old site says both "4 individual / 1 group per month" (supervision page) and "3
    individual + 1 group" (2026 supervision page). This build uses three individual plus one
    group throughout. Confirm which is right, then change it in the one place it appears per
@@ -286,11 +341,12 @@ else already works offline.
    `src/_data/site.js`.
 3. There is no phone number anywhere on the old site, only an empty `tel:` link. Add one to
    `src/_data/site.js` and the contact page, or decide deliberately to stay email-only.
-4. The associate roster on the old site lists eleven associates, two of them as "coming soon".
-   That roster is not reproduced here. Confirm who is current, then add an associates section
-   to `src/therapy.njk` with a short bio, fee and contact route for each. This matters more under
-   the new positioning: the associates are the destination for most client enquiries, so vague
-   placeholders cost real referrals.
+4. The associate roster is now at `/therapy/associates`, rebuilt from the old site's staff
+   pages: Nica Ayala, Sylvia Earl, Natasha Mahesh, Sheila Singh, Heather Johnston and Emmy
+   Laursen. Three further staff URLs are placeholders carrying no bio, and two of the six sit
+   on a slug bearing a different person's name, so treat the whole roster as unverified until
+   Reem confirms it. Fees and direct contact details were taken from the old pages and each
+   associate should approve their own paragraph before launch.
 5. Session length for trail walk therapy. The old site says "1.15-2 hours", which this build
    reads as 75 minutes to two hours.
 
@@ -327,6 +383,8 @@ supervision page starts from zero:
 | `/therapy-for-depression/` | `/therapy/depression` |
 | `/anxiety-therapist-austin-tx/`, `/social-anxiety-disorder-counseling/` | `/therapy/anxiety` |
 | `/walk-therapy/` | `/therapy/walk-and-talk` |
+| `/staff-2-2/` and the eight individual staff slugs | `/therapy/associates` |
+| `/books/`, `/journal/`, `/selfcare-journal/` | `/book` |
 | `/rates-insurance/` | `/fees` |
 | `/contact/`, `/appointment-request/`, `/client-forms/` | `/contact` |
 | `/exploring-the-science-behind-somatic-experiencing/` | `/approach` |
