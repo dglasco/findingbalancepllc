@@ -1,20 +1,23 @@
 /* Finding Balance Counseling
-   Hearth, not horizon. Dusk-blue ground, deep indigo enclosures, brass lamplight.
-   The blue carries the calm; the warm accent keeps it from reading clinical.
-   Body text is set in a serif because the site should read like a book in a
-   chair, not a brochure. Sections are deliberately far apart: one idea per
-   screenful. */
+   Hearth, not horizon. Warm oat ground, deep indigo enclosures, brass lamplight.
+   The ground is warm because the alternative reads clinical: cool blue is the
+   palette of hospitals and insurers, which is the one thing a therapy practice
+   cannot afford to look like. It also lets Reem's cream-paper watercolors sit in
+   the page rather than on it. Body text is set in a serif because the site
+   should read like a book in a chair, not a brochure. Sections are deliberately
+   far apart: one idea per screenful. */
 
 :root {
-  --dusk: #dce3e7;
-  --dusk-2: #cbd6dc;
+  --dusk: #f1ece3;
+  --dusk-2: #e5ddd0;
   --indigo: #1f2d38;
-  --ink: #1b2832;
-  --ink-soft: #3f5866;
+  --ink: #2a2620;
+  --ink-soft: #5c5346;
   --lamp: #b08a3c;
-  --link: #245c79;
-  --juniper: #3f6580;
-  --hair: rgba(27, 40, 50, 0.18);
+  --lamp-ink: #7a5c1f;        /* brass that passes AA as text on the light ground */
+  --link: #2f6a70;
+  --juniper: #7a6a4e;
+  --hair: rgba(42, 38, 32, 0.18);
 
   --measure: 33rem;                    /* ~62 characters of serif */
   --gutter: clamp(1.35rem, 5vw, 3.5rem);
@@ -34,10 +37,10 @@ body {
   background-color: var(--dusk);
   /* Paper grain, then a warm pool of light at the top of the page. */
   background-image:
-    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.4'/%3E%3C/svg%3E"),
-    radial-gradient(120% 60% at 50% -10%, rgba(176, 138, 60, 0.16), rgba(176, 138, 60, 0) 70%);
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.35'/%3E%3C/svg%3E"),
+    radial-gradient(130% 70% at 50% -15%, rgba(176, 138, 60, 0.14), rgba(176, 138, 60, 0) 72%);
   background-repeat: repeat, no-repeat;
-  background-size: 180px 180px, 100% 45rem;
+  background-size: 180px 180px, 100% 48rem;
   color: var(--ink);
   font: 400 1.125rem/1.8 var(--serif);
 }
@@ -275,7 +278,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--lamp);
+  color: var(--lamp-ink);
 }
 .step-card h3 { margin: 0.3rem 0 0.4rem; }
 .step-card p { margin: 0 0 0.6rem; color: var(--ink-soft); font-size: 0.97rem; }
@@ -285,6 +288,12 @@ img, svg { max-width: 100%; height: auto; display: block; }
   color: var(--link);
 }
 .band--night .step-card__quote { color: var(--lamp); }
+.band--night .step-card__num,
+.band--night .steps > li::before,
+.band--night .faq summary::after { color: var(--lamp); }
+
+/* Table captions inherit --ink-soft, which is unreadable on the indigo bands. */
+.band--night caption { color: rgba(226, 236, 242, 0.72); }
 
 /* Page art. Reem's book watercolors reused as section imagery. */
 .band-art {
@@ -480,7 +489,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
   position: absolute; left: 0; top: 0;
   font-family: var(--serif);
   font-size: 1.15rem;
-  color: var(--lamp);
+  color: var(--lamp-ink);
   width: 1.9rem; height: 1.9rem;
   border: 1px solid var(--hair);
   border-radius: 50%;
@@ -551,7 +560,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
   content: "+";
   position: absolute; right: 0.2rem; top: 0.85rem;
   font-size: 1.35rem;
-  color: var(--lamp);
+  color: var(--lamp-ink);
 }
 .faq details[open] summary::after { content: "\2013"; }
 .faq .answer-body { padding: 0 0 1.2rem; }
