@@ -226,6 +226,17 @@ export default function (eleventyConfig) {
   // Used by the single-file preview to inline the stylesheet and script.
   eleventyConfig.addFilter("readFile", (path) => fs.readFileSync(path, "utf8"));
 
+  // The preview file is reviewed as a standalone file on a phone, where a path
+  // like /assets/img/x.jpg resolves to nothing, so images are inlined there.
+  eleventyConfig.addFilter("inlineImages", (html) =>
+    String(html).replace(/src="(\/assets\/img\/[^"]+)"/g, (match, url) => {
+      const file = "src" + url;
+      if (!fs.existsSync(file)) return match;
+      const type = file.endsWith(".png") ? "image/png" : "image/jpeg";
+      return `src="data:${type};base64,${fs.readFileSync(file).toString("base64")}"`;
+    })
+  );
+
   // Turns page links into click handlers for the preview file, where any href
   // would navigate out of an in-app viewer.
   eleventyConfig.addFilter("previewLinks", (html) =>

@@ -2,34 +2,33 @@
 layout: layouts/base.njk
 tags: pages
 title: "Effort-less Self-Care | A Book by Reem Glasco, LPC-S"
-description: "Effort-less Self-Care: 7 Easy Steps to Calm and Connection, by Reem Glasco, LPC-S. A short daily practice for noticing what your body is telling you."
+description: "Effort-less Self-Care: 7 Easy Steps to Calm and Connection, by Reem Glasco, LPC-S. A gentle workbook for slowing down and listening to your body."
 nav: The Book
 order: 9.5
 priority: 0.8
 image: /assets/img/effortless-self-care-cover.jpg
-schema: [{"@type": "Book", "@id": "https://findingbalances.com/book#book", "name": "Effort-less Self-Care: 7 Easy Steps to Calm and Connection", "author": {"@id": "https://findingbalances.com/#reem"}, "inLanguage": "en-US", "bookFormat": "https://schema.org/Paperback", "about": [{"@type": "Thing", "name": "Self-care"}, {"@type": "Thing", "name": "Somatic awareness"}, {"@type": "Thing", "name": "Mindfulness"}], "image": "https://findingbalances.com/assets/img/effortless-self-care-cover.jpg", "description": "A seven-step daily self-care practice built around noticing rather than fixing: finding a comfortable space, facing the light, returning to the breath, feeling the body, naming the emotion, and grounding through the senses."}]
+schema: [{"@type": "Book", "@id": "https://findingbalances.com/book#book", "name": "Effort-less Self-Care: 7 Easy Steps to Calm and Connection", "author": {"@id": "https://findingbalances.com/#reem"}, "inLanguage": "en-US", "bookFormat": "https://schema.org/Paperback", "about": [{"@type": "Thing", "name": "Self-care"}, {"@type": "Thing", "name": "Somatic awareness"}, {"@type": "Thing", "name": "Mindfulness"}], "image": "https://findingbalances.com/assets/img/effortless-self-care-cover.jpg", "description": "A gentle seven-step self-care workbook built around noticing rather than fixing: finding a comfortable space, facing the light, returning to the breath, feeling the body, naming the emotion, and grounding through the senses. Each step pairs watercolour imagery with journal prompts."}]
 ---
 <section class="shell band">
-  <p class="eyebrow">A book by Reem Glasco, LPC-S</p>
+  <p class="eyebrow">A gentle self-care workbook</p>
   <h1>Effort-less Self-Care</h1>
   <div class="split split--aside">
     <div>
+      <p class="lede">7 Easy Steps to Calm and Connection</p>
       <div class="answer">
-        <p><strong>Effort-less Self-Care: 7 Easy Steps to Calm and Connection</strong> is a short
-        daily practice, written by Reem Glasco, LPC-S, for anyone who has been told to look after
-        themselves and found the instruction useless. It takes a few minutes. There is nothing to
-        fix, nothing to achieve, and no way to do it wrong: you sit, you notice what your body is
-        doing, and you name what you find. A companion journal, <strong>Reset: 7 Effortless
-        Self-Care Practices to Cultivate Calm and Connection</strong>, carries the same seven
-        practices with space to write.</p>
+        <p>Slow down and build a relationship with your body, your breath and your inner self.
+        There is nothing here to fix. Notice yourself, be kind to yourself, stay curious.
+        <strong>Healing begins when you learn to listen.</strong> Written by Reem Glasco, LPC-S,
+        the workbook sets out seven short steps, each paired with watercolour imagery and
+        journal prompts, to be used daily or whenever you need to reset.</p>
       </div>
       <div class="cta-row">
-        <a class="cta" href="https://www.barnesandnoble.com/w/effortless-self-care-reem-glasco/1149690519">Find it on Barnes &amp; Noble</a>
-        <a class="cta cta--quiet" href="/therapy/">Work with Reem</a>
+        <a class="cta" href="/book/practice/">Try the seven steps</a>
+        <a class="cta cta--quiet" href="https://www.barnesandnoble.com/w/effortless-self-care-reem-glasco/1149690519">Find it on Barnes &amp; Noble</a>
       </div>
-      <p class="note">Note for the site build: confirm whether the book and the <em>Reset</em>
-      journal are one product or two, and add the price and format once known. The old site's
-      books page gave neither.</p>
+      <p class="note">Note for the site build: confirm whether the workbook and the
+      <em>Reset</em> journal are one product or two, and add price and format once known. The old
+      site's books page gave neither.</p>
     </div>
     <div>
       <img class="cover" src="/assets/img/effortless-self-care-cover.jpg" width="600" height="900"
@@ -40,66 +39,86 @@ schema: [{"@type": "Book", "@id": "https://findingbalances.com/book#book", "name
 
 <section class="band band--night">
   <div class="shell">
-    <p class="eyebrow">What it asks of you</p>
-    <h2>Noticing, not fixing</h2>
-    <div class="split">
+    <p class="eyebrow">The value of pause</p>
+    <p class="quote-band">&ldquo;You start the healing process when you learn to listen to your
+    body.&rdquo;</p>
+    <p>The workbook shows you how to ground yourself in the present moment, one simple step at a
+    time. Use the seven steps as a daily or weekly practice whenever you need to reset. Getting
+    stuck is fine. Your body resisting is part of the journey. Always remember to breathe.</p>
+  </div>
+</section>
+
+<section class="shell band">
+  <p class="eyebrow">The practice</p>
+  <h2>Seven easy steps to calm and connection</h2>
+  <p class="section-intro">Each step is a small, gentle invitation, paired in the book with soft
+  watercolour imagery and journal prompts to guide your own exploration.</p>
+  <div class="step-cards">
+    {%- for s in site.steps %}
+    <article class="step-card">
+      <img src="{{ s.img }}" width="{{ s.w }}" height="{{ s.h }}" alt="{{ s.alt }}" loading="lazy" decoding="async">
+      <div class="step-card__body">
+        <span class="step-card__num">Step {{ s.n }}</span>
+        <h3>{{ s.title }}</h3>
+        <p class="step-card__quote">&ldquo;{{ s.quote }}&rdquo;</p>
+        <p>{{ s.short }}</p>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+  <div class="cta-row">
+    <a class="cta" href="/book/practice/">Walk through the steps now</a>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <p class="eyebrow">Inside the workbook</p>
+    <h2>A calm space to notice, not fix</h2>
+    <div class="cards">
       <div>
-        <p>Most self-care advice is a list of things to add to a day that is already full. This
-        is the opposite: a practice built on the assumption that your body has been reporting
-        its state all along and nobody taught you to read it.</p>
-        <p>The seven steps are the clinical work Reem does with clients, reduced to something
-        you can do alone in a chair. They come out of the same lineage as the therapy:
-        <a href="/approach/">Somatic Experiencing, NARM and IFS-informed EMDR</a>, which all
-        start from sensation rather than analysis.</p>
+        <h3>Guided reflection</h3>
+        <p>Every step carries calming imagery to settle you, and gentle prompts to guide you
+        inward. No right answers are required and blank is an acceptable answer.</p>
       </div>
       <div>
-        <p>It is not therapy and does not pretend to be. It is a way to arrive at therapy, or at
-        the rest of your day, with better information about what is actually going on.</p>
-        <p class="quote-band">&ldquo;Be gentle with yourself. Just breathe.&rdquo;</p>
+        <h3>Journal pages</h3>
+        <p>Spacious pages for keeping up the listening: what you learned, what your body is
+        telling you, and how you found your way back to yourself.</p>
+      </div>
+      <div>
+        <h3>A daily ritual</h3>
+        <p>Use the seven steps as a daily card or a simple ritual. Keep it close and return
+        whenever you need to pause and reset.</p>
+      </div>
+      <div>
+        <h3>The practice, online</h3>
+        <p><a href="/book/practice/">The same seven steps on this site</a>, with a breathing
+        guide, two short timers and prompts that save privately in your own browser.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="shell band">
-  <h2>The seven steps</h2>
-  <ol class="steps">
-    <li><strong>Find your comfortable space.</strong> Indoors or out, somewhere that invites
-    calm. You might hold a stone, a leaf, a shell. Notice how you feel, and change nothing.
-    <em>Comfort is where healing begins.</em></li>
-
-    <li><strong>Face the light.</strong> Sit facing east, toward the morning sun. The direction
-    is doing symbolic work as much as practical: new beginnings. Picture the light on your face.
-    <em>Let the sun guide you.</em></li>
-
-    <li><strong>Return to your heart.</strong> Hand on your chest, feel your breath without
-    altering it, for about thirty seconds. <em>Come home to your breath.</em></li>
-
-    <li><strong>Breathe in peace, breathe out stress.</strong> Hand still resting there, say
-    softly on the inhale, &ldquo;I know I am breathing in fresh air,&rdquo; and on the exhale,
-    &ldquo;I know I am breathing out stress.&rdquo; Three times.
-    <em>Breathe in fresh air; breathe out stress.</em></li>
-
-    <li><strong>Pause and feel.</strong> Scan from head to toe. Find the tension, the pressure,
-    the ache. Note it; do not fix it. <em>Your body speaks. Listen.</em></li>
-
-    <li><strong>Gently name what you feel.</strong> Label the emotion without judgement, then
-    ask what it is trying to tell you, and what is underneath it once the story is set aside.
-    <em>Name it to know it.</em></li>
-
-    <li><strong>Ground yourself through your senses.</strong> Still in your spot, hand on your
-    chest, facing east: what do you see, hear, smell, taste, touch? Sit with any shift you feel
-    for at least seventeen seconds. <em>Your senses ground you in the now.</em></li>
-  </ol>
-</section>
-
-<section class="band band--sand">
-  <div class="shell">
-    <p class="eyebrow">Final reflection</p>
-    <h2>Just breathe</h2>
-    <p>You sat back and observed your inner and outer world, not to fix or analyse it, but
-    simply to notice it. Your breath is always with you: your silent guide.</p>
-    <p class="quote-band">&ldquo;You are learning to listen.&rdquo;</p>
+  <div class="split split--aside">
+    <div>
+      <p class="eyebrow">About the author</p>
+      <h2>Guiding you gently back to yourself</h2>
+      <p>Reem Glasco is a Licensed Professional Counselor Supervisor in Texas who believes
+      self-care should not be one more thing to get right. Her approach is spacious and kind:
+      meet your nervous system where it is, understand what your body is signalling, and learn
+      to pause even in the middle of chaos.</p>
+      <p>Effort-less Self-Care distils that philosophy into seven approachable steps, so that
+      over time you reset more quickly, settle more deeply, and feel more grounded.</p>
+      <p>The same lineage runs through her clinical work:
+      <a href="/approach/">NARM, Somatic Experiencing and IFS-informed EMDR</a>, all of which
+      begin with sensation rather than analysis. <a href="/about/">More about Reem.</a></p>
+    </div>
+    <div>
+      <img class="portrait" src="/assets/img/book-reem.jpg" width="506" height="760" loading="lazy"
+       decoding="async" alt="Watercolour of a person resting a hand on their chest, eyes closed, in a moment of calm.">
+    </div>
   </div>
 </section>
 
@@ -121,10 +140,10 @@ schema: [{"@type": "Book", "@id": "https://findingbalances.com/book#book", "name
       <p>The seven steps are the backbone of the mindful trail retreat, where they are practised
       outdoors rather than in a chair.</p>
     </a>
-    <a href="/approach/">
-      <h3>Anyone curious about the method</h3>
-      <p>Where the steps come from: NARM, Somatic Experiencing and IFS-informed EMDR, explained
-      in plain language.</p>
+    <a href="/book/practice/">
+      <h3>Anyone who wants to try first</h3>
+      <p>The full practice runs free on this site, with nothing to buy and nothing to sign up
+      for.</p>
     </a>
   </div>
 </section>
@@ -146,17 +165,26 @@ schema: [{"@type": "Book", "@id": "https://findingbalances.com/book#book", "name
     <div class="answer-body">
       <p><em>Effort-less Self-Care: 7 Easy Steps to Calm and Connection</em> sets out the
       practice. <em>Reset: 7 Effortless Self-Care Practices to Cultivate Calm and Connection</em>
-      is the self-paced journal that carries the same seven practices with prompts and space to
+      is the self-paced journal carrying the same seven practices with prompts and space to
       write, aimed particularly at therapists and healers.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I try the practice without buying anything?</summary>
+    <div class="answer-body">
+      <p>Yes. <a href="/book/practice/">The full seven-step practice</a> runs on this site for
+      free, with a breathing guide, the two short timers and all of the journal prompts. Your
+      answers save in your own browser and are never sent anywhere.</p>
     </div>
   </details>
 
   <details>
     <summary>How long does the practice take?</summary>
     <div class="answer-body">
-      <p>A few minutes. Two of the steps have a built-in pause, thirty seconds with a hand on
-      your chest and seventeen seconds of sensory grounding, and the rest take as long as you
-      want to give them. It is designed to survive a bad morning.</p>
+      <p>A few minutes. Two steps have a built-in pause, thirty seconds with a hand on your chest
+      and seventeen seconds of sensory grounding, and the rest take as long as you want to give
+      them. It is designed to survive a bad morning.</p>
     </div>
   </details>
 

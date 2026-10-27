@@ -41,7 +41,7 @@ a[data-page] { cursor: pointer; }
   {%- if item.url != '/' %}
   <nav class="shell crumbs" aria-label="Breadcrumb"><a data-page="home" role="link" tabindex="0">Home</a> / {{ item.data.nav }}</nav>
   {%- endif %}
-  {{ item.templateContent | previewLinks | safe }}
+  {{ item.templateContent | previewLinks | inlineImages | safe }}
 </div>
 {%- endif %}{% endfor %}
 </main>

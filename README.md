@@ -11,7 +11,7 @@ therapist Austin". Clients are still served, through a `/therapy` hub and four c
 that route most of them to the practice's associates, who then become a referral network rather
 than a competing message.
 
-Twenty pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
+Twenty-two pages plus a 404, built with Eleventy. No CMS, no tracking scripts, no cookies.
 
 `dist/preview.html` is a single self-contained file holding every page, for review on a phone. Its links are click handlers rather than hrefs, because in-app file viewers treat any
 href as leaving the page. Do not deploy it as the site; deploy the individual pages.
@@ -66,6 +66,33 @@ schema: [{ "@type": "Service", ... }]   # optional, extra JSON-LD graph entries
 
 Nav, breadcrumbs, the sitemap, `llms.txt`, the footer index and the hub's `ItemList` schema all
 pick it up from there. Nothing else needs editing.
+
+### The practice page
+
+`/book/practice` is the only page on the site with real interactivity, and it is built as
+progressive enhancement. Every step, prompt and textarea is in the HTML, so with JavaScript off
+the page is a readable seven-step article. `src/assets/js/practice.js` then collapses it to one
+step at a time and adds the dots, the breathing guide, the two countdown timers, the emotion
+picker and autosave.
+
+Answers are stored in `localStorage` under `fb_practice_v1` and never leave the browser. Every
+read and write is wrapped, because private browsing and blocked site data both make it throw; if
+storage is unavailable the practice still runs and the save hint says so. The page says plainly
+that clearing browsing data deletes everything, and offers a copy button and a two-tap delete.
+
+The site's CSP is `script-src 'self'; style-src 'self' https://fonts.googleapis.com`, with no
+`'unsafe-inline'`, so the practice page carries no inline script and no inline style. Keep it
+that way: a single `style="..."` attribute anywhere on the site is silently dropped in
+production. A check for this is worth running before any deploy.
+
+### Images
+
+`src/assets/img/` holds the book cover and nine watercolours from Reem's book files. They are
+resized to 760px, quality 72, progressive, with explicit `width`/`height` and `loading="lazy"`
+on everything below the fold, which is why the site now weighs about 1 MB in total while any
+single page still loads light. `preview.njk` inlines them as data URIs through the
+`inlineImages` filter, because the preview is reviewed as a standalone file on a phone where
+`/assets/...` resolves to nothing. That makes `dist/preview.html` about 1.4 MB.
 
 ### Two things worth knowing
 
@@ -184,8 +211,15 @@ Two hubs, each with children:
 - `/therapy` : `/trauma`, `/anxiety`, `/depression`, `/walk-and-talk`, `/associates`
 
 `/book` is top level and in the nav, which makes the nav eight items. It covers *Effort-less
-Self-Care* and the companion *Reset* journal, and carries the site's only photograph, the book
-cover, which is also the only `og:image` on the site.
+Self-Care* and the companion *Reset* journal, and carries the book cover, which is also the
+site's `og:image`. Its child `/book/practice` is the seven-step practice itself, free and with
+nothing to sign up for.
+
+Both pages were built from the two standalone HTML files Reem produced, a marketing site and a
+practice app, folded into this site's design rather than hosted as-is. The seven steps live once,
+in `steps` in `src/_data/site.js`: `/book` renders them as cards using the `short` summary,
+`/book/practice` walks through them using the longer `instruction`, the prompts, and the timer,
+breathing and emotion flags.
 
 `/contact` has two children: `/contact/client-portal` and `/contact/forms`. Neither is in the
 nav, which stays at eight items; both are reached from the contact page, the fees page and each
@@ -272,7 +306,7 @@ Answer engines quote pages that state facts plainly and attributably.
 - Every page opens with a direct-answer block: two to four sentences that name the entity, the
   service, the price and the location, so a model can lift a complete answer from the top of
   the page.
-- 117 question-and-answer pairs across the supervision, EMDR, therapy, condition, associate,
+- 122 question-and-answer pairs across the supervision, EMDR, therapy, condition, associate,
   book, portal, forms and FAQ pages,
   each phrased the way someone would actually ask, each mirrored in `FAQPage` markup. Questions
   are kept distinct per page, so no two pages claim the same `Question` node.

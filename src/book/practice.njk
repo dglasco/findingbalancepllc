@@ -1,0 +1,173 @@
+---
+layout: layouts/base.njk
+tags: pages
+title: "The Seven Steps: A Free Self-Care Practice | Reem Glasco"
+description: Walk through the seven steps of Effort-less Self-Care with a breathing guide, two short timers and journal prompts that save privately in your own browser.
+nav: The Practice
+order: 9.6
+priority: 0.7
+bodyClass: practice
+script: /assets/js/practice.js
+---
+<section class="shell band">
+  <p class="eyebrow">Free, and nothing to sign up for</p>
+  <h1>The seven steps</h1>
+  <div class="answer">
+    <p>This is the whole practice from <a href="/book/">Effort-less Self-Care</a>, free to use
+    here. It takes a few minutes. There is nothing to fix and no way to do it wrong: you sit,
+    you notice what your body is doing, and you write down what you find, or you do not.
+    Anything you type <strong>stays in this browser on this device</strong> and is never sent
+    anywhere, including to Reem.</p>
+  </div>
+  <div class="cta-row" data-practice-start hidden>
+    <button class="cta" type="button" data-action="begin">Begin today's practice</button>
+    <a class="cta cta--quiet" href="#reflections">See what I have written</a>
+  </div>
+  <p class="note" data-practice-nojs>All seven steps are laid out below. Turn on JavaScript for
+  the guided version, with the breathing guide, the timers and saved answers.</p>
+</section>
+
+<nav class="practice-dots" aria-label="Progress through the seven steps" data-practice-dots hidden></nav>
+
+{%- for s in site.steps %}
+<section class="shell band practice-step{% if loop.index0 % 2 == 1 %} practice-step--alt{% endif %}"
+         id="step-{{ s.n }}" data-step="{{ loop.index0 }}" data-key="{{ s.key }}">
+  <div class="split split--aside">
+    <div>
+      <p class="eyebrow">Step {{ s.n }} of 7</p>
+      <h2>{{ s.title }}</h2>
+      <p class="step-card__quote">&ldquo;{{ s.quote }}&rdquo;</p>
+      <div class="step-instr">
+        <p>{{ s.instruction }}</p>
+        {%- if s.breathing %}
+        <p class="say"><em>Inhale:</em> &ldquo;I know I am breathing in fresh air.&rdquo;<br>
+        <em>Exhale:</em> &ldquo;I know I am breathing out stress.&rdquo;</p>
+        {%- endif %}
+      </div>
+
+      {%- if s.breathing %}
+      <div class="breathe" data-breathe hidden>
+        <div class="breathe__circle" data-breathe-circle>breathe</div>
+        <p class="breathe__label" data-breathe-label>Three slow rounds, at your own pace.</p>
+        <button class="cta cta--quiet" type="button" data-action="breathe">Start breathing, three rounds</button>
+      </div>
+      {%- endif %}
+
+      {%- if s.timer %}
+      <div class="timer" data-timer="{{ s.timer }}" hidden>
+        <p class="timer__num" data-timer-num>{{ s.timer }}</p>
+        <button class="cta cta--quiet" type="button" data-action="timer">Sit for {{ s.timer }} seconds</button>
+      </div>
+      {%- endif %}
+
+      {%- if s.emotions %}
+      <fieldset class="emotions" data-emotions hidden>
+        <legend>If one of these fits, choose it. If none does, leave it.</legend>
+        <button class="emotion" type="button" data-emotion="sad">Sad</button>
+        <button class="emotion" type="button" data-emotion="angry">Angry</button>
+        <button class="emotion" type="button" data-emotion="calm">Calm</button>
+        <button class="emotion" type="button" data-emotion="happy">Happy</button>
+      </fieldset>
+      {%- endif %}
+
+      {%- for prompt in s.prompts %}
+      <p class="prompt">
+        <label for="{{ s.key }}-{{ loop.index }}">{{ prompt }}</label>
+        <textarea id="{{ s.key }}-{{ loop.index }}" rows="3"
+          data-field="{{ s.key }}_{{ loop.index }}"
+          placeholder="Write freely, or leave it blank. Getting stuck is fine."></textarea>
+      </p>
+      {%- endfor %}
+
+      <p class="saved-hint" data-saved aria-live="polite"></p>
+
+      <div class="cta-row" data-practice-nav hidden>
+        <button class="cta cta--quiet" type="button" data-action="prev">Previous</button>
+        <button class="cta" type="button" data-action="next">{% if s.n == 7 %}Finish{% else %}Continue{% endif %}</button>
+      </div>
+    </div>
+    <div>
+      <img class="step-art" src="{{ s.img }}" width="{{ s.w }}" height="{{ s.h }}" alt="{{ s.alt }}"
+       loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+{%- endfor %}
+
+<section class="band band--night" id="closing" data-closing hidden>
+  <div class="shell split split--aside">
+    <div>
+      <p class="eyebrow">Final reflection</p>
+      <h2>Just breathe</h2>
+      <p>You sat back and observed your inner and outer world, not to fix or analyse it, but
+      simply to notice it. Your breath is always with you: your silent guide.</p>
+      <p class="quote-band">&ldquo;You are learning to listen.&rdquo;</p>
+      <div class="cta-row">
+        <a class="cta" href="#reflections">Read what I wrote</a>
+        <button class="cta cta--quiet" type="button" data-action="restart">Start again</button>
+      </div>
+    </div>
+    <div>
+      <img class="step-art" src="/assets/img/book-closing.jpg" width="760" height="760"
+       loading="lazy" decoding="async"
+       alt="Watercolour of sunrise through trees, warm light spreading across a green landscape.">
+    </div>
+  </div>
+</section>
+
+<section class="shell band" id="reflections">
+  <h2>Your reflections</h2>
+  <p>Everything you type is stored only in this browser, on this device, using its local
+  storage. It never reaches a server, so it is private, and so it disappears if you clear your
+  browsing data or switch devices. Copy anything you want to keep.</p>
+  <div data-reflections>
+    <p class="note">Nothing saved yet. Anything you write above appears here.</p>
+  </div>
+  <div class="cta-row" data-reflections-actions hidden>
+    <button class="cta cta--quiet" type="button" data-action="copy">Copy today's reflections</button>
+    <button class="cta cta--quiet" type="button" data-action="clear">Delete everything saved</button>
+  </div>
+  <p class="saved-hint" data-copy-hint aria-live="polite"></p>
+</section>
+
+<section class="shell band faq">
+  <h2>Questions about the practice</h2>
+
+  <details>
+    <summary>Where do my answers go?</summary>
+    <div class="answer-body">
+      <p>Nowhere. They are saved in your browser's local storage on this device and never
+      transmitted. Reem cannot see them, this site has no analytics, and there is no account to
+      create. The trade-off is that clearing your browsing data deletes them.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Do I have to answer every prompt?</summary>
+    <div class="answer-body">
+      <p>No. Blank is a legitimate answer and getting stuck is part of it. The prompts exist to
+      give attention somewhere to land, not to be completed.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How often should I do this?</summary>
+    <div class="answer-body">
+      <p>Daily if it helps, weekly if that is more realistic, or only when you need to reset.
+      The practice is short on purpose so that doing it is easier than deciding whether to.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What if something difficult comes up?</summary>
+    <div class="answer-body">
+      <p>Stop, and come back to step three: hand on your chest, noticing your breath without
+      changing it. This is a noticing practice, not trauma processing, and it is not a crisis
+      resource. If what surfaced needs more than a page, that is worth taking to a therapist.
+      <a href="/contact/">A consult here is free and fifteen minutes.</a></p>
+    </div>
+  </details>
+  {% include "partials/crisis-note.njk" %}
+</section>
+
+{% include "partials/cta-band.njk" %}
