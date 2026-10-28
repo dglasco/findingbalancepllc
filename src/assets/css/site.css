@@ -21,7 +21,7 @@
 
   --measure: 33rem;                    /* ~62 characters of serif */
   --gutter: clamp(1.35rem, 5vw, 3.5rem);
-  --band: clamp(5rem, 12vw, 9.5rem);   /* the air between ideas */
+  --band: clamp(3.75rem, 8vw, 7rem);   /* the air between ideas */
   --radius: 14px;
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -188,6 +188,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 /* ---------- hero ---------- */
 
 .hero { padding-block: clamp(3rem, 8vw, 6rem) calc(var(--band) * 0.8); }
+.hero + .band:not(.band--sand):not(.band--night) { padding-top: 0; }
 .hero__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: center; }
 @media (min-width: 54rem) {
   .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }

@@ -32,7 +32,7 @@
 
   --measure: 33rem;                    /* ~62 characters of serif */
   --gutter: clamp(1.35rem, 5vw, 3.5rem);
-  --band: clamp(5rem, 12vw, 9.5rem);   /* the air between ideas */
+  --band: clamp(3.75rem, 8vw, 7rem);   /* the air between ideas */
   --radius: 14px;
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -199,6 +199,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 /* ---------- hero ---------- */
 
 .hero { padding-block: clamp(3rem, 8vw, 6rem) calc(var(--band) * 0.8); }
+.hero + .band:not(.band--sand):not(.band--night) { padding-top: 0; }
 .hero__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; align-items: center; }
 @media (min-width: 54rem) {
   .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }
@@ -2321,7 +2322,7 @@ a[data-page] { cursor: pointer; }
     <div class="answer-body">
       <p>Ask about the associates, who generally have availability sooner and lower fees. If
       neither fits, Reem will refer you out rather than leave you on a waitlist. If you are in
-      crisis, call or text 988.</p>
+      immediate danger, call 911; for a mental health crisis, call or text 988.</p>
     </div>
   </details>
 </section>
@@ -2511,8 +2512,8 @@ a[data-page] { cursor: pointer; }
       on in the consult and you will be pointed at the right fit.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -2696,8 +2697,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       symptom. We review it together instead of promising a number at the start.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -2879,13 +2880,13 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
   <details>
     <summary>What if I am thinking about ending my life?</summary>
     <div class="answer-body">
-      <p>This practice does not provide emergency or crisis care. Call or text 988 for the
-      Suicide and Crisis Lifeline, or 911 if you are in immediate danger. Once you are safe,
+      <p>This practice does not provide emergency or crisis care. Call 911 if you are in
+      immediate danger, or call or text 988 for the Suicide and Crisis Lifeline. Once you are safe,
       a consult here can be a next step rather than the first one.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3112,8 +3113,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       not work with young children.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3379,8 +3380,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       sees couples at $165. Reem's own caseload is individual therapy.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3583,8 +3584,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       <a data-page="for-therapists--retreats-training" role="link" tabindex="0">retreats and training</a>.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3744,8 +3745,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       of bilateral stimulation.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3935,8 +3936,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       and your therapist must be physically located in Texas during a session.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4137,8 +4138,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       processing once there is room for it.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4350,8 +4351,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       the preparation phases are for.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4528,8 +4529,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       proceeds the same either way.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4880,8 +4881,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       The book exists for the people who want something to do on their own.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -5287,8 +5288,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       <a data-page="contact" role="link" tabindex="0">A consult here is free and fifteen minutes.</a></p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -5718,8 +5719,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
   <details>
     <summary>What if I am in crisis right now?</summary>
     <div class="answer-body">
-      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
-      Crisis Lifeline, or call 911 if you are in immediate danger. Reach out here once you are
+      <p>This practice does not provide emergency care. Call 911 if you are in immediate
+      danger, or call or text 988 for the Suicide and Crisis Lifeline. Reach out here once you are
       safe and we can talk about ongoing support.</p>
     </div>
   </details>
@@ -5936,8 +5937,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       and waiting to see whether they comply, that is something else.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6002,8 +6003,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       </ul>
 
       <h3>If this is urgent</h3>
-      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
-      Crisis Lifeline, or 911 if you are in immediate danger.</p>
+      <p>This practice does not provide emergency care. Call 911 if you are in immediate
+      danger, or call or text 988 for the Suicide and Crisis Lifeline.</p>
     </div>
   </div>
 </section>
@@ -6141,8 +6142,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       client portal instead.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6276,12 +6277,12 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     <summary>Can I use the portal to reach my therapist between sessions?</summary>
     <div class="answer-body">
       <p>For scheduling and admin, yes. It is not a crisis channel and messages are not monitored
-      around the clock. If you are in crisis, call or text 988, or 911 if you are in immediate
-      danger.</p>
+      around the clock. If you are in immediate danger, call 911; for a mental health crisis,
+      call or text 988.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6394,8 +6395,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       in your own mail app and you decide whether to send it. Nothing reaches a third party, and
       nothing about you is stored here.</p>
       <h3>If this is urgent</h3>
-      <p>This practice does not provide emergency care. Call or text 988 for the Suicide and
-      Crisis Lifeline, or 911 if you are in immediate danger.</p>
+      <p>This practice does not provide emergency care. Call 911 if you are in immediate
+      danger, or call or text 988 for the Suicide and Crisis Lifeline.</p>
     </div>
   </div>
 </section>
@@ -6437,8 +6438,8 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
       on the <a data-page="therapy--associates" role="link" tabindex="0">associates page</a>, which is quicker.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in crisis, call or
-text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate danger.</p>
+  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
+call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6509,7 +6510,7 @@ text 988 for the Suicide and Crisis Lifeline, or 911 if you are in immediate dan
     <div class="footer__legal">
       <p>Preview build. Reem Glasco is a Licensed Professional Counselor Supervisor in Texas,
       license 66562. Nothing on this site is therapy or supervision. In crisis,
-      call or text 988.</p>
+      call 911, or call or text 988 for the Suicide and Crisis Lifeline.</p>
     </div>
   </div>
 </footer>
