@@ -43,7 +43,7 @@ function practiceGraph(site) {
       alternateName: site.legalName,
       url: `${site.url}/`,
       email: site.email,
-      priceRange: "$185 - $425",
+      priceRange: "$70 - $500",
       medicalSpecialty: "Psychiatric",
       founder: { "@id": `${site.url}/#reem` },
       ...(site.phone ? { telephone: site.phone } : {}),
@@ -290,6 +290,19 @@ export default function (eleventyConfig) {
 
   // FAQPage schema is derived from the accordions actually rendered on the
   // page, so the markup can never claim a question the reader cannot see.
+  // "Note for the site build" blocks are working annotations. They are useful
+  // in a preview build and have no business being served to a visitor, so a
+  // production build strips them. One transform rather than a conditional on
+  // each note, so a note added later is covered without anyone remembering to.
+  eleventyConfig.addTransform("stripBuildNotes", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    if (SITE !== CANONICAL) return content; // preview: keep them visible
+    return content.replace(
+      /\s*<p class="note">Note for the site build:[\s\S]*?<\/p>/g,
+      ""
+    );
+  });
+
   eleventyConfig.addTransform("faqSchema", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
     if (!content.includes("<!--FAQ_SCHEMA-->")) return content;

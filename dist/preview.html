@@ -420,14 +420,18 @@ img, svg { max-width: 100%; height: auto; display: block; }
   top: 0;
   z-index: 10;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: center;
   padding: 0.9rem 1rem;
   background: color-mix(in srgb, var(--dusk) 88%, transparent);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--hair);
 }
+/* The visible dot stays small; ::after gives it a 24px hit area without
+   changing the layout, and the row gap is wide enough that two neighbouring
+   hit areas do not overlap. WCAG 2.2 target size. */
 .practice-dots__dot {
+  position: relative;
   width: 0.55rem;
   height: 0.55rem;
   padding: 0;
@@ -439,6 +443,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .practice-dots__dot.is-done { background: var(--juniper); }
 .practice-dots__dot.is-current { width: 1.7rem; background: var(--lamp); }
+.practice-dots__dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translate(-50%, -50%);
+}
 .practice-dots__dot:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 
 .practice-step--alt { background: var(--dusk-2); }
@@ -868,7 +881,7 @@ a[data-page] { cursor: pointer; }
       <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">
         <h3>LPC supervision</h3>
         <p>Your 3,000 hours, supervised online anywhere in Texas. $425 a month, four hours,
-        trauma-informed. One opening in fall 2026, one in spring 2027.</p>
+          trauma-informed. One opening in spring 2027.</p>
       </a>
       <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
         <h3>EMDR consultation</h3>
@@ -999,8 +1012,8 @@ a[data-page] { cursor: pointer; }
   <h1>Supervision, consultation and training</h1>
   <div class="answer">
     <p>Reem Glasco, LPC-S, has been a Texas LPC supervisor since 2009. There are three ways to
-    work with her professionally: <strong>LPC supervision</strong> at $425 a month for four
-    individual hours and one group hour, <strong>EMDR consultation</strong> at $185 an hour with
+    work with her professionally: <strong>LPC supervision</strong> at $425 a month for three
+      individual hours and one group hour, <strong>EMDR consultation</strong> at $185 an hour with
     an EMDRIA Approved Consultant, and <strong>retreats and equine training</strong> for
     clinicians who want to develop their own presence. All of it runs online except the retreats
     and the horses.</p>
@@ -1020,7 +1033,7 @@ a[data-page] { cursor: pointer; }
       <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">
         <h3>LPC supervision</h3>
         <p>Your 3,000 hours, supervised online anywhere in Texas. $425 a month. One opening in
-        fall 2026, one in spring 2027.</p>
+            spring 2027.</p>
       </a>
       <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
         <h3>EMDR consultation</h3>
@@ -1055,7 +1068,7 @@ a[data-page] { cursor: pointer; }
           <td><a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">LPC supervision</a></td>
           <td>LPC Associates licensed in Texas</td>
           <td>$425 a month, or $500 on a three-month agency contract</td>
-          <td>Four individual hours and one group hour each month, online</td>
+          <td>Three individual hours and one group hour each month, online</td>
         </tr>
         <tr>
           <td><a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">EMDR consultation</a></td>
@@ -1140,7 +1153,7 @@ a[data-page] { cursor: pointer; }
   <details>
     <summary>Are you accepting new LPC Associates?</summary>
     <div class="answer-body">
-      <p>One supervision spot opens in fall 2026 and one in spring 2027. Supervision is capped
+      <p>One supervision spot opens in spring 2027. Supervision is capped
       deliberately, so it is worth booking a consult before a spot opens rather than after.</p>
     </div>
   </details>
@@ -1196,8 +1209,8 @@ a[data-page] { cursor: pointer; }
   <div class="answer">
     <p>Reem Glasco has been a Texas Licensed Professional Counselor Supervisor since 2009.
     Supervision is online and available anywhere in Texas. It costs <strong>$425 a month</strong>
-    and includes four individual hours and one group hour. One spot opens in <strong>fall
-    2026</strong> and one in <strong>spring 2027</strong>. Equine-assisted sessions near
+    and includes three individual hours and one group hour. One spot opens in
+      <strong>spring 2027</strong>. Equine-assisted sessions near
     Dripping Springs are optional at $60 each, and EMDR consultation is free while you are an
     associate here.</p>
   </div>
@@ -1211,10 +1224,10 @@ a[data-page] { cursor: pointer; }
     <h2>The arrangement, in numbers</h2>
     <dl class="facts">
       <div><dt>Monthly fee</dt><dd>$425</dd></div>
-      <div><dt>What that includes</dt><dd>Four individual supervision hours and one group hour each month, five hours in total</dd></div>
+      <div><dt>What that includes</dt><dd>Three individual supervision hours and one group hour each month, four hours in total</dd></div>
       <div><dt>Caseload assumption</dt><dd>Ten or more clients a week</dd></div>
       <div><dt>Format</dt><dd>Online only, statewide in Texas</dd></div>
-      <div><dt>Openings</dt><dd>One in fall 2026, one in spring 2027</dd></div>
+      <div><dt>Openings</dt><dd>One in spring 2027</dd></div>
       <div><dt>Agency contracts</dt><dd>Three-month contracts for associates inside an agency or group practice, $500 a month</dd></div>
       <div><dt>Placement site</dt><dd>Online only</dd></div>
       <div><dt>Equine sessions</dt><dd>Optional, $60 each, Dripping Springs, Texas</dd></div>
@@ -1222,16 +1235,13 @@ a[data-page] { cursor: pointer; }
       <div><dt>Retreats</dt><dd>Annual mindful trail retreat for associates and therapists</dd></div>
       <div><dt>Consult</dt><dd>Free, thirty minutes, Zoom or phone</dd></div>
     </dl>
-    <p>Why four individual plus one group: Texas requires at least four hours of supervision a
-    month and caps group supervision at half your total hours. Four and one is five hours, which
-    clears the floor by a full hour and keeps group at a fifth, so a missed week does not put you
-    under.
-    <a data-page="texas-lpc-licensure" role="link" tabindex="0">The rules are laid out in full in the licensure
-    guide</a>.</p>
-    <p class="note">Note for the site build: confirm the structure with Reem. The old site said
-    four individual plus one group in one place and three plus one in another; this build uses
-    four plus one throughout, which is five hours a month. If it is really four hours in total,
-    the fee framing and the margin argument above both need rewording.</p>
+    <p>Why three individual plus one group: Texas requires at least four hours of supervision a
+      month and caps group supervision at half your total hours. Three and one is four hours, which
+      meets the requirement exactly, with group at a quarter of the total and well inside the cap.
+      Because it meets the floor rather than clearing it, a missed session is made up within the
+      same month rather than absorbed.
+      <a data-page="texas-lpc-licensure" role="link" tabindex="0">The rules are laid out in full in the licensure
+      guide</a>.</p>
   </div>
 </section>
 
@@ -1338,8 +1348,8 @@ a[data-page] { cursor: pointer; }
     <details>
       <summary>How much does LPC supervision cost in Texas with Reem Glasco?</summary>
       <div class="answer-body">
-        <p>Supervision is $425 a month, which covers four individual supervision hours and one
-        group hour. Associates working inside an agency or group practice can arrange a
+        <p>Supervision is $425 a month, which covers three individual supervision hours and one
+          group hour. Associates working inside an agency or group practice can arrange a
         three-month contract at $500 a month. Optional equine-assisted sessions are $60 each.</p>
       </div>
     </details>
@@ -1347,7 +1357,7 @@ a[data-page] { cursor: pointer; }
     <details>
       <summary>How many supervision hours do I get each month?</summary>
       <div class="answer-body">
-        <p>Five: four individual hours and one group hour, based on a caseload of ten or more
+        <p>Four: three individual hours and one group hour, based on a caseload of ten or more
         clients a week. If your caseload or board requirements differ, raise it in the consult
         and we will plan the cadence together.</p>
       </div>
@@ -1365,7 +1375,7 @@ a[data-page] { cursor: pointer; }
     <details>
       <summary>Are there supervision openings right now?</summary>
       <div class="answer-body">
-        <p>One spot opens in fall 2026 and one in spring 2027. Because supervision is capped
+        <p>One spot opens in spring 2027. Because supervision is capped
         deliberately, it is worth booking a consult before a spot opens rather than after.</p>
       </div>
     </details>
@@ -1743,8 +1753,8 @@ a[data-page] { cursor: pointer; }
     <div class="pathways">
       <a data-page="for-therapists--lpc-supervision" role="link" tabindex="0">
         <h3>LPC supervision</h3>
-        <p>$425 a month, four individual hours and one group hour, online statewide. One opening
-        in fall 2026, one in spring 2027.</p>
+        <p>$425 a month, three individual hours and one group hour, online statewide. One
+          opening in spring 2027.</p>
       </a>
       <a data-page="for-therapists--emdr-consultation" role="link" tabindex="0">
         <h3>EMDR consultation</h3>
@@ -1931,8 +1941,8 @@ a[data-page] { cursor: pointer; }
       supervision as a supervisor with one or two associates. Three or more is group.</li>
       <li><strong>No more than half your total hours can be group.</strong> Over the whole
       period, group supervision cannot exceed 50% of your supervision hours. This is why a
-      structure of four individual hours plus one group hour a month works cleanly: group is a
-      fifth of the total.</li>
+      structure of three individual hours plus one group hour a month works cleanly: group is a
+        quarter of the total.</li>
       <li><strong>Two supervisors, maximum.</strong> You may have up to two LPC supervisors on
       file at a time, splitting hours by mutual agreement.</li>
       <li><strong>Paperwork has deadlines.</strong> The Supervisory Agreement Form goes in
@@ -1985,8 +1995,8 @@ a[data-page] { cursor: pointer; }
     <p>Compare on the monthly total for four compliant hours, not on the hourly rate. Then ask
     what else is included: EMDR or modality consultation, practice-building help, a placement
     site, retreats, access between sessions.</p>
-    <p>For reference, supervision with Reem is $425 a month covering four individual hours and
-    one group hour, or $500 a month on a three-month contract for associates inside an agency.
+    <p>For reference, supervision with Reem is $425 a month covering three individual hours and
+      one group hour, or $500 a month on a three-month contract for associates inside an agency.
     EMDR consultation is included at no cost while you are her associate.</p>
     <div class="cta-row">
       <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See what is included</a>
@@ -2154,7 +2164,7 @@ a[data-page] { cursor: pointer; }
   <div class="shell">
     <h2>Supervision with Reem</h2>
     <p>Licensed as a Texas supervisor since 2009, over fifteen years of clinical experience,
-    online statewide. One opening in fall 2026 and one in spring 2027.</p>
+      online statewide. One opening in spring 2027.</p>
     <div class="cta-row">
       <a class="cta" data-page="for-therapists--lpc-supervision" role="link" tabindex="0">See the details</a>
       <a class="cta cta--quiet" data-page="contact" role="link" tabindex="0">Book a free consult</a>
@@ -2214,8 +2224,8 @@ a[data-page] { cursor: pointer; }
       </a>
       <a data-page="therapy--associates" role="link" tabindex="0">
         <h3>Our LPC Associates</h3>
-        <p>Six counselors supervised by Reem, $100 to $165 a session with sliding-scale places
-        and sooner openings.</p>
+        <p>Six counselors supervised by Reem, $100 to $150 a session with sliding-scale places
+          and sooner openings.</p>
       </a>
     </div>
     <p><a data-page="approach" role="link" tabindex="0">How IFS-informed EMDR, Somatic Experiencing and NARM fit
@@ -2258,7 +2268,7 @@ a[data-page] { cursor: pointer; }
         <tr>
           <td>Online, anywhere in Texas</td>
           <td><a data-page="therapy--associates" role="link" tabindex="0">An LPC Associate</a>, supervised by Reem</td>
-          <td>$100 to $165, sliding scale from $70</td>
+          <td>$100 to $150, sliding scale from $70</td>
           <td>50 minutes</td>
         </tr>
         <tr>
@@ -2293,8 +2303,8 @@ a[data-page] { cursor: pointer; }
       </a>
       <a data-page="therapy--associates" role="link" tabindex="0">
         <h3>Working with an associate</h3>
-        <p>Six LPC Associates, $100 to $165 a session with sliding-scale places, and sooner
-        availability. Supervised by Reem, so the clinical approach is the same lineage.</p>
+        <p>Six LPC Associates, $100 to $150 a session with sliding-scale places, and sooner
+          availability. Supervised by Reem, so the clinical approach is the same lineage.</p>
       </a>
       <a data-page="contact" role="link" tabindex="0">
         <h3>Not sure which</h3>
@@ -3183,7 +3193,8 @@ Suicide and Crisis Lifeline.</p>
     <p>Finding Balance Counseling works as a supervised practice. Alongside Reem Glasco, LPC-S,
     a group of <strong>LPC Associates</strong> sees clients under her supervision, which means
     the same clinical lineage at <strong>lower fees and sooner availability</strong>. Sessions
-    run <strong>$100 to $165</strong> for 50 minutes depending on the associate, and most hold
+    run <strong>$100 to $150</strong> for a 50-minute individual session depending on the
+      associate, and most hold
     a limited number of <strong>sliding-scale places from $70</strong>. Most work online across
     Texas; one also sees clients in person in Austin. Every associate offers a free consultation
     first.</p>
@@ -3481,7 +3492,7 @@ Suicide and Crisis Lifeline.</p>
       <div><dt>Riding</dt><dd>None. All work is on the ground.</dd></div>
       <div><dt>The horse</dt><dd>Blu</dd></div>
       <div><dt>Before starting</dt><dd>A free consult plus one to three online sessions</dd></div>
-      <div><dt>Client sessions</dt><dd>Additional fees apply. To be confirmed.</dd></div>
+      <div><dt>Client sessions</dt><dd>$185 to $240 for a session of 1.5 to 2 hours</dd></div>
       <div><dt>LPC Associates in supervision here</dt><dd>$60 a session, optional</dd></div>
       <div><dt>Therapists</dt><dd><a data-page="for-therapists--retreats-training" role="link" tabindex="0">Equine training and retreats</a>, fees per offering</dd></div>
       <div><dt>Weather</dt><dd>Sessions are rescheduled rather than pushed through</dd></div>
@@ -5379,11 +5390,11 @@ Suicide and Crisis Lifeline.</p>
   <section class="shell band">
   <h1>Questions people ask first</h1>
   <div class="answer">
-    <p>Short version: LPC supervision is $425 a month for four individual hours and one group
-    hour, online statewide. EMDR consultation is $185 an hour with an EMDRIA Approved
+    <p>Short version: LPC supervision is $425 a month for three individual hours and one group
+      hour, online statewide. EMDR consultation is $185 an hour with an EMDRIA Approved
     Consultant. Therapy is $240 for a 50-minute online session with Reem, or less with the
-    practice's associates. Everything starts with a free consult. The practice is in Cedar
-    Park, Texas, with in-person trail and equine options near Austin for adults.</p>
+    practice's associates. Everything starts with a free consult. The practice is in Austin, Texas,
+      with in-person trail and equine options for adults and no office to visit.</p>
   </div>
 </section>
 
@@ -5474,31 +5485,28 @@ Suicide and Crisis Lifeline.</p>
   <details>
     <summary>Is Finding Balance Counseling in network with Blue Cross Blue Shield?</summary>
     <div class="answer-body">
-      <p>Blue Cross Blue Shield is accepted. Whether the practice bills as in network or out
-      of network, and which BCBS plans that covers, is being confirmed. Ask in the consult in the
-      meantime and you will get a straight answer rather than a guess.</p>
-    <dl class="facts">
-        <div><dt>Blue Cross Blue Shield</dt><dd>Accepted</dd></div>
-        <div><dt>In network or out of network</dt><dd>To be confirmed</dd></div>
-        <div><dt>Plans covered</dt><dd>To be confirmed</dd></div>
-        <div><dt>What you pay</dt><dd>Your plan's copay or coinsurance. To be confirmed.</dd></div>
-        <div><dt>The associates</dt><dd>To be confirmed. Ask your associate directly.</dd></div>
-        <div><dt>Every other plan</dt><dd>Self-pay, $240 per 50-minute session with Reem</dd></div>
-      </dl>
-      <p class="note">Note for the site build: the five rows above marked "to be confirmed" are the
-      questions a prospective client actually asks, and they are the last thing standing between
-      this page and finished. Replace each one with the real answer; the rows are deliberately
-      visible rather than hidden so nobody forgets they are outstanding.</p>
+      <p>Yes, for Reem Glasco. She is in network with Blue Cross Blue Shield PPO plans. The
+        practice's LPC Associates do not take Blue Cross Blue Shield, so sessions with an associate
+        are self-pay.</p>
+        <dl class="facts">
+          <div><dt>Blue Cross Blue Shield</dt><dd>In network with Reem Glasco</dd></div>
+          <div><dt>Plans covered</dt><dd>PPO</dd></div>
+          <div><dt>What you pay</dt><dd>Your plan's copay, coinsurance or deductible. It varies by plan, so check your benefits.</dd></div>
+          <div><dt>The associates</dt><dd>Self-pay. The associates do not bill Blue Cross Blue Shield.</dd></div>
+          <div><dt>Every other plan</dt><dd>Self-pay, $240 per 50-minute session with Reem</dd></div>
+        </dl>
+      
     </div>
   </details>
 
   <details>
     <summary>Do the LPC Associates take Blue Cross Blue Shield too?</summary>
     <div class="answer-body">
-      <p>Being confirmed. Each associate runs their own billing, so the answer may differ by
-      associate. Their fees range from $100 to $165 a session with limited sliding-scale places,
-      and each one is listed with a direct contact route on the
-      <a data-page="therapy--associates" role="link" tabindex="0">associates page</a>.</p>
+      <p>No. The associates are independent clinicians under Reem's supervision, each running
+        their own billing, and none of them bills Blue Cross Blue Shield. Sessions with an
+        associate are self-pay, from $100 to $150 depending on the associate, with limited
+        sliding-scale places. Each one is listed with a direct contact route on the
+        <a data-page="therapy--associates" role="link" tabindex="0">associates page</a>.</p>
     </div>
   </details>
 
@@ -5516,7 +5524,8 @@ Suicide and Crisis Lifeline.</p>
     <summary>How much does therapy cost without insurance?</summary>
     <div class="answer-body">
       <p>$240 for a 50-minute session with Reem. The practice's LPC Associates range from $100 to
-      $165 depending on the associate, with limited sliding-scale places starting at $70. Anyone
+        $150 for an individual session depending on the associate, with limited sliding-scale
+        places starting at $70. Anyone
       paying out of pocket is entitled to a written Good Faith Estimate before treatment
       begins.</p>
     </div>
@@ -5750,8 +5759,8 @@ Suicide and Crisis Lifeline.</p>
   <details>
     <summary>Are you accepting LPC Associates for supervision?</summary>
     <div class="answer-body">
-      <p>One supervision spot opens in fall 2026 and one in spring 2027. Supervision is $425 a
-      month for four individual hours and one group hour, online and statewide in Texas.
+      <p>One supervision spot opens in spring 2027. Supervision is $425 a month for three
+        individual hours and one group hour, online and statewide in Texas.
       Applications start with a free 30-minute consult.</p>
     </div>
   </details>
@@ -6282,8 +6291,8 @@ Suicide and Crisis Lifeline.</p>
       <h3>Seeing an associate?</h3>
       <p>Each of the <a data-page="therapy--associates" role="link" tabindex="0">LPC Associates</a> runs their own
       scheduling, billing and paperwork, so book and pay with them directly using the contact
-      route on their card. Fees range from $100 to $165 a session with limited sliding-scale
-      places.</p>
+      route on their card. Fees range from $100 to $150 a session with limited sliding-scale
+        places.</p>
     </div>
     <div>
       <h3>Supervision and consultation</h3>
@@ -6455,8 +6464,8 @@ Suicide and Crisis Lifeline.</p>
       <h3>Booking an associate instead</h3>
       <p>The practice's <a data-page="therapy--associates" role="link" tabindex="0">LPC Associates</a> each run their own
       scheduling and billing, and each one has a direct email and phone number on their card.
-      Writing to them directly is faster than going through this form. Fees run $100 to $165 a
-      session with limited sliding-scale places.</p>
+      Writing to them directly is faster than going through this form. Fees run $100 to $150 a
+        session with limited sliding-scale places.</p>
     </div>
     <div>
       <h3>Already a client?</h3>

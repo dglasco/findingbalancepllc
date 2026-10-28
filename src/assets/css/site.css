@@ -409,14 +409,18 @@ img, svg { max-width: 100%; height: auto; display: block; }
   top: 0;
   z-index: 10;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: center;
   padding: 0.9rem 1rem;
   background: color-mix(in srgb, var(--dusk) 88%, transparent);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--hair);
 }
+/* The visible dot stays small; ::after gives it a 24px hit area without
+   changing the layout, and the row gap is wide enough that two neighbouring
+   hit areas do not overlap. WCAG 2.2 target size. */
 .practice-dots__dot {
+  position: relative;
   width: 0.55rem;
   height: 0.55rem;
   padding: 0;
@@ -428,6 +432,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .practice-dots__dot.is-done { background: var(--juniper); }
 .practice-dots__dot.is-current { width: 1.7rem; background: var(--lamp); }
+.practice-dots__dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translate(-50%, -50%);
+}
 .practice-dots__dot:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 
 .practice-step--alt { background: var(--dusk-2); }
