@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Karla:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/site.css?v={{ "/assets/css/site.css" | assetHash }}">
 <script type="application/ld+json">{{ { site: site, url: page.url, title: title, description: description, crumbs: crumbs, kids: kids, extra: schema } | jsonld | safe }}</script>
 <!--FAQ_SCHEMA-->
 </head>
@@ -50,9 +50,9 @@
 {{ content | safe }}
 </main>
 {% include "partials/footer.njk" %}
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v={{ "/assets/js/site.js" | assetHash }}" defer></script>
 {%- if script %}
-<script src="{{ script }}" defer></script>
+<script src="{{ script }}?v={{ script | assetHash }}" defer></script>
 {%- endif %}
 </body>
 </html>

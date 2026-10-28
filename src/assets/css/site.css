@@ -299,14 +299,21 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .band-art {
   width: 100%;
   max-width: 22rem;
-  margin: 2.5rem auto 0;
+  margin: 2.5rem auto;
   border-radius: var(--radius);
   box-shadow: 0 18px 44px -24px rgba(31, 45, 56, 0.5);
 }
-.band-art--wide { max-width: 34rem; margin: 0 auto 2.5rem; }
+/* At the edges of a section the band padding already supplies the air, so the
+   margin would only double it. Everywhere else a picture keeps both sides. */
+.band-art:first-child { margin-top: 0; }
+.band-art:last-child { margin-bottom: 0; }
+/* A caption belongs to its picture and stays close to it. */
+.band-art:has(+ .caption) { margin-bottom: 0.7rem; }
+/* The variants change width only. Spacing is the same question for all of them. */
+.band-art--wide { max-width: 34rem; }
 /* Landscape photographs, which need the full content width rather than the
    portrait-shaped column the watercolors sit in. */
-.band-art--photo { max-width: 47rem; margin: 2.2rem auto 0; }
+.band-art--photo { max-width: 47rem; }
 .caption {
   font-family: var(--sans);
   font-size: 0.82rem;

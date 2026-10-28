@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 
 // Kept in step with src/_data/site.js. The FAQ transform runs outside template
 // data, so it needs its own copy of the host.
@@ -231,6 +232,28 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("assetExists", (url) =>
     fs.existsSync("src" + url)
   );
+
+  // Short content hash for an asset URL, appended as ?v= on the stylesheet and
+  // scripts. _headers pins /assets/* for a year as immutable, which is correct
+  // only while the URL changes when the bytes do: without this, a returning
+  // visitor keeps last year's CSS and never revalidates. Images are not hashed,
+  // so replacing one in place needs a new filename.
+  const hashCache = new Map();
+  eleventyConfig.addFilter("assetHash", (url) => {
+    if (!url) return "";
+    if (hashCache.has(url)) return hashCache.get(url);
+    let h = "";
+    try {
+      h = crypto.createHash("sha256")
+        .update(fs.readFileSync("src" + url))
+        .digest("hex")
+        .slice(0, 8);
+    } catch {
+      h = ""; // asset not in src/; ship the bare URL rather than a broken one
+    }
+    hashCache.set(url, h);
+    return h;
+  });
 
   // Used by the single-file preview to inline the stylesheet and script.
   eleventyConfig.addFilter("readFile", (path) => fs.readFileSync(path, "utf8"));
