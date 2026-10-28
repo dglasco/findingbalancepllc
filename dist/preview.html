@@ -742,6 +742,8 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 .crumbs { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); padding-top: 1.5rem; }
 .crumbs a { color: var(--ink-soft); }
 
+/* Temporary build annotations. Dashed on purpose: they are provisional, and
+   every one of them is meant to be gone before launch. */
 .note {
   font-family: var(--sans);
   font-size: 0.92rem;
@@ -751,6 +753,31 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
   padding: 1rem 1.2rem;
   max-width: 39rem;
 }
+
+/* Crisis information. Permanent, and the one block on a page that has to be
+   found by someone who is not reading carefully. Solid rather than dashed so it
+   reads as settled; a brass rule and a warmer ground so it separates from the
+   body without alarming anyone, which on a trauma practice would be the wrong
+   trade. */
+.crisis {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: rgba(176, 138, 60, 0.09);
+  border: 1px solid rgba(176, 138, 60, 0.3);
+  border-left: 4px solid var(--lamp);
+  border-radius: var(--radius);
+  padding: 1.05rem 1.3rem;
+  max-width: 39rem;
+  margin-top: 2.5rem;
+}
+.band--night .crisis {
+  color: rgba(226, 236, 242, 0.92);
+  background: rgba(176, 138, 60, 0.14);
+  border-color: rgba(176, 138, 60, 0.42);
+}
+.band--night .crisis strong { color: #eef4f9; }
 
 .source { font-size: 0.95rem; color: var(--ink-soft); }
 
@@ -825,7 +852,7 @@ a[data-page] { cursor: pointer; }
 
 <section class="shell band">
   <div class="answer">
-    <p>Finding Balance Counseling is the practice of Reem Glasco, LPC-S, in Cedar Park, Texas.
+    <p>Finding Balance Counseling is the practice of Reem Glasco, LPC-S, in Austin, Texas.
     Reem has held Texas LPC supervisor status since 2009 and is an EMDRIA Approved Consultant,
     a NARM therapist and a Somatic Experiencing Practitioner. She supervises LPC Associates
     online statewide at $425 a month, consults on EMDR at $185 an hour, and runs mindful trail
@@ -2523,8 +2550,9 @@ a[data-page] { cursor: pointer; }
       on in the consult and you will be pointed at the right fit.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -2708,8 +2736,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       symptom. We review it together instead of promising a number at the start.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -2896,8 +2925,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       a consult here can be a next step rather than the first one.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3124,8 +3154,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       not work with young children.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3391,8 +3422,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       sees couples at $165. Reem's own caseload is individual therapy.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3595,8 +3627,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       <a data-page="for-therapists--retreats-training" role="link" tabindex="0">retreats and training</a>.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3756,8 +3789,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       of bilateral stimulation.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -3944,11 +3978,13 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
     <div class="answer-body">
       <p>Yes, and it is the default here. NARM tracks your attention, your relationship to what
       you are saying and your felt sense, none of which require being in the same room. Both you
-      and your therapist must be physically located in Texas during a session.</p>
+      and your therapist must be physically located in the same licensed state during a session,
+      which means Texas, or Arizona if you are working with Reem.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4136,7 +4172,8 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
     <div class="answer-body">
       <p>Yes, and it is how this practice delivers it. The work tracks your own sensation rather
       than the room, so video is not the obstacle people expect. Both you and your therapist have
-      to be physically located in Texas during a session.</p>
+      to be physically located in the same licensed state during a session, which means Texas, or
+      Arizona if you are working with Reem.</p>
     </div>
   </details>
 
@@ -4149,8 +4186,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       processing once there is room for it.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4299,7 +4337,8 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
     <div class="answer-body">
       <p>Yes, and it is the default here. Bilateral stimulation adapts to video using
       self-administered tapping or on-screen movement, and the preparation work is unaffected.
-      Both you and your therapist must be physically located in Texas during the session.</p>
+      You and your therapist must both be physically located in a state where your therapist is
+      licensed during the session: Texas for the whole practice, and Arizona with Reem.</p>
     </div>
   </details>
 
@@ -4362,8 +4401,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       the preparation phases are for.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4540,8 +4580,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       proceeds the same either way.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -4728,6 +4769,18 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
 </section>
 
 <section class="shell band">
+  <h2>The details</h2>
+  <dl class="facts">
+    <div><dt>Format</dt><dd>Paperback, 50 pages</dd></div>
+    <div><dt>Published</dt><dd>12 February 2026, Barnes &amp; Noble Press</dd></div>
+    <div><dt>ISBN-13</dt><dd>979-8-279-65687-5</dd></div>
+    <div><dt>Size</dt><dd>5.83 by 8.27 inches</dd></div>
+    <div><dt>Price</dt><dd>$14.95</dd></div>
+    <div><dt>Author</dt><dd>Reem Glasco, LPC-S</dd></div>
+  </dl>
+</section>
+
+<section class="shell band">
   <h2>Who it is for</h2>
   <div class="pathways">
     <a data-page="therapy" role="link" tabindex="0">
@@ -4808,8 +4861,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       The book exists for the people who want something to do on their own.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -5215,8 +5269,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       <a data-page="contact" role="link" tabindex="0">A consult here is free and fifteen minutes.</a></p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -5244,7 +5299,7 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
     has held supervisor status since 2009 with over fifteen years of clinical experience. She
     is a NARM therapist, a Somatic Experiencing Practitioner (SEP), EMDR certified and an
     EMDRIA Approved Consultant. She was a Clinical Partner at Capital Area Counseling from 2021
-    to 2025 and practices from Cedar Park, Texas, working online statewide.</p>
+    to 2025 and practices from Austin, Texas, working online statewide.</p>
   </div>
 
   <div class="split">
@@ -5264,7 +5319,7 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       <p>I am also an LPC supervisor. Supervision is online, and I offer mindful retreats for
       associate therapists to expand their personal and professional awareness in the field.</p>
       <p>You can also find me on
-      <a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today</a>.</p>
+      <a href="https://www.psychologytoday.com/us/therapists/finding-balance-counseling-pllc-lpc-supervisor-dripping-springs-tx/132024">Psychology Today</a>.</p>
     </div>
     <div>
       <h3>Credentials</h3>
@@ -5304,11 +5359,12 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
     <dl class="facts">
       <div><dt>Therapy and general enquiries</dt><dd><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a></dd></div>
       <div><dt>Supervision and consultation</dt><dd><a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></dd></div>
-      <div><dt>Based in</dt><dd>Cedar Park, Texas 78613</dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:7373784167">(737) 378-4167</a></dd></div>
+      <div><dt>Based in</dt><dd>Austin, Texas</dd></div>
       <div><dt>Sessions</dt><dd>Online across Texas; trail walk and equine work in person near Austin, by arrangement</dd></div>
       <div><dt>Hours</dt><dd>By appointment. Walk and table therapy on Fridays.</dd></div>
       <div><dt>Consult</dt><dd>Free: fifteen minutes for therapy, thirty for supervision</dd></div>
-      <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
+      <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists/finding-balance-counseling-pllc-lpc-supervisor-dripping-springs-tx/132024">Psychology Today profile</a></dd></div>
     </dl>
     <div class="cta-row">
       <a class="cta" data-page="contact" role="link" tabindex="0">Request a consult</a>
@@ -5346,9 +5402,10 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
   <details>
     <summary>Where is Finding Balance Counseling located?</summary>
     <div class="answer-body">
-      <p>The practice is based in Cedar Park, Texas, and works online with clients anywhere in
-      the state, including Austin. In-person trail walk sessions happen outdoors in central
-      Texas, and equine sessions are near Dripping Springs.</p>
+      <p>The practice is based in Austin, Texas, and works online with clients anywhere in the
+      state. There is no office clients visit: every in-person session happens outdoors, either on
+      a trail in central Texas or with the horses near Dripping Springs. Reem is licensed in Texas
+      and Arizona and can see clients located in either state online.</p>
     </div>
   </details>
 
@@ -5947,8 +6004,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       and waiting to see whether they comply, that is something else.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -5983,11 +6041,12 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       <dl class="facts">
         <div><dt>Therapy and general</dt><dd><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a></dd></div>
         <div><dt>Supervision applications</dt><dd><a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></dd></div>
-        <div><dt>Based in</dt><dd>Cedar Park, Texas 78613</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:7373784167">(737) 378-4167</a></dd></div>
+        <div><dt>Based in</dt><dd>Austin, Texas</dd></div>
         <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
         <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
-        <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
+        <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists/finding-balance-counseling-pllc-lpc-supervisor-dripping-springs-tx/132024">Psychology Today profile</a></dd></div>
       </dl>
       <p class="note">Note for the site build: set <code>phone</code> in
       <code>src/_data/site.js</code> and the number appears here, in the footer and in the
@@ -6152,8 +6211,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       client portal instead.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6203,7 +6263,7 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       <div><dt>Pay a balance</dt><dd>By major credit card. Card details go to the portal, never to this website.</dd></div>
       <div><dt>Insurance</dt><dd>Blue Cross Blue Shield accepted; other plans self-pay at $240 per 50 minutes</dd></div>
       <div><dt>Complete intake forms</dt><dd>The five <a data-page="contact--forms" role="link" tabindex="0">client forms</a>, including the Good Faith Estimate</dd></div>
-      <div><dt>Join a telehealth session</dt><dd>From anywhere in Texas. Both of you have to be physically in Texas during a session.</dd></div>
+      <div><dt>Join a telehealth session</dt><dd>From anywhere in Texas, or Arizona with Reem. You and your therapist both have to be in that state during the session.</dd></div>
       <div><dt>Request records</dt><dd>Provided electronically within 15 business days of a written request</dd></div>
     </dl>
   </div>
@@ -6276,8 +6336,10 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
   <details>
     <summary>Do I have to be in Texas for a telehealth session?</summary>
     <div class="answer-body">
-      <p>Yes. A Texas license allows a counselor to treat clients located in Texas, so both you
-      and your therapist have to be physically in the state at the time of the session. Tell your
+      <p>Texas or Arizona. A license allows a counselor to treat clients located in the state
+      that issued it, and Reem holds both; the practice's LPC Associates are licensed in Texas
+      only. Either way you and your therapist have to be physically in the same licensed state at
+      the time of the session. Tell your
       therapist in advance if you are traveling, so the appointment can be moved rather than
       canceled.</p>
     </div>
@@ -6291,8 +6353,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       call or text 988.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6448,8 +6511,9 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
       on the <a data-page="therapy--associates" role="link" tabindex="0">associates page</a>, which is quicker.</p>
     </div>
   </details>
-  <p class="note">This practice does not provide emergency care. If you are in immediate danger,
-call 911. For a mental health crisis, call or text 988 for the Suicide and Crisis Lifeline.</p>
+  <p class="crisis">This practice does not provide emergency care. If you are in immediate danger,
+call <strong>911</strong>. For a mental health crisis, call or text <strong>988</strong> for the
+Suicide and Crisis Lifeline.</p>
 
 </section>
 
@@ -6476,7 +6540,7 @@ call 911. For a mental health crisis, call or text 988 for the Suicide and Crisi
         <h4>Get in touch</h4>
         <p><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a><br>
         Supervision inquiries: <a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></p>
-        <p>Cedar Park, Texas 78613</p>
+        <p>Austin, Texas</p>
       </div>
       <div>
         <h4>Pages</h4>

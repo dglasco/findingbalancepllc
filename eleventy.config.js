@@ -46,17 +46,21 @@ function practiceGraph(site) {
       priceRange: "$185 - $425",
       medicalSpecialty: "Psychiatric",
       founder: { "@id": `${site.url}/#reem` },
+      ...(site.phone ? { telephone: site.phone } : {}),
       address: {
         "@type": "PostalAddress",
         addressLocality: site.city,
         addressRegion: site.region,
-        postalCode: site.postal,
+        ...(site.postal ? { postalCode: site.postal } : {}),
         addressCountry: "US",
       },
+      // Reem is licensed in Texas and Arizona. Clients are never seen at an
+      // address: everything is online, or outdoors on a trail or at the horses.
       areaServed: [
         { "@type": "State", name: "Texas" },
+        { "@type": "State", name: "Arizona" },
         { "@type": "City", name: "Austin" },
-        { "@type": "City", name: "Cedar Park" },
+        { "@type": "City", name: "Dripping Springs" },
       ],
       availableLanguage: "English",
       knowsAbout: [

@@ -1,6 +1,6 @@
 # Finding Balance Counseling
 
-> Texas practice led by Reem Glasco, LPC-S (license 66562), based in Cedar Park and working online statewide. The practice is primarily for therapists: LPC Associates seeking supervision, therapists seeking EMDRIA-approved EMDR consultation, and clinicians attending retreats or training. Reem also holds a small therapy caseload for developmental trauma, C-PTSD, anxiety and depression, with the practice's LPC Associates seeing additional clients at lower fees.
+> Texas practice led by Reem Glasco, LPC-S (license 66562), based in Austin and working online statewide. The practice is primarily for therapists: LPC Associates seeking supervision, therapists seeking EMDRIA-approved EMDR consultation, and clinicians attending retreats or training. Reem also holds a small therapy caseload for developmental trauma, C-PTSD, anxiety and depression, with the practice's LPC Associates seeing additional clients at lower fees.
 
 Key facts, current as of 2026-10-28:
 
@@ -38,11 +38,11 @@ Key facts, current as of 2026-10-28:
   - [IFS-Informed EMDR](https://findingbalancepllc.daveg-689.workers.dev/approach/ifs-informed-emdr/): IFS-informed EMDR with Reem Glasco, LPC-S. Parts work combined with EMDR for developmental trauma, for people whose EMDR has flooded, stalled or gone nowhere.
 - [The Book](https://findingbalancepllc.daveg-689.workers.dev/book/): Effort-less Self-Care: 7 Easy Steps to Calm and Connection, by Reem Glasco, LPC-S. A gentle workbook for slowing down and listening to your body.
   - [The Practice](https://findingbalancepllc.daveg-689.workers.dev/book/practice/): Walk through the seven steps of Effort-less Self-Care with a breathing guide, two short timers and journal prompts that save privately in your own browser.
-- [About](https://findingbalancepllc.daveg-689.workers.dev/about/): Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Cedar Park.
+- [About](https://findingbalancepllc.daveg-689.workers.dev/about/): Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Austin.
 - [FAQ](https://findingbalancepllc.daveg-689.workers.dev/faq/): What therapy costs in Texas with and without insurance, the full fee list, and plain answers on somatic therapy, EMDR, complex PTSD and getting started.
 - [Notes](https://findingbalancepllc.daveg-689.workers.dev/blog/): Writing from Reem Glasco, LPC-S, on boundaries, the nervous system, trauma work and the business of being a therapist in Texas.
   - [How to Set Healthy Boundaries](https://findingbalancepllc.daveg-689.workers.dev/blog/healthy-boundaries/): Five steps to setting boundaries that hold: identify your limits, say them plainly, read your own feelings, and get help if they keep collapsing.
-- [Contact](https://findingbalancepllc.daveg-689.workers.dev/contact/): Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Cedar Park, Texas. Online across the state.
+- [Contact](https://findingbalancepllc.daveg-689.workers.dev/contact/): Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Austin, Texas. Online across the state.
   - [Client Forms](https://findingbalancepllc.daveg-689.workers.dev/contact/forms/): Intake paperwork for new clients at Finding Balance Counseling: the five forms, including Limits of Confidentiality and your Good Faith Estimate.
   - [Client Portal](https://findingbalancepllc.daveg-689.workers.dev/contact/client-portal/): Book sessions, pay your balance and complete intake forms in the Finding Balance Counseling client portal. Blue Cross Blue Shield accepted; self-pay $240.
   - [Request an Appointment](https://findingbalancepllc.daveg-689.workers.dev/contact/appointment/): Request a free consult with Reem Glasco, LPC-S, or one of the practice's LPC Associates. Tell us what you are looking for and when you are free.

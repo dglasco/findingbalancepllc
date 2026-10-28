@@ -731,6 +731,8 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 .crumbs { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); padding-top: 1.5rem; }
 .crumbs a { color: var(--ink-soft); }
 
+/* Temporary build annotations. Dashed on purpose: they are provisional, and
+   every one of them is meant to be gone before launch. */
 .note {
   font-family: var(--sans);
   font-size: 0.92rem;
@@ -740,6 +742,31 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
   padding: 1rem 1.2rem;
   max-width: 39rem;
 }
+
+/* Crisis information. Permanent, and the one block on a page that has to be
+   found by someone who is not reading carefully. Solid rather than dashed so it
+   reads as settled; a brass rule and a warmer ground so it separates from the
+   body without alarming anyone, which on a trauma practice would be the wrong
+   trade. */
+.crisis {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: rgba(176, 138, 60, 0.09);
+  border: 1px solid rgba(176, 138, 60, 0.3);
+  border-left: 4px solid var(--lamp);
+  border-radius: var(--radius);
+  padding: 1.05rem 1.3rem;
+  max-width: 39rem;
+  margin-top: 2.5rem;
+}
+.band--night .crisis {
+  color: rgba(226, 236, 242, 0.92);
+  background: rgba(176, 138, 60, 0.14);
+  border-color: rgba(176, 138, 60, 0.42);
+}
+.band--night .crisis strong { color: #eef4f9; }
 
 .source { font-size: 0.95rem; color: var(--ink-soft); }
 

@@ -52,7 +52,7 @@ a[data-page] { cursor: pointer; }
         <h4>Get in touch</h4>
         <p><a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
         Supervision inquiries: <a href="mailto:{{ site.emailSupervision }}">{{ site.emailSupervision }}</a></p>
-        <p>{{ site.city }}, Texas {{ site.postal }}</p>
+        <p>{{ site.city }}, Texas{% if site.postal %} {{ site.postal }}{% endif %}</p>
       </div>
       <div>
         <h4>Pages</h4>

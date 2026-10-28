@@ -27,13 +27,13 @@ export default {
 
   // Set this and the number appears on the contact page, in the footer and in
   // the LocalBusiness schema. Empty means the site stays email-only.
-  phone: "",
+  phone: "(737) 378-4167",
 
-  city: "Cedar Park",
+  city: "Austin",
   region: "TX",
-  postal: "78613",
+  postal: "",            // Austin ZIP still to confirm
   license: "66562",
-  psychologyToday: "https://www.psychologytoday.com/us/therapists?search=reem+glasco",
+  psychologyToday: "https://www.psychologytoday.com/us/therapists/finding-balance-counseling-pllc-lpc-supervisor-dripping-springs-tx/132024",
 
   // Client portal (the practice's EHR). Set this and every portal button on the
   // site goes live; leave it empty and those pages route people to email instead.

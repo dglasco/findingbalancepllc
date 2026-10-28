@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
 tags: pages
-title: "Reem Glasco, LPC-S | Cedar Park and Austin, Texas"
-description: Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Cedar Park.
+title: "Reem Glasco, LPC-S | Trauma Therapist in Austin, Texas"
+description: Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Austin.
 nav: About
 order: 9.5
 ---
@@ -13,7 +13,7 @@ order: 9.5
     has held supervisor status since 2009 with over fifteen years of clinical experience. She
     is a NARM therapist, a Somatic Experiencing Practitioner (SEP), EMDR certified and an
     EMDRIA Approved Consultant. She was a Clinical Partner at Capital Area Counseling from 2021
-    to 2025 and practices from Cedar Park, Texas, working online statewide.</p>
+    to 2025 and practices from Austin, Texas, working online statewide.</p>
   </div>
 
   <div class="split">
@@ -33,7 +33,7 @@ order: 9.5
       <p>I am also an LPC supervisor. Supervision is online, and I offer mindful retreats for
       associate therapists to expand their personal and professional awareness in the field.</p>
       <p>You can also find me on
-      <a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today</a>.</p>
+      <a href="{{ site.psychologyToday }}">Psychology Today</a>.</p>
     </div>
     <div>
       <h3>Credentials</h3>
@@ -76,7 +76,7 @@ order: 9.5
       {%- if site.phone %}
       <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
       {%- endif %}
-      <div><dt>Based in</dt><dd>{{ site.city }}, Texas {{ site.postal }}</dd></div>
+      <div><dt>Based in</dt><dd>{{ site.city }}, Texas{% if site.postal %} {{ site.postal }}{% endif %}</dd></div>
       <div><dt>Sessions</dt><dd>Online across Texas; trail walk and equine work in person near Austin, by arrangement</dd></div>
       <div><dt>Hours</dt><dd>By appointment. Walk and table therapy on Fridays.</dd></div>
       <div><dt>Consult</dt><dd>Free: fifteen minutes for therapy, thirty for supervision</dd></div>

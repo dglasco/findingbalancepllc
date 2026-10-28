@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
 tags: pages
-title: "Contact Finding Balance Counseling | Cedar Park, Texas"
-description: Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Cedar Park, Texas. Online across the state.
+title: "Contact Finding Balance Counseling | Austin, Texas"
+description: Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Austin, Texas. Online across the state.
 nav: Contact
 order: 12
 ---
@@ -23,11 +23,11 @@ order: 12
         {%- if site.phone %}
         <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
         {%- endif %}
-        <div><dt>Based in</dt><dd>Cedar Park, Texas 78613</dd></div>
+        <div><dt>Based in</dt><dd>Austin, Texas</dd></div>
         <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
         <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
-        <div><dt>Directory</dt><dd><a href="https://www.psychologytoday.com/us/therapists?search=reem+glasco">Psychology Today profile</a></dd></div>
+        <div><dt>Directory</dt><dd><a href="{{ site.psychologyToday }}">Psychology Today profile</a></dd></div>
       </dl>
       <p class="note">Note for the site build: set <code>phone</code> in
       <code>src/_data/site.js</code> and the number appears here, in the footer and in the
