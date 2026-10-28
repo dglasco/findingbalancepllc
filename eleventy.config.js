@@ -292,6 +292,10 @@ export default function (eleventyConfig) {
 
     const strip = (html) =>
       html
+        // .vh carries text meant only for a screen reader, such as "opens in a
+        // new tab". It is part of the link, not part of the answer, and it
+        // reads as noise once an assistant quotes the answer back.
+        .replace(/<span class="vh">[\s\S]*?<\/span>/g, "")
         .replace(/<\/p>\s*<p>/g, " ")
         .replace(/<[^>]+>/g, "")
         .replace(/\s+/g, " ")

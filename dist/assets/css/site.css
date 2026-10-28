@@ -133,6 +133,17 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 
 .skip { position: absolute; left: -9999px; background: var(--indigo); color: var(--dusk); padding: 0.75rem 1rem; }
+/* Visible to assistive technology only. Carries "opens in a new tab", which a
+   sighted reader can see for themselves and a screen reader cannot. */
+.vh {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .skip:focus { left: 1rem; top: 1rem; z-index: 20; }
 
 /* ---------- header ---------- */
