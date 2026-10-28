@@ -66,3 +66,25 @@ order: 9
     <a class="cta cta--quiet" href="/texas-lpc-licensure/">Texas licensure guide</a>
   </div>
 </section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>How to reach Reem</h2>
+    <dl class="facts">
+      <div><dt>Therapy and general enquiries</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+      <div><dt>Supervision and consultation</dt><dd><a href="mailto:{{ site.emailSupervision }}">{{ site.emailSupervision }}</a></dd></div>
+      {%- if site.phone %}
+      <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
+      {%- endif %}
+      <div><dt>Based in</dt><dd>{{ site.city }}, Texas {{ site.postal }}</dd></div>
+      <div><dt>Sessions</dt><dd>Online across Texas; trail walk and equine work in person near Austin, by arrangement</dd></div>
+      <div><dt>Hours</dt><dd>By appointment. Walk and table therapy on Fridays.</dd></div>
+      <div><dt>Consult</dt><dd>Free: fifteen minutes for therapy, thirty for supervision</dd></div>
+      <div><dt>Directory</dt><dd><a href="{{ site.psychologyToday }}">Psychology Today profile</a></dd></div>
+    </dl>
+    <div class="cta-row">
+      <a class="cta" href="/contact/">Request a consult</a>
+      <a class="cta cta--quiet" href="/faq/">Fees and FAQ</a>
+    </div>
+  </div>
+</section>

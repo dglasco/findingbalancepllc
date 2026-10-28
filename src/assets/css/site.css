@@ -80,6 +80,33 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 .band { padding-block: var(--band); }
 
+/* Vertical rhythm. --band is the air around one idea, but every section was
+   paying it twice: its own top padding plus the previous section's bottom,
+   which put 304px of nothing at each seam on a 1280px screen. The gap is one
+   band's worth, owned by whichever side it belongs to. */
+
+/* Plain after plain: the first one's bottom padding already is the gap. */
+.band:not(.band--sand):not(.band--night) + .band:not(.band--sand):not(.band--night) {
+  padding-top: 0;
+}
+
+/* A change of background separates two ideas by itself. The coloured block
+   still needs air inside it so the colour has somewhere to sit, but it does
+   not also need a full band of air outside. */
+.band--sand, .band--night { padding-block: calc(var(--band) * 0.72); }
+.band:not(.band--sand):not(.band--night):has(+ .band--sand),
+.band:not(.band--sand):not(.band--night):has(+ .band--night) {
+  padding-bottom: calc(var(--band) * 0.6);
+}
+.band--sand + .band:not(.band--sand):not(.band--night),
+.band--night + .band:not(.band--sand):not(.band--night) {
+  padding-top: calc(var(--band) * 0.6);
+}
+
+/* The breadcrumb already separates the masthead from the page, so a full band
+   of air beneath it is dead space rather than breathing room. */
+.crumbs + main > section:first-child { padding-top: calc(var(--band) * 0.4); }
+
 .band--sand { background: var(--dusk-2); }
 
 /* An enclosure. Used two or three times a site, never more. */
@@ -294,6 +321,24 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* Table captions inherit --ink-soft, which is unreadable on the indigo bands. */
 .band--night caption { color: rgba(226, 236, 242, 0.72); }
+
+/* A row of small photographs. Sized deliberately modestly: these came from a
+   phone at roughly 310px, so anything larger would show it. */
+.photo-row {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin: 2.5rem 0 0;
+  max-width: 44rem;
+}
+.photo-row figure { margin: 0; }
+.photo-row img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 14px 34px -22px rgba(31, 45, 56, 0.5);
+}
 
 /* Page art. Reem's book watercolors reused as section imagery. */
 .band-art {
@@ -612,10 +657,12 @@ img, svg { max-width: 100%; height: auto; display: block; }
   color: var(--ink);
   cursor: pointer;
 }
+.settle button + p { margin-top: 0.95rem; }
 .band--night .settle {
   background: rgba(226, 236, 242, 0.07);
   border-color: rgba(226, 236, 242, 0.22);
 }
+.band--night .settle__ring { color: rgba(226, 236, 242, 0.92); }
 .band--night .settle p { color: rgba(226, 236, 242, 0.75); }
 .band--night .settle button { color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
 

@@ -15,8 +15,8 @@
         <h4>Pages</h4>
         <ul>
           <li><a href="/">Home</a></li>
-        {%- for item in collections.pages %}{% if item.url != '/' and not item.data.hidden %}
-          <li>{% if (item.url | depth) > 1 %}&nbsp;&nbsp;{% endif %}<a href="{{ item.url }}">{{ item.data.nav }}</a></li>
+        {%- for item in collections.pages %}{% if item.url != '/' and not item.data.hidden and (item.url | depth) == 1 %}
+          <li><a href="{{ item.url }}">{{ item.data.nav }}</a></li>
         {%- endif %}{% endfor %}
         </ul>
       </div>
