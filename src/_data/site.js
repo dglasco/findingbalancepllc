@@ -33,7 +33,10 @@ export default {
   region: "TX",
   postal: "",            // Austin ZIP still to confirm
   license: "66562",
-  psychologyToday: "https://www.psychologytoday.com/us/therapists/finding-balance-counseling-pllc-lpc-supervisor-dripping-springs-tx/132024",
+  // Directory profile. Empty by choice: the old listing was removed from the site. Put a URL
+  // back here and the About page, the contact block, the footer and the schema sameAs all
+  // return on their own.
+  psychologyToday: "",
 
   // Client portal (the practice's EHR). Set this and every portal button on the
   // site goes live; leave it empty and those pages route people to email instead.

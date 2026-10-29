@@ -133,7 +133,8 @@ function practiceGraph(site) {
           name: "NARM Therapist",
         },
       ],
-      sameAs: [site.psychologyToday],
+      // Omitted entirely when empty: sameAs: [""] is invalid, not merely absent.
+      ...(site.psychologyToday ? { sameAs: [site.psychologyToday] } : {}),
     },
   ];
 }
