@@ -494,9 +494,11 @@ consult settles rather than as fixed policy, and whether "adults only" for walk 
 **After launch**
 
 - Submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
-- Claim or update the Google Business Profile for Cedar Park, with the same name, address and
-  categories used here.
-- Add the new URL to Psychology Today, the EMDRIA consultant directory and the NARM directory.
+- Create the Google Business Profile as a service-area business for Austin, with no displayed
+  street address, using the same name and categories as the schema here.
+- Add the new URL to the EMDRIA consultant directory and the NARM directory. Psychology Today is
+  deliberately out: the listing is being dropped, which is why `psychologyToday` in
+  `src/_data/site.js` is empty and the Person schema carries no `sameAs`.
 - Post the licensure guide where associates actually are: Texas counseling Facebook groups,
   university counseling program listservs, TCA. One useful resource beats ten service posts.
 - Re-check the supervision openings line every term. It is the one sentence on the site with a

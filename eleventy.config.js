@@ -44,7 +44,6 @@ function practiceGraph(site) {
       url: `${site.url}/`,
       email: site.email,
       priceRange: "$70 - $500",
-      medicalSpecialty: "Psychiatric",
       founder: { "@id": `${site.url}/#reem` },
       ...(site.phone ? { telephone: site.phone } : {}),
       address: {
@@ -62,7 +61,13 @@ function practiceGraph(site) {
         { "@type": "City", name: "Austin" },
         { "@type": "City", name: "Dripping Springs" },
       ],
-      availableLanguage: "English",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: site.email,
+        ...(site.phone ? { telephone: site.phone } : {}),
+        availableLanguage: ["en"],
+      },
       knowsAbout: [
         "LPC supervision",
         "IFS-informed EMDR",
