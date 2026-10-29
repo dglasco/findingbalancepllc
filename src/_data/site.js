@@ -31,7 +31,7 @@ export default {
 
   city: "Austin",
   region: "TX",
-  postal: "",            // Austin ZIP still to confirm
+  postal: "78726",       // Shown on About and in the footer, and emitted as postalCode
   license: "66562",
   // Professional directory profiles. Each entry becomes a sameAs on the practitioner in the
   // structured data, which is what lets search engines and answer engines tie "Reem Glasco"
