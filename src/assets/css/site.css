@@ -205,7 +205,9 @@ img, svg { max-width: 100%; height: auto; display: block; }
   .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }
 }
 .hero p.lede { font-size: 1.22rem; color: var(--ink-soft); max-width: 31rem; }
-.hero__art { justify-self: center; width: 100%; max-width: 19rem; }
+/* 21rem, not 19: the emblem is square where the window it replaced was portrait, so it
+   needs a little more width to carry the same visual weight beside the h1. */
+.hero__art { justify-self: center; width: 100%; max-width: 21rem; }
 
 /* Eyebrow: the small orienting line above a heading, as on tomsscuba.com.
    Sentence case, not tracked-out caps. */
