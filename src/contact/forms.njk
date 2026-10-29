@@ -56,6 +56,10 @@ priority: 0.6
       suspected abuse or neglect of a child, an elderly person or a person with a disability.
       The notice sets out exactly what those are. It is better read before you need it than
       after.</p>
+      {%- if "/assets/forms/limits-of-confidentiality.pdf" | assetExists %}
+      <p><a href="/assets/forms/limits-of-confidentiality.pdf">Read the Limits of
+      Confidentiality notice</a></p>
+      {%- endif %}
 
       <h3>Good Faith Estimate</h3>
       <p>Under the federal No Surprises Act, anyone not billing through insurance has the right
@@ -78,13 +82,10 @@ priority: 0.6
       </ul>
 
       <h3>Privacy</h3>
-      {%- if site.privacyPolicy | assetExists %}
-      <p><a href="{{ site.privacyPolicy }}">The practice's privacy policy</a> explains how your
-      information is stored, who can see it, and how long it is kept.</p>
-      {%- else %}
-      <p>The practice's privacy policy explains how your information is stored, who can see it
-      and how long it is kept. Ask for a copy at any point.</p>
-      {%- endif %}
+      <p><a href="/privacy/">The practice's privacy policy</a> covers this website: what it
+      collects, what it does not, and who else sees anything when you visit. How your clinical
+      record is handled is set out in the Notice of Privacy Practices you receive before your
+      first session.</p>
       <p>You can ask for your records at any time. <a href="/faq/">Records are provided
       electronically within 15 business days</a> of a written request, under the Texas Medical
       Records Privacy Act.</p>

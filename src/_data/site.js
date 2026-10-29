@@ -39,7 +39,8 @@ export default {
   // Contact and a link in the footer. Empty renders nothing and emits no sameAs.
   profiles: [
     { name: "EMDRIA", url: "https://www.emdria.org/directory/people/reem-glasco/" },
-    // { name: "NARM Training Institute", url: "https://narmtraining.com/..." },
+    { name: "NARM Training Institute",
+      url: "https://directory.narmtraining.com/united-states/narm-therapist/finding-balance-counseling-pllc" },
   ],
 
   // Client portal (the practice's EHR). Set this and every portal button on the
@@ -65,7 +66,6 @@ export default {
       note: "Only if you want records shared with a doctor, school or another clinician." },
   ],
 
-  privacyPolicy: "/assets/forms/privacy-policy.pdf",
 
   // The seven steps of Effort-less Self-Care. One source for both /book/, which
   // shows them as cards, and /book/practice/, which walks through them. "short"
@@ -155,6 +155,7 @@ export default {
   // are identical on both sites (/about/, /contact/) need no entry.
   // Rendered to dist/_redirects, which Cloudflare reads natively.
   redirects: [
+    ["/wp-content/uploads/2020/02/privacy-policy.pdf", "/privacy/"],
     ["/supervision/", "/for-therapists/lpc-supervision/"],
     ["/group-therapy/", "/for-therapists/lpc-supervision/"],
     ["/emdr-cit-consultation/", "/for-therapists/emdr-consultation/"],
