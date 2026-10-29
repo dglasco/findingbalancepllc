@@ -53,11 +53,10 @@ function practiceGraph(site) {
         ...(site.postal ? { postalCode: site.postal } : {}),
         addressCountry: "US",
       },
-      // Reem is licensed in Texas and Arizona. Clients are never seen at an
+      // Clients are never seen at an
       // address: everything is online, or outdoors on a trail or at the horses.
       areaServed: [
         { "@type": "State", name: "Texas" },
-        { "@type": "State", name: "Arizona" },
         { "@type": "City", name: "Austin" },
         { "@type": "City", name: "Dripping Springs" },
       ],
@@ -120,6 +119,12 @@ function practiceGraph(site) {
             "@type": "Organization",
             name: "Texas Behavioral Health Executive Council",
           },
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "certification",
+          name: "EMDRIA Certified Therapist",
+          recognizedBy: { "@type": "Organization", name: "EMDR International Association" },
         },
         {
           "@type": "EducationalOccupationalCredential",

@@ -38,7 +38,7 @@ export default {
   // here to the same person elsewhere. Each also renders as a Directory row on About and
   // Contact and a link in the footer. Empty renders nothing and emits no sameAs.
   profiles: [
-    // { name: "EMDRIA", url: "https://www.emdria.org/..." },
+    { name: "EMDRIA", url: "https://www.emdria.org/directory/people/reem-glasco/" },
     // { name: "NARM Training Institute", url: "https://narmtraining.com/..." },
   ],
 
