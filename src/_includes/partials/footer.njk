@@ -24,9 +24,9 @@
         <h4>Hours</h4>
         <p>By appointment.<br>
         Walk and table therapy on Fridays.</p>
-        {%- if site.psychologyToday %}
-        <p><a href="{{ site.psychologyToday }}">Psychology Today profile</a></p>
-        {%- endif %}
+        {%- for p in site.profiles %}
+        <p><a href="{{ p.url }}">{{ p.name }} profile</a></p>
+        {%- endfor %}
       </div>
     </div>
     <div class="footer__legal">

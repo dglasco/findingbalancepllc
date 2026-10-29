@@ -138,8 +138,8 @@ function practiceGraph(site) {
           name: "NARM Therapist",
         },
       ],
-      // Omitted entirely when empty: sameAs: [""] is invalid, not merely absent.
-      ...(site.psychologyToday ? { sameAs: [site.psychologyToday] } : {}),
+      // Omitted entirely when empty: sameAs: [] is invalid, not merely absent.
+      ...(site.profiles.length ? { sameAs: site.profiles.map((p) => p.url) } : {}),
     },
   ];
 }

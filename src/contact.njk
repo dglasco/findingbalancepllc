@@ -27,9 +27,9 @@ order: 12
         <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
         <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
-        {%- if site.psychologyToday %}
-        <div><dt>Directory</dt><dd><a href="{{ site.psychologyToday }}">Psychology Today profile</a></dd></div>
-        {%- endif %}
+        {%- for p in site.profiles %}
+        <div><dt>Directory</dt><dd><a href="{{ p.url }}">{{ p.name }} profile</a></dd></div>
+        {%- endfor %}
       </dl>
     </div>
     <div>

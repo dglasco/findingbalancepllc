@@ -32,9 +32,10 @@ order: 9.5
       gets in the way of it.</p>
       <p>I am also an LPC supervisor. Supervision is online, and I offer mindful retreats for
       associate therapists to expand their personal and professional awareness in the field.</p>
-      {%- if site.psychologyToday %}
+      {%- if site.profiles.length %}
       <p>You can also find me on
-      <a href="{{ site.psychologyToday }}">Psychology Today</a>.</p>
+      {%- for p in site.profiles %} <a href="{{ p.url }}">{{ p.name }}</a>
+      {%- if not loop.last %},{% endif %}{% endfor %}.</p>
       {%- endif %}
     </div>
     <div>
@@ -77,9 +78,9 @@ order: 9.5
       <div><dt>Sessions</dt><dd>Online across Texas; trail walk and equine work in person near Austin, by arrangement</dd></div>
       <div><dt>Hours</dt><dd>By appointment. Walk and table therapy on Fridays.</dd></div>
       <div><dt>Consult</dt><dd>Free: fifteen minutes for therapy, thirty for supervision</dd></div>
-      {%- if site.psychologyToday %}
-      <div><dt>Directory</dt><dd><a href="{{ site.psychologyToday }}">Psychology Today profile</a></dd></div>
-      {%- endif %}
+      {%- for p in site.profiles %}
+      <div><dt>Directory</dt><dd><a href="{{ p.url }}">{{ p.name }} profile</a></dd></div>
+      {%- endfor %}
     </dl>
     <div class="cta-row">
       <a class="cta" href="/contact/">Request a consult</a>

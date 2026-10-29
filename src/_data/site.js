@@ -33,10 +33,14 @@ export default {
   region: "TX",
   postal: "",            // Austin ZIP still to confirm
   license: "66562",
-  // Directory profile. Empty by choice: the old listing was removed from the site. Put a URL
-  // back here and the About page, the contact block, the footer and the schema sameAs all
-  // return on their own.
-  psychologyToday: "",
+  // Professional directory profiles. Each entry becomes a sameAs on the practitioner in the
+  // structured data, which is what lets search engines and answer engines tie "Reem Glasco"
+  // here to the same person elsewhere. Each also renders as a Directory row on About and
+  // Contact and a link in the footer. Empty renders nothing and emits no sameAs.
+  profiles: [
+    // { name: "EMDRIA", url: "https://www.emdria.org/..." },
+    // { name: "NARM Training Institute", url: "https://narmtraining.com/..." },
+  ],
 
   // Client portal (the practice's EHR). Set this and every portal button on the
   // site goes live; leave it empty and those pages route people to email instead.
