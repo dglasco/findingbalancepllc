@@ -2,7 +2,7 @@
 
 > Texas practice led by Reem Glasco, LPC-S (license 66562), based in Austin and working online statewide. The practice is primarily for therapists: LPC Associates seeking supervision, therapists seeking EMDRIA-approved EMDR consultation, and clinicians attending retreats or training. Reem also holds a small therapy caseload for developmental trauma, C-PTSD, anxiety and depression, with the practice's LPC Associates seeing additional clients at lower fees.
 
-Key facts, current as of 2026-10-28:
+Key facts, current as of 2026-10-29:
 
 - LPC Supervisor in Texas since 2009; over 15 years of clinical experience.
 - LPC supervision is $425 a month and includes three individual hours and one group hour, four hours in total, online, statewide in Texas.
@@ -17,33 +17,33 @@ Key facts, current as of 2026-10-28:
 
 ## Pages
 
-- [Home](https://findingbalancepllc.daveg-689.workers.dev/): Reem Glasco, LPC-S, has supervised Texas LPC Associates since 2009. Online supervision, EMDRIA-approved EMDR consultation, retreats and equine work.
-- [For Therapists](https://findingbalancepllc.daveg-689.workers.dev/for-therapists/): Three ways therapists work with Reem Glasco, LPC-S: LPC supervision at $425 a month, EMDR consultation at $185, and retreats and equine training in Texas.
-  - [LPC Supervision](https://findingbalancepllc.daveg-689.workers.dev/for-therapists/lpc-supervision/): Online LPC supervision for Texas LPC Associates with Reem Glasco, LPC-S, supervisor since 2009. $425 a month for three individual hours and one group hour.
-  - [EMDR Consultation](https://findingbalancepllc.daveg-689.workers.dev/for-therapists/emdr-consultation/): EMDR consultation toward certification with Reem Glasco, LPC-S, an EMDRIA Approved Consultant. Individual online consults are $185, IFS-informed.
-  - [Retreats & Training](https://findingbalancepllc.daveg-689.workers.dev/for-therapists/retreats-training/): Mindful trail retreats, equine-assisted training and ethics CEUs for Texas therapists, interns and LPC Associates, led by Reem Glasco, LPC-S, near Austin.
-  - [Ethics CEUs](https://findingbalancepllc.daveg-689.workers.dev/for-therapists/ethics-ceus/): Ethics continuing education for Texas LPCs with Reem Glasco, LPC-S. One CEU online or two in person on a trail walk among horses, on secondary trauma.
-- [Licensure Guide](https://findingbalancepllc.daveg-689.workers.dev/texas-lpc-licensure/): The Texas LPC path in full: 3,000 hours, 1,500 direct, the 18-month floor, the four-hour monthly supervision rule and the group cap, plus choosing a supervisor.
-- [Therapy](https://findingbalancepllc.daveg-689.workers.dev/therapy/): Therapy in Texas for developmental trauma, C-PTSD, anxiety and depression with Reem Glasco, LPC-S, or with the practice's associates at lower fees.
-  - [Trauma](https://findingbalancepllc.daveg-689.workers.dev/therapy/trauma/): Therapy for developmental trauma and C-PTSD in Texas with Reem Glasco, LPC-S. IFS-informed EMDR, Somatic Experiencing and NARM, online at $240 a session.
-  - [Anxiety](https://findingbalancepllc.daveg-689.workers.dev/therapy/anxiety/): Therapy for anxiety, panic attacks and social anxiety in Texas with Reem Glasco, LPC-S, or the practice's associates at lower fees. Online statewide, $240.
-  - [Depression](https://findingbalancepllc.daveg-689.workers.dev/therapy/depression/): Therapy for depression, flatness and procrastination in Texas with Reem Glasco, LPC-S. Trauma-informed and body-based, online statewide at $240 a session.
-  - [Walk and Talk](https://findingbalancepllc.daveg-689.workers.dev/therapy/walk-and-talk/): Trail walk and movement therapy in central Texas with Reem Glasco, LPC-S. Adults only, Fridays, 75 minutes to two hours, $240 to $370 a session.
-  - [Associates](https://findingbalancepllc.daveg-689.workers.dev/therapy/associates/): Meet the LPC Associates at Finding Balance Counseling, supervised by Reem Glasco, LPC-S. Fees from $100 a session with sliding scale, online across Texas.
-  - [Equine Therapy](https://findingbalancepllc.daveg-689.workers.dev/therapy/equine/): Equine-assisted therapy near Dripping Springs with Reem Glasco, LPC-S. Sessions with horses for adults, after a consult and one to three online sessions.
-- [Approach](https://findingbalancepllc.daveg-689.workers.dev/approach/): The four methods Reem Glasco, LPC-S, works with: NARM, Somatic Experiencing, EMDR and IFS-informed EMDR. What each does, and when she reaches for it.
-  - [NARM](https://findingbalancepllc.daveg-689.workers.dev/approach/narm/): NARM therapy in Texas with Reem Glasco, LPC-S. What the NeuroAffective Relational Model is, who it suits, and how it treats developmental trauma.
-  - [Somatic Experiencing](https://findingbalancepllc.daveg-689.workers.dev/approach/somatic-experiencing/): Somatic Experiencing in Texas with Reem Glasco, LPC-S, a Somatic Experiencing Practitioner. Body-based trauma therapy in small doses, online statewide.
-  - [EMDR](https://findingbalancepllc.daveg-689.workers.dev/approach/emdr/): EMDR therapy with Reem Glasco, LPC-S, EMDR certified and an EMDRIA Approved Consultant. Online across Texas, $240 a session, Blue Cross Blue Shield accepted.
-  - [IFS-Informed EMDR](https://findingbalancepllc.daveg-689.workers.dev/approach/ifs-informed-emdr/): IFS-informed EMDR with Reem Glasco, LPC-S. Parts work combined with EMDR for developmental trauma, for people whose EMDR has flooded, stalled or gone nowhere.
-- [The Book](https://findingbalancepllc.daveg-689.workers.dev/book/): Effort-less Self-Care: 7 Easy Steps to Calm and Connection, by Reem Glasco, LPC-S. A gentle workbook for slowing down and listening to your body.
-  - [The Practice](https://findingbalancepllc.daveg-689.workers.dev/book/practice/): Walk through the seven steps of Effort-less Self-Care with a breathing guide, two short timers and journal prompts that save privately in your own browser.
-- [About](https://findingbalancepllc.daveg-689.workers.dev/about/): Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Austin.
-- [FAQ](https://findingbalancepllc.daveg-689.workers.dev/faq/): What therapy costs in Texas with and without insurance, the full fee list, and plain answers on somatic therapy, EMDR, complex PTSD and getting started.
-- [Notes](https://findingbalancepllc.daveg-689.workers.dev/blog/): Writing from Reem Glasco, LPC-S, on boundaries, the nervous system, trauma work and the business of being a therapist in Texas.
-  - [How to Set Healthy Boundaries](https://findingbalancepllc.daveg-689.workers.dev/blog/healthy-boundaries/): Five steps to setting boundaries that hold: identify your limits, say them plainly, read your own feelings, and get help if they keep collapsing.
-- [Contact](https://findingbalancepllc.daveg-689.workers.dev/contact/): Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Austin, Texas. Online across the state.
-  - [Client Forms](https://findingbalancepllc.daveg-689.workers.dev/contact/forms/): Intake paperwork for new clients at Finding Balance Counseling: the five forms, including Limits of Confidentiality and your Good Faith Estimate.
-  - [Client Portal](https://findingbalancepllc.daveg-689.workers.dev/contact/client-portal/): Book sessions, pay your balance and complete intake forms in the Finding Balance Counseling client portal. Blue Cross Blue Shield accepted; self-pay $240.
-  - [Request an Appointment](https://findingbalancepllc.daveg-689.workers.dev/contact/appointment/): Request a free consult with Reem Glasco, LPC-S, or one of the practice's LPC Associates. Tell us what you are looking for and when you are free.
+- [Home](https://reemglascolpc.com/): Reem Glasco, LPC-S, has supervised Texas LPC Associates since 2009. Online supervision, EMDRIA-approved EMDR consultation, retreats and equine work.
+- [For Therapists](https://reemglascolpc.com/for-therapists/): Three ways therapists work with Reem Glasco, LPC-S: LPC supervision at $425 a month, EMDR consultation at $185, and retreats and equine training in Texas.
+  - [LPC Supervision](https://reemglascolpc.com/for-therapists/lpc-supervision/): Online LPC supervision for Texas LPC Associates with Reem Glasco, LPC-S, supervisor since 2009. $425 a month for three individual hours and one group hour.
+  - [EMDR Consultation](https://reemglascolpc.com/for-therapists/emdr-consultation/): EMDR consultation toward certification with Reem Glasco, LPC-S, an EMDRIA Approved Consultant. Individual online consults are $185, IFS-informed.
+  - [Retreats & Training](https://reemglascolpc.com/for-therapists/retreats-training/): Mindful trail retreats, equine-assisted training and ethics CEUs for Texas therapists, interns and LPC Associates, led by Reem Glasco, LPC-S, near Austin.
+  - [Ethics CEUs](https://reemglascolpc.com/for-therapists/ethics-ceus/): Ethics continuing education for Texas LPCs with Reem Glasco, LPC-S. One CEU online or two in person on a trail walk among horses, on secondary trauma.
+- [Licensure Guide](https://reemglascolpc.com/texas-lpc-licensure/): The Texas LPC path in full: 3,000 hours, 1,500 direct, the 18-month floor, the four-hour monthly supervision rule and the group cap, plus choosing a supervisor.
+- [Therapy](https://reemglascolpc.com/therapy/): Therapy in Texas for developmental trauma, C-PTSD, anxiety and depression with Reem Glasco, LPC-S, or with the practice's associates at lower fees.
+  - [Trauma](https://reemglascolpc.com/therapy/trauma/): Therapy for developmental trauma and C-PTSD in Texas with Reem Glasco, LPC-S. IFS-informed EMDR, Somatic Experiencing and NARM, online at $240 a session.
+  - [Anxiety](https://reemglascolpc.com/therapy/anxiety/): Therapy for anxiety, panic attacks and social anxiety in Texas with Reem Glasco, LPC-S, or the practice's associates at lower fees. Online statewide, $240.
+  - [Depression](https://reemglascolpc.com/therapy/depression/): Therapy for depression, flatness and procrastination in Texas with Reem Glasco, LPC-S. Trauma-informed and body-based, online statewide at $240 a session.
+  - [Walk and Talk](https://reemglascolpc.com/therapy/walk-and-talk/): Trail walk and movement therapy in central Texas with Reem Glasco, LPC-S. Adults only, Fridays, 75 minutes to two hours, $240 to $370 a session.
+  - [Associates](https://reemglascolpc.com/therapy/associates/): Meet the LPC Associates at Finding Balance Counseling, supervised by Reem Glasco, LPC-S. Fees from $100 a session with sliding scale, online across Texas.
+  - [Equine Therapy](https://reemglascolpc.com/therapy/equine/): Equine-assisted therapy near Dripping Springs with Reem Glasco, LPC-S. Sessions with horses for adults, after a consult and one to three online sessions.
+- [Approach](https://reemglascolpc.com/approach/): The four methods Reem Glasco, LPC-S, works with: NARM, Somatic Experiencing, EMDR and IFS-informed EMDR. What each does, and when she reaches for it.
+  - [NARM](https://reemglascolpc.com/approach/narm/): NARM therapy in Texas with Reem Glasco, LPC-S. What the NeuroAffective Relational Model is, who it suits, and how it treats developmental trauma.
+  - [Somatic Experiencing](https://reemglascolpc.com/approach/somatic-experiencing/): Somatic Experiencing in Texas with Reem Glasco, LPC-S, a Somatic Experiencing Practitioner. Body-based trauma therapy in small doses, online statewide.
+  - [EMDR](https://reemglascolpc.com/approach/emdr/): EMDR therapy with Reem Glasco, LPC-S, EMDR certified and an EMDRIA Approved Consultant. Online across Texas, $240 a session, Blue Cross Blue Shield accepted.
+  - [IFS-Informed EMDR](https://reemglascolpc.com/approach/ifs-informed-emdr/): IFS-informed EMDR with Reem Glasco, LPC-S. Parts work combined with EMDR for developmental trauma, for people whose EMDR has flooded, stalled or gone nowhere.
+- [The Book](https://reemglascolpc.com/book/): Effort-less Self-Care: 7 Easy Steps to Calm and Connection, by Reem Glasco, LPC-S. A gentle workbook for slowing down and listening to your body.
+  - [The Practice](https://reemglascolpc.com/book/practice/): Walk through the seven steps of Effort-less Self-Care with a breathing guide, two short timers and journal prompts that save privately in your own browser.
+- [About](https://reemglascolpc.com/about/): Reem Glasco is a Texas LPC Supervisor since 2009, NARM therapist, Somatic Experiencing Practitioner and EMDRIA Approved Consultant, in Austin.
+- [FAQ](https://reemglascolpc.com/faq/): What therapy costs in Texas with and without insurance, the full fee list, and plain answers on somatic therapy, EMDR, complex PTSD and getting started.
+- [Notes](https://reemglascolpc.com/blog/): Writing from Reem Glasco, LPC-S, on boundaries, the nervous system, trauma work and the business of being a therapist in Texas.
+  - [How to Set Healthy Boundaries](https://reemglascolpc.com/blog/healthy-boundaries/): Five steps to setting boundaries that hold: identify your limits, say them plainly, read your own feelings, and get help if they keep collapsing.
+- [Contact](https://reemglascolpc.com/contact/): Request a free consult for therapy, LPC supervision or EMDR consultation with Reem Glasco, LPC-S, in Austin, Texas. Online across the state.
+  - [Client Forms](https://reemglascolpc.com/contact/forms/): Intake paperwork for new clients at Finding Balance Counseling: the five forms, including Limits of Confidentiality and your Good Faith Estimate.
+  - [Client Portal](https://reemglascolpc.com/contact/client-portal/): Book sessions, pay your balance and complete intake forms in the Finding Balance Counseling client portal. Blue Cross Blue Shield accepted; self-pay $240.
+  - [Request an Appointment](https://reemglascolpc.com/contact/appointment/): Request a free consult with Reem Glasco, LPC-S, or one of the practice's LPC Associates. Tell us what you are looking for and when you are free.
 

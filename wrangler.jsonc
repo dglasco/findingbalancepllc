@@ -4,7 +4,9 @@
   // Set to the date you deploy; pins runtime behaviour so future changes cannot
   // break the site silently.
   "compatibility_date": "2026-09-12",
-  "workers_dev": true,
+  // Off since the custom domain went live: a workers.dev copy of the same build would be a
+  // second indexable host serving pages that canonical to reemglascolpc.com.
+  "workers_dev": false,
   "preview_urls": true,
 
   // Static assets only. There is no Worker script: Cloudflare serves dist/

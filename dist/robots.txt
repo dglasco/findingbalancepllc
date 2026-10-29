@@ -1,3 +1,20 @@
-# Preview build. Not the live site; nothing here should be indexed.
 User-agent: *
-Disallow: /
+Allow: /
+
+# Answer engines are welcome to read and cite these pages.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://reemglascolpc.com/sitemap.xml

@@ -23,17 +23,16 @@ Eleventy 3 with npm, no Python.
 ```
 npm install
 npm run build           # production build, canonical domain, indexable
-npm run build:preview   # workers.dev build, noindex, robots disallows all
+npm run build:preview   # noindex build for local review, robots disallows all
 npm run dev             # eleventy --serve with live reload
 npm run deploy          # production build, then wrangler deploy
-npm run deploy:preview  # preview build, then wrangler deploy
 ```
 
 ### Preview host versus live domain
 
-The site is served from `findingbalancepllc.daveg-689.workers.dev` until
-`reemglascolpc.com` is pointed at the Worker. A preview host is only safe if it never claims to
-be the real site, so the host is a build-time variable rather than a hand-edited constant.
+`reemglascolpc.com` is live on the Worker and `workers_dev` is off, so nothing else serves a
+copy of the site. The host stays a build-time variable rather than a hand-edited constant,
+because a preview host is only safe if it never claims to be the real site.
 
 `SITE_URL` sets it. `src/_data/site.js` falls back to the canonical domain, and treats any other
 host as a preview: those builds go out with `noindex, nofollow` on every page and a `robots.txt`
@@ -46,10 +45,11 @@ whatever host the build is for.
 driven from Windows, where npm runs scripts through `cmd.exe`. Node sets the variable itself, so
 one command works on Windows, on macOS and on Cloudflare's Linux build image.
 
-**When the domain goes live:** point `reemglascolpc.com` at the Worker, confirm it resolves, then
-deploy with `npm run deploy` rather than `deploy:preview`. Nothing else changes. Verify with
-`curl -s https://reemglascolpc.com/robots.txt | head -3`, which should say `Allow: /` rather than
-`Disallow: /`.
+`deploy:preview` was removed when the domain went live. It built with `SITE_URL` set to the
+workers.dev host, so running it now would push a `noindex` build and a `Disallow: /`
+robots.txt to the live domain. `npm run deploy` is the only deploy path. Verify a deploy with
+`curl -s https://reemglascolpc.com/robots.txt | head -3`, which should say `Allow: /` rather
+than `Disallow: /`.
 
 `npm run build` cleans `dist/` first, via node's `fs.rmSync`, so a renamed or deleted page
 cannot leave a stale file behind to be deployed.
@@ -159,7 +159,7 @@ one page is written to the root rather than into a folder like every other page.
 
 | Field | Value |
 | --- | --- |
-| Build command | `npm run build:preview` while on workers.dev, `npm run build` once the domain is live |
+| Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
 | Root directory | repo root |
 
@@ -168,10 +168,9 @@ configuration. `dist/` is also committed as a fallback, which means a deploy sti
 you ever clear the build command, but the committed copy then has to be rebuilt before pushing
 or you ship the previous build.
 
-**The committed `dist/` is currently a preview build**, because the site is served from
-workers.dev. It carries `noindex` and a `robots.txt` that disallows everything, which is correct
-for the preview host and wrong for the live domain. Rebuild with `npm run build` before the
-first real deploy, or the live site goes up uncrawlable.
+**The committed `dist/` has to be a production build.** Rebuild with `npm run build` before
+committing, or a deploy that falls back to the committed copy ships the wrong canonicals and a
+`robots.txt` that disallows everything.
 
 ### From the command line
 
