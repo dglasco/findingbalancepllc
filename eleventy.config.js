@@ -156,6 +156,8 @@ export default function (eleventyConfig) {
   if (SITE === CANONICAL) eleventyConfig.ignores.add("src/preview.njk");
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
+  eleventyConfig.addPassthroughCopy({ "src/apple-touch-icon.png": "apple-touch-icon.png" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addWatchTarget("src/assets/");
 
