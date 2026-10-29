@@ -140,7 +140,7 @@ export default {
     "Supervision openings: one in spring 2027. Agency contracts of three months are $500 a month.",
     "EMDRIA Approved Consultant. Individual EMDR consultation is $185, online.",
     "Individual therapy is $240 for a 50-minute online session, self-pay. Blue Cross Blue Shield is accepted; other plans are self-pay.",
-    "Trail walk and movement therapy is $240 to $370 per session, in person in Texas, adults only.",
+    "Trail walk and movement therapy is $125 for a one-hour session, in person in Texas, adults only.",
     "Modalities: IFS-informed EMDR (the clinical focus), Somatic Experiencing (SEP), NARM, EMDR certified with ASSYST, PRECI and IGTP-OTS, Brainspotting, BASE-P.",
     "Optional equine-assisted supervision and mindfulness retreats near Dripping Springs, Texas; equine supervision sessions are $60 each.",
     "Annual mindful trail retreat for interns, associates and licensed therapists, plus periodic ethics CEUs for Texas LPCs.",

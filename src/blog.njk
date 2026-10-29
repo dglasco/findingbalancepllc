@@ -1,15 +1,14 @@
 ---
 layout: layouts/base.njk
 tags: pages
-title: "Notes on Therapy, Trauma and Practice | Reem Glasco"
+title: "Blog: Therapy, Trauma and Texas Practice | Reem Glasco"
 description: Writing from Reem Glasco, LPC-S, on boundaries, the nervous system, trauma work and the business of being a therapist in Texas.
-nav: Notes
+nav: Blog
 order: 11.5
 priority: 0.7
-inNav: false
 ---
 <section class="shell band">
-  <h1>Notes</h1>
+  <h1>Blog</h1>
   <div class="answer">
     <p>Occasional writing from Reem Glasco, LPC-S, on the things that come up often enough in
     the room to be worth setting down once: boundaries, what the nervous system is doing,
@@ -19,7 +18,7 @@ inNav: false
 
 <section class="band band--sand">
   <div class="shell">
-    <h2>All notes</h2>
+    <h2>All posts</h2>
     <div class="pathways">
       {%- for post in collections.pages | childrenOf("/blog/") %}
       <a href="{{ post.url }}">
@@ -28,36 +27,8 @@ inNav: false
       </a>
       {%- endfor %}
     </div>
-    <p class="note">Note for the site build: the old WordPress blog held 14 posts. Eleven were
-    40 to 130 words, several on junk slugs, and four were "coming soon" announcements from 2022
-    and 2023 that never arrived, so they were not carried over. The two Somatic Experiencing
-    posts became <a href="/approach/somatic-experiencing/">a proper page</a> instead, which is
-    where their 301s now point. This leaves one real article. More from Reem would be worth
-    having; the structure is here and a new note is one file.</p>
   </div>
 </section>
 
-<section class="shell band">
-  <h2>Where the rest of the writing went</h2>
-  <div class="split">
-    <div>
-      <p>The old site's best-performing pages were not its blog posts but its explanations of
-      how the methods work. Those have become their own pages rather than archived posts, which
-      is why the modality writing now lives under
-      <a href="/approach/">Approach</a> and not here.</p>
-    </div>
-    <div>
-      <ul class="plain">
-        <li><a href="/approach/somatic-experiencing/">Somatic Experiencing</a>, which absorbed
-        both old SE posts</li>
-        <li><a href="/approach/narm/">NARM</a>, from the old NARM page</li>
-        <li><a href="/approach/emdr/">EMDR</a> and
-        <a href="/approach/ifs-informed-emdr/">IFS-informed EMDR</a></li>
-        <li><a href="/texas-lpc-licensure/">The Texas LPC licensure guide</a>, which did not
-        exist before</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 {% include "partials/cta-band.njk" %}

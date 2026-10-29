@@ -145,6 +145,11 @@ function practiceGraph(site) {
 }
 
 export default function (eleventyConfig) {
+  // src/preview.njk is a ~3MB single-file copy of every page, for review on a phone. Its
+  // own comment says it is not for deployment, but it was shipping: a complete public
+  // duplicate of the site at /preview.html. Preview host only.
+  if (SITE === CANONICAL) eleventyConfig.ignores.add("src/preview.njk");
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addWatchTarget("src/assets/");

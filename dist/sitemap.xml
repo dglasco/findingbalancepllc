@@ -41,6 +41,16 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://reemglascolpc.com/therapy/equine/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/therapy/walk-and-talk/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://reemglascolpc.com/therapy/trauma/</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
@@ -51,22 +61,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reemglascolpc.com/therapy/depression/</loc>
-    <lastmod>2026-10-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://reemglascolpc.com/therapy/walk-and-talk/</loc>
-    <lastmod>2026-10-29</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://reemglascolpc.com/therapy/associates/</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://reemglascolpc.com/therapy/equine/</loc>
+    <loc>https://reemglascolpc.com/therapy/depression/</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
   </url>
@@ -122,6 +122,21 @@
   </url>
   <url>
     <loc>https://reemglascolpc.com/blog/healthy-boundaries/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/blog/trauma-informed-supervision/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/blog/equine-therapy-insurance-cost/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/blog/walk-and-talk-therapy/</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
