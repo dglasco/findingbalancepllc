@@ -818,3 +818,7 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 .roster a:hover img { border-color: rgba(226, 236, 242, 0.7); }
 .roster span { font-size: 0.95rem; }
 .roster a:hover span { text-decoration: underline; }
+
+/* A five-up row needs narrower tiles than the four-up default to fit five
+   across; below the breakpoint above it pairs off like any other row. */
+.photo-row--five { max-width: 54rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
