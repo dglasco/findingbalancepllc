@@ -974,3 +974,12 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 @media (max-width: 53.99rem) {
   .hero__art { order: -1; }
 }
+
+/* The hero's opening passage. Same copy the .answer block used to hold, without
+   the rule and panel: those mark the direct answer where a page has other
+   content around it, and a hero has nothing to mark it apart from. */
+.hero-summary { max-width: 48rem; }
+
+/* A subtitle belongs to the heading above it, not to the space below it. The
+   default 0.7em after a 3.45rem h1 is more than two lines of the eyebrow. */
+.h1--tight { margin-bottom: 0.3em; }
