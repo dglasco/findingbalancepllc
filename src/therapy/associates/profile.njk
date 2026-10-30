@@ -11,7 +11,7 @@ layout: layouts/base.njk
 tags: pages
 eleventyComputed:
   title: "{{ who.name }}, {{ who.credential }} | Finding Balance Counseling"
-  description: "{{ who.name }}, {{ who.credential }} at Finding Balance Counseling in Austin, supervised by Reem Glasco, LPC-S. {{ who.fee }}."
+  description: "{{ who.name }}, {{ who.credential }} at Finding Balance Counseling, Austin, supervised by Reem Glasco, LPC-S. {{ who.fee.split(',')[0] }}."
   nav: "{{ who.name }}"
   order: 7.5
   priority: 0.6
