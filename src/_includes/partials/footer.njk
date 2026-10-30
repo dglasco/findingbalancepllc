@@ -14,10 +14,13 @@
       <div>
         <h4>Pages</h4>
         <ul>
-          <li><a href="/">Home</a></li>
-        {%- for item in collections.pages %}{% if item.url != '/' and not item.data.hidden and (item.url | depth) == 1 %}
+        {#- Same filter the masthead uses, so the two menus cannot drift. A page
+            taken out of the top nav leaves the footer with it; Privacy is the
+            one deliberate addition, because a footer is where people look for it. -#}
+        {%- for item in collections.pages | navItems %}
           <li><a href="{{ item.url }}">{{ item.data.nav }}</a></li>
-        {%- endif %}{% endfor %}
+        {%- endfor %}
+          <li><a href="/privacy/">Privacy</a></li>
         </ul>
       </div>
       <div>

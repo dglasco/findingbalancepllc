@@ -879,7 +879,7 @@ section[id] { scroll-margin-block-start: 1.5rem; }
    the sitewide band of air reads as gaps between unrelated things. Tighter
    here only; --band drives every padding rule above, so the whole rhythm
    scales together rather than needing each seam retuned. */
-.home { --band: clamp(2.5rem, 5vw, 4.5rem); }
+.home, .tight { --band: clamp(2.5rem, 5vw, 4.5rem); }
 .home .hero { padding-block: clamp(2.25rem, 5vw, 4rem) calc(var(--band) * 0.7); }
 
 /* Who a service is for, tucked under its name. It was a fourth column, which
@@ -945,3 +945,10 @@ section[id] { scroll-margin-block-start: 1.5rem; }
   .split--evidence { grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr); }
 }
 .split--evidence .facts { max-width: none; margin-bottom: 0; }
+
+/* With the portrait moved into the hero, the introduction has the page to
+   itself. 48rem is wider than the 33rem reading measure without running the
+   full 70rem, where a line reaches about 140 characters. */
+.answer--wide { max-width: 48rem; }
+.text-wide { max-width: 48rem; }
+.facts--wide { max-width: 48rem; }
