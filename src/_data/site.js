@@ -47,13 +47,6 @@ export default {
       url: "https://directory.narmtraining.com/united-states/narm-therapist/finding-balance-counseling-pllc" },
   ],
 
-  // Client portal (the practice's EHR). Set this and every portal button on the
-  // site goes live; leave it empty and those pages route people to email instead.
-  portal: {
-    name: "",            // e.g. "SimplePractice"
-    url: "",             // the portal URL clients log in to
-  },
-
   // Intake paperwork. Drop the PDFs into src/assets/forms/ under these names and
   // they appear as download links; until then each row renders as available on
   // request. Order is the order clients should work through them.
@@ -159,6 +152,7 @@ export default {
   // are identical on both sites (/about/, /contact/) need no entry.
   // Rendered to dist/_redirects, which Cloudflare reads natively.
   redirects: [
+    ["/contact/client-portal/", "/contact/"],
     ["/wp-content/uploads/2020/02/privacy-policy.pdf", "/privacy/"],
     ["/supervision/", "/for-therapists/lpc-supervision/"],
     ["/group-therapy/", "/for-therapists/lpc-supervision/"],

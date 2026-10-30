@@ -17,8 +17,11 @@ script: /assets/js/appointment.js
     consultation. If you would rather just write your own email, the address is
     <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
   </div>
-  <p class="note">Please keep clinical detail out of this form. A few words about what you are
-  looking for is plenty, and the rest belongs in the consult, where it is confidential.</p>
+  <p class="note"><strong>Please do not put personal information in this form.</strong> It
+  builds an ordinary email, and ordinary email is not a secure channel. No clinical detail, no
+  diagnoses, no date of birth, no insurance or policy numbers, and nothing you would not want
+  sitting in an inbox. Your name, a way to reach you, and a few words about what you are looking
+  for is all that is needed. The rest belongs in the consult, where it is confidential.
 </section>
 
 <section class="band band--night">
@@ -39,16 +42,8 @@ script: /assets/js/appointment.js
       </p>
       <p class="prompt">
         <label for="r-service">What are you looking for?</label>
-        <select id="r-service" name="service">
-          <option>Therapy with Reem</option>
-          <option>Therapy with an LPC Associate</option>
-          <option>Not sure which, help me work it out</option>
-          <option>Walk and talk or equine therapy</option>
-          <option>LPC supervision</option>
-          <option>EMDR consultation</option>
-          <option>Ethics CEUs, retreats or training</option>
-          <option>Something else</option>
-        </select>
+        <input id="r-service" name="service" type="text"
+         placeholder="Therapy, supervision, EMDR consultation, or just &ldquo;not sure yet&rdquo;">
       </p>
       <p class="prompt">
         <label for="r-where">Where in Texas are you?</label>
@@ -58,10 +53,8 @@ script: /assets/js/appointment.js
         <label for="r-when">Two or three times that usually work for you</label>
         <textarea id="r-when" name="when" rows="2" placeholder="Weekday mornings, or Tuesday and Thursday after 4, or whatever is true"></textarea>
       </p>
-      <p class="prompt">
-        <label for="r-about">In a sentence or two, what brings you here?</label>
-        <textarea id="r-about" name="about" rows="3" placeholder="A few words is plenty. Save the detail for the consult."></textarea>
-      </p>
+      <p class="note">A reminder before you send: no clinical detail, and nothing personal
+      beyond how to reach you.</p>
       <p class="saved-hint" data-request-hint aria-live="polite"></p>
       <div class="cta-row">
         <button class="cta" type="submit">Open the email, ready to send</button>
@@ -91,9 +84,6 @@ script: /assets/js/appointment.js
         session with limited sliding-scale places.</p>
     </div>
     <div>
-      <h3>Already a client?</h3>
-      <p>Booking, rescheduling and payment all run through the
-      <a href="/contact/client-portal/">client portal</a> rather than this form.</p>
       <h3>Why this is not a normal web form</h3>
       <p>Ordinary contact forms post your message to a server somewhere. For a counseling
       practice that is the wrong default, so this site does not do it: the form builds an email
@@ -139,8 +129,9 @@ script: /assets/js/appointment.js
   <details>
     <summary>Can I request a specific associate?</summary>
     <div class="answer-body">
-      <p>Yes. Name them in the last box, or write to them directly using the email on their card
-      on the <a href="/therapy/associates/">associates page</a>, which is quicker.</p>
+      <p>Yes. Say so in the &ldquo;what are you looking for&rdquo; box, or write to them
+      directly using the email on their card on the
+      <a href="/therapy/associates/">associates page</a>, which is quicker.</p>
     </div>
   </details>
   {% include "partials/crisis-note.njk" %}

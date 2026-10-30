@@ -28,13 +28,13 @@
       "Name: " + val("name"),
       "Email: " + val("email"),
       val("phone") ? "Phone: " + val("phone") : "",
-      "Looking for: " + val("service"),
+      val("service") ? "Looking for: " + val("service") : "",
       val("where") ? "Where in Texas: " + val("where") : "",
-      val("when") ? "Times that work: " + val("when") : "",
-      val("about") ? "\nWhat brings me here:\n" + val("about") : ""
+      val("when") ? "Times that work: " + val("when") : ""
     ].filter(Boolean);
 
-    var subject = "Appointment request: " + val("service");
+    var subject = val("service") ? "Appointment request: " + val("service")
+                                 : "Appointment request";
     var href = "mailto:" + address +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(lines.join("\n"));

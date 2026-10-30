@@ -16,17 +16,10 @@ priority: 0.6
     <strong>Good Faith Estimate</strong>, and a release of information you only need if records
     are being shared with someone else.</p>
   </div>
-  {%- if site.portal.url %}
-  <div class="cta-row">
-    <a class="cta" href="{{ site.portal.url }}">Complete them in the client portal</a>
-    <a class="cta cta--quiet" href="/contact/">Ask a question first</a>
-  </div>
-  {%- else %}
   <div class="cta-row">
     <a class="cta" href="/contact/">Request the forms</a>
     <a class="cta cta--quiet" href="/faq/">See fees first</a>
   </div>
-  {%- endif %}
 </section>
 
 <section class="band band--night">
@@ -127,8 +120,8 @@ priority: 0.6
     <summary>Can I email the completed forms back?</summary>
     <div class="answer-body">
       <p>Send them by whatever route you were given when the forms were sent. Ordinary email is
-      not a secure channel for clinical information, which is why intake usually runs through a
-      client portal instead.</p>
+      not a secure channel for clinical information, so ask before emailing a completed form
+      back.</p>
     </div>
   </details>
   {% include "partials/crisis-note.njk" %}
