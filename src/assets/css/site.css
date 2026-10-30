@@ -11,7 +11,6 @@
   --dusk: #f1ece3;
   --dusk-2: #e5ddd0;
   --indigo: #1f2d38;
-  --indigo-deep: #16212a;        /* the footer, a shade below the night bands */
   --ink: #2a2620;
   --ink-soft: #5c5346;
   --lamp: #b08a3c;
@@ -726,14 +725,14 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 /* ---------- footer ---------- */
 
 .footer {
-  background: var(--indigo);
-  color: rgba(226, 236, 242, 0.8);
+  background: var(--dusk-2);
+  color: var(--ink-soft);
   padding-block: clamp(3rem, 7vw, 5rem);
   font-size: 1rem;
 }
-.footer a { color: #e0bd7e; }
-.footer a:hover { color: #fff; }
-.footer h4 { color: #eef4f9; }
+.footer a { color: var(--link); }
+.footer a:hover { color: var(--ink); }
+.footer h4 { color: var(--ink); }
 .footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
 @media (min-width: 44rem) { .footer__grid { grid-template-columns: repeat(3, 1fr); } }
 .footer ul { list-style: none; margin: 0; padding: 0; }
@@ -741,9 +740,9 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 .footer__legal {
   margin-top: 3rem;
   padding-top: 1.4rem;
-  border-top: 1px solid rgba(226, 236, 242, 0.18);
+  border-top: 1px solid var(--hair);
   font-size: 0.9rem;
-  color: rgba(226, 236, 242, 0.6);
+  color: var(--ink-soft);
 }
 .footer__legal p { max-width: 46rem; }
 
@@ -833,7 +832,13 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 
 /* A section's opening paragraph sets up the cards under it, so it tracks the
    content width rather than the narrower reading measure body copy uses. */
-.intro-wide { max-width: none; }
+.intro-wide {
+  max-width: none;
+  /* Body copy is 1.125rem for a 33rem measure. Run that size the full content
+     width and the lines get long and heavy, and here it also sat a size above
+     the table it introduces. 1.02rem matches the table and reads better long. */
+  font-size: 1.02rem;
+}
 
 /* The question above the two routes is a prompt the reader answers, not a
    category label, so it is sized to be read rather than skimmed past. */
@@ -928,7 +933,6 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 /* The footer used the same indigo as .band--night, so wherever a night band was
    the last section the two ran together as one block. A darker tone plus a
    hairline marks the footer as chrome rather than more page. */
-.footer {
-  background: var(--indigo-deep);
-  border-top: 1px solid rgba(226, 236, 242, 0.12);
-}
+/* Nearly every page ends on a dark band, so a dark footer ran straight into it.
+   Light separates it outright, and marks it as chrome rather than more page. */
+.footer { border-top: 1px solid var(--hair); }
