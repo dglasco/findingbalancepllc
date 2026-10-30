@@ -246,6 +246,12 @@ export default function (eleventyConfig) {
       JSON.stringify([].concat(extra || [])).split(CANONICAL).join(site.url)
     );
     for (const entry of extras) {
+      // An Article whose facts are dated carries that date rather than the build
+      // date. One source, site.rulesChecked, so the printed line and the markup
+      // cannot disagree.
+      if (entry["@type"] === "Article" && !entry.dateModified) {
+        entry.dateModified = site.rulesCheckedISO;
+      }
       graph.push({ provider: { "@id": `${site.url}/#practice` }, ...entry });
     }
 

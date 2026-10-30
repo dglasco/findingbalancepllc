@@ -13,6 +13,27 @@ const CANONICAL = "https://reemglascolpc.com";
 const url = (process.env.SITE_URL || CANONICAL).replace(/\/$/, "");
 const isPreview = url !== CANONICAL;
 
+// The month the Texas rules on /texas-lpc-licensure/ were last checked against
+// BHEC. Update it when you re-verify them, and nothing else: the guide prints
+// it, the Article schema's dateModified is built from it, and the build warns
+// once it is stale. Deliberately not the build date, because a rebuild does not
+// re-read the rules and a stamp that moved on its own would claim a check
+// nobody made. Six months is long enough for a rule change to land and short
+// enough that the guide never quietly claims currency it does not have.
+const RULES_CHECKED = "2026-09";
+const RULES_STALE_MONTHS = 6;
+
+const monthsSinceChecked =
+  (new Date().getFullYear() - +RULES_CHECKED.slice(0, 4)) * 12 +
+  (new Date().getMonth() + 1 - +RULES_CHECKED.slice(5, 7));
+if (monthsSinceChecked >= RULES_STALE_MONTHS) {
+  console.warn(
+    `\n  WARNING  The Texas rules on /texas-lpc-licensure/ were last checked ` +
+    `${monthsSinceChecked} months ago (${RULES_CHECKED}).\n` +
+    `           Re-verify against bhec.texas.gov, then update RULES_CHECKED in src/_data/site.js.\n`
+  );
+}
+
 export default {
   url,
   canonicalUrl: CANONICAL,
@@ -28,6 +49,16 @@ export default {
   // Set this and the number appears on the contact page, in the footer and in
   // the LocalBusiness schema. Empty means the site stays email-only.
   phone: "512-965-5105",
+
+  rulesChecked: RULES_CHECKED,
+  get rulesCheckedLabel() {
+    const [y, m] = this.rulesChecked.split("-");
+    return new Date(Date.UTC(+y, +m - 1, 1))
+      .toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+  },
+  get rulesCheckedISO() {
+    return `${this.rulesChecked}-01`;
+  },
 
   city: "Austin",
   region: "TX",
