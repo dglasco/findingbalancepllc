@@ -903,3 +903,23 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 .pathways .card-who strong { color: var(--ink); }
 .band--night .pathways .card-who { border-top-color: rgba(226, 236, 242, 0.2); }
 .band--night .pathways .card-who strong { color: #eef4f9; }
+
+/* The "go deeper" card at the end of a grid. Full width so it reads as the way
+   onward rather than as one more option in the set above it. */
+.pathways a.pathway--wide { grid-column: 1 / -1; }
+/* Full width means the reading measure the other cards use would leave half the
+   card empty, so text in this one runs the card's own width. */
+.pathways a.pathway--wide p { max-width: none; }
+/* .pathways p already sets a colour, so this needs the same weight to win. */
+.pathways .card-go {
+  margin-top: 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--link);
+  white-space: nowrap;
+}
+.pathways .card-go::after { content: " \2192"; }
+.pathways a:hover .card-go { color: var(--ink); }
+.band--night .pathways .card-go { color: #e0bd7e; }
+.band--night .pathways a:hover .card-go { color: #fff; }
+@media (max-width: 30rem) { .pathways .card-go { white-space: normal; } }
