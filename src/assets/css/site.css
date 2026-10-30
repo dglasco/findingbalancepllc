@@ -830,3 +830,7 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 /* A section's opening paragraph sets up the cards under it, so it tracks the
    content width rather than the narrower reading measure body copy uses. */
 .intro-wide { max-width: none; }
+
+/* The question above the two routes is a prompt the reader answers, not a
+   category label, so it is sized to be read rather than skimmed past. */
+.eyebrow--ask { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.9rem; }
