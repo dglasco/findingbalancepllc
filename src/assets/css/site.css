@@ -11,6 +11,7 @@
   --dusk: #f1ece3;
   --dusk-2: #e5ddd0;
   --indigo: #1f2d38;
+  --indigo-deep: #16212a;        /* the footer, a shade below the night bands */
   --ink: #2a2620;
   --ink-soft: #5c5346;
   --lamp: #b08a3c;
@@ -923,3 +924,11 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 .band--night .pathways .card-go { color: #e0bd7e; }
 .band--night .pathways a:hover .card-go { color: #fff; }
 @media (max-width: 30rem) { .pathways .card-go { white-space: normal; } }
+
+/* The footer used the same indigo as .band--night, so wherever a night band was
+   the last section the two ran together as one block. A darker tone plus a
+   hairline marks the footer as chrome rather than more page. */
+.footer {
+  background: var(--indigo-deep);
+  border-top: 1px solid rgba(226, 236, 242, 0.12);
+}
