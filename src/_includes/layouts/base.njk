@@ -40,13 +40,9 @@
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 {% include "partials/masthead.njk" %}
-{%- if crumbs.length and not hideCrumbs %}
-<nav class="shell crumbs" aria-label="Breadcrumb"><a href="/">Home</a>
-  {%- for crumb in crumbs -%}
-    {%- if loop.last %} / {{ crumb.nav }}{% else %} / <a href="{{ crumb.url }}">{{ crumb.nav }}</a>{% endif -%}
-  {%- endfor -%}
-</nav>
-{%- endif %}
+{#- No visible trail: it only ever said Home / Parent / This page, which the
+    nav already shows. crumbs is still passed to the JSON-LD above, so search
+    results keep the breadcrumb. -#}
 <main id="main">
 {{ content | safe }}
 </main>

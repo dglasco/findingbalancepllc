@@ -105,7 +105,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* The breadcrumb already separates the masthead from the page, so a full band
    of air beneath it is dead space rather than breathing room. */
-.crumbs + main > section:first-child { padding-top: calc(var(--band) * 0.4); }
+main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 
 .band--sand { background: var(--dusk-2); }
 
@@ -117,7 +117,7 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .band--night h1, .band--night h2, .band--night h3, .band--night h4 { color: #eef4f9; }
 .band--night a { color: #e0bd7e; }
 .band--night a:hover { color: #fff; }
-.band--night .answer {
+.band--night .answer--card {
   background: rgba(226, 236, 242, 0.08);
   border-left-color: var(--lamp);
 }
@@ -248,17 +248,25 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* ---------- direct-answer block ---------- */
 
+/* The direct-answer passage. Plain by default: the rule and panel framed it
+   apart from surrounding content, and on most pages it opens the page with
+   nothing to be framed against. */
 .answer {
-  border-left: 3px solid var(--lamp);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1.4rem 1.6rem;
   margin: 0 0 2.25rem;
   max-width: 39rem;
 }
 .answer p { margin: 0; max-width: none; }
 .answer p + p { margin-top: 0.75em; }
-.band--sand .answer { background: rgba(255, 255, 255, 0.42); }
+
+/* Kept where a page introduces a person and their own words follow, so the
+   summary needs marking off from them. */
+.answer--card {
+  border-left: 3px solid var(--lamp);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.4rem 1.6rem;
+}
+.band--sand .answer--card { background: rgba(255, 255, 255, 0.42); }
 
 /* ---------- facts ---------- */
 
@@ -607,12 +615,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
   border-radius: 2rem;
 }
 .cta:hover { background: var(--ink); color: #fff; }
-.cta--quiet { background: none; color: var(--ink); border: 1px solid var(--hair); }
-.cta--quiet:hover { background: rgba(27, 40, 50, 0.06); color: var(--ink); }
-.band--night .cta { background: var(--lamp); color: #1b2832; }
-.band--night .cta:hover { background: #cfa055; color: #1b2832; }
-.band--night .cta--quiet { background: none; color: #eef4f9; border-color: rgba(226, 236, 242, 0.4); }
-.band--night .cta--quiet:hover { background: rgba(226, 236, 242, 0.1); color: #fff; }
+/* One button treatment per ground: filled indigo on the light bands, filled
+   light on the dark ones. The outlined variant is gone, so .cta--quiet now
+   differs only by weight, not by whether it looks like a button at all. */
+.cta--quiet { background: var(--indigo); color: #eaf2f7; border: 0; }
+.cta--quiet:hover { background: var(--ink); color: #fff; }
+.band--night .cta,
+.band--night .cta--quiet { background: #eaf2f7; color: var(--indigo); border: 0; }
+.band--night .cta:hover,
+.band--night .cta--quiet:hover { background: #fff; color: #11202a; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
 
 /* ---------- doors: the few places the site forks ---------- */
