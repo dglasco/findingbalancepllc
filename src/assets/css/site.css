@@ -822,3 +822,7 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 /* A five-up row needs narrower tiles than the four-up default to fit five
    across; below the breakpoint above it pairs off like any other row. */
 .photo-row--five { max-width: 54rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
+
+/* Sections that are jump targets keep a little air above the heading when the
+   browser lands on them, rather than butting against the top of the viewport. */
+section[id] { scroll-margin-block-start: 1.5rem; }
