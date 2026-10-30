@@ -888,3 +888,18 @@ section[id] { scroll-margin-block-start: 1.5rem; }
   margin-top: 0.25rem;
   max-width: 16rem;
 }
+
+/* "Helps when" under a card's one-line description. It answers a different
+   question from the line above it, so it is set apart by a rule and the sans
+   face rather than by being another paragraph of the same grey. */
+.pathways .card-who {
+  margin-top: 0.75rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--hair);
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.pathways .card-who strong { color: var(--ink); }
+.band--night .pathways .card-who { border-top-color: rgba(226, 236, 242, 0.2); }
+.band--night .pathways .card-who strong { color: #eef4f9; }
