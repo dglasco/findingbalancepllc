@@ -40,7 +40,7 @@
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 {% include "partials/masthead.njk" %}
-{%- if crumbs.length %}
+{%- if crumbs.length and not hideCrumbs %}
 <nav class="shell crumbs" aria-label="Breadcrumb"><a href="/">Home</a>
   {%- for crumb in crumbs -%}
     {%- if loop.last %} / {{ crumb.nav }}{% else %} / <a href="{{ crumb.url }}">{{ crumb.nav }}</a>{% endif -%}
