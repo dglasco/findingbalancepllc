@@ -826,3 +826,7 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 /* Sections that are jump targets keep a little air above the heading when the
    browser lands on them, rather than butting against the top of the viewport. */
 section[id] { scroll-margin-block-start: 1.5rem; }
+
+/* A section's opening paragraph sets up the cards under it, so it tracks the
+   content width rather than the narrower reading measure body copy uses. */
+.intro-wide { max-width: none; }
