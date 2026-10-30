@@ -61,14 +61,48 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
         <p>Outside, side by side rather than across a room. Fridays in central Texas, adults
         only, $125 an hour.</p>
       </a>
-      <a href="/therapy/associates/">
-        <h3>Our LPC Associates</h3>
-        <p>Six counselors supervised by Reem, $100 to $150 a session with sliding-scale places
-          and sooner openings.</p>
-      </a>
     </div>
     <p><a href="/approach/">How IFS-informed EMDR, Somatic Experiencing and NARM fit
     together</a></p>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <p class="eyebrow">Who you will see</p>
+    <h2>Reem, or one of the associates?</h2>
+    <p>Both are options, and the honest answer is usually availability. Reem holds a small
+    caseload alongside supervising associates and consulting on EMDR. The associates she
+    supervises are earlier in their careers, working under her supervision, with lower fees and
+    more open calendars.</p>
+    <ul class="roster">
+      {%- for a in associates %}
+      <li><a href="/therapy/associates/{{ a.slug }}/">
+        <img src="/assets/img/associates/{{ a.photo }}" width="{{ a.photoW }}"
+         height="{{ a.photoH }}" loading="lazy" decoding="async" alt="">
+        <span>{{ a.name | first_name }}</span>
+      </a></li>
+      {%- endfor %}
+    </ul>
+    <div class="pathways">
+      <a href="/contact/">
+        <h3>Working with Reem</h3>
+        <p>$240 for 50 minutes self-pay, online across Texas. Limited openings. Best fit for
+        complex developmental trauma and stalled EMDR.</p>
+      </a>
+      <a href="/therapy/associates/">
+        <h3>Working with an associate</h3>
+        <p>Six LPC Associates, $100 to $150 a session with sliding-scale places, and sooner
+          availability. Supervised by Reem, so the clinical approach is the same lineage.</p>
+      </a>
+      <a href="/contact/">
+        <h3>Not sure which</h3>
+        <p>Say what is going on in a few sentences and we will work out the right starting
+        point, here or elsewhere.</p>
+      </a>
+    </div>
+    <p><a href="/therapy/associates/">Meet the associates, with fees and direct contact for
+    each</a></p>
   </div>
 </section>
 
@@ -124,35 +158,6 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
         </tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="band band--night">
-  <div class="shell">
-    <h2>Reem, or one of the associates?</h2>
-    <p>Both are options, and the honest answer is usually availability. Reem holds a small
-    caseload alongside supervising associates and consulting on EMDR. The associates she
-    supervises are earlier in their careers, working under her supervision, with lower fees and
-    more open calendars.</p>
-    <div class="pathways">
-      <a href="/contact/">
-        <h3>Working with Reem</h3>
-        <p>$240 for 50 minutes self-pay, online across Texas. Limited openings. Best fit for
-        complex developmental trauma and stalled EMDR.</p>
-      </a>
-      <a href="/therapy/associates/">
-        <h3>Working with an associate</h3>
-        <p>Six LPC Associates, $100 to $150 a session with sliding-scale places, and sooner
-          availability. Supervised by Reem, so the clinical approach is the same lineage.</p>
-      </a>
-      <a href="/contact/">
-        <h3>Not sure which</h3>
-        <p>Say what is going on in a few sentences and we will work out the right starting
-        point, here or elsewhere.</p>
-      </a>
-    </div>
-    <p><a href="/therapy/associates/">Meet the associates, with fees and direct contact for
-    each</a></p>
   </div>
 </section>
 

@@ -788,3 +788,33 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* Face row for the associates band. Fixed-ratio circles so six photos shot at
+   six different aspect ratios still line up. */
+.roster {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.5rem;
+}
+.roster a {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+.roster img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid rgba(226, 236, 242, 0.25);
+  transition: border-color 0.15s ease;
+}
+.roster a:hover img { border-color: rgba(226, 236, 242, 0.7); }
+.roster span { font-size: 0.95rem; }
+.roster a:hover span { text-decoration: underline; }
