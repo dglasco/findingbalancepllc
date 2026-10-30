@@ -107,6 +107,23 @@ img, svg { max-width: 100%; height: auto; display: block; }
    of air beneath it is dead space rather than breathing room. */
 main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 
+/* A hairline at every seam between sections, the same rule that sits under the
+   masthead. Drawn as a pseudo-element rather than a border because some sections
+   are the .shell and some contain one, and a border would take the width of
+   whichever box it landed on; this way both shapes get the same line. Against a
+   dark band it disappears, which is fine: there the change of background is
+   already the seam. */
+.band + .band, .hero + .band { position: relative; }
+.band + .band::before, .hero + .band::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70rem, 100%);
+  border-top: 1px solid var(--hair);
+}
+
 .band--sand { background: var(--dusk-2); }
 
 /* An enclosure. Used two or three times a site, never more. */
@@ -207,7 +224,10 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .hero p.lede { font-size: 1.22rem; color: var(--ink-soft); max-width: 31rem; }
 /* 21rem, not 19: the emblem is square where the window it replaced was portrait, so it
    needs a little more width to carry the same visual weight beside the h1. */
-.hero__art { justify-self: center; width: 100%; max-width: 21rem; }
+.hero__art { justify-self: center; width: 100%; max-width: 19rem; }
+/* The portrait is 621px wide, so 19rem is where it stops being a 2x image.
+   Radius and shadow to match every other photograph on the site. */
+.hero__art img { border-radius: var(--radius); box-shadow: 0 18px 44px -24px rgba(31, 45, 56, 0.5); }
 
 /* Eyebrow: the small orienting line above a heading, as on tomsscuba.com.
    Sentence case, not tracked-out caps. */
@@ -398,6 +418,11 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 /* Landscape photographs, which need the full content width rather than the
    portrait-shaped column the watercolors sit in. */
 .band-art--photo { max-width: 47rem; }
+/* The trail and paddock photographs are 368 to 480px on their long edge, so
+   11.5rem is the widest any of them renders without softening on a 2x screen.
+   Left-aligned and tight to the text because these sit inside a split column
+   beside prose, not centered in a band of their own. */
+.band-art--inset { max-width: 11.5rem; margin: 0 0 1.4rem; }
 .caption {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -406,6 +431,7 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
   margin: 0.7rem 0 0;
 }
 .band--night .caption { color: rgba(226, 236, 242, 0.7); }
+.caption--block { max-width: none; }
 
 .portrait, .step-art {
   width: 100%;
@@ -652,8 +678,8 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 
 /* ---------- FAQ ---------- */
 
-/* .faq sits on the same element as .shell, which centres itself, so capping the
-   section centred the whole block. Cap the children instead: the shell keeps the
+/* .faq sits on the same element as .shell, which centers itself, so capping the
+   section centered the whole block. Cap the children instead: the shell keeps the
    page's gutters and the questions line up with every other section's left edge. */
 .faq { max-width: none; }
 .faq > * { max-width: 44rem; }
