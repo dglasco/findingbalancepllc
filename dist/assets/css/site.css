@@ -875,3 +875,16 @@ section[id] { scroll-margin-block-start: 1.5rem; }
    scales together rather than needing each seam retuned. */
 .home { --band: clamp(2.5rem, 5vw, 4.5rem); }
 .home .hero { padding-block: clamp(2.25rem, 5vw, 4rem) calc(var(--band) * 0.7); }
+
+/* Who a service is for, tucked under its name. It was a fourth column, which
+   on a phone pushed the table past the viewport and wrapped every cell to one
+   or two words per line. */
+.cell-note {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+  max-width: 16rem;
+}
