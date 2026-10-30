@@ -858,3 +858,13 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 /* A card grid supplies its own top margin but nothing below it, so a closing
    paragraph sat flush against the last card. Whatever follows gets its air. */
 .pathways + * { margin-top: 2rem; }
+
+/* Stacked, the hero ran 59px past a phone's first screen, so nothing below it
+   signalled there was more to read. The emblem is decorative and carries the
+   cut: at 10rem the hero ends about 50px above the fold and the next band shows.
+   Everything here reverts at 54rem, where the emblem sits beside the h1 and has
+   the room to be big. Sharper too: 600px of artwork over 160 displayed. */
+@media (max-width: 53.99rem) {
+  .hero { padding-block: 2.25rem 2rem; }
+  .hero__art { max-width: 10rem; }
+}
