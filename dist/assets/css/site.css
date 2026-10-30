@@ -868,3 +868,10 @@ section[id] { scroll-margin-block-start: 1.5rem; }
   .hero { padding-block: 2.25rem 2rem; }
   .hero__art { max-width: 10rem; }
 }
+
+/* The home page is a sequence of short sections rather than one long read, so
+   the sitewide band of air reads as gaps between unrelated things. Tighter
+   here only; --band drives every padding rule above, so the whole rhythm
+   scales together rather than needing each seam retuned. */
+.home { --band: clamp(2.5rem, 5vw, 4.5rem); }
+.home .hero { padding-block: clamp(2.25rem, 5vw, 4rem) calc(var(--band) * 0.7); }

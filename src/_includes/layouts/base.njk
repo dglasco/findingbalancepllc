@@ -37,7 +37,7 @@
 <script type="application/ld+json">{{ { site: site, url: page.url, title: title, description: description, crumbs: crumbs, kids: kids, extra: schema } | jsonld | safe }}</script>
 <!--FAQ_SCHEMA-->
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 {% include "partials/masthead.njk" %}
 {%- if crumbs.length %}
