@@ -854,3 +854,7 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 }
 .book-plug .cover { max-width: 13rem; margin: 0; }
 .book-plug h3 { margin-bottom: 0.6rem; }
+
+/* A card grid supplies its own top margin but nothing below it, so a closing
+   paragraph sat flush against the last card. Whatever follows gets its air. */
+.pathways + * { margin-top: 2rem; }
