@@ -641,7 +641,11 @@ img, svg { max-width: 100%; height: auto; display: block; }
 
 /* ---------- FAQ ---------- */
 
-.faq { max-width: 44rem; }
+/* .faq sits on the same element as .shell, which centres itself, so capping the
+   section centred the whole block. Cap the children instead: the shell keeps the
+   page's gutters and the questions line up with every other section's left edge. */
+.faq { max-width: none; }
+.faq > * { max-width: 44rem; }
 .faq details { border-top: 1px solid var(--hair); }
 .faq details:last-of-type { border-bottom: 1px solid var(--hair); }
 .faq summary {
@@ -952,3 +956,21 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 .answer--wide { max-width: 48rem; }
 .text-wide { max-width: 48rem; }
 .facts--wide { max-width: 48rem; }
+
+/* A line of destinations under a hub page's lede. Sans and small so it reads as
+   navigation rather than more prose, and links rather than buttons because
+   choosing where to go is not the same as being asked for something. */
+.jump {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  max-width: none;
+  margin-top: 1.75rem;
+  color: var(--ink-soft);
+}
+
+/* Stacked, the hero's text runs long enough that the photograph would land far
+   below the fold. It leads on a phone, where a face is the fastest way to say
+   who this is. */
+@media (max-width: 53.99rem) {
+  .hero__art { order: -1; }
+}
