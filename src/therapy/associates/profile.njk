@@ -1,0 +1,94 @@
+---
+pagination:
+  data: associates
+  size: 1
+  alias: who
+  # without this Eleventy puts only the first paginated page into collections,
+  # so the other five would be missing from the sitemap
+  addAllPagesToCollections: true
+permalink: "/therapy/associates/{{ who.slug }}/"
+layout: layouts/base.njk
+tags: pages
+eleventyComputed:
+  title: "{{ who.name }}, {{ who.credential }} | Finding Balance Counseling"
+  description: "{{ who.name }}, {{ who.credential }} at Finding Balance Counseling in Austin, supervised by Reem Glasco, LPC-S. {{ who.fee }}."
+  nav: "{{ who.name }}"
+  order: 7.5
+  priority: 0.6
+inNav: false
+---
+<section class="shell band">
+  <p class="eyebrow">LPC Associate, supervised by <a href="/about/">Reem Glasco, LPC-S</a></p>
+  <h1>{{ who.name }}</h1>
+  <div class="split">
+    <div>
+      <div class="answer">
+        <p>{{ who.approach }}</p>
+      </div>
+      {%- if who.bio %}
+      <p>{{ who.bio | safe }}</p>
+      {%- else %}
+      <p>{{ who.name }} sees {{ who.sees | lower }} Fees are {{ who.fee | lower }}, and the
+      consultation beforehand is free and commits you to nothing.</p>
+      {%- endif %}
+    </div>
+    <div>
+      {%- if who.photo %}
+      <img class="band-art band-art--small" src="/assets/img/associates/{{ who.photo }}"
+           alt="{{ who.name }}, {{ who.credential }}"
+           width="{{ who.photoW }}" height="{{ who.photoH }}" loading="lazy" decoding="async">
+      {%- endif %}
+      <dl class="facts">
+        <div><dt>Fee</dt><dd>{{ who.fee }}</dd></div>
+        <div><dt>Sliding scale</dt><dd>{{ who.sliding }}</dd></div>
+        <div><dt>Consult</dt><dd>{{ who.consult }}</dd></div>
+        <div><dt>Sees</dt><dd>{{ who.sees }}</dd></div>
+        {%- if who.pronouns %}<div><dt>Pronouns</dt><dd>{{ who.pronouns }}</dd></div>{% endif %}
+        <div><dt>Supervisor</dt><dd><a href="/about/">Reem Glasco, LPC-S</a>, Texas licence {{ site.license }}</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="shell">
+    <h2>What {{ who.name | first_name }} works with</h2>
+    <ul class="plain">
+      {%- for f in who.focus %}
+      <li>{{ f }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="shell band">
+  <div class="split">
+    <div>
+      <h2>Getting in touch</h2>
+      <p>{{ who.name }} runs their own scheduling, billing and paperwork, so booking goes
+      directly to them rather than through the practice's portal.</p>
+      <ul class="plain">
+        {%- if who.email %}<li><a href="mailto:{{ who.email }}">{{ who.email }}</a></li>{% endif %}
+        {%- if who.phone %}<li>{{ who.phone }}</li>{% endif %}
+        {%- if who.website %}<li><a href="https://{{ who.website }}" rel="noopener">{{ who.website }}</a><span class="vh"> (opens in a new tab)</span></li>{% endif %}
+        {%- if not who.email and not who.phone and not who.website %}
+        <li><a href="/contact/">Ask the practice for an introduction</a></li>
+        {%- endif %}
+      </ul>
+    </div>
+    <div>
+      <h2>What supervision means here</h2>
+      <p>An LPC Associate is fully qualified and licensed, and is completing the supervised hours
+      Texas requires before full licensure. {{ who.name | first_name }}'s work is reviewed
+      regularly by <a href="/about/">Reem Glasco, LPC-S</a>, which means two clinicians are
+      thinking about your case rather than one.</p>
+      <div class="cta-row">
+        <a class="cta cta--quiet" href="/therapy/associates/">All the associates</a>
+        <a class="cta cta--quiet" href="/faq/">Fees and insurance</a>
+      </div>
+    </div>
+  </div>
+  {% include "partials/crisis-note.njk" %}
+</section>
+
+{% include "partials/cta-band.njk" %}

@@ -27,12 +27,16 @@ export default {
 
   // Set this and the number appears on the contact page, in the footer and in
   // the LocalBusiness schema. Empty means the site stays email-only.
-  phone: "(737) 378-4167",
+  phone: "512-965-5105",
 
   city: "Austin",
   region: "TX",
   postal: "78726",       // Shown on About and in the footer, and emitted as postalCode
   license: "66562",
+  supervisorSince: 2009,
+  get supervisorYears() {
+    return new Date().getFullYear() - this.supervisorSince;
+  },
   // Professional directory profiles. Each entry becomes a sameAs on the practitioner in the
   // structured data, which is what lets search engines and answer engines tie "Reem Glasco"
   // here to the same person elsewhere. Each also renders as a Directory row on About and

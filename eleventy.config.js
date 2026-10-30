@@ -155,6 +155,10 @@ export default function (eleventyConfig) {
   // duplicate of the site at /preview.html. Preview host only.
   if (SITE === CANONICAL) eleventyConfig.ignores.add("src/preview.njk");
 
+  // "Nica Ayala, M.A." -> "Nica", so a profile page can address someone by name
+  // without the credentials trailing along mid-sentence.
+  eleventyConfig.addFilter("first_name", (s) => String(s || "").split(/[\s,]+/)[0]);
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
   eleventyConfig.addPassthroughCopy({ "src/apple-touch-icon.png": "apple-touch-icon.png" });
