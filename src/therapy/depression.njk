@@ -14,9 +14,9 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/depressi
     <p>Reem Glasco, LPC-S, works with <strong>depression, flatness and the procrastination
     that does not respond to discipline</strong> in adults and young adults across Texas.
     Depression is treated as an adaptation with a history rather than a mood to be argued with,
-    using NARM, Somatic Experiencing and IFS-informed EMDR. Sessions are 50 minutes,
-    online. The practice's <strong>LPC Associates</strong>
-    see clients at lower fees, including sliding scale.</p>
+    using NARM, Somatic Experiencing and IFS-informed EMDR.
+    {% include "partials/text/session-terms.njk" %}
+    {% include "partials/text/associates-note.njk" %}</p>
   </div>
   <div class="cta-row">
     <a class="cta" href="/contact/">Request a free 15-minute consult</a>
@@ -41,8 +41,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/depressi
 </section>
 
 <section class="shell band">
-  <img class="band-art band-art--wide" src="/assets/img/step-2-light.jpg" width="760" height="760"
-   loading="lazy" decoding="async" alt="Watercolor of a person sitting cross-legged in front of a bright window.">
+  {% bandArt "/assets/img/step-2-light.jpg", 760, 760, "Watercolor of a person sitting cross-legged in front of a bright window.", "wide" %}
   <div class="split">
     <div>
       <h2>Depression as an adaptation, not a defect</h2>
@@ -150,9 +149,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/depressi
   <details>
     <summary>Do I need antidepressants?</summary>
     <div class="answer-body">
-      <p>That is a question for a prescriber. Reem is a Licensed Professional Counselor
-      Supervisor, not a physician, and does not prescribe or advise on medication. Therapy and
-      medication are not alternatives to each other, and plenty of people do both.</p>
+      <p>{% include "partials/text/medication-note.njk" %}</p>
     </div>
   </details>
 

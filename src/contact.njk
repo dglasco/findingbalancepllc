@@ -7,19 +7,26 @@ nav: Contact
 order: 12
 ---
 <section class="shell band">
-  <h1>Get in touch</h1>
+  <h1>Contact us</h1>
   <div class="answer">
-    <p>Email is the fastest route. Therapy consults are fifteen minutes and free; supervision
-    and EMDR consults are thirty minutes and free. Tell me briefly what you are looking for and
-    what your week looks like, and I will send times.</p>
+    <p>Email is the fastest route into the practice. Therapy consults are fifteen minutes,
+    supervision and EMDR consultation consults are thirty, and both are free and commit you to
+    nothing. Say briefly what you are looking for and when you are usually free; you will get
+    times back, normally within a couple of working days.</p>
+  </div>
+  {#- The page every "Contact us" on the site points at had no button on it.
+      Two routes, because some people would rather be prompted than face a
+      blank email. -#}
+  <div class="cta-row">
+    <a class="cta" href="/contact/appointment/">Use the request form</a>
+    <a class="cta cta--quiet" href="mailto:{{ site.email }}">Email us directly</a>
   </div>
 
   <div class="split">
     <div>
       <h2>Reach the practice</h2>
       <dl class="facts">
-        <div><dt>Therapy and general</dt><dd><a href="mailto:info@findingbalancecounselingpllc.com">info@findingbalancecounselingpllc.com</a></dd></div>
-        <div><dt>Supervision applications</dt><dd><a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a><span class="cell-note">Therapy, supervision and consultation all arrive here.</span></dd></div>
         {%- if site.phone %}
         <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
         {%- endif %}
@@ -27,6 +34,7 @@ order: 12
         <div><dt>Serving</dt><dd>Austin and all of Texas online</dd></div>
         <div><dt>In person</dt><dd>Trail walk sessions in central Texas; equine sessions in Dripping Springs</dd></div>
         <div><dt>Hours</dt><dd>By appointment; walk and table therapy on Fridays</dd></div>
+        <div><dt>Reply time</dt><dd>Usually a couple of working days</dd></div>
         {%- for p in site.profiles %}
         <div><dt>Directory</dt><dd><a href="{{ p.url }}">{{ p.name }} profile</a></dd></div>
         {%- endfor %}
@@ -41,17 +49,17 @@ order: 12
         <li>For supervision: your CV or resume, three professional references, and your answers
         to the <a href="/for-therapists/lpc-supervision/">application questions</a>.</li>
       </ul>
-      <h3>Ask for a consult</h3>
-      <ul class="plain">
-        <li><a href="/contact/appointment/">Request an appointment</a> using the form, if you
-        would rather not start with an email.</li>
-      </ul>
+      <p class="note">Nothing clinical, please. Ordinary email is not a secure channel, and a
+      sentence about what you are looking for is all that is needed to get a consult booked.</p>
+
+      <h3>Booking an associate instead</h3>
+      <p>The practice's <a href="/therapy/associates/">LPC Associates</a> each run their own
+      scheduling, and each one has a direct email and phone number on their card. Writing to
+      them is faster than coming through here.</p>
 
       <h3>Already a client?</h3>
-      <ul class="plain">
-        <li><a href="/contact/forms/">Client forms</a>, including the Limits of Confidentiality
-        notice and your Good Faith Estimate.</li>
-      </ul>
+      <p><a href="/contact/forms/">Client forms</a>, including the Limits of Confidentiality
+      notice and your Good Faith Estimate.</p>
 
       <h3>If this is urgent</h3>
       <p>This practice does not provide emergency care. Call 911 if you are in immediate

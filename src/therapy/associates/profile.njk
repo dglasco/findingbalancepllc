@@ -34,9 +34,7 @@ inNav: false
     </div>
     <div>
       {%- if who.photo %}
-      <img class="band-art band-art--small" src="/assets/img/associates/{{ who.photo }}"
-           alt="{{ who.name }}, {{ who.credential }}"
-           width="{{ who.photoW }}" height="{{ who.photoH }}" loading="lazy" decoding="async">
+      {% bandArt "/assets/img/associates/" + who.photo, who.photoW, who.photoH, who.name + ", " + who.credential, "small" %}
       {%- endif %}
       <dl class="facts">
         <div><dt>Fee</dt><dd>{{ who.fee }}</dd></div>

@@ -14,9 +14,8 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/anxiety#
     <p>Reem Glasco, LPC-S, works with <strong>anxiety, panic attacks and social anxiety</strong>
     in adults and young adults across Texas. The approach is body-first: Somatic Experiencing,
     NARM and IFS-informed EMDR, because a braced nervous system rarely argues itself into
-    calm. Sessions are 50 minutes, online. The practice's
-    <strong>LPC Associates</strong> see clients at lower fees, including sliding scale, and
-    usually sooner.</p>
+    calm. {% include "partials/text/session-terms.njk" %}
+    {% include "partials/text/associates-note.njk" %}</p>
   </div>
   <div class="cta-row">
     <a class="cta" href="/contact/">Request a free 15-minute consult</a>
@@ -41,8 +40,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/anxiety#
 </section>
 
 <section class="shell band">
-  <img class="band-art band-art--wide" src="/assets/img/step-4-breathe.jpg" width="506" height="760"
-   loading="lazy" decoding="async" alt="Watercolor of a person in a blue shirt with a hand on their chest, eyes closed.">
+  {% bandArt "/assets/img/step-4-breathe.jpg", 506, 760, "Watercolor of a person in a blue shirt with a hand on their chest, eyes closed.", "wide" %}
   <div class="split">
     <div>
       <h2>Anxiety as a nervous system state</h2>
@@ -147,9 +145,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/anxiety#
   <details>
     <summary>Do I need medication for anxiety?</summary>
     <div class="answer-body">
-      <p>That is a question for a prescriber. Reem is a Licensed Professional Counselor
-      Supervisor, not a physician, and does not prescribe or advise on medication. Therapy and
-      medication are not alternatives to each other, and plenty of people do both.</p>
+      <p>{% include "partials/text/medication-note.njk" %}</p>
     </div>
   </details>
 

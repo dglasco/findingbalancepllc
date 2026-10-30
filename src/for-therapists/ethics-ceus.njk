@@ -24,7 +24,7 @@ priority: 0.8
     the ethical obligations actually sit.</p>
   </div>
   <div class="cta-row">
-    <a class="cta" href="mailto:reemglasco@gmail.com">Email about the next session</a>
+    <a class="cta" href="mailto:{{ site.email }}">Contact us</a>
     <a class="cta cta--quiet" href="/texas-lpc-licensure/">The CE requirements in full</a>
   </div>
 </section>
@@ -75,9 +75,7 @@ priority: 0.8
     </div>
     <div>
       <h3>Walking it, rather than sitting through it</h3>
-      <img class="band-art band-art--inset" src="/assets/img/horse-grazing.jpg"
-       width="480" height="640" loading="lazy" decoding="async"
-       alt="A horse grazing in a paddock near Dripping Springs, Texas.">
+      {% bandArt "/assets/img/horse-grazing.jpg", 480, 640, "A horse grazing in a paddock near Dripping Springs, Texas.", "inset" %}
       <p>The two-CEU version is held outdoors, walking, among horses. That is not a gimmick
       attached to the content; it is the content. A room full of therapists discussing
       depletion while sitting still for two hours is its own small joke. Walking changes what
@@ -187,7 +185,7 @@ priority: 0.8
   <details>
     <summary>How do I register?</summary>
     <div class="answer-body">
-      <p>Email <a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a> and ask about the
+      <p>Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> and ask about the
       next session. Dates and fees are not yet published here, so email is currently the only
       route.</p>
     </div>

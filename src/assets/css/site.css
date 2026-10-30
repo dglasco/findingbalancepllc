@@ -250,6 +250,24 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
   padding: 1.5rem 1.6rem;
 }
 .cards h3 { margin-bottom: 0.4rem; }
+
+/* The associate roster. A face beside the text rather than above it, so six
+   cards stay scannable, and sized well under each headshot's own width: the
+   smallest is 532px, which is 4x at this size. */
+.cards--roster > div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1.25rem; }
+.cards--roster img {
+  width: 8rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
+}
+/* .cards p has no margin, which is right for a one-paragraph card and wrong
+   for these. */
+.cards--roster p + p { margin-top: 0.8rem; }
+@media (max-width: 30rem) {
+  .cards--roster > div { grid-template-columns: 1fr; }
+}
 .cards p { margin: 0; color: var(--ink-soft); }
 .band--night .cards > div {
   background: rgba(226, 236, 242, 0.07);
@@ -325,10 +343,13 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .section-intro { max-width: 46rem; color: var(--ink-soft); }
 
 /* Step cards on /book/. Auto-fit so seven cards never leave one orphan on a row. */
+/* Capped at 50rem so three columns land near 250px. The narrowest watercolor
+   is 506px, so anything wider than that starts upscaling. */
 .step-cards {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  max-width: 50rem;
   margin: 2.5rem 0;
 }
 .step-card {
@@ -366,10 +387,15 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 
 /* A row of small photographs. Sized deliberately modestly: these came from a
    phone at roughly 310px, so anything larger would show it. */
+/* Gallery rows carry the same hazard as .band-art did: a column that fits the
+   layout can still be wider than the picture in it. Each row is capped by the
+   smallest file it holds, so nothing upscales. The watercolors are 506px at
+   their narrowest, which is 15rem; the trail photographs are 310px, 9.5rem. */
 .photo-row {
   display: grid;
   gap: 1.1rem;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 15rem));
   margin: 2.5rem 0 0;
   /* Wide enough for four across, so a four-up row does not orphan its last
      picture on a line of its own. */
@@ -394,7 +420,7 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 /* On a phone the columns fall below the 11rem minimum and auto-fit collapses to
    one, which is four full-width pictures to scroll past. Two is plenty. */
 @media (max-width: 30rem) {
-  .photo-row { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+  .photo-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
 }
 
 /* Page art. Reem's book watercolors reused as section imagery. */
@@ -423,6 +449,49 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
    Left-aligned and tight to the text because these sit inside a split column
    beside prose, not centered in a band of their own. */
 .band-art--inset { max-width: 11.5rem; margin: 0 0 1.4rem; }
+
+/* A photograph that does not exist yet. Sized and positioned like the real one
+   so the layout around it is already right, and loud enough that nobody mistakes
+   it for a design element. Deleted along with the shortcode once the pictures
+   arrive. */
+.photo-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+  width: 100%;
+  max-width: 22rem;
+  border: 2px dashed var(--lamp);
+  border-radius: var(--radius);
+  background: rgba(176, 138, 60, 0.07);
+  text-align: center;
+}
+.photo-slot--portrait { aspect-ratio: 4 / 5; }
+.photo-slot--landscape { aspect-ratio: 3 / 2; max-width: 30rem; }
+.photo-slot--square { aspect-ratio: 1 / 1; }
+.photo-slot--wide { aspect-ratio: 21 / 9; max-width: 44rem; }
+.photo-slot__tag {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lamp-ink);
+}
+.photo-slot__brief {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 22rem;
+  margin-inline: auto;
+}
+.band--night .photo-slot { border-color: var(--lamp); background: rgba(176, 138, 60, 0.12); }
+.band--night .photo-slot__tag { color: var(--lamp); }
+.band--night .photo-slot__brief { color: rgba(226, 236, 242, 0.8); }
+.photo-slot:first-child { margin-top: 0; }
+.photo-slot:last-child { margin-bottom: 0; }
 .caption {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -865,7 +934,7 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 
 /* A five-up row needs narrower tiles than the four-up default to fit five
    across; below the breakpoint above it pairs off like any other row. */
-.photo-row--five { max-width: 54rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
+.photo-row--five { max-width: 54rem; grid-template-columns: repeat(auto-fit, minmax(8rem, 9.5rem)); }
 
 /* Sections that are jump targets keep a little air above the heading when the
    browser lands on them, rather than butting against the top of the viewport. */
@@ -905,6 +974,9 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 /* A card grid supplies its own top margin but nothing below it, so a closing
    paragraph sat flush against the last card. Whatever follows gets its air. */
 .pathways + * { margin-top: 2rem; }
+/* A button row followed by a two-column block ran its heading straight into the
+   buttons. Same reason as the rule above it. */
+.cta-row + .split { margin-top: 2.75rem; }
 
 /* Stacked, the hero ran 59px past a phone's first screen, so nothing below it
    signalled there was more to read. The emblem is decorative and carries the

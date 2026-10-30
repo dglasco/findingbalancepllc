@@ -94,6 +94,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
       </ul>
     </div>
     <div>
+      {% photoSlot "Something from a supervision context: a notebook and two coffee cups, a desk set up for a video call, the view from where Reem supervises. No client material and no identifiable faces. Portrait, 640px wide or more.", "portrait" %}
       <h3>Reem's supervision credentials</h3>
       <ul class="plain">
         <li>Licensed Professional Counselor Supervisor in Texas since 2009, license 66562</li>
@@ -157,7 +158,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
   <h2>How to apply</h2>
   <ol class="steps">
     <li><strong>Schedule the free thirty-minute consult</strong> by Zoom or phone. Email
-    <a href="mailto:reemglasco@gmail.com">reemglasco@gmail.com</a>.</li>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</li>
     <li><strong>Send your CV or resume and three professional references</strong>, along with
     your answers to the questions below.</li>
     <li><strong>Verification, then signing.</strong> References and site verification are
@@ -175,7 +176,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
     <li>Are you interested in building your own private practice?</li>
   </ol>
   <div class="cta-row">
-    <a class="cta" href="mailto:reemglasco@gmail.com">Email your application</a>
+    <a class="cta" href="mailto:{{ site.email }}">Email your application</a>
     <a class="cta cta--quiet" href="/contact/">Ask a question first</a>
   </div>
 </section>

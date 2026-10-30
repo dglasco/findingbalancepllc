@@ -23,9 +23,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/equine#s
     <a class="cta" href="/contact/">Request a free 15-minute consult</a>
     <a class="cta cta--quiet" href="/therapy/walk-and-talk/">Walk and talk therapy</a>
   </div>
-  <img class="band-art band-art--photo" src="/assets/img/reem-and-blu.jpg" width="758" height="397"
-   decoding="async"
-   alt="Reem Glasco standing beside Blu, a bay horse, holding a lead rope in a sandy arena with trees behind.">
+  {% bandArt "/assets/img/reem-and-blu.jpg", 758, 397, "Reem Glasco standing beside Blu, a bay horse, holding a lead rope in a sandy arena with trees behind.", "photo" %}
   <p class="caption">Reem and Blu.</p>
 </section>
 
@@ -159,9 +157,8 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/equine#s
   <details>
     <summary>Can I start with an equine session?</summary>
     <div class="answer-body">
-      <p>No. Equine, trail walk and movement sessions all begin after a free consult and one to
-      three online sessions, so the pacing and the working relationship are established before
-      the setting changes.</p>
+      <p>No. {% include "partials/text/in-person-prereq.njk" %} The pacing and the working relationship are
+      established before the setting changes.</p>
     </div>
   </details>
 

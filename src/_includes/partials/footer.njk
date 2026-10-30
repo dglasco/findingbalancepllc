@@ -2,12 +2,11 @@
   <div class="shell">
     <div class="footer__grid">
       <div>
-        <h4>Get in touch</h4>
+        <h4>Contact us</h4>
         {%- if site.phone %}
         <p><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></p>
         {%- endif %}
-        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
-        Supervision inquiries: <a href="mailto:{{ site.emailSupervision }}">{{ site.emailSupervision }}</a></p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
         <p>{{ site.city }}, Texas{% if site.postal %} {{ site.postal }}{% endif %}<br>
         Online across Texas. Walk and equine sessions by arrangement.</p>
       </div>

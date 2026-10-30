@@ -66,9 +66,7 @@ order: 9.5
       </dl>
     </div>
   </div>
-  <img class="band-art band-art--small" src="/assets/img/reem-portrait.jpg"
-   width="621" height="785" loading="lazy" decoding="async"
-   alt="Reem Glasco, LPC-S.">
+  {% bandArt "/assets/img/reem-portrait.jpg", 621, 785, "Reem Glasco, LPC-S.", "small" %}
   <div class="cta-row">
     <a class="cta" href="/contact/">Book a consult</a>
     <a class="cta cta--quiet" href="/blog/">Reem's notes</a>
@@ -79,10 +77,9 @@ order: 9.5
 
 <section class="band band--sand">
   <div class="shell">
-    <h2>How to reach Reem</h2>
+    <h2>How to reach the practice</h2>
     <dl class="facts">
-      <div><dt>Therapy and general enquiries</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
-      <div><dt>Supervision and consultation</dt><dd><a href="mailto:{{ site.emailSupervision }}">{{ site.emailSupervision }}</a></dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a><span class="cell-note">Therapy, supervision and consultation all arrive here.</span></dd></div>
       {%- if site.phone %}
       <div><dt>Phone</dt><dd><a href="tel:{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a></dd></div>
       {%- endif %}

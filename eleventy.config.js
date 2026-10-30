@@ -193,6 +193,53 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("depth", depth);
 
+  /* A section picture, never shown above half its own pixel width.
+
+     Every soft image on this site has had the same cause: a CSS max-width that
+     suited one photograph applied to another that was smaller. The ceiling is
+     now computed from the file's real width at build time, so a small picture
+     renders small instead of blurry, and dropping in a bigger file is the only
+     way to make it bigger. Variants set the upper bound; the file sets the
+     rest. */
+  const BAND_ART_MAX = {
+    "": "22rem", small: "20rem", wide: "34rem", photo: "47rem", inset: "11.5rem",
+  };
+  eleventyConfig.addShortcode("bandArt", (src, w, h, alt, variant) => {
+    const v = variant || "";
+    const ceiling = BAND_ART_MAX[v] || BAND_ART_MAX[""];
+    const cls = v ? `band-art band-art--${v}` : "band-art";
+    return (
+      `<img class="${cls}" src="${src}" width="${w}" height="${h}" loading="lazy" ` +
+      `decoding="async" style="max-width:min(${ceiling},${Math.floor(w / 2)}px)" ` +
+      `alt="${alt}">`
+    );
+  });
+
+  /* A marked gap where a photograph should go.
+
+     Written into the page rather than kept on a list, so the hole is visible
+     at the size and position the real picture will occupy and the brief sits
+     next to the thing it describes. Every slot is reported at the end of the
+     build, because the failure mode for a placeholder is shipping it. */
+  const PHOTO_SLOTS = [];
+  eleventyConfig.addShortcode("photoSlot", function (brief, shape) {
+    PHOTO_SLOTS.push({ url: this.page.url, brief });
+    const s = shape || "landscape";
+    return (
+      `<figure class="photo-slot photo-slot--${s}" role="note" aria-label="Photograph needed">` +
+      `<span class="photo-slot__tag">Photograph needed</span>` +
+      `<span class="photo-slot__brief">${brief}</span>` +
+      `</figure>`
+    );
+  });
+
+  eleventyConfig.on("eleventy.after", () => {
+    if (!PHOTO_SLOTS.length) return;
+    console.log(`\n  ${PHOTO_SLOTS.length} photograph placeholder(s) still in the build:`);
+    for (const s of PHOTO_SLOTS) console.log(`    ${s.url}  ${s.brief}`);
+    console.log("    Replace each with <img> before launch.\n");
+  });
+
   eleventyConfig.addFilter("jsonld", ({ site, url, title, description, crumbs, kids, extra }) => {
     const absolute = site.url + url;
     const graph = [

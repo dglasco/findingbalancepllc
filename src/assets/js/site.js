@@ -1,4 +1,4 @@
-// No framework here on purpose: two small behaviours, no build step, no tracking.
+// No framework here on purpose: two small behaviors, no build step, no tracking.
 (function () {
   var toggle = document.querySelector('.nav__toggle');
   var nav = document.getElementById('primary-nav');

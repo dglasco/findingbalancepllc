@@ -42,9 +42,13 @@ export default {
   legalName: "Finding Balance Counseling PLLC",
   clinician: "Reem Glasco, LPC-S",
 
-  // Swap these two once the reemglascolpc.com mailboxes are live.
+  // One address for the whole site. It was two, and the second was a personal
+  // Gmail reached from the shared call-to-action band on 28 pages, so a client
+  // reading the trauma page and clicking "Email Reem" wrote to the supervision
+  // inbox. If a separate supervision mailbox is wanted later, add it back here
+  // and change only the templates that should use it, never the shared band.
+  // Swap this once the reemglascolpc.com mailboxes are live.
   email: "info@findingbalancecounselingpllc.com",
-  emailSupervision: "reemglasco@gmail.com",
 
   // Set this and the number appears on the contact page, in the footer and in
   // the LocalBusiness schema. Empty means the site stays email-only.

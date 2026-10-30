@@ -1,5 +1,12 @@
-/* The LPC Associates, one object per person, driving both the summary cards on
-   /therapy/associates/ and each associate's own page.
+/* The LPC Associates, one object per person. This is the only place any of
+   their details live: the roster table, the roster cards, each associate's own
+   page and the fee ranges quoted elsewhere are all built from here, so a fee
+   can only be wrong in one place.
+
+   Display strings and numbers are kept apart on purpose. `fee` and `feeTable`
+   are what a reader sees; `feeIndividual`, `feeCouples` and `feeSlidingFrom`
+   are what associateStats.js adds up into the published ranges. null means the
+   person has not given us that number, which is different from zero.
 
    The `bio` text is each associate's own, supplied by them and reproduced as
    written. Paragraph breaks are "</p><p>" because the template emits the text
@@ -9,6 +16,12 @@
 export default [
   {
     "slug": "nica-ayala",
+    "glance": "Adults 25 to 55: anxiety, stress, relationships, identity, nature-based work",
+    "feeTable": "$100",
+    "summary": "Works with individual adults roughly 25 to 55 who feel drained or overwhelmed, want change without knowing the shape of it, or hold values that differ from the people around them. Curious and warm, with the client setting the direction. Describes herself as sex-positive, shame-free about addiction, and an LGBTQIA+ ally, and offers nature-based sessions. Pronouns she/her.",
+    "feeIndividual": 100,
+    "feeCouples": null,
+    "feeSlidingFrom": 70,
     "name": "Nica Ayala, M.A.",
     "credential": "LPC Associate",
     "pronouns": "she/her",
@@ -36,6 +49,12 @@ export default [
   },
   {
     "slug": "sylvia-earl",
+    "glance": "Grief, emotional dysregulation, symptoms rooted in past experience. English and Spanish.",
+    "feeTable": "$125",
+    "summary": "M.A. in Counseling from St. Edward's University, with an internship completed at Austin State Hospital. Works with grief, emotional dysregulation, and symptoms whose roots sit in earlier experience, drawing on DBT, CBT, narrative work and EMDR principles. Bilingual in English and Spanish.",
+    "feeIndividual": 125,
+    "feeCouples": null,
+    "feeSlidingFrom": 75,
     "name": "Sylvia Earl",
     "credential": "LPC Associate",
     "pronouns": "",
@@ -61,6 +80,12 @@ export default [
   },
   {
     "slug": "natasha-mahesh",
+    "glance": "Adult children of dysfunctional families, attachment patterns, self-worth, boundaries",
+    "feeTable": "$130, or $150 couples and family",
+    "summary": "Works with adult children of dysfunctional families, including people who grew up with neglect or abuse, on anxious and avoidant attachment patterns, self-worth and boundaries. Also sees couples and families. Her framing: healing is the end of conflict with yourself.",
+    "feeIndividual": 130,
+    "feeCouples": 150,
+    "feeSlidingFrom": 100,
     "name": "Natasha Mahesh",
     "credential": "LPC Associate",
     "pronouns": "",
@@ -86,6 +111,12 @@ export default [
   },
   {
     "slug": "sheila-singh",
+    "glance": "Identity, belonging and cultural stress, anxiety, grief, trauma. Individuals and couples.",
+    "feeTable": "$145, or $165 couples",
+    "summary": "Works with individuals and couples on identity, belonging and cultural stress, anxiety, grief, exhaustion, family strain, and trauma both complex and single-event. A first-generation Indian American therapist who works with clients balancing family expectations against their own path. Culturally responsive and trauma-informed, combining Somatic Experiencing, parts work and attachment-based approaches, shaped by more than twenty years practicing and teaching yoga and meditation. In person in Austin and by telehealth across Texas.",
+    "feeIndividual": 145,
+    "feeCouples": 165,
+    "feeSlidingFrom": 75,
     "name": "Sheila Singh",
     "credential": "LPC Associate",
     "pronouns": "",
@@ -111,6 +142,12 @@ export default [
   },
   {
     "slug": "heather-johnston",
+    "glance": "Anxiety, depression, trauma, parenting, career, self-esteem, emotional regulation",
+    "feeTable": "$150",
+    "summary": "Works with anxiety, depression, trauma, relationship and family concerns, parenting, career challenges, self-esteem and emotional regulation, with an integrative trauma-informed approach. Experience spans inpatient psychiatric work at Austin State Hospital and outpatient settings, and a prior corporate and law-firm career that informs her work with clients under professional pressure. Sees adults across cultures, ethnicities, religions and backgrounds, and is an LGBTQIA+ ally.",
+    "feeIndividual": 150,
+    "feeCouples": null,
+    "feeSlidingFrom": null,
     "name": "Heather Johnston",
     "credential": "LPC Associate",
     "pronouns": "",
@@ -138,6 +175,12 @@ export default [
   },
   {
     "slug": "emmy-laursen",
+    "glance": "Mindfulness, parts work, somatic exploration, psychedelic integration",
+    "feeTable": "Ask in the consult",
+    "summary": "M.Ed. in Clinical Mental Health Counseling from Adams State University, with an undergraduate degree in Studio Art from UT Austin and practicum and internship hours through Capital Area Counseling. Combines parts work with mindfulness and somatic exploration, and works with psychedelic integration. Her view is that therapy is less about fixing than about making a safe place to explore what the body already knows, with the client as the guide.",
+    "feeIndividual": null,
+    "feeCouples": null,
+    "feeSlidingFrom": null,
     "name": "Emmy Laursen",
     "credential": "LPC Associate",
     "pronouns": "",

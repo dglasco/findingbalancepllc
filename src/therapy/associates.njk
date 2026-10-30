@@ -6,7 +6,7 @@ description: Meet the LPC Associates at Finding Balance Counseling, supervised b
 nav: Associates
 order: 7.5
 priority: 0.85
-schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/associates#service", "name": "Therapy with an LPC Associate", "serviceType": "Psychotherapy with a supervised associate counselor", "description": "Individual, couples and family therapy in Texas with LPC Associates supervised by Reem Glasco, LPC-S. Fees from $100 per 50-minute session with limited sliding-scale places, online statewide and in person in Austin.", "areaServed": {"@type": "State", "name": "Texas"}, "audience": {"@type": "Audience", "audienceType": "Adults and couples in Texas"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "70", "highPrice": "165", "offerCount": "6", "description": "Per 50-minute session, varying by associate, with limited sliding-scale places"}}]
+# schema lives in associates.11tydata.js, where the computed fee ranges are in scope
 ---
 <section class="shell band">
   <h1>Our LPC Associates</h1>
@@ -14,11 +14,12 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/associat
     <p>Finding Balance Counseling works as a supervised practice. Alongside Reem Glasco, LPC-S,
     a group of <strong>LPC Associates</strong> sees clients under her supervision, which means
     the same clinical lineage at <strong>lower fees and sooner availability</strong>. Sessions
-    run <strong>$100 to $150</strong> for a 50-minute individual session depending on the
-      associate, and most hold
-    a limited number of <strong>sliding-scale places from $70</strong>. Most work online across
-    Texas; one also sees clients in person in Austin. Every associate offers a free consultation
-    first.</p>
+    run <strong>{{ associateStats.individualRange }}</strong> for a 50-minute individual
+    session depending on the associate, and {{ associateStats.slidingCount }} of the
+    {{ associateStats.count }} hold a limited number of
+    <strong>sliding-scale places from {{ associateStats.slidingFrom }}</strong>. Most work
+    online across Texas; one also sees clients in person in Austin. Every associate offers a
+    free consultation first.</p>
   </div>
   <div class="cta-row">
     <a class="cta" href="/contact/">Ask which associate fits</a>
@@ -36,42 +37,14 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/associat
           <tr><th>Associate</th><th>Works with</th><th>Fee, 50 minutes</th><th>Sliding scale</th></tr>
         </thead>
         <tbody>
+          {%- for a in associates %}
           <tr>
-            <td><a href="/therapy/associates/nica-ayala/">Nica Ayala, M.A.</a></td>
-            <td>Adults 25 to 55: anxiety, stress, relationships, identity, nature-based work</td>
-            <td>$100</td>
-            <td>Limited places at $70</td>
+            <td><a href="/therapy/associates/{{ a.slug }}/">{{ a.name }}</a></td>
+            <td>{{ a.glance }}</td>
+            <td>{{ a.feeTable }}</td>
+            <td>{{ a.sliding }}</td>
           </tr>
-          <tr>
-            <td><a href="/therapy/associates/sylvia-earl/">Sylvia Earl</a></td>
-            <td>Grief, emotional dysregulation, symptoms rooted in past experience. English and Spanish.</td>
-            <td>$125</td>
-            <td>Limited places from $75</td>
-          </tr>
-          <tr>
-            <td><a href="/therapy/associates/natasha-mahesh/">Natasha Mahesh</a></td>
-            <td>Adult children of dysfunctional families, attachment patterns, self-worth, boundaries</td>
-            <td>$130, or $150 couples and family</td>
-            <td>Limited places from $100</td>
-          </tr>
-          <tr>
-            <td><a href="/therapy/associates/sheila-singh/">Sheila Singh</a></td>
-            <td>Identity, belonging and cultural stress, anxiety, grief, trauma. Individuals and couples.</td>
-            <td>$145, or $165 couples</td>
-            <td>Limited places at $75</td>
-          </tr>
-          <tr>
-            <td><a href="/therapy/associates/heather-johnston/">Heather Johnston</a></td>
-            <td>Anxiety, depression, trauma, parenting, career, self-esteem, emotional regulation</td>
-            <td>$150</td>
-            <td>Not published</td>
-          </tr>
-          <tr>
-            <td><a href="/therapy/associates/emmy-laursen/">Emmy Laursen</a></td>
-            <td>Mindfulness, parts work, somatic exploration, psychedelic integration</td>
-            <td>Ask in the consult</td>
-            <td>Ask in the consult</td>
-          </tr>
+          {%- endfor %}
         </tbody>
       </table>
     </div>
@@ -84,89 +57,29 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/associat
 <section class="shell band">
   <h2>The associates</h2>
 
-  <div class="cards">
+  <div class="cards cards--roster">
+    {%- for a in associates %}
     <div>
-      <h3>Nica Ayala, M.A., LPC Associate</h3>
-      <p>Works with individual adults roughly 25 to 55 who feel drained or overwhelmed, want
-      change without knowing the shape of it, or hold values that differ from the people around
-      them. Curious and warm, with the client setting the direction. Describes herself as
-      sex-positive, shame-free about addiction, and an LGBTQIA+ ally, and offers nature-based
-      sessions. Pronouns she/her.</p>
-      <p><strong>$100</strong> per 50 minutes, limited sliding-scale places at $70. Free
-      15-minute consultation.<br>
-      <a href="mailto:NicaAyala1986@gmail.com">NicaAyala1986@gmail.com</a> &middot;
-      (737) 242-0882</p>
-          <p><a href="/therapy/associates/nica-ayala/">More about Nica</a></p>
-</div>
-
-    <div>
-      <h3>Sylvia Earl, LPC Associate</h3>
-      <p>M.A. in Counseling from St. Edward's University, with an internship completed at Austin
-      State Hospital. Works with grief, emotional dysregulation, and symptoms whose roots sit in
-      earlier experience, drawing on DBT, CBT, narrative work and EMDR principles. Bilingual in
-      English and Spanish.</p>
-      <p><strong>$125</strong> per 50 minutes, limited sliding-scale places from $75. Free
-      15-minute consultation.<br>
-      <a href="mailto:Info@sylviaearlcounseling.com">Info@sylviaearlcounseling.com</a> &middot;
-      (737) 326-1838</p>
-          <p><a href="/therapy/associates/sylvia-earl/">More about Sylvia</a></p>
-</div>
-
-    <div>
-      <h3>Natasha Mahesh, LPC Associate</h3>
-      <p>Works with adult children of dysfunctional families, including people who grew up with
-      neglect or abuse, on anxious and avoidant attachment patterns, self-worth and boundaries.
-      Also sees couples and families. Her framing: healing is the end of conflict with
-      yourself.</p>
-      <p><strong>$130</strong> per 50 minutes, <strong>$150</strong> for couples or family,
-      limited sliding-scale places from $100. Free 15-minute consultation.<br>
-      <a href="mailto:natasha.cmhc@gmail.com">natasha.cmhc@gmail.com</a> &middot;
-      (510) 877-0898</p>
-          <p><a href="/therapy/associates/natasha-mahesh/">More about Natasha</a></p>
-</div>
-
-    <div>
-      <h3>Sheila Singh, LPC Associate</h3>
-      <p>Works with individuals and couples on identity, belonging and cultural stress, anxiety,
-      grief, exhaustion, family strain, and trauma both complex and single-event. A
-      first-generation Indian American therapist who works with clients balancing family
-      expectations against their own path. Culturally responsive and trauma-informed, combining
-      Somatic Experiencing, parts work and attachment-based approaches, shaped by more than
-      twenty years practicing and teaching yoga and meditation. In person in Austin and by
-      telehealth across Texas.</p>
-      <p><strong>$145</strong> per 50 minutes, <strong>$165</strong> for couples, sliding-scale
-      places at $75. Free 15-minute consultation.<br>
-      <a href="mailto:sheila@beaconcounselingatx.com">sheila@beaconcounselingatx.com</a> &middot;
-      (512) 537-3352</p>
-          <p><a href="/therapy/associates/sheila-singh/">More about Sheila</a></p>
-</div>
-
-    <div>
-      <h3>Heather Johnston, LPC Associate</h3>
-      <p>Works with anxiety, depression, trauma, relationship and family concerns, parenting,
-      career challenges, self-esteem and emotional regulation, with an integrative
-      trauma-informed approach. Experience spans inpatient psychiatric work at Austin State
-      Hospital and outpatient settings, and a prior corporate and law-firm career that informs
-      her work with clients under professional pressure. Sees adults across cultures,
-      ethnicities, religions and backgrounds, and is an LGBTQIA+ ally.</p>
-      <p><strong>$150</strong> per 50 minutes. Free 20-minute consultation.<br>
-      <a href="mailto:info@illumination-psychotherapy.com">info@illumination-psychotherapy.com</a>
-      &middot; (512) 537-0614</p>
-          <p><a href="/therapy/associates/heather-johnston/">More about Heather</a></p>
-</div>
-
-    <div>
-      <h3>Emmy Laursen, LPC Associate</h3>
-      <p>M.Ed. in Clinical Mental Health Counseling from Adams State University, with an
-      undergraduate degree in Studio Art from UT Austin and practicum and internship hours
-      through Capital Area Counseling. Combines parts work with mindfulness and somatic
-      exploration, and works with psychedelic integration. Her view is that therapy is less
-      about fixing than about making a safe place to explore what the body already knows, with
-      the client as the guide.</p>
-      <p>Fees by consultation.<br>
-      <a href="https://www.facingeasttherapy.com">facingeasttherapy.com</a></p>
-          <p><a href="/therapy/associates/emmy-laursen/">More about Emmy</a></p>
-</div>
+      <img src="/assets/img/associates/{{ a.photo }}" width="{{ a.photoW }}"
+       height="{{ a.photoH }}" loading="lazy" decoding="async"
+       alt="{{ a.name }}, {{ a.credential }}.">
+      <div>
+        <h3>{{ a.name }}, {{ a.credential }}</h3>
+        <p>{{ a.summary }}</p>
+        <p>
+          {%- if a.feeIndividual %}<strong>{{ a.fee }}</strong>{% if a.feeSlidingFrom %},
+          {{ a.sliding | lower }}{% endif %}. {{ a.consult }}.
+          {%- else %}Fees are discussed in the free consultation.{% endif %}<br>
+          {%- if a.email %}<a href="mailto:{{ a.email }}">{{ a.email }}</a>{% endif %}
+          {%- if a.email and a.phone %} &middot; {% endif %}
+          {%- if a.phone %}{{ a.phone }}{% endif %}
+          {%- if not a.email and a.website %}<a href="https://{{ a.website }}"
+           rel="noopener">{{ a.website }}</a>{% endif %}
+        </p>
+        <p><a href="/therapy/associates/{{ a.slug }}/">More about {{ a.name | first_name }}</a></p>
+      </div>
+    </div>
+    {%- endfor %}
   </div>
 
 </section>
@@ -213,9 +126,11 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy/associat
   <details>
     <summary>How much does it cost to see an associate?</summary>
     <div class="answer-body">
-      <p>$100 to $150 for a 50-minute individual session depending on the associate, and $150 to
-      $165 for couples or family sessions. Most hold a limited number of sliding-scale places,
-      starting at $70. Sessions with Reem herself are $240.</p>
+      <p>{{ associateStats.individualRange }} for a 50-minute individual session depending on
+      the associate, and {{ associateStats.couplesRange }} for couples or family sessions.
+      {{ associateStats.slidingCount }} of the {{ associateStats.count }} hold a limited number
+      of sliding-scale places, starting at {{ associateStats.slidingFrom }}. Sessions with Reem
+      herself are $240.</p>
     </div>
   </details>
 
