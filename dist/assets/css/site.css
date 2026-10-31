@@ -763,6 +763,20 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 }
 .band--night .pathways a:hover { background: rgba(226, 236, 242, 0.14); }
 .band--night .pathways p { color: rgba(226, 236, 242, 0.75); }
+/* A pathway card that runs the width of the grid, for the point that is about
+   the cards beside it rather than a peer of them. The heading takes its own
+   column so the prose keeps a readable measure instead of running the full
+   width of the band. */
+@media (min-width: 44rem) {
+  .pathways > .card--wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    column-gap: 2.5rem;
+    align-items: start;
+  }
+  .pathways > .card--wide h3 { margin-bottom: 0; }
+}
 
 /* Further reading at the foot of an article. Deliberately not a card: these
    are the same posts the blog index already shows as cards, and a reader who
