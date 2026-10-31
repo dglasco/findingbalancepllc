@@ -5,7 +5,6 @@ title: "LPC Supervision in Texas | Reem Glasco, LPC-S"
 description: Online LPC supervision for Texas LPC Associates with Reem Glasco, LPC-S, supervisor since 2016. $425 a month for three individual hours and one group hour.
 nav: LPC Supervision
 order: 3
-bodyClass: tight
 priority: 0.9
 schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/lpc-supervision#service", "name": "LPC Supervision for Texas LPC Associates", "serviceType": "Clinical supervision for licensed professional counselor associates", "description": "Online clinical supervision for LPC Associates in Texas: three individual hours and one group hour each month, trauma-informed and NARM, Somatic Experiencing and EMDR oriented, with optional equine-assisted sessions and annual retreats.", "areaServed": {"@type": "State", "name": "Texas"}, "audience": {"@type": "Audience", "audienceType": "LPC Associates licensed in Texas"}, "availableChannel": {"@type": "ServiceChannel", "serviceUrl": "https://reemglascolpc.com/contact", "availableLanguage": "English"}, "offers": {"@type": "Offer", "price": "425", "priceCurrency": "USD", "description": "Per month, including three individual supervision hours and one group hour", "availability": "https://schema.org/LimitedAvailability"}}]
 ---
@@ -16,7 +15,9 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
       line of it before the specification. -#}
   <p class="intro-wide">Most associates pick a supervisor on price and proximity, because that
   is what the listings show. You will spend eighteen months to three years with this one, and
-  it is the stretch that sets how you practice afterwards.</p>
+  it is the stretch that sets how you practice afterwards. Interview more than one before you
+  sign, and the <a href="/texas-lpc-licensure/">Texas licensure guide</a> lists the questions
+  worth asking, whoever you end up choosing.</p>
   <div class="answer">
     <p>Reem Glasco has been a Texas Licensed Professional Counselor Supervisor since
     {{ site.supervisorSince }}.
@@ -105,7 +106,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
       </ul>
     </div>
     <div>
-      {% photoSlot "Something from a supervision context: a notebook and two coffee cups, a desk set up for a video call, the view from where Reem supervises. No client material and no identifiable faces. Portrait, 640px wide or more.", "portrait" %}
+      {% bandArt "/assets/img/supervision-desk.jpg", 1122, 1402, "A wooden desk set up for an online supervision hour: an open notebook and pen, a coffee mug, and a laptop showing a video call, with hill country through the window.", "wide" %}
       <h3>Reem's supervision credentials</h3>
       <ul class="plain">
         <li>Licensed Professional Counselor Supervisor in Texas since {{ site.supervisorSince }}, license {{ site.license }}</li>
@@ -136,32 +137,64 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
         <p>Optional in-person sessions with horses in Dripping Springs, for presence,
         self-connection and countertransference you can feel rather than theorize.</p>
       </a>
+      <a href="/for-therapists/ethics-ceus/">
+        <h3>Ethics CEUs</h3>
+        <p>The six ethics hours Texas asks for each renewal period, on secondary trauma. One
+        online, or two in person on a trail walk among horses.</p>
+      </a>
       <a href="/for-therapists/retreats-training/">
         <h3>Mindful trail retreats</h3>
         <p>An annual retreat for interns, associates and licensed therapists. We walk, and we
         look at what gets in the way of being present.</p>
-      </a>
-      <a href="/blog/trauma-informed-supervision/">
-        <h3>What trauma-informed supervision changes</h3>
-        <p>What gets brought to the hour, what counts as clinical data, and why the pace of
-        supervision matters as much as the content.</p>
       </a>
       <a href="/for-therapists/">
         <h3>How the four fit together</h3>
         <p>Why supervision, consultation, CEUs and retreats are one relationship rather than
         four purchases.</p>
       </a>
-      <a href="/texas-lpc-licensure/">
+      <a href="/blog/trauma-informed-supervision/">
+        <h3>What trauma-informed supervision changes</h3>
+        <p>What gets brought to the hour, what counts as clinical data, and why the pace of
+        supervision matters as much as the content.</p>
+      </a>
+      <a class="card--wide" href="/texas-lpc-licensure/">
         <h3>The Texas licensure guide</h3>
         <p>Every number on the LPC path, the supervision rules most associates get wrong, and
         what to ask a supervisor before you sign. Free, no email required.</p>
       </a>
-      <a href="/for-therapists/ethics-ceus/">
-        <h3>Ethics CEUs</h3>
-        <p>The six ethics hours Texas asks for each renewal period, on secondary trauma. One
-        online, or two in person on a trail walk among horses.</p>
-      </a>
     </div>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="shell">
+    <h2>What changes when you are licensed</h2>
+    <p class="intro-wide">Supervision is the only part of this with an end date. Here is what
+    happens to the rest of it on the day the Council grants your LPC.</p>
+    <dl class="facts facts--wide">
+      <div>
+        <dt>Supervision</dt>
+        <dd>Ends, and the monthly fee ends with it. There is nothing further to pay and nothing
+        further to file.</dd>
+      </div>
+      <div>
+        <dt>EMDR consultation</dt>
+        <dd>Goes from free to $185 an hour, and keeps
+        counting toward EMDRIA certification if that is still in progress. The consultant is
+        already the person who knows your caseload.</dd>
+      </div>
+      <div>
+        <dt>Ethics hours</dt>
+        <dd>Become a recurring obligation rather than an occasional one: 24 CE hours each
+        renewal period, six of them ethics, and at least half from a provider listed in 22 TAC
+        &sect;681.140(f).</dd>
+      </div>
+      <div>
+        <dt>The retreat</dt>
+        <dd>Stays open. It is for interns, associates and licensed therapists, and depletion
+        does not stop at licensure.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -174,6 +207,9 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
     your answers to the questions below.</li>
     <li><strong>Verification, then signing.</strong> References and site verification are
     required before a supervision agreement is signed.</li>
+    <li><strong>The Supervisory Agreement Form is filed</strong> before supervision starts.
+    It is one of the <a href="/texas-lpc-licensure/">deadlines associates most often miss</a>,
+    and it is handled here rather than left to you to remember.</li>
   </ol>
 
   <h3>Include your answers to these in your email</h3>
@@ -266,8 +302,8 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
         Training for therapists working with horses is also available for an additional fee.</p>
       </div>
     </details>
+    {% include "partials/faq-more.njk" %}
   </div>
-  {% include "partials/faq-more.njk" %}
 </section>
 
 {% include "partials/cta-band.njk" %}

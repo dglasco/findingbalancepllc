@@ -21,7 +21,7 @@
 
   --measure: 33rem;                    /* ~62 characters of serif */
   --gutter: clamp(1.35rem, 5vw, 3.5rem);
-  --band: clamp(3.75rem, 8vw, 7rem);   /* the air between ideas */
+  --band: clamp(2.5rem, 5vw, 4.5rem);  /* the air between ideas */
   --radius: 14px;
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -341,9 +341,9 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .plain li::before {
   content: "";
   position: absolute; left: 0; top: 1.05em;
-  width: 0.65rem; height: 2px;
+  width: 0.65rem; height: 3px;
   background: var(--juniper);
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 /* ---------- the book and the seven-step practice ---------- */
@@ -884,7 +884,14 @@ tbody tr:last-child td { border-bottom: 1px solid var(--hair); }
 .footer a:hover { color: var(--ink); }
 .footer h4 { color: var(--ink); }
 .footer__grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
-@media (min-width: 44rem) { .footer__grid { grid-template-columns: repeat(3, 1fr); } }
+/* auto-fit rather than a fixed three, because the section column appears on
+   some pages and not others and the row should close up when it does not. */
+@media (min-width: 44rem) {
+  .footer__grid { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+}
+/* The email address is longer than a quarter of the shell, so it ran under
+   the next column once the section list made the grid four wide. */
+.footer__grid a { overflow-wrap: anywhere; }
 .footer ul { list-style: none; margin: 0; padding: 0; }
 .footer li { margin-bottom: 0.35rem; }
 .footer__legal {
@@ -1043,7 +1050,6 @@ section[id] { scroll-margin-block-start: 1.5rem; }
    the sitewide band of air reads as gaps between unrelated things. Tighter
    here only; --band drives every padding rule above, so the whole rhythm
    scales together rather than needing each seam retuned. */
-.home, .tight { --band: clamp(2.5rem, 5vw, 4.5rem); }
 .home .hero { padding-block: clamp(2.25rem, 5vw, 4rem) calc(var(--band) * 0.7); }
 
 /* Who a service is for, tucked under its name. It was a fourth column, which

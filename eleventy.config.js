@@ -175,6 +175,13 @@ export default function (eleventyConfig) {
     pages.filter((p) => depth(p.url) <= 1 && p.data.inNav !== false && !p.data.hidden)
   );
 
+  // The nearest hub above a page, so an associate profile lists the other
+  // associates rather than the whole therapy section.
+  eleventyConfig.addFilter("parentOf", (url) => parentUrl(url));
+  eleventyConfig.addFilter("pageAt", (pages, url) =>
+    pages.find((p) => p.url === url)
+  );
+
   eleventyConfig.addFilter("childrenOf", (pages, url) =>
     pages.filter((p) => parentUrl(p.url) === url && p.url !== url).sort(byOrder)
   );
@@ -203,6 +210,8 @@ export default function (eleventyConfig) {
      rest. */
   const BAND_ART_MAX = {
     "": "22rem", small: "20rem", wide: "34rem", photo: "47rem", inset: "11.5rem",
+    // Same cap as inset; the difference is only which margin centres it.
+    "inset-center": "11.5rem",
   };
   eleventyConfig.addShortcode("bandArt", (src, w, h, alt, variant) => {
     const v = variant || "";

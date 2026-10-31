@@ -10,6 +10,24 @@
         <p>{{ site.city }}, Texas{% if site.postal %} {{ site.postal }}{% endif %}<br>
         Online across Texas. Walk and equine sessions by arrangement.</p>
       </div>
+      {#- The section the reader is in, listed before the whole site. A page
+          with no children of its own, or the home page, simply does not get
+          this column and the grid falls back to three. -#}
+      {%- set own = collections.pages | childrenOf(page.url) %}
+      {%- set sectionUrl = page.url if own.length else page.url | parentOf %}
+      {%- set hub = collections.pages | pageAt(sectionUrl) %}
+      {%- set siblings = collections.pages | childrenOf(sectionUrl) %}
+      {%- if hub and siblings.length and sectionUrl != "/" %}
+      <div>
+        <h4>{{ hub.data.nav }}</h4>
+        <ul>
+          <li><a href="{{ hub.url }}"{% if page.url == hub.url %} aria-current="page"{% endif %}>Overview</a></li>
+        {%- for item in siblings %}
+          <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.data.nav }}</a></li>
+        {%- endfor %}
+        </ul>
+      </div>
+      {%- endif %}
       <div>
         <h4>Pages</h4>
         <ul>
