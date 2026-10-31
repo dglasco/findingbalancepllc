@@ -254,6 +254,24 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
    54rem, not 44: three columns of this card need the wider breakpoint
    before the text starts stacking a word per line. */
 @media (min-width: 54rem) { .cards--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* A card that runs the width of the grid, for the point that belongs to all
+   of the cards beside it rather than sitting alongside them as a peer. */
+.cards > .card--wide { grid-column: 1 / -1; }
+.cards > .card--wide .cta-row { margin: 1.1rem 0 0; }
+/* The prose keeps its reading measure, so on a card this wide it would leave
+   half the box empty. Put the button in that half instead of widening the
+   line past the point where the eye can find the next one. */
+@media (min-width: 44rem) {
+  .cards > .card--wide {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 2.5rem;
+    align-items: center;
+  }
+  .cards > .card--wide h3,
+  .cards > .card--wide p { grid-column: 1; }
+  .cards > .card--wide .cta-row { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+}
 .cards > div {
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid var(--hair);
@@ -462,6 +480,9 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
    11.5rem is the widest any of them renders without softening on a 2x screen.
    Left-aligned and tight to the text because these sit inside a split column
    beside prose, not centered in a band of their own. */
+/* Centred under a centred picture, rather than ranged left under its
+   left edge, when the caption is a label and not a sentence. */
+.caption--center { text-align: center; max-width: none; }
 .band-art--inset { max-width: 11.5rem; margin: 0 0 1.4rem; }
 
 /* A photograph that does not exist yet. Sized and positioned like the real one
@@ -759,6 +780,13 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .band--night .pathways a:hover { background: rgba(226, 236, 242, 0.14); }
 .band--night .pathways p { color: rgba(226, 236, 242, 0.75); }
 
+/* Further reading at the foot of an article. Deliberately not a card: these
+   are the same posts the blog index already shows as cards, and a reader who
+   has just finished one article does not need that page reprinted. */
+.link-list { list-style: none; margin: 1.75rem 0 0; padding: 0; max-width: 38rem; }
+.link-list li + li { border-top: 1px solid var(--hair); }
+.link-list a { display: block; padding: 0.95rem 0; font-size: 1.15rem; }
+
 /* ---------- FAQ ---------- */
 
 /* .faq sits on the same element as .shell, which centers itself, so capping the
@@ -991,6 +1019,12 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 /* A button row followed by a two-column block ran its heading straight into the
    buttons. Same reason as the rule above it. */
 .cta-row + .split { margin-top: 2.75rem; }
+/* ...and a picture after one, which --small zeroes the top margin of. */
+.cta-row + .band-art { margin-top: 2.75rem; }
+/* A paragraph's own bottom margin is sized for the next paragraph, not for
+   a two-column block, which needs the same air a button row gets. */
+.intro-wide + .split { margin-top: 2.5rem; }
+.split + .intro-wide { margin-top: 0.75rem; }
 
 /* Stacked, the hero ran 59px past a phone's first screen, so nothing below it
    signalled there was more to read. The emblem is decorative and carries the

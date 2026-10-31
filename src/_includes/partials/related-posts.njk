@@ -1,19 +1,17 @@
 {#- The other posts, chosen by the build rather than by hand, so writing a
-    fifth article links it from the other four without touching them. Four
-    posts and no cross-links between any of them was the gap this closes. -#}
+    fifth article links it from the other four without touching them. A list
+    rather than cards: the cards here were the blog index's cards repeated,
+    which made every post end in a copy of the page it came from. -#}
 <section class="band band--sand">
   <div class="shell">
     <h2>More from Reem's blog</h2>
-    <div class="pathways">
+    <ul class="link-list">
       {%- for post in collections.pages | childrenOf("/blog/") %}
       {%- if post.url != page.url %}
-      <a href="{{ post.url }}">
-        <h3>{{ post.data.nav }}</h3>
-        <p>{{ post.data.description }}</p>
-        <span class="card-go">Read more</span>
-      </a>
+      <li><a href="{{ post.url }}">{{ post.data.nav }}</a></li>
       {%- endif %}
       {%- endfor %}
-    </div>
+      <li><a href="/blog/">Every post</a></li>
+    </ul>
   </div>
 </section>
