@@ -22,6 +22,7 @@ schema: [{"@type": "Article", "@id": "https://reemglascolpc.com/blog/walk-and-ta
 
 <section class="shell band">
   <h2>What changes on a trail</h2>
+  {% bandArt "/assets/img/wildflowers-trail.jpg", 660, 1173, "Wildflowers beside a central Texas trail.", "inset" %}
   <ol class="steps">
     <li><strong>You are side by side, not face to face.</strong> Direct sustained eye contact is
     a lot of social load, and for people whose early relationships were unsafe it can read as
@@ -111,7 +112,10 @@ schema: [{"@type": "Article", "@id": "https://reemglascolpc.com/blog/walk-and-ta
       on the work.</p>
     </div>
   </details>
-  {% include "partials/crisis-note.njk" %}
+    {% include "partials/faq-more.njk" %}
+{% include "partials/crisis-note.njk" %}
 </section>
+
+{% include "partials/related-posts.njk" %}
 
 {% include "partials/cta-band.njk" %}

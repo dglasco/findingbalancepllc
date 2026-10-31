@@ -36,16 +36,35 @@ schema: [{"@type": "Book", "@id": "https://reemglascolpc.com/book#book", "name":
   </div>
 </section>
 
-<section class="band band--night">
+<section class="band band--sand">
   <div class="shell">
-    <p class="eyebrow">The value of pause</p>
-    <p class="quote-band">&ldquo;You start the healing process when you learn to listen to your
-    body.&rdquo;</p>
-    <p>The workbook shows you how to ground yourself in the present moment, one simple step at a
-    time. Use the seven steps as a daily or weekly practice whenever you need to reset. Getting
-    stuck is fine. Your body resisting is part of the journey. Always remember to breathe.</p>
+  <h2>Who it is for</h2>
+  <div class="pathways">
+    <a href="/therapy/">
+      <h3>People in or near therapy</h3>
+      <p>Something to do between sessions that builds the same capacity the work builds, without
+      asking you to process anything alone.</p>
+    </a>
+    <a href="/for-therapists/">
+      <h3>Therapists and healers</h3>
+      <p>The journal pages are written with clinicians in mind: the people who teach
+      regulation all day and practice it least.</p>
+    </a>
+    <a href="/for-therapists/retreats-training/">
+      <h3>Retreat and training groups</h3>
+      <p>The seven steps are the backbone of the mindful trail retreat, where they are practiced
+      outdoors rather than in a chair.</p>
+    </a>
+    <a href="/book/practice/">
+      <h3>Anyone who wants to try first</h3>
+      <p>The full practice runs free on this site, with nothing to buy and nothing to sign up
+      for.</p>
+    </a>
+  </div>
   </div>
 </section>
+
+
 
 <section class="shell band">
   <h2>Seven easy steps to calm and connection</h2>
@@ -69,10 +88,19 @@ schema: [{"@type": "Book", "@id": "https://reemglascolpc.com/book#book", "name":
   </div>
 </section>
 
-<section class="band band--sand">
+<section class="band band--night">
   <div class="shell">
     <p class="eyebrow">Inside the workbook</p>
     <h2>A calm space to notice, not fix</h2>
+    {#- The pull quote used to be a band of its own, under the eyebrow "The
+        value of pause", introducing this section from outside it. It belongs
+        inside the thing it introduces. -#}
+    <p class="quote-band">&ldquo;You start the healing process when you learn to listen to your
+    body.&rdquo;</p>
+    <p class="intro-wide">The workbook shows you how to ground yourself in the present moment,
+    one simple step at a time. Use the seven steps as a daily or weekly practice whenever you
+    need to reset. Getting stuck is fine. Your body resisting is part of the journey. Always
+    remember to breathe.</p>
     <div class="cards">
       <div>
         <h3>Guided reflection</h3>
@@ -134,31 +162,7 @@ schema: [{"@type": "Book", "@id": "https://reemglascolpc.com/book#book", "name":
   </div>
 </section>
 
-<section class="shell band">
-  <h2>Who it is for</h2>
-  <div class="pathways">
-    <a href="/therapy/">
-      <h3>People in or near therapy</h3>
-      <p>Something to do between sessions that builds the same capacity the work builds, without
-      asking you to process anything alone.</p>
-    </a>
-    <a href="/for-therapists/">
-      <h3>Therapists and healers</h3>
-      <p>The journal pages are written with clinicians in mind: the people who teach
-      regulation all day and practice it least.</p>
-    </a>
-    <a href="/for-therapists/retreats-training/">
-      <h3>Retreat and training groups</h3>
-      <p>The seven steps are the backbone of the mindful trail retreat, where they are practiced
-      outdoors rather than in a chair.</p>
-    </a>
-    <a href="/book/practice/">
-      <h3>Anyone who wants to try first</h3>
-      <p>The full practice runs free on this site, with nothing to buy and nothing to sign up
-      for.</p>
-    </a>
-  </div>
-</section>
+
 
 <section class="shell band faq">
   <h2>Questions about the book</h2>
@@ -215,7 +219,8 @@ schema: [{"@type": "Book", "@id": "https://reemglascolpc.com/book#book", "name":
       The book exists for the people who want something to do on their own.</p>
     </div>
   </details>
-  {% include "partials/crisis-note.njk" %}
+    {% include "partials/faq-more.njk" %}
+{% include "partials/crisis-note.njk" %}
 </section>
 
 {% include "partials/cta-band.njk" %}

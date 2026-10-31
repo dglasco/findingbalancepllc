@@ -23,6 +23,7 @@ schema: [{"@type": "Article", "@id": "https://reemglascolpc.com/blog/equine-ther
 
 <section class="shell band">
   <h2>What actually gets billed</h2>
+  {% bandArt "/assets/img/horse-grazing.jpg", 480, 640, "A horse grazing in a paddock near Dripping Springs, Texas.", "inset" %}
   <div class="split">
     <div>
       <p>When a licensed clinician provides psychotherapy, that psychotherapy has a code,
@@ -126,7 +127,10 @@ schema: [{"@type": "Article", "@id": "https://reemglascolpc.com/blog/equine-ther
       horse as part of the work rather than as something to ride.</p>
     </div>
   </details>
-  {% include "partials/crisis-note.njk" %}
+    {% include "partials/faq-more.njk" %}
+{% include "partials/crisis-note.njk" %}
 </section>
+
+{% include "partials/related-posts.njk" %}
 
 {% include "partials/cta-band.njk" %}

@@ -85,9 +85,16 @@ img, svg { max-width: 100%; height: auto; display: block; }
    which put 304px of nothing at each seam on a 1280px screen. The gap is one
    band's worth, owned by whichever side it belongs to. */
 
-/* Plain after plain: the first one's bottom padding already is the gap. */
+/* Plain after plain. The first one's bottom padding used to be the whole gap,
+   with nothing below it, which was fine while the seam was invisible. Now a
+   hairline is drawn at the top of the second section, so all of the air sat
+   above the line and the heading beneath it touched the rule. Same total gap,
+   split either side, line in the middle of it. */
+.band:not(.band--sand):not(.band--night):has(+ .band:not(.band--sand):not(.band--night)) {
+  padding-bottom: calc(var(--band) * 0.5);
+}
 .band:not(.band--sand):not(.band--night) + .band:not(.band--sand):not(.band--night) {
-  padding-top: 0;
+  padding-top: calc(var(--band) * 0.5);
 }
 
 /* A change of background separates two ideas by itself. The coloured block
@@ -291,7 +298,10 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
    nothing to be framed against. */
 .answer {
   margin: 0 0 2.25rem;
-  max-width: 39rem;
+  /* The opening summary runs the shell's width rather than a 39rem column.
+     Twenty-six heroes used to sit in that column while the sections under them
+     ran full width, which read as an indent rather than a measure. */
+  max-width: none;
 }
 .answer p { margin: 0; max-width: none; }
 .answer p + p { margin-top: 0.75em; }

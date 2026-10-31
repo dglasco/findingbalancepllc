@@ -56,6 +56,10 @@ export default {
 
   rulesChecked: RULES_CHECKED,
 
+  // The year of Reem's Coherence therapy training, shown on /about/. It read
+  // "Coming in 2026" until that stopped being the future.
+  coherenceYear: 2026,
+
   // The privacy policy's "last updated" line. Same reason as the rules date
   // above: a hand-typed date in a legal notice rots quietly, and a date that
   // moved with the build would claim a review nobody did.
