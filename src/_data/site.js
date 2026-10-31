@@ -55,6 +55,16 @@ export default {
   phone: "512-965-5105",
 
   rulesChecked: RULES_CHECKED,
+
+  // The privacy policy's "last updated" line. Same reason as the rules date
+  // above: a hand-typed date in a legal notice rots quietly, and a date that
+  // moved with the build would claim a review nobody did.
+  privacyUpdated: "2026-10-29",
+  get privacyUpdatedLabel() {
+    const [y, m, d] = this.privacyUpdated.split("-");
+    return new Date(Date.UTC(+y, +m - 1, +d))
+      .toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  },
   get rulesCheckedLabel() {
     const [y, m] = this.rulesChecked.split("-");
     return new Date(Date.UTC(+y, +m - 1, 1))
