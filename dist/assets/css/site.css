@@ -53,7 +53,7 @@ h1, h2, h3 {
   margin: 0 0 0.7em;
   text-wrap: balance;
 }
-h1 { font-size: clamp(2.15rem, 5.4vw, 3.45rem); }
+h1 { font-size: clamp(2.15rem, 5.4vw, 3.45rem); text-wrap: pretty; }
 h2 { font-size: clamp(1.7rem, 3.4vw, 2.35rem); margin-top: 0; }
 h3 { font-size: 1.35rem; }
 h4 {
@@ -250,6 +250,10 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 /* Cards that are not links: personas, inclusions, pathway steps. */
 .cards { display: grid; gap: 1.25rem; margin: 2rem 0; }
 @media (min-width: 44rem) { .cards { grid-template-columns: 1fr 1fr; } }
+/* Three cards in a two-up grid strand one on its own row beside a gap.
+   54rem, not 44: three columns of this card need the wider breakpoint
+   before the text starts stacking a word per line. */
+@media (min-width: 54rem) { .cards--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .cards > div {
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid var(--hair);
