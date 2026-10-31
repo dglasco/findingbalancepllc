@@ -11,6 +11,11 @@ order: 9.5
   {#- Was one 102-word paragraph, the densest on the site, and the first
       thing a prospective client read. Same facts, three sentences shorter
       each. -#}
+  {#- The same two-column hero as the home page: text left, portrait right at
+      19rem, portrait first on a phone. The portrait used to sit under the
+      buttons, so the page about a person opened with no person in it. -#}
+  <div class="hero__grid hero__grid--top">
+    <div>
       <div class="answer">
         <p>Reem Glasco is a Licensed Professional Counselor Supervisor in Texas, license
         {{ site.license }}, licensed in Texas since {{ site.licensedSince }} and holding
@@ -21,14 +26,17 @@ order: 9.5
         respond to discipline. She practices from Austin, Texas: online across the state, and
         outdoors when the work asks for more than a screen.</p>
       </div>
-  {#- The page had no button until 85% of the way down. -#}
-  <div class="cta-row">
-    <a class="cta" href="/contact/appointment/">Request a consult</a>
-    <a class="cta cta--quiet" href="/therapy/">Therapy here</a>
-    <a class="cta cta--quiet" href="/for-therapists/">For therapists</a>
+      {#- The page had no button until 85% of the way down. -#}
+      <div class="cta-row">
+        <a class="cta" href="/contact/appointment/">Request a consult</a>
+      </div>
+    </div>
+    <div class="hero__art">
+      <img src="/assets/img/reem-portrait.jpg" width="621" height="785"
+       decoding="async"
+       alt="Reem Glasco, a counselor with dark curly hair, smiling beside a lake.">
+    </div>
   </div>
-  {#- A page about a person showed her face four-fifths of the way down. -#}
-  {% bandArt "/assets/img/reem-portrait.jpg", 621, 785, "Reem Glasco, LPC-S.", "small" %}
 </section>
 
 <section class="band band--sand">

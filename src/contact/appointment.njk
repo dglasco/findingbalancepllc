@@ -60,6 +60,13 @@ script: /assets/js/appointment.js
         <button class="cta" type="submit">Open the email, ready to send</button>
         <a class="cta cta--quiet" href="mailto:{{ site.email }}">Email us directly</a>
       </div>
+      {#- The number was in the footer only. Someone who would rather call, or
+          who cannot wait a couple of working days for email, should not have
+          to hunt for it on the page built for making contact. -#}
+      {%- if site.phone %}
+      <p>Or call <a href="tel:+1{{ site.phone | replace(" ", "") | replace("(", "") | replace(")", "") | replace("-", "") }}">{{ site.phone }}</a>.
+      Leave a message; calls are returned within two working days.</p>
+      {%- endif %}
     </form>
   </div>
 </section>

@@ -11,7 +11,14 @@ import { spawnSync } from "node:child_process";
 const PREVIEW_HOST = "https://findingbalancepllc.daveg-689.workers.dev";
 const preview = process.argv.includes("--preview");
 
-fs.rmSync("dist", { recursive: true, force: true });
+// Empty dist/ rather than remove it: on Windows a shell or editor that has the
+// folder open makes rmdir fail with EACCES, while deleting its contents still
+// works. Eleventy recreates anything it needs.
+if (fs.existsSync("dist")) {
+  for (const entry of fs.readdirSync("dist")) {
+    fs.rmSync(`dist/${entry}`, { recursive: true, force: true });
+  }
+}
 
 const env = { ...process.env };
 if (preview) env.SITE_URL = PREVIEW_HOST;

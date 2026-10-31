@@ -230,7 +230,11 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 @media (min-width: 54rem) {
   .hero__grid { grid-template-columns: minmax(0, 1fr) 19rem; }
 }
-.hero p.lede { font-size: 1.22rem; color: var(--ink-soft); max-width: 31rem; }
+/* On /about/ the portrait sits level with the first line of text rather than
+   floating mid-column; centring reads as intended on the home page, where
+   the text column is much taller than the portrait, and as a misplacement
+   here, where the two are nearly the same height. */
+.hero__grid--top { align-items: start; }
 /* 21rem, not 19: the emblem is square where the window it replaced was portrait, so it
    needs a little more width to carry the same visual weight beside the h1. */
 .hero__art { justify-self: center; width: 100%; max-width: 19rem; }
@@ -304,12 +308,13 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
    nothing to be framed against. */
 .answer {
   margin: 0 0 2.25rem;
-  /* The opening summary runs the shell's width rather than a 39rem column.
-     Twenty-six heroes used to sit in that column while the sections under them
-     ran full width, which read as an indent rather than a measure. */
+  /* The block itself runs the shell's width: a 39rem column under a full-width
+     h1 read as an indent rather than a measure. The paragraphs inside it are
+     capped at 48rem, the same as the home hero, which measured about 88
+     characters a line on 28 pages instead of 140. */
   max-width: none;
 }
-.answer p { margin: 0; max-width: none; }
+.answer p { margin: 0; max-width: 48rem; }
 .answer p + p { margin-top: 0.75em; }
 
 /* Kept where a page introduces a person and their own words follow, so the
@@ -669,6 +674,9 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .prompt input, .prompt select { min-height: 2.9rem; }
 .prompt select { appearance: none; background-image: none; }
 .request { max-width: 38rem; }
+/* The phone line under the two buttons: a paragraph's top margin is zero, so
+   it sat flush against the button row. */
+.request .cta-row + p { margin-top: 1.1rem; }
 .band--night .prompt label { color: #eef4f9; }
 .band--night .prompt input,
 .band--night .prompt select,
@@ -997,6 +1005,20 @@ section[id] { scroll-margin-block-start: 1.5rem; }
   font-size: 1.02rem;
 }
 
+/* Hero text uses one of two classes, by job. .answer (above) is the
+   fact-stating paragraph an assistant can quote as the page's answer: body
+   size, 48rem, once per page. .hero-lede is a line spoken to the reader, in
+   the second person, with nothing in it a search engine needs: larger than
+   body, same 48rem as .answer so the hero column is one width everywhere
+   and the two stack flush on pages that have both, lede first. About 85
+   characters a line at this size; a narrower 56ch read as an indent under
+   a full-width h1. .intro-wide is for section intros above cards and
+   tables, never a hero. Not .lede, which is the book subtitle's italic. */
+.hero-lede {
+  font-size: 1.2rem;
+  max-width: 48rem;
+}
+
 /* The question above the two routes is a prompt the reader answers, not a
    category label, so it is sized to be read rather than skimmed past. */
 /* The line that says what the two buttons under it have in common. It began
@@ -1116,10 +1138,6 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 }
 .split--evidence .facts { max-width: none; margin-bottom: 0; }
 
-/* With the portrait moved into the hero, the introduction has the page to
-   itself. 48rem is wider than the 33rem reading measure without running the
-   full 70rem, where a line reaches about 140 characters. */
-.answer--wide { max-width: 48rem; }
 .text-wide { max-width: 48rem; }
 .facts--wide { max-width: 48rem; }
 
@@ -1140,11 +1158,6 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 @media (max-width: 53.99rem) {
   .hero__art { order: -1; }
 }
-
-/* The hero's opening passage. Same copy the .answer block used to hold, without
-   the rule and panel: those mark the direct answer where a page has other
-   content around it, and a hero has nothing to mark it apart from. */
-.hero-summary { max-width: 48rem; }
 
 /* A subtitle belongs to the heading above it, not to the space below it. The
    default 0.7em after a 3.45rem h1 is more than two lines of the eyebrow. */

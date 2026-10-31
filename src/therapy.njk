@@ -13,7 +13,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
   {#- Deliberately not a list of who this is for: naming the conditions in the
       first line labels the reader before they have said anything. The six
       cards below do the categorising; this says they do not have to. -#}
-  <p class="intro-wide">Something that used to be manageable has stopped being manageable, or
+  <p class="hero-lede">Something that used to be manageable has stopped being manageable, or
   the thing that helped before has stopped helping. You do not have to work out which of the
   paths below is yours before you make contact, and once you start, the work moves at a pace
   you can actually hold.</p>
@@ -124,15 +124,16 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
 <section class="band band--night">
   <div class="shell">
     <h2>Reem or one of the associates?</h2>
-    {#- Was "the honest answer is usually availability" followed by "earlier in
-        their careers", which together told a client they were getting the
-        second choice. The site's own argument is the answer: if it is one
-        lens, an associate is the same work, not a lesser version of it. -#}
-    <p class="intro-wide">Reem keeps a small caseload alongside supervising and consulting, so
-    her openings are limited. That is the practical answer. The clinical one is that the
-    associates work inside the same four methods described above, under her supervision every
-    week. It is one lens with six people practicing in it. What differs is the fee, the
-    calendar and the years.</p>
+    {#- Earlier versions said the associates share Reem's four methods.
+        Their own bios name DBT, CBT, attachment work, IFS and SE; none claims
+        NARM or EMDR training, so that sentence advertised training they do
+        not hold. The true version is the supervision, which is what a client
+        actually gets from Reem when they see an associate. -#}
+    <p class="intro-wide">Most new clients start with one of the practice's six LPC Associates.
+    Each brings their own training, listed on their card, and each is supervised by Reem, four
+    hours a month, so a second experienced clinician is thinking about your case. Fees are lower
+    and openings sooner. Reem keeps a small caseload alongside supervising and consulting, so her
+    own openings are limited; what differs is the fee, the calendar and the years.</p>
     <ul class="roster">
       {%- for a in associates %}
       <li><a href="/therapy/associates/{{ a.slug }}/">
