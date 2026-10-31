@@ -41,21 +41,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://reemglascolpc.com/therapy/equine/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://reemglascolpc.com/therapy/walk-and-talk/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://reemglascolpc.com/therapy/trauma/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://reemglascolpc.com/therapy/anxiety/</loc>
     <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
@@ -66,9 +51,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://reemglascolpc.com/therapy/associates/</loc>
+    <loc>https://reemglascolpc.com/therapy/trauma/</loc>
     <lastmod>2026-10-31</lastmod>
-    <priority>0.85</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/therapy/equine/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/therapy/walk-and-talk/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://reemglascolpc.com/therapy/associates/nica-ayala/</loc>
@@ -99,6 +94,11 @@
     <loc>https://reemglascolpc.com/therapy/associates/emmy-laursen/</loc>
     <lastmod>2026-10-31</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://reemglascolpc.com/therapy/associates/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://reemglascolpc.com/approach/</loc>
