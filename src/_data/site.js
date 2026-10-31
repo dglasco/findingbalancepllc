@@ -82,9 +82,16 @@ export default {
   region: "TX",
   postal: "78726",       // Shown on About and in the footer, and emitted as postalCode
   license: "66562",
-  supervisorSince: 2009,
+  // Two dates, not one. LPC in 2010, supervisor status in 2016 — which is
+  // consistent with the five-year unrestricted-licence rule the licensure
+  // guide explains. Pages quote whichever one they mean.
+  licensedSince: 2010,
+  supervisorSince: 2016,
   get supervisorYears() {
     return new Date().getFullYear() - this.supervisorSince;
+  },
+  get licensedYears() {
+    return new Date().getFullYear() - this.licensedSince;
   },
   // Professional directory profiles. Each entry becomes a sameAs on the practitioner in the
   // structured data, which is what lets search engines and answer engines tie "Reem Glasco"
@@ -185,9 +192,9 @@ export default {
   // Facts quoted in llms.txt. Kept here so the numbers cannot drift from the
   // pages that state them.
   facts: [
-    "LPC Supervisor in Texas since 2009; over 15 years of clinical experience.",
+    "Licensed Professional Counselor in Texas since 2010; LPC Supervisor since 2016.",
     "LPC supervision is $425 a month and includes three individual hours and one group hour, four hours in total, online, statewide in Texas.",
-    "Supervision openings: one in spring 2027. Agency contracts of three months are $500 a month.",
+    "Supervision places are capped and availability changes; ask in the consult. Agency contracts of three months are $500 a month.",
     "EMDRIA Approved Consultant. Individual EMDR consultation is $185, online.",
     "Individual therapy is $240 for a 50-minute online session, self-pay. Blue Cross Blue Shield is accepted; other plans are self-pay.",
     "Trail walk and movement therapy is $125 for a one-hour session, in person in Texas, adults only.",

@@ -190,7 +190,9 @@ main > section:first-child { padding-top: calc(var(--band) * 0.4); }
 .wordmark span {
   display: block;
   font-family: var(--sans);
-  font-size: 0.72rem;
+  /* 0.9, not 0.72: this is the clinician's name, the one thing in the masthead
+     a returning visitor looks for, and it was set smaller than the nav. */
+  font-size: 0.9rem;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
   margin-top: 0.3rem;
@@ -976,7 +978,12 @@ section[id] { scroll-margin-block-start: 1.5rem; }
 
 /* The question above the two routes is a prompt the reader answers, not a
    category label, so it is sized to be read rather than skimmed past. */
-.eyebrow--ask { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.9rem; }
+/* The line that says what the two buttons under it have in common. It began
+   as an .eyebrow, which is sans and small, so it read as a label on a page
+   where everything else at that size is serif. Body type instead, capped at
+   26rem: the measured width of the two buttons side by side, so the sentence
+   and the choice it introduces form one block. */
+.fork-note { max-width: 26rem; margin: 0 0 1rem; color: var(--ink); }
 
 /* The book sits under the exercise it comes from, cover beside the pitch. Big
    enough to read as an object rather than a thumbnail. */

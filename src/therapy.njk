@@ -124,10 +124,15 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
 <section class="band band--night">
   <div class="shell">
     <h2>Reem or one of the associates?</h2>
-    <p class="intro-wide">Both are options, and the honest answer is usually availability. Reem holds a small
-    caseload alongside supervising associates and consulting on EMDR. The associates she
-    supervises are earlier in their careers, working under her supervision, with lower fees and
-    more open calendars.</p>
+    {#- Was "the honest answer is usually availability" followed by "earlier in
+        their careers", which together told a client they were getting the
+        second choice. The site's own argument is the answer: if it is one
+        lens, an associate is the same work, not a lesser version of it. -#}
+    <p class="intro-wide">Reem keeps a small caseload alongside supervising and consulting, so
+    her openings are limited. That is the practical answer. The clinical one is that the
+    associates work inside the same four methods described above, under her supervision every
+    week. It is one lens with six people practicing in it. What differs is the fee, the
+    calendar and the years.</p>
     <ul class="roster">
       {%- for a in associates %}
       <li><a href="/therapy/associates/{{ a.slug }}/">
@@ -248,8 +253,10 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/therapy#service"
     <summary>What if I need help sooner than you have openings?</summary>
     <div class="answer-body">
       <p>Ask about the associates, who generally have availability sooner and lower fees. If
-      neither fits, Reem will refer you out rather than leave you on a waitlist. If you are in
-      immediate danger, call 911; for a mental health crisis, call or text 988.</p>
+      neither fits, Reem will refer you out rather than leave you on a waitlist. In the
+      meantime, <a href="/book/">Effort-less Self-Care</a> is the between-sessions version of
+      this work and you can start it tonight. If you are in immediate danger, call 911; for a
+      mental health crisis, call or text 988.</p>
     </div>
   </details>
   {% include "partials/faq-more.njk" %}

@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 tags: pages
 title: "LPC Supervision in Texas | Reem Glasco, LPC-S"
-description: Online LPC supervision for Texas LPC Associates with Reem Glasco, LPC-S, supervisor since 2009. $425 a month for three individual hours and one group hour.
+description: Online LPC supervision for Texas LPC Associates with Reem Glasco, LPC-S, supervisor since 2016. $425 a month for three individual hours and one group hour.
 nav: LPC Supervision
 order: 3
 bodyClass: tight
@@ -12,10 +12,11 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
 <section class="shell band">
   <h1>LPC supervision in Texas</h1>
   <div class="answer">
-    <p>Reem Glasco has been a Texas Licensed Professional Counselor Supervisor since 2009.
+    <p>Reem Glasco has been a Texas Licensed Professional Counselor Supervisor since
+    {{ site.supervisorSince }}.
     Supervision is online and available anywhere in Texas, and includes three individual
-    hours and one group hour each month. One spot opens in
-      <strong>spring 2027</strong>. Equine-assisted sessions near
+    hours and one group hour each month. Places are capped deliberately, so ask about
+    current availability. Equine-assisted sessions near
     Dripping Springs are optional, and EMDR consultation is free while you are an
     associate here.</p>
   </div>
@@ -32,7 +33,7 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
       <div><dt>What that includes</dt><dd>Three individual supervision hours and one group hour each month, four hours in total</dd></div>
       <div><dt>Caseload assumption</dt><dd>Ten or more clients a week</dd></div>
       <div><dt>Format</dt><dd>Online only, statewide in Texas</dd></div>
-      <div><dt>Openings</dt><dd>One in spring 2027</dd></div>
+      <div><dt>Openings</dt><dd>Capped; ask about current availability</dd></div>
       <div><dt>Agency contracts</dt><dd>Three-month contracts for associates inside an agency or group practice, $500 a month</dd></div>
       <div><dt>Placement site</dt><dd>Online only</dd></div>
       <div><dt>Equine sessions</dt><dd>Optional, $60 each, Dripping Springs, Texas</dd></div>
@@ -97,8 +98,8 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
       {% photoSlot "Something from a supervision context: a notebook and two coffee cups, a desk set up for a video call, the view from where Reem supervises. No client material and no identifiable faces. Portrait, 640px wide or more.", "portrait" %}
       <h3>Reem's supervision credentials</h3>
       <ul class="plain">
-        <li>Licensed Professional Counselor Supervisor in Texas since 2009, license 66562</li>
-        <li>Over fifteen years working with young adults, individuals and associates</li>
+        <li>Licensed Professional Counselor Supervisor in Texas since {{ site.supervisorSince }}, license {{ site.license }}</li>
+        <li>In practice in Texas since {{ site.licensedSince }}, with young adults, individuals and associates</li>
         <li>Clinical Partner at Capital Area Counseling, 2021 to 2025</li>
         <li>NARM therapist, Somatic Experiencing Practitioner, EMDR certified</li>
         <li>EMDRIA Approved Consultant, taking therapists toward EMDR certification</li>
@@ -215,8 +216,8 @@ schema: [{"@type": "Service", "@id": "https://reemglascolpc.com/for-therapists/l
     <details>
       <summary>Are there supervision openings right now?</summary>
       <div class="answer-body">
-        <p>One spot opens in spring 2027. Because supervision is capped
-        deliberately, it is worth booking a consult before a spot opens rather than after.</p>
+        <p>Ask about current availability. Because supervision is capped deliberately, it is
+        worth booking a consult before a spot opens rather than after.</p>
       </div>
     </details>
 
